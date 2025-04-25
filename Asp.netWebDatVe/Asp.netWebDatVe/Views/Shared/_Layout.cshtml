@@ -60,7 +60,7 @@
                         <div class="offcanvas-body align-items-center justify-content-center">
                             <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
                                 <li class="nav-item px-3">
-                                    <a class="nav-link active p-0" aria-current="page" href="index.html">Trang chủ</a>
+                                    <a class="nav-link active p-0" aria-current="page" href="@Url.Action("Index","Home")">Trang chủ</a>
                                 </li>
                                 <li class="nav-item px-3">
                                     <a class="nav-link p-0" href="tuyen-duong.html">Lịch trình</a>
@@ -77,11 +77,15 @@
                                 <li class="nav-item px-3">
                                     <a class="nav-link p-0" href="lien-he.html">Về chúng tôi</a>
                                 </li>
-                                @if (ViewData["UserName"] != null)
+                                @{
+                                    var userName = ViewData["UserName"] as string;
+                                }
+
+                                @if (!string.IsNullOrEmpty(userName))
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Hi, @ViewData["UserName"]
+                                            Xin chào, @userName
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">Xem thông tin</a></li>
@@ -97,6 +101,7 @@
                                         <a class="nav-link" asp-controller="Account" asp-action="Login">Đăng nhập/Đăng ký</a>
                                     </li>
                                 }
+
                             </ul>
                         </div>
                     </div>

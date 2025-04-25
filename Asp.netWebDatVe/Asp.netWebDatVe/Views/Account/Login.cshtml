@@ -1,0 +1,129 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="POS - Bootstrap Admin Template">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - Pos admin template</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.jpg">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 25px auto;
+        }
+
+    </style>
+</head>
+<body class="account-page">
+
+    <div class="main-wrapper">
+        <div class="account-content">
+            <div class="login-wrapper">
+                <div class="login-content">
+                    <div class="login-userset">
+                        <div class="login-logo">
+                          @*   <img src="../../assets/img/logo.png" alt="img"> *@
+                        </div>
+                        <div class="login-userheading">
+                            <h3>Đăng nhập</h3>
+                        </div>
+
+                        @if (ViewBag.error != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.error</div>
+                        }
+
+                        <form asp-action="Login" method="post">
+                          
+                            <!-- Email -->
+                            <div class="form-login">
+                                <label for="Email">Email</label>
+                                <div class="form-addons">
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="Nhập email của bạn" />
+                                    <img src="../../assets/img/icons/mail.svg" alt="img">
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <!-- Mật khẩu -->
+                            <div class="form-login">
+                                <label for="MatKhau">Mật khẩu</label>
+                                <div class="pass-group">
+                                    <input asp-for="MatKhau" type="password" class="pass-input form-control" placeholder="Nhập mật khẩu" />
+                                    <span class="fas toggle-password fa-eye-slash"></span>
+                                </div>
+                                <span asp-validation-for="MatKhau" class="text-danger"></span>
+                            </div>
+
+                            <!-- Ghi nhớ tài khoản -->
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" />
+                                <label class="form-check-label" for="rememberMe">Ghi nhớ tài khoản</label>
+                            </div>
+
+                            <!-- Nút đăng nhập -->
+                            <div class="form-login">
+                                <input type="submit" value="Đăng nhập" class="btn btn-login w-100" />
+                            </div>
+
+                            <div class="signinform text-center">
+                                <h4>Chưa có tài khoản? <a asp-action="Register" class="hover-a">Đăng ký ngay</a></h4>
+                            </div>
+
+                        </form>
+
+                        <div class="form-setlogin">
+                            <h4>Hoặc đăng nhập bằng</h4>
+                        </div>
+
+                        <div class="form-sociallink">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img src="../../assets/img/icons/google.png" class="me-2" alt="google">
+                                        Đăng nhập bằng Google
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img src="../../assets/img/icons/facebook.png" class="me-2" alt="facebook">
+                                        Đăng nhập bằng Facebook
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="login-img">
+                    <img src="../../assets/img/main-lg.png" alt="img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/js/feather.min.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/script.js"></script>
+
+</body>
+</html>

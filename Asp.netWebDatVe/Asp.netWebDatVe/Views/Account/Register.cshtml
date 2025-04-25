@@ -1,0 +1,164 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="POS - Bootstrap Admin Template">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Đăng ký tài khoản</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.jpg">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 25px auto;
+        }
+
+    </style>
+</head>
+<body class="account-page">
+
+    <div class="main-wrapper">
+        <div class="account-content">
+            <div class="login-wrapper">
+                <div class="login-content">
+                    <div class="login-userset">
+                        <div class="login-logo">
+                            @* <img src="../../assets/img/logo.png" alt="img"> *@
+                        </div>
+                        <div class="login-userheading">
+                            <h3>Đăng ký tài khoản</h3>
+                        </div>
+
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.Error</div>
+                        }
+
+                        <form asp-action="register" method="post">
+                        
+
+                            <!-- Họ và tên -->
+                            <div class="form-login">
+                                <label for="HoTen">Họ và tên</label>
+                                <div class="form-addons">
+                                    <input asp-for="HoTen" type="text" class="form-control" placeholder="Nhập họ và tên" />
+                                    <img src="../../assets/img/icons/users1.svg" alt="img">
+                                </div>
+                                <span asp-validation-for="HoTen" class="text-danger"></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-login">
+                                <label for="Email">Email</label>
+                                <div class="form-addons">
+                                    <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email của bạn" />
+                                    <img src="../../assets/img/icons/mail.svg" alt="img">
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <!-- Số điện thoại -->
+                            <div class="form-login">
+                                <label for="Sdt">Số điện thoại</label>
+                                <div class="form-addons">
+                                    <input asp-for="Sdt" type="text" class="form-control" placeholder="Nhập số điện thoại" />
+                             @*        <img src="../../assets/img/icons/phone-call.png" alt="img"> *@
+                                </div>
+                                <span asp-validation-for="Sdt" class="text-danger"></span>
+                            </div>
+
+                            <!-- Mật khẩu -->
+                            <div class="form-login">
+                                <label for="MatKhau">Mật khẩu</label>
+                                <div class="pass-group">
+                                    <input asp-for="MatKhau" type="password" class="form-control pass-input" placeholder="Tạo mật khẩu" />
+                                    <span class="fas toggle-password fa-eye-slash"></span>
+                                </div>
+                                <span asp-validation-for="MatKhau" class="text-danger"></span>
+                            </div>
+
+                            <!-- Xác nhận mật khẩu -->
+                            <div class="form-login">
+                                <label for="ConfirmPassword">Xác nhận mật khẩu</label>
+                                <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Nhập lại mật khẩu" />
+                                <span class="text-danger" id="confirmPasswordError"></span>
+                            </div>
+
+                            @* <!-- Ngày sinh --> *@
+                            @* <div class="form-login"> *@
+                            @*     <label for="NgaySinh">Ngày sinh</label> *@
+                            @*     <input asp-for="NgaySinh" type="date" class="form-control" /> *@
+                            @*     <span asp-validation-for="NgaySinh" class="text-danger"></span> *@
+                            @* </div> *@
+
+                            @* <!-- Địa chỉ --> *@
+                            @* <div class="form-login"> *@
+                            @*     <label for="DiaChi">Địa chỉ</label> *@
+                            @*     <textarea asp-for="DiaChi" class="form-control" placeholder="Nhập địa chỉ"></textarea> *@
+                            @*     <span asp-validation-for="DiaChi" class="text-danger"></span> *@
+                            @* </div> *@
+
+                            <div class="form-group mt-3">
+                                <p>
+                                    Đã có tài khoản? <a asp-action="Login">Đăng nhập tại đây</a>
+                                </p>
+                                
+                            </div>
+                            <div class="form-login">
+                                    <input type="submit" value="Đăng ký" class="btn btn-login w-100" />
+                                </div>
+                        </form>
+
+                        <div class="form-setlogin">
+                            <h4>Hoặc đăng ký với</h4>
+                        </div>
+
+                        <div class="form-sociallink">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img src="../../assets/img/icons/google.png" class="me-2" alt="google">
+                                        Đăng ký bằng Google
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img src="../../assets/img/icons/facebook.png" class="me-2" alt="facebook">
+                                        Đăng ký bằng Facebook
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-img">
+                    <img src="../../assets/img/main-lg.png" alt="img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/js/feather.min.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/script.js"></script>
+
+</body>
+</html>
