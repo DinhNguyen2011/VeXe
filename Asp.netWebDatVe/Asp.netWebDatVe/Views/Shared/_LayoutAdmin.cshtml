@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quản lý Bán Vé Xe Khách</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../LayoutAdmin/assets/css/style.css">
+    <link rel="shortcut icon" href="../../LayoutAdmin/assets/images/favicon.ico" />
+</head>
+<body>
+    <div class="container-scroller">
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="@Url.Action("Index","HomeAdmin")"><img src="../../LayoutAdmin/assets/images/main-lg.png" alt="logo" style="height:60px; width:250px !important; border-radius:8px !important; " /></a>
+                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../LayoutAdmin/assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+
+
+
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown">
+                            <div class="nav-profile-img">
+                                <img src="../../LayoutAdmin/assets/images/faces/avt.jpg" alt="image">
+                                <span class="availability-status online"></span>
+                            </div>
+                            <div class="nav-profile-text">
+                                <p class="mb-1 text-black"> Hi, @ViewData["UserName"]</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-cached me-2 text-success"></i> Nhật ký
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Login", "Account")">
+                                <i class="mdi mdi-logout me-2 text-primary"></i> Đăng xuất
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Sidebar -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "HomeAdmin")">
+                            <span class="menu-title">Trang chủ</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","BenXeDi")">
+                            <span class="menu-title">Quản lý bến đi</span>
+                            <i class="mdi mdi-playstation menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","BXeDen")">
+                            <span class="menu-title">Quản lý bến đến</span>
+                            <i class="mdi mdi-playstation menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","TuyenXe")">
+                            <span class="menu-title">Quản lý Tuyến Xe</span>
+                            <i class="mdi mdi-road-variant menu-icon"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","ChuyenXe")">
+                            <span class="menu-title">Quản lý Chuyến Xe</span>
+                            <i class="mdi mdi-road-variant menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","VeXe")">
+                            <span class="menu-title">Quản lý Vé Xe</span>
+                            <i class="mdi mdi-ticket-confirmation menu-icon"></i>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","ViTriGhe")">
+                            <span class="menu-title">Quản lý vị trí ghế</span>
+                            <i class="mdi mdi-chair-school menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","NguoiDung")">
+
+                            <span class="menu-title">Quản lý Khách Hàng</span>
+                            <i class="mdi mdi-account menu-icon"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","Xe")">
+                            <span class="menu-title">Quản lý Xe</span>
+                            <i class="mdi mdi-bus menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","PhanQuyen")">
+                            <span class="menu-title">Quản lý phân quyền</span>
+                            <i class="mdi mdi-account menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","LoaiXe")">
+                            <span class="menu-title">Quản lý loại xe</span>
+                            <i class="mdi mdi-car menu-icon"></i>
+                        </a>
+                    </li>
+                    @*     <li class="nav-item sidebar-actions">
+                        <span class="nav-link">
+                            <div class="border-bottom">
+                                <h6 class="font-weight-normal mb-3">Dự án</h6>
+                            </div>
+                            <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Thêm mới dự án</button>
+                        </span>
+                    </li> *@
+                </ul>
+            </nav>
+
+
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+                <footer class="footer">
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    <script src="../../LayoutAdmin/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- inject:js -->
+    <script src="../../LayoutAdmin/assets/js/off-canvas.js"></script>
+    <script src="../../LayoutAdmin/assets/js/hoverable-collapse.js"></script>
+    <script src="../../LayoutAdmin/assets/js/misc.js"></script>
+</body>
+</html>
