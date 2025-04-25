@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aYoSVfMPI/E=",
+  "dgSpecHash": "dt8+0lcRCLw=",
   "success": true,
-  "projectFilePath": "D:\\DoAnSTU\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+  "projectFilePath": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinhn\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dinhn\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
