@@ -517,6 +517,7 @@ wwwroot\assets\plugins\twitter-bootstrap-wizard\jquery.bootstrap.wizard.min.js
 wwwroot\assets\plugins\twitter-bootstrap-wizard\prettify.js
 wwwroot\css\ajax-loader.gif
 wwwroot\css\bootstrap.min.css
+wwwroot\css\bus-home.css
 wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\vendor.css
@@ -527,6 +528,7 @@ wwwroot\images\main-lg.png
 wwwroot\images\timkiem.jpg
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
+wwwroot\js\bus-home.js
 wwwroot\js\jquery-1.11.0.min.js
 wwwroot\js\plugins.js
 wwwroot\js\script.js

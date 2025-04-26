@@ -1,52 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
+}<div class="bus-home-background">
+    <div class="bus-home-container fade-in">
 
-<style>
-    /* Banner ảnh thương hiệu */
-    .brand-banner {
-        margin: 15px 0px 50px 0px;
-        max-width: 1090px;
-        background-image: url(/images/BannnerBus.png);
-        background-size: cover;
-        background-position: center;
-        height: 350px;
-        border-radius:10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        font-size: 36px;
-        font-weight: bold;
-    }
+        <div class="intro-section fade-in-left">
+            <h1>Khánh An Luxury</h1>
+            <h3>Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
+        </div>
 
-    .h1{
-        color:white;
-    }
-
- 
-    .form-container {
-        max-width: 1090px;
-        margin: 50px 0px 55px 0px;
-        background-color: rgba(255, 255, 255, 0.95);
-        padding: 62px 20px 50px 50px;
-        border: 1px solid rgba(239, 82, 34, .6);
-        border-radius: 1rem;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
-</style>
-
-<!-- Banner thương hiệu -->
-<div class="brand-banner">
- @*    <h1>XE DU LỊCH CAO CẤP - TRẢI NGHIỆM HÀNH TRÌNH TUYỆT VỜI</h1> *@
-</div>
-
-<!-- Form tìm kiếm -->
-<div class="form-container">
-    <form asp-action="Index" method="post">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="search-form fade-in-right">
+            <form id="searchForm" asp-action="Index" method="post">
                 <div class="form-group">
                     <label for="diemDi">Điểm đi</label>
                     <input list="danhSachDiemDi" class="form-control" id="diemDi" name="diemDi"
@@ -61,9 +24,7 @@
                         }
                     </datalist>
                 </div>
-            </div>
 
-            <div class="col-md-4">
                 <div class="form-group">
                     <label for="diemDen">Điểm đến</label>
                     <input list="danhSachDiemDen" class="form-control" id="diemDen" name="diemDen"
@@ -78,19 +39,29 @@
                         }
                     </datalist>
                 </div>
-            </div>
 
-            <div class="col-md-4">
                 <div class="form-group">
                     <label for="ngayDi">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
                            min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
                 </div>
-            </div>
+
+                <div class="form-button">
+                    <button type="submit" class="search-button">Tìm chuyến xe</button>
+                </div>
+            </form>
         </div>
 
-        <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary">Tìm Chuyến Xe</button>
-        </div>
-    </form>
+    </div>
 </div>
+
+<!-- Modal Loading -->
+<div id="loadingModal" class="modal">
+    <div class="modal-content">
+        <p>Đang tìm chuyến...</p>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/css/bus-home.css" />
+<script src="~/js/bus-home.js"></script>
+

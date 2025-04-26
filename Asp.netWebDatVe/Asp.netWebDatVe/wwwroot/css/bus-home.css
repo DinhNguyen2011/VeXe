@@ -1,0 +1,211 @@
+﻿/* Background */
+.bus-home-background {
+    background: url('/images/bner.webp') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 60px;
+    border-radius:15px;
+    background-attachment: fixed; /* Key để parallax */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:20px 0px;
+    //animation: moveBackground 5s linear infinite;
+}
+@media (max-width: 768px) {
+    .bus-home-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-section {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .search-form {
+        max-width: 90%;
+    }
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: center 0;
+    }
+
+    100% {
+        background-position: center 1000px;
+    }
+}
+/* Layout container */
+.bus-home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    backdrop-filter: blur(3px);
+}
+
+/* Intro section */
+.intro-section {
+    color: white;
+    max-width: 50%;
+    padding: 20px;
+}
+
+    .intro-section h1 {
+        font-size: 56px;
+        font-weight: bold;
+    }
+
+    .intro-section h3 {
+        font-size: 26px;
+        margin-top: 15px;
+        font-weight: 400;
+    }
+
+/* Form search */
+.search-form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+    .search-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .search-form label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        color: #333;
+    }
+
+    .search-form input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+.form-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-button {
+    background-color: #333;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .search-button:hover {
+        background-color: #555;
+    }
+
+/* Fade in effect */
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 1.2s ease-in-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Loading Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 250px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Form zoom effect */
+.search-form:hover {
+    transform: scale(1.03);
+    transition: transform 0.4s ease;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* Text sparkle animation */
+.intro-section h1 {
+    font-size: 56px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
