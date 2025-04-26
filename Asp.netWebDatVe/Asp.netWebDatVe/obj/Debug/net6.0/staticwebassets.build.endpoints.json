@@ -55763,6 +55763,88 @@
       ]
     },
     {
+      "Route": "images/BannnerBus.omhzobq45f.png",
+      "AssetFile": "images/BannnerBus.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "529611"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AAgXesuV+YVks3f2pUoD20gPykfWMqxz80fHdEbfOpI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 06:26:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "omhzobq45f"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AAgXesuV+YVks3f2pUoD20gPykfWMqxz80fHdEbfOpI="
+        },
+        {
+          "Name": "label",
+          "Value": "images/BannnerBus.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/BannnerBus.png",
+      "AssetFile": "images/BannnerBus.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "529611"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AAgXesuV+YVks3f2pUoD20gPykfWMqxz80fHdEbfOpI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 06:26:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AAgXesuV+YVks3f2pUoD20gPykfWMqxz80fHdEbfOpI="
+        }
+      ]
+    },
+    {
       "Route": "images/backround.a85co51eae.png",
       "AssetFile": "images/backround.png",
       "Selectors": [],

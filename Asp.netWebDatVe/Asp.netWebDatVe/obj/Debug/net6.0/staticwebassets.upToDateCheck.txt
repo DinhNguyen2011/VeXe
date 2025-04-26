@@ -522,6 +522,7 @@ wwwroot\css\style.css
 wwwroot\css\vendor.css
 wwwroot\favicon.ico
 wwwroot\images\backround.png
+wwwroot\images\BannnerBus.png
 wwwroot\images\main-lg.png
 wwwroot\images\timkiem.jpg
 wwwroot\js\ajax-loader.gif
