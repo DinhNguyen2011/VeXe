@@ -3,7 +3,7 @@
     background: url('/images/bner.webp') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
-   /* padding: 60px;*/
+    padding: 60px;
     border-radius:15px;
     background-attachment: fixed; /* Key để parallax */
     background-position: center;
