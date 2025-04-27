@@ -2725,12 +2725,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\BN.jpg",
+      "PackagePath": "staticwebassets\\images\\BN.jpg"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\BannnerBus.png",
       "PackagePath": "staticwebassets\\images\\BannnerBus.png"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\backround.png",
       "PackagePath": "staticwebassets\\images\\backround.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bner.webp",
+      "PackagePath": "staticwebassets\\images\\bner.webp"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\main-lg.png",
