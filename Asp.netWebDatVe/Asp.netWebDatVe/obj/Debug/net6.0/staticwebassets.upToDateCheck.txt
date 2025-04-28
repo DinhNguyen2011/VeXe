@@ -63,6 +63,7 @@ wwwroot\assets\img\icons\minus.svg
 wwwroot\assets\img\icons\notification-bing.svg
 wwwroot\assets\img\icons\pause1.svg
 wwwroot\assets\img\icons\pdf.svg
+wwwroot\assets\img\icons\phone-call.png
 wwwroot\assets\img\icons\places.svg
 wwwroot\assets\img\icons\plus.svg
 wwwroot\assets\img\icons\plus1.svg
@@ -70,7 +71,6 @@ wwwroot\assets\img\icons\plus-circle.svg
 wwwroot\assets\img\icons\printer.svg
 wwwroot\assets\img\icons\product.svg
 wwwroot\assets\img\icons\purchase1.svg
-wwwroot\assets\img\icons\phone-call.png
 wwwroot\assets\img\icons\quotation1.svg
 wwwroot\assets\img\icons\return1.svg
 wwwroot\assets\img\icons\reverse.svg
@@ -95,11 +95,11 @@ wwwroot\assets\img\img-02.jpg
 wwwroot\assets\img\img-03.jpg
 wwwroot\assets\img\img-04.jpg
 wwwroot\assets\img\img-05.jpg
+wwwroot\assets\img\login.jpg
 wwwroot\assets\img\logo.png
 wwwroot\assets\img\logo3.png
 wwwroot\assets\img\logo-small.png
 wwwroot\assets\img\logso.jpg
-wwwroot\assets\img\login.jpg
 wwwroot\assets\img\main-lg.png
 wwwroot\assets\img\product\noimage.png
 wwwroot\assets\img\product\product1.jpg
@@ -174,12 +174,12 @@ wwwroot\assets\plugins\alertify\alertify.min.js
 wwwroot\assets\plugins\alertify\custom-alertify.min.js
 wwwroot\assets\plugins\apexchart\apexcharts.min.js
 wwwroot\assets\plugins\apexchart\chart-data.js
+wwwroot\assets\plugins\chartjs\chart.min.js
+wwwroot\assets\plugins\chartjs\chart-data.js
 wwwroot\assets\plugins\clipboard\clipboard.min.js
 wwwroot\assets\plugins\countup\jquery.counterup.min.js
 wwwroot\assets\plugins\countup\jquery.missofis-countdown.js
 wwwroot\assets\plugins\countup\jquery.waypoints.min.js
-wwwroot\assets\plugins\chartjs\chart.min.js
-wwwroot\assets\plugins\chartjs\chart-data.js
 wwwroot\assets\plugins\dragula\css\dragula.min.css
 wwwroot\assets\plugins\dragula\js\drag-drop.min.js
 wwwroot\assets\plugins\dragula\js\dragula.min.js
@@ -255,6 +255,7 @@ wwwroot\assets\plugins\icons\flags\flags\cc.png
 wwwroot\assets\plugins\icons\flags\flags\cd.png
 wwwroot\assets\plugins\icons\flags\flags\cf.png
 wwwroot\assets\plugins\icons\flags\flags\cg.png
+wwwroot\assets\plugins\icons\flags\flags\ch.png
 wwwroot\assets\plugins\icons\flags\flags\ci.png
 wwwroot\assets\plugins\icons\flags\flags\ck.png
 wwwroot\assets\plugins\icons\flags\flags\cl.png
@@ -268,7 +269,6 @@ wwwroot\assets\plugins\icons\flags\flags\cw.png
 wwwroot\assets\plugins\icons\flags\flags\cx.png
 wwwroot\assets\plugins\icons\flags\flags\cy.png
 wwwroot\assets\plugins\icons\flags\flags\cz.png
-wwwroot\assets\plugins\icons\flags\flags\ch.png
 wwwroot\assets\plugins\icons\flags\flags\de.png
 wwwroot\assets\plugins\icons\flags\flags\dj.png
 wwwroot\assets\plugins\icons\flags\flags\dk.png
@@ -294,6 +294,7 @@ wwwroot\assets\plugins\icons\flags\flags\ge.png
 wwwroot\assets\plugins\icons\flags\flags\gf.png
 wwwroot\assets\plugins\icons\flags\flags\gg.png
 wwwroot\assets\plugins\icons\flags\flags\gh.png
+wwwroot\assets\plugins\icons\flags\flags\gi.png
 wwwroot\assets\plugins\icons\flags\flags\gl.png
 wwwroot\assets\plugins\icons\flags\flags\gm.png
 wwwroot\assets\plugins\icons\flags\flags\gn.png
@@ -305,7 +306,6 @@ wwwroot\assets\plugins\icons\flags\flags\gt.png
 wwwroot\assets\plugins\icons\flags\flags\gu.png
 wwwroot\assets\plugins\icons\flags\flags\gw.png
 wwwroot\assets\plugins\icons\flags\flags\gy.png
-wwwroot\assets\plugins\icons\flags\flags\gi.png
 wwwroot\assets\plugins\icons\flags\flags\hk.png
 wwwroot\assets\plugins\icons\flags\flags\hn.png
 wwwroot\assets\plugins\icons\flags\flags\hr.png
@@ -327,6 +327,7 @@ wwwroot\assets\plugins\icons\flags\flags\jo.png
 wwwroot\assets\plugins\icons\flags\flags\jp.png
 wwwroot\assets\plugins\icons\flags\flags\ke.png
 wwwroot\assets\plugins\icons\flags\flags\kg.png
+wwwroot\assets\plugins\icons\flags\flags\kh.png
 wwwroot\assets\plugins\icons\flags\flags\ki.png
 wwwroot\assets\plugins\icons\flags\flags\km.png
 wwwroot\assets\plugins\icons\flags\flags\kn.png
@@ -335,7 +336,6 @@ wwwroot\assets\plugins\icons\flags\flags\kr.png
 wwwroot\assets\plugins\icons\flags\flags\kw.png
 wwwroot\assets\plugins\icons\flags\flags\ky.png
 wwwroot\assets\plugins\icons\flags\flags\kz.png
-wwwroot\assets\plugins\icons\flags\flags\kh.png
 wwwroot\assets\plugins\icons\flags\flags\la.png
 wwwroot\assets\plugins\icons\flags\flags\lb.png
 wwwroot\assets\plugins\icons\flags\flags\lc.png
@@ -373,6 +373,7 @@ wwwroot\assets\plugins\icons\flags\flags\na.png
 wwwroot\assets\plugins\icons\flags\flags\nc.png
 wwwroot\assets\plugins\icons\flags\flags\ne.png
 wwwroot\assets\plugins\icons\flags\flags\nf.png
+wwwroot\assets\plugins\icons\flags\flags\ng.png
 wwwroot\assets\plugins\icons\flags\flags\ni.png
 wwwroot\assets\plugins\icons\flags\flags\nl.png
 wwwroot\assets\plugins\icons\flags\flags\no.png
@@ -380,12 +381,12 @@ wwwroot\assets\plugins\icons\flags\flags\np.png
 wwwroot\assets\plugins\icons\flags\flags\nr.png
 wwwroot\assets\plugins\icons\flags\flags\nu.png
 wwwroot\assets\plugins\icons\flags\flags\nz.png
-wwwroot\assets\plugins\icons\flags\flags\ng.png
 wwwroot\assets\plugins\icons\flags\flags\om.png
 wwwroot\assets\plugins\icons\flags\flags\pa.png
 wwwroot\assets\plugins\icons\flags\flags\pe.png
 wwwroot\assets\plugins\icons\flags\flags\pf.png
 wwwroot\assets\plugins\icons\flags\flags\pg.png
+wwwroot\assets\plugins\icons\flags\flags\ph.png
 wwwroot\assets\plugins\icons\flags\flags\pk.png
 wwwroot\assets\plugins\icons\flags\flags\pl.png
 wwwroot\assets\plugins\icons\flags\flags\pm.png
@@ -395,7 +396,6 @@ wwwroot\assets\plugins\icons\flags\flags\ps.png
 wwwroot\assets\plugins\icons\flags\flags\pt.png
 wwwroot\assets\plugins\icons\flags\flags\pw.png
 wwwroot\assets\plugins\icons\flags\flags\py.png
-wwwroot\assets\plugins\icons\flags\flags\ph.png
 wwwroot\assets\plugins\icons\flags\flags\qa.png
 wwwroot\assets\plugins\icons\flags\flags\re.png
 wwwroot\assets\plugins\icons\flags\flags\ro.png
@@ -426,18 +426,18 @@ wwwroot\assets\plugins\icons\flags\flags\tc.png
 wwwroot\assets\plugins\icons\flags\flags\td.png
 wwwroot\assets\plugins\icons\flags\flags\tf.png
 wwwroot\assets\plugins\icons\flags\flags\tg.png
+wwwroot\assets\plugins\icons\flags\flags\th.png
 wwwroot\assets\plugins\icons\flags\flags\tj.png
 wwwroot\assets\plugins\icons\flags\flags\tk.png
 wwwroot\assets\plugins\icons\flags\flags\tl.png
 wwwroot\assets\plugins\icons\flags\flags\tm.png
 wwwroot\assets\plugins\icons\flags\flags\tn.png
 wwwroot\assets\plugins\icons\flags\flags\to.png
+wwwroot\assets\plugins\icons\flags\flags\tr.png
 wwwroot\assets\plugins\icons\flags\flags\tt.png
 wwwroot\assets\plugins\icons\flags\flags\tv.png
 wwwroot\assets\plugins\icons\flags\flags\tw.png
 wwwroot\assets\plugins\icons\flags\flags\tz.png
-wwwroot\assets\plugins\icons\flags\flags\th.png
-wwwroot\assets\plugins\icons\flags\flags\tr.png
 wwwroot\assets\plugins\icons\flags\flags\ua.png
 wwwroot\assets\plugins\icons\flags\flags\ug.png
 wwwroot\assets\plugins\icons\flags\flags\um.png
@@ -462,10 +462,10 @@ wwwroot\assets\plugins\icons\ionic\fonts\ionicons.ttf
 wwwroot\assets\plugins\icons\ionic\ionicons.css
 wwwroot\assets\plugins\icons\pe7\fonts\Pe-icon-7-stroke.woff
 wwwroot\assets\plugins\icons\pe7\pe-icon-7.css
-wwwroot\assets\plugins\icons\typicons\fonts\typicons.woff
-wwwroot\assets\plugins\icons\typicons\typicons.css
 wwwroot\assets\plugins\icons\themify\fonts\themify.woff
 wwwroot\assets\plugins\icons\themify\themify.css
+wwwroot\assets\plugins\icons\typicons\fonts\typicons.woff
+wwwroot\assets\plugins\icons\typicons\typicons.css
 wwwroot\assets\plugins\icons\weather\fonts\weathericons-regular-webfont.woff2
 wwwroot\assets\plugins\icons\weather\weathericons.css
 wwwroot\assets\plugins\ion-rangeslider\css\ion.rangeSlider.min.css
@@ -656,8 +656,8 @@ wwwroot\LayoutAdmin\assets\scss\mixins\_popovers.scss
 wwwroot\LayoutAdmin\assets\scss\mixins\_text.scss
 wwwroot\LayoutAdmin\assets\scss\mixins\_tooltips.scss
 wwwroot\LayoutAdmin\assets\scss\style.scss
-wwwroot\LayoutAdmin\assets\vendors\css\vendor.bundle.base.css
 wwwroot\LayoutAdmin\assets\vendors\chart.js\Chart.min.js
+wwwroot\LayoutAdmin\assets\vendors\css\vendor.bundle.base.css
 wwwroot\LayoutAdmin\assets\vendors\js\bootstrap.min.js.map
 wwwroot\LayoutAdmin\assets\vendors\js\vendor.bundle.base.js
 wwwroot\LayoutAdmin\assets\vendors\mdi\css\materialdesignicons.min.css

@@ -13,49 +13,32 @@ namespace Asp.netWebDatVe.Controllers
             _context = context;
         }
 
-
         [HttpGet]
         public IActionResult Login()
         {
-            ViewBag.LoginCheck = null;
             return View();
         }
 
         [HttpPost]
         public IActionResult Login(NguoiDung model)
         {
-            ViewBag.LoginCheck = false;
-
             var user = _context.NguoiDungs
                 .FirstOrDefault(u => u.Email == model.Email && u.MatKhau == model.MatKhau);
 
             if (user != null)
             {
-                string userJson = JsonConvert.SerializeObject(user);
-                HttpContext.Session.SetString("UserInfo", userJson);
+                HttpContext.Session.SetString("UserInfo", JsonConvert.SerializeObject(user));
                 HttpContext.Session.SetString("UserName", user.HoTen ?? user.Email);
                 HttpContext.Session.SetInt32("UserId", user.Id);
 
-                ViewBag.LoginCheck = true;
                 TempData["Success"] = "Đăng nhập thành công!";
 
                 if (user.MaQuyen == 1)
                 {
-                    //var cl = new List<Claim> {
-                    //    new Claim(ClaimTypes.Name,"Admin"),
-                    //    new  Claim(ClaimTypes.Role,"Admin")
-
-                    //};
                     return RedirectToAction("Index", "HomeAdmin");
-                    //HttpContext.Session.SetString("Role", "Admin");
                 }
                 else if (user.MaQuyen == 3)
                 {
-                    //var cl = new List<Claim> {
-                    //    new Claim(ClaimTypes.Name,"Admin"),
-                    //    new  Claim(ClaimTypes.Role,"Admin")
-
-                    //};
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -75,114 +58,76 @@ namespace Asp.netWebDatVe.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Register(NguoiDung model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+
+            if (_context.NguoiDungs.Any(u => u.Email == model.Email))
             {
-                var existingUser = _context.NguoiDungs.FirstOrDefault(u => u.Email == model.Email);
-                if (existingUser != null)
-                {
-                    ViewBag.Error = "Email đã được sử dụng!";
-                    return View();
-                }
-
-                var newUser = new NguoiDung
-                {
-                    HoTen = model.HoTen,
-                    Email = model.Email,
-                    Sdt = model.Sdt,
-                    MatKhau = model.MatKhau,
-                    NgaySinh = model.NgaySinh,
-                    DiaChi = model.DiaChi,
-                    HinhAnh = model.HinhAnh,
-                    MaQuyen = 3
-                };
-
-                _context.NguoiDungs.Add(newUser);
-                _context.SaveChanges();
-
-                TempData["Success"] = "Đăng ký thành công! Vui lòng đăng nhập.";
-                return RedirectToAction("Login");
+                ViewBag.Error = "Email đã được sử dụng!";
+                return View();
             }
 
-            return View();
+            model.MaQuyen = 3;
+            _context.NguoiDungs.Add(model);
+            _context.SaveChanges();
+
+            TempData["Success"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+            return RedirectToAction("Login");
         }
 
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Login");
         }
-
 
         public IActionResult Profile()
         {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-
             var userJson = HttpContext.Session.GetString("UserInfo");
-            if (userJson == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            if (userJson == null) return RedirectToAction("Login");
 
             var user = JsonConvert.DeserializeObject<NguoiDung>(userJson);
+            ViewData["UserName"] = HttpContext.Session.GetString("UserName");
             return View(user);
         }
 
-
+        [HttpGet]
         public IActionResult EditProfile(int id)
         {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
             var user = _context.NguoiDungs.FirstOrDefault(u => u.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            if (user == null) return NotFound();
 
+            ViewData["UserName"] = HttpContext.Session.GetString("UserName");
             return View(user);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EditProfile(NguoiDung user)
         {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
+            if (!ModelState.IsValid) return View(user);
 
+            var currentUser = _context.NguoiDungs.FirstOrDefault(u => u.Id == user.Id);
+            if (currentUser == null) return NotFound();
 
-            if (ModelState.IsValid)
-            {
-                var currentUser = _context.NguoiDungs.FirstOrDefault(u => u.Id == user.Id);
+            // Cập nhật thông tin
+            currentUser.HoTen = user.HoTen;
+            currentUser.Email = user.Email;
+            currentUser.Sdt = user.Sdt;
+            currentUser.MatKhau = user.MatKhau;
+            currentUser.NgaySinh = user.NgaySinh;
+            currentUser.DiaChi = user.DiaChi;
+            currentUser.HinhAnh = user.HinhAnh;
 
-                if (currentUser != null)
-                {
-                    currentUser.Email = user.Email;
-                    currentUser.Sdt = user.Sdt;
-                    currentUser.HoTen = user.HoTen;
-                    currentUser.MatKhau = user.MatKhau;
-                    currentUser.NgaySinh = user.NgaySinh;
-                    currentUser.DiaChi = user.DiaChi;
-                    currentUser.HinhAnh = user.HinhAnh;
+            _context.SaveChanges();
+            HttpContext.Session.Clear();
+            TempData["Success"] = "Cập nhật thành công! Vui lòng đăng nhập lại.";
 
-
-
-                    _context.SaveChanges();
-
-
-                    HttpContext.Session.Clear();
-
-                    TempData["Success"] = "Cập nhật thông tin thành công! Vui lòng đăng nhập lại để sử dụng thông tin mới.";
-
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-
-
-            return View(user);
+            return RedirectToAction("Login");
         }
+
         public IActionResult Index()
         {
             return View();

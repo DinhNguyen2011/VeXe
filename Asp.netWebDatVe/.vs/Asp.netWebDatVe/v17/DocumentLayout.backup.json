@@ -1,17 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\",
+  "WorkspaceRootPath": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\huynh thuy khanh an\\onedrive\\documents\\github\\vexe\\asp.netwebdatve\\asp.netwebdatve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\huynh thuy khanh an\\onedrive\\documents\\github\\vexe\\asp.netwebdatve\\asp.netwebdatve\\models\\qldatvecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\models\\qldatvecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\models\\qldatvecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\huynh thuy khanh an\\onedrive\\documents\\github\\vexe\\asp.netwebdatve\\asp.netwebdatve\\migrations\\20250427145016_khanhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\migrations\\20250427145016_khanhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\migrations\\20250427145016_khanhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,46 +38,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 12,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\HomeAdmin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\HomeAdmin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-28T14:21:58.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:16:18.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAEkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-28T13:54:15.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-28T13:54:03.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\appsettings.json",
               "RelativeDocumentMoniker": "Asp.netWebDatVe\\appsettings.json",
-              "ToolTip": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\appsettings.json",
-              "RelativeToolTip": "Asp.netWebDatVe\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\appsettings.json*",
+              "RelativeToolTip": "Asp.netWebDatVe\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-28T13:32:16.598Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "QLDatVeContext.cs",
-              "DocumentMoniker": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
               "RelativeDocumentMoniker": "Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
-              "ToolTip": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
               "RelativeToolTip": "Asp.netWebDatVe\\Models\\QLDatVeContext.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA4wCMAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAA0wCcAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T13:29:20.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "20250427145016_khanhan.cs",
-              "DocumentMoniker": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
               "RelativeDocumentMoniker": "Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
-              "ToolTip": "C:\\Users\\HUYNH THUY KHANH AN\\OneDrive\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
               "RelativeToolTip": "Asp.netWebDatVe\\Migrations\\20250427145016_khanhan.cs",
               "ViewState": "AgIAAEwBAAAAAAAAAAAAAEwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T13:28:48.639Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T13:28:48.639Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1329,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
