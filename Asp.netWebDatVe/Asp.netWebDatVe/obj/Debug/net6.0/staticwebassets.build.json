@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ea5QHynmM0X3CUoDykn8CAfagpFKB+9T2jQhPZ0a5Kw=",
+  "Hash": "g/2noUCnuviSd88Vsy+8eDzI0XZ4DN7SGVy9yD3rO9s=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -10972,8 +10972,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "keqoiz81c1",
-      "Integrity": "rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=",
+      "Fingerprint": "1jrcyuyx6x",
+      "Integrity": "XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bus-home.css"
@@ -58806,6 +58806,51 @@
       ]
     },
     {
+      "Route": "css/bus-home.1jrcyuyx6x.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 07 May 2025 15:27:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1jrcyuyx6x"
+        },
+        {
+          "Name": "label",
+          "Value": "css/bus-home.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg="
+        }
+      ]
+    },
+    {
       "Route": "css/bus-home.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
       "Selectors": [],
@@ -58816,7 +58861,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9286"
+          "Value": "9996"
         },
         {
           "Name": "Content-Type",
@@ -58824,11 +58869,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=\""
+          "Value": "\"XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 15:18:26 GMT"
+          "Value": "Wed, 07 May 2025 15:27:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58838,52 +58883,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs="
-        }
-      ]
-    },
-    {
-      "Route": "css/bus-home.keqoiz81c1.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9286"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 15:18:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "keqoiz81c1"
-        },
-        {
-          "Name": "label",
-          "Value": "css/bus-home.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs="
+          "Value": "sha256-XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg="
         }
       ]
     },

@@ -6240,17 +6240,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kb3out9fl2"},{"Name":"integrity","Value":"sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z\u002BGOZ7fBPCNB06Z98="},{"Name":"label","Value":"_content/Asp.netWebDatVe/css/bootstrap.min.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"232948"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022MBffSnbbXwHCuZtgPYiwMQbfE7z\u002BGOZ7fBPCNB06Z98=\u0022"},{"Name":"Last-Modified","Value":"Fri, 25 Apr 2025 04:36:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Asp.netWebDatVe/css/bus-home.1jrcyuyx6x.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1jrcyuyx6x"},{"Name":"integrity","Value":"sha256-XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg="},{"Name":"label","Value":"_content/Asp.netWebDatVe/css/bus-home.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9996"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 15:27:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Asp.netWebDatVe/css/bus-home.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"9286"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 15:18:26 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Asp.netWebDatVe/css/bus-home.keqoiz81c1.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"keqoiz81c1"},{"Name":"integrity","Value":"sha256-rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs="},{"Name":"label","Value":"_content/Asp.netWebDatVe/css/bus-home.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9286"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 15:18:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"9996"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 15:27:10 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Asp.netWebDatVe/css/ChonGhe.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChonGhe.css'))</AssetFile>

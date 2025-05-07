@@ -9372,8 +9372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>keqoiz81c1</Fingerprint>
-      <Integrity>rBl6/74ccTQyZTvjA4EpigXB4o6sRjoSkzN1h9FEaIs=</Integrity>
+      <Fingerprint>1jrcyuyx6x</Fingerprint>
+      <Integrity>XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</OriginalItemSpec>
