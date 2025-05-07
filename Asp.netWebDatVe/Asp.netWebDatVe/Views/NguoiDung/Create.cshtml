@@ -1,0 +1,73 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Thêm Người Dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm Người Dùng</h2>
+
+<style>
+    select.form-control {
+        padding: .4375rem .75rem;
+        border: 0;
+        outline: 1px solid #ebedf2;
+        color: #000000;
+    }
+</style>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" placeholder="Nhập email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sdt">Số điện thoại</label>
+        <input asp-for="Sdt" class="form-control" placeholder="Nhập số điện thoại" />
+        <span asp-validation-for="Sdt" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HoTen">Họ và tên</label>
+        <input asp-for="HoTen" class="form-control" placeholder="Nhập họ và tên" />
+        <span asp-validation-for="HoTen" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MatKhau">Mật khẩu</label>
+        <input asp-for="MatKhau" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+        <span asp-validation-for="MatKhau" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NgaySinh">Ngày sinh</label>
+        <input asp-for="NgaySinh" type="date" class="form-control" />
+        <span asp-validation-for="NgaySinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DiaChi">Địa chỉ</label>
+        <input asp-for="DiaChi" class="form-control" placeholder="Nhập địa chỉ" />
+        <span asp-validation-for="DiaChi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaQuyen">Quyền</label>
+        <select asp-for="MaQuyen" asp-items="ViewBag.pq" class="form-control">
+            <option value="">Chọn quyền</option>
+        </select>
+        <span asp-validation-for="MaQuyen" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HinhAnh">Hình ảnh</label>
+        <input asp-for="HinhAnh" type="file" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Thêm Người Dùng</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+﻿@model Asp.netWebDatVe.Models.TuyenXe
+
+@{
+    ViewData["Title"] = "Xóa Tuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2 class="text-danger text-center">Xóa tuyến xe</h2>
+
+<div class="alert alert-warning">
+   
+        <p>Bạn có chắc chắn muốn xóa tuyến xe sau?</p>
+        <table class="table">
+            <tr>
+                <th>Mã tuyến:</th>
+                <td>@Model.MaTuyen</td>
+            </tr>
+            <tr>
+                <th>Điểm đi:</th>
+                <td>@Model.DiemDi</td>
+            </tr>
+            <tr>
+                <th>Điểm đến:</th>
+                <td>@Model.DiemDen</td>
+            </tr>
+            <tr>
+                <th>Giá hiện hành:</th>
+                <td>@Model.GiaHienHanh?.ToString("N0") VNĐ</td>
+            </tr>
+        </table>
+    @if (ViewBag.Flag > 0)
+    {
+        <p class="text-danger">
+            Không thể xóa tuyến xe này vì đang được sử dụng trong các chuyến xe.
+        </p>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    }
+    else
+    {
+        <form method="post" asp-action="Delete_post" asp-route-id="@Model.MaTuyen">
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </form>
+    }
+</div>

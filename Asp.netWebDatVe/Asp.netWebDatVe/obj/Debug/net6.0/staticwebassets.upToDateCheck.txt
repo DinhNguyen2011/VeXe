@@ -518,10 +518,16 @@ wwwroot\assets\plugins\twitter-bootstrap-wizard\prettify.js
 wwwroot\css\ajax-loader.gif
 wwwroot\css\bootstrap.min.css
 wwwroot\css\bus-home.css
+wwwroot\css\ChonGhe.css
+wwwroot\css\indexLichTrinh.css
+wwwroot\css\LienHeVoiChungToi.css
 wwwroot\css\site.css
 wwwroot\css\style.css
+wwwroot\css\TraCuuPhieuDatVe.css
+wwwroot\css\Vechungtoi.css
 wwwroot\css\vendor.css
 wwwroot\favicon.ico
+wwwroot\images\29B-12345_xe3.jpg
 wwwroot\images\backround.png
 wwwroot\images\BannnerBus.png
 wwwroot\images\BN.jpg
@@ -532,6 +538,7 @@ wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js
 wwwroot\js\jquery-1.11.0.min.js
+wwwroot\js\LichTrinh.js
 wwwroot\js\plugins.js
 wwwroot\js\script.js
 wwwroot\js\site.js

@@ -1,0 +1,67 @@
+﻿@model Asp.netWebDatVe.Models.Payment.PaymentResponse
+@{
+    ViewData["Title"] = "Kết quả thanh toán";
+}
+
+<h2>Kết quả thanh toán</h2>
+
+<div class="payment-container">
+    <h3 class="payment-title">Kết quả thanh toán</h3>
+
+    @if (Model.Success)
+    {
+        <div class="payment-success">
+            <h4>✅ Thanh toán thành công!</h4>
+            <p><strong>Mã đơn hàng:</strong> @Model.OrderId</p>
+            <p><strong>Mã giao dịch:</strong> @Model.TransactionId</p>
+            <p><strong>Mô tả:</strong> @Model.OrderDescription</p>
+            <p><strong>Thông báo:</strong> @TempData["ThongBao"]</p>
+        </div>
+    }
+    else
+    {
+        <div class="payment-error">
+            <h4>❌ Thanh toán thất bại!</h4>
+            <p hidden><strong>Mã phản hồi:</strong> @Model.VnPayResponseCode</p>
+            <p><strong>Thông báo:</strong> @TempData["ThongBao"]</p>
+        </div>
+    }
+
+    <div class="payment-actions">
+        <a href="@Url.Action("Index", "Home")" class="payment-button btn btn-primary">Về trang chủ</a>
+        <a href="@Url.Action("XemCacPhieuDatVe", "Home")" class="payment-button btn btn-secondary">Xem danh sách vé</a>
+    </div>
+</div>
+
+<style>
+    .payment-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .payment-success {
+        background-color: #d4edda;
+        padding: 20px;
+        border-radius: 8px;
+        color: #155724;
+    }
+
+    .payment-error {
+        background-color: #f8d7da;
+        padding: 20px;
+        border-radius: 8px;
+        color: #721c24;
+    }
+
+    .payment-actions {
+        margin-top: 20px;
+    }
+
+    .payment-button {
+        margin: 0 10px;
+    }
+</style>

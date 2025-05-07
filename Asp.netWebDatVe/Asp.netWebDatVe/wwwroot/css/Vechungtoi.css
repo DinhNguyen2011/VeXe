@@ -1,0 +1,54 @@
+﻿.about-us h2,
+.mission h3,
+.contact-info h4 {
+    color: #514e13; /* Màu đỏ đặc trưng Khánh An */
+}
+
+.about-us p,
+.mission p,
+.contact-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.statistics .p-4 {
+    border: 1px solid #e3e3e3;
+    transition: transform 0.3s ease;
+}
+
+    .statistics .p-4:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+.statistics h3 {
+    color: #d42c2c;
+}
+
+.bg-light {
+    background-color: #f9f9f9 !important;
+}
+
+img.img-fluid {
+    border-radius: 10px;
+}
+
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.text-primary {
+    color: #d42c2c !important;
+}
+
+.contact-info {
+    background-color: #fdf4f4;
+    border-top: 2px solid #d42c2c;
+    border-bottom: 2px solid #d42c2c;
+}
+
+    .contact-info p {
+        margin-bottom: 0.5rem;
+    }

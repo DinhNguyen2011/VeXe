@@ -1,0 +1,55 @@
+﻿@model Asp.netWebDatVe.Models.VeXe
+
+@{
+    ViewData["Title"] = "Chi tiết Vé Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center mb-4">Chi tiết Vé Xe</h2>
+
+<div class="card shadow-lg mx-auto" style="width: 60%;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title text-center mb-0">Thông tin Vé Xe</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>Mã Vé:</th>
+                <td>@Model.MaVe</td>
+            </tr>
+            <tr>
+                <th>Tên Vé:</th>
+                <td>@Model.TenVe</td>
+            </tr>
+            <tr>
+                <th>Tên Khách Hàng:</th>
+                <td>@Model.TenKh</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Chuyến Xe:</th>
+                <td>@Model.MaChuyenNavigation?.TenChuyenXe</td>
+            </tr>
+            <tr>
+                <th>Vị Trí Ghế:</th>
+                <td>@Model.IdVitriNavigation?.Tenvitri</td>
+            </tr>
+            <tr>
+                <th>Trạng Thái:</th>
+                <td>@(Model.TrangThai == "True" ? "Đã Đặt" : "Chưa Đặt")</td>
+            </tr>
+            <tr>
+                <th>Ghi Chú:</th>
+                <td>@Model.GhiChu</td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary me-2">Quay lại</a>
+        @* <a asp-action="Edit" asp-route-id="@Model.MaVe" class="btn btn-warning me-2">Chỉnh sửa</a> *@
+        <a asp-action="Delete" asp-route-id="@Model.MaVe" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model Asp.netWebDatVe.Models.ChuyenXe
+
+@{
+    ViewData["Title"] = "Thêm Chuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm chuyến xe</h2>
+
+<style>
+    select.form-control {
+        padding: .4375rem .75rem;
+        border: 0;
+        outline: 1px solid #ebedf2;
+        color: #000000;
+    }
+</style>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Tên chuyến xe</label>
+        <input asp-for="TenChuyenXe" class="form-control" placeholder="Nhập tên chuyến xe" />
+    </div>
+    <div class="form-group">
+        <label>Biển số xe</label>
+        <select asp-for="BienSoXe" class="form-control">
+            <option value="">Chọn xe</option>
+            @foreach (var item in (List<SelectListItem>)ViewBag.Xes)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        <span asp-validation-for="BienSoXe" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Tuyến xe</label>
+        <select asp-for="MaTuyen" class="form-control">
+            <option value="">Chọn tuyến</option>
+            @foreach (var item in (List<SelectListItem>)ViewBag.TuyenXes)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        <span asp-validation-for="MaTuyen" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Thời điểm khởi hành</label>
+        <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" class="form-control" />
+        <span asp-validation-for="ThoiDiemKhoiHanh" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Thời điểm đến</label>
+        <input asp-for="ThoiDiemDenDuKien" type="datetime-local" class="form-control" />
+        <span asp-validation-for="ThoiDiemDenDuKien" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Giá vé</label>
+        <input asp-for="GiaVe" type="number" step="0.01" class="form-control" placeholder="Nhập giá vé" />
+        <span asp-validation-for="GiaVe" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+</form>

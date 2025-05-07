@@ -1,0 +1,39 @@
+﻿@model Asp.netWebDatVe.Models.BenXeDen
+
+@{
+    ViewData["Title"] = "Chi Tiết bến đi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center mb-4">Chi Tiết bến Xe</h2>
+
+<div class="card shadow-lg mx-auto" style="width: 60%;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title text-center mb-0">Thông Tin bến Xe</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>Mã bến xe:</th>
+                <td>@Model.MaBenXeDen</td>
+            </tr>
+            <tr>
+                <th>Tên bến:</th>
+                <td>@Model.TenBenXeDen</td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>@Model.DiaChi</td>
+            </tr>
+            <tr>
+                <th>SĐT:</th>
+                <td>@Model.Sdt</td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary me-2">Quay Lại</a>
+        <a asp-action="Edit" asp-route-id="@Model.MaBenXeDen" class="btn btn-warning me-2">Chỉnh Sửa</a>
+        <a asp-action="Delete" asp-route-id="@Model.MaBenXeDen" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

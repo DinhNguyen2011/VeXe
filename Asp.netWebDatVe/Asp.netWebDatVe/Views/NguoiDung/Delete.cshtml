@@ -1,0 +1,35 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Xóa người dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa người dùng</h2>
+
+<div class="container">
+    <h4>Bạn có chắc chắn muốn xóa người dùng này không?</h4>
+
+    <dl class="dl-horizontal">
+        <dt>Email:</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Số điện thoại:</dt>
+        <dd>@Model.Sdt</dd>
+
+        <dt>Họ và tên:</dt>
+        <dd>@Model.HoTen</dd>
+
+        <dt>Ngày sinh:</dt>
+        <dd>@Model.NgaySinh</dd>
+
+        <dt>Địa chỉ:</dt>
+        <dd>@Model.DiaChi</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

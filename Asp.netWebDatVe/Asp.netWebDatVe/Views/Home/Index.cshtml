@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
 }
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <label for="ngayDi">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
-                           min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+                           min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@ViewBag.NgayDi" required />
                 </div>
 
                 <div class="form-button">
@@ -63,6 +63,122 @@
     </div>
 </div>
 
+<!-- Kết quả tìm kiếm -->
+<div class="search-results mt-5">
+    @if (ViewBag.TuyenXe != null && ViewBag.ChuyenXes?.Count > 0)
+    {
+        <div class="row">
+            <!-- Bộ lọc -->
+            <div class="col-md-4">
+                <div class="card" style="margin: 35px 0px !important;">
+                    <div class="card-header bg-secondary text-white" style="background-color:pink !important">
+                        <strong>Lọc theo khung giờ</strong>
+                    </div>
+                    <div class="card-body" style="background-color:pink">
+                        <div class="form-check">
+                            <input class="form-check-input time-filter" type="checkbox" value="0-6" id="time1">
+                            <label class="form-check-label" for="time1">Sáng sớm 00:00 - 06:00</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input time-filter" type="checkbox" value="6-12" id="time2">
+                            <label class="form-check-label" for="time2">Buổi sáng 06:00 - 12:00</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input time-filter" type="checkbox" value="12-18" id="time3">
+                            <label class="form-check-label" for="time3">Buổi chiều 12:00 - 18:00</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input time-filter" type="checkbox" value="18-24" id="time4">
+                            <label class="form-check-label" for="time4">Buổi tối 18:00 - 24:00</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh sách chuyến xe -->
+            <div class="col-md-8">
+                <h4 class="text-center">Tuyến xe từ @ViewBag.TuyenXe.DiemDi đến @ViewBag.TuyenXe.DiemDen</h4>
+                <div class="row">
+                    @foreach (var chuyenXe in ViewBag.ChuyenXes)
+                    {
+                        <div class="col-md-6 chuyen-xe" data-gio-khoihanh="@chuyenXe.ThoiDiemKhoiHanh?.ToString("HH")">
+                            <div class="custom-trip-card mb-4 p-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="time-info text-center">
+                                        <strong class="depart-time">@chuyenXe.ThoiDiemKhoiHanh?.ToString("HH:mm")</strong>
+                                        <p>@ViewBag.TuyenXe.MaBenXeNavigation?.TenBenXe</p>
+                                    </div>
+                                    <div class="travel-duration text-muted text-center">
+                                        <div><small class="arrive-time">@chuyenXe.ThoiDiemDenDuKien?.AddHours(2)?.ToString("HH:mm")</small></div>
+                                        <div><small>(Asia/Ho Chi Minh)</small></div>
+                                    </div>
+                                    <div class="time-info text-center">
+                                        <strong class="arrive-time">@chuyenXe.ThoiDiemDenDuKien?.ToString("HH:mm")</strong>
+                                        <p>@ViewBag.TuyenXe.MaBenXeDenNavigation?.TenBenXeDen</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div><strong>Ghế giường nằm</strong> <span class="text-success">limousine</span></div>
+                                    <div class="price text-danger fw-bold">@chuyenXe.GiaVe?.ToString("N0")₫</div>
+                                </div>
+
+                                <hr />
+
+                                <div class="text-end">
+                                    <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen" class="btn btn-outline-danger btn-sm px-4">
+                                        Chọn chuyến
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p class="text-center text-danger">@ViewBag.Message</p>
+    }
+</div>
+
+<!-- Liên kết CSS/JS -->
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <script src="~/js/bus-home.js"></script>
 
+<!-- Script lọc khung giờ -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll(".time-filter");
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", function () {
+                if (this.checked) {
+                    checkboxes.forEach(otherCb => {
+                        if (otherCb !== this) otherCb.checked = false;
+                    });
+                }
+                filterTrips();
+            });
+        });
+
+        function filterTrips() {
+            const selectedCb = Array.from(checkboxes).find(cb => cb.checked);
+            const trips = document.querySelectorAll(".chuyen-xe");
+
+            if (!selectedCb) {
+                trips.forEach(trip => trip.style.display = "block");
+                return;
+            }
+
+            const [start, end] = selectedCb.value.split('-').map(Number);
+
+            trips.forEach(trip => {
+                const gio = parseInt(trip.dataset.gioKhoihanh);
+                const visible = gio >= start && gio < end;
+                trip.style.display = visible ? "block" : "none";
+            });
+        }
+    });
+</script>

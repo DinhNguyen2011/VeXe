@@ -1,0 +1,88 @@
+﻿@model Asp.netWebDatVe.Models.ChuyenXe
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Chuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .table {
+        width: 80%;
+        margin: auto; /* Căn giữa bảng */
+        font-size: 14px; /* Thu nhỏ kích cỡ chữ */
+        border-collapse: collapse; /* Gộp đường viền */
+    }
+
+        .table th, .table td {
+            padding: 3px; /* Giảm khoảng cách bên trong ô */
+            text-align: center; /* Canh giữa nội dung ô */
+        }
+
+        .table th {
+            background-color: #f4f4f4; /* Thêm màu nền nhẹ cho tiêu đề */
+        }
+
+        .table td {
+            border: 1px solid #ddd; /* Thêm đường viền mỏng */
+        }
+
+    .btn {
+        font-size: 10px; /* Giảm kích thước chữ của nút */
+        padding: 5px 10px; /* Thu nhỏ khoảng cách trong nút */
+        margin: 8px; /* Giảm khoảng cách giữa các nút */
+        border-radius: 5px; /* Làm tròn góc của nút */
+    }
+
+    .btn-warning {
+        background-color: #ffc107; /* Màu nền cho nút sửa */
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Màu nền cho nút xóa */
+        color: white;
+    }
+
+</style>
+<h2>Danh sách chuyến xe</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm chuyến xe</a>
+
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th><label asp-for="MaTuyen" class="control-label"></label></th>
+            <th><label asp-for="MaChuyen" class="control-label"></label></th>
+            <th><label asp-for="TenChuyenXe" class="control-label"></label></th>
+            <th><label asp-for="ThoiDiemKhoiHanh" class="control-label"></label></th>
+            <th><label asp-for="ThoiDiemDenDuKien" class="control-label"></label></th>
+            <th><label asp-for="GiaVe" class="control-label"></label></th>
+            <th><label asp-for="BienSoXe" class="control-label"></label></th>
+
+            <th>Tác vụ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ct)
+        {
+                <tr>
+                    <td>@item.MaTuyen</td>
+                    <td>@item.MaChuyen</td>
+                    <td>@item.TenChuyenXe</td>
+                <td>@item.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.GiaVe?.ToString("N0") VNĐ</td>
+                    <td>@item.BienSoXe</td>            
+                   <td>
+                        <a asp-controller="ChuyenXe" asp-action="Edit" asp-route-id="@item.MaChuyen" class="btn btn-warning">Sửa</a>
+                    <a asp-controller="ChuyenXe" asp-action="Details" asp-route-id="@item.MaChuyen" class="btn btn-warning">Chi tiết</a>
+
+                    <a asp-controller="ChuyenXe" asp-action="Delete" asp-route-id="@item.MaChuyen" class="btn btn-primary">Xóa</a>
+
+
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

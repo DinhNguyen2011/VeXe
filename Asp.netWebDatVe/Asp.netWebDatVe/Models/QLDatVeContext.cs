@@ -19,6 +19,7 @@ namespace Asp.netWebDatVe.Models
         public virtual DbSet<BenXe> BenXes { get; set; } = null!;
         public virtual DbSet<BenXeDen> BenXeDens { get; set; } = null!;
         public virtual DbSet<ChuyenXe> ChuyenXes { get; set; } = null!;
+        public virtual DbSet<LienHe> LienHes { get; set; } = null!;
         public virtual DbSet<Loaixe> Loaixes { get; set; } = null!;
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; } = null!;
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; } = null!;
@@ -97,6 +98,19 @@ namespace Asp.netWebDatVe.Models
                     .WithMany(p => p.ChuyenXes)
                     .HasForeignKey(d => d.MaTuyen)
                     .HasConstraintName("FK__ChuyenXe__MaTuye__3C69FB99");
+            });
+
+            modelBuilder.Entity<LienHe>(entity =>
+            {
+                entity.ToTable("LienHe");
+
+                entity.Property(e => e.Email).HasMaxLength(255);
+
+                entity.Property(e => e.HoVaTen).HasMaxLength(100);
+
+                entity.Property(e => e.NgayGui)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Loaixe>(entity =>
@@ -210,6 +224,10 @@ namespace Asp.netWebDatVe.Models
                 entity.Property(e => e.GhiChu).HasMaxLength(200);
 
                 entity.Property(e => e.IdVitri).HasColumnName("ID_VITRI");
+
+                entity.Property(e => e.NgayDat)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.TenKh)
                     .HasMaxLength(50)

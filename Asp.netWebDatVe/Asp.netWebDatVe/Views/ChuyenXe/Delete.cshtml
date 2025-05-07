@@ -1,0 +1,45 @@
+﻿@model Asp.netWebDatVe.Models.ChuyenXe
+
+@{
+    ViewData["Title"] = "Xóa Chuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Xóa chuyến xe</h2>
+<h4 class="text-center">Bạn có chắc chắn muốn xóa chuyến xe này?</h4>
+<div>
+    <h4>Thông tin chuyến xe</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Mã chuyến xe</dt>
+        <dd class="col-sm-10">@Model.MaChuyen</dd>
+
+        <dt class="col-sm-2">Tên chuyến xe</dt>
+        <dd class="col-sm-10">@Model.TenChuyenXe</dd>
+
+        <dt class="col-sm-2">Giá vé</dt>
+        <dd class="col-sm-10">@Model.GiaVe</dd>
+
+        <dt class="col-sm-2">Ngày khởi hành</dt>
+        <dd class="col-sm-10">@Model.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-2">Biển số xe</dt>
+        <dd class="col-sm-10">@Model.BienSoXe</dd>
+    </dl>
+
+    @if (ViewBag.CanDelete)
+    {
+        <form asp-action="Delete" asp-route-id="@Model.MaChuyen" method="post">
+            <div class="form-group">
+                <input type="submit" value="Xóa" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Không thể xóa chuyến xe này vì có vé xe liên quan.
+        </div>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    }
+</div>

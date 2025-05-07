@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.PhieuDatVe>
+
+@{
+    ViewData["Title"] = "Danh sách phiếu đặt vé";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .phieudatve-list-container {
+        margin: 50px 0px;
+        padding: 20px;
+    }
+
+    .phieudatve-title {
+        margin-bottom: 20px;
+    }
+
+    .phieudatve-table {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+        .phieudatve-table th,
+        .phieudatve-table td {
+            vertical-align: middle;
+        }
+
+    .phieudatve-no-ticket {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .btn-action {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="phieudatve-list-container">
+    <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <p class="phieudatve-no-ticket">Bạn chưa có phiếu đặt vé nào.</p>
+    }
+    else
+    {
+        <table class="table table-striped phieudatve-table">
+            <thead>
+                <tr>
+                    <th>Mã phiếu</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaPhieu</td>
+                        <td>@item.NgayDat?.ToString("dd/MM/yyyy")</td>
+                        <td>@item.TongTien?.ToString("N0") VNĐ</td>
+                        <td>@item.TrangThai</td>
+                        <td>
+                            <a class="btn btn-info btn-sm btn-action" asp-controller="Home" asp-action="Details" asp-route-id="@item.MaPhieu">Xem</a>
+
+                            <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
+                                <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
+                                <button type="submit" class="btn btn-danger btn-sm">Hủy</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

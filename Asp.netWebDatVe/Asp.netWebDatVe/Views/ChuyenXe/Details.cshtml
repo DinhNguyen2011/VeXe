@@ -1,0 +1,51 @@
+﻿@model Asp.netWebDatVe.Models.ChuyenXe
+
+@{
+    ViewData["Title"] = "Chi Tiết Chuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center mb-4">Chi Tiết Chuyến Xe</h2>
+
+<div class="card shadow-lg mx-auto" style="width: 60%;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title text-center mb-0">Thông Tin Chuyến Xe</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>Mã Chuyến:</th>
+                <td>@Model.MaChuyen</td>
+            </tr>
+            <tr>
+                <th>Tên Chuyến:</th>
+                <td>@Model.TenChuyenXe</td>
+            </tr>
+            <tr>
+                <th>Biển Số:</th>
+                <td>@Model.BienSoXeNavigation?.Tenxe</td>
+            </tr>
+            <tr>
+                <th>Tuyến Xe:</th>
+                <td>@Model.MaTuyenNavigation?.DiemDi - @Model.MaTuyenNavigation?.DiemDen</td>
+            </tr>
+            <tr>
+                <th>Giá Vé:</th>
+                <td>@Model.GiaVe?.ToString("N0") VNĐ</td>
+            </tr>
+            <tr>
+                <th>Thời Điểm Khởi Hành:</th>
+                <td>@Model.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+            <tr>
+                <th>Thời Điểm Đến Dự Kiến:</th>
+                <td>@Model.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary me-2">Quay Lại</a>
+        <a asp-action="Edit" asp-route-id="@Model.MaChuyen" class="btn btn-warning me-2">Chỉnh Sửa</a>
+        <a asp-action="Delete" asp-route-id="@Model.MaChuyen" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

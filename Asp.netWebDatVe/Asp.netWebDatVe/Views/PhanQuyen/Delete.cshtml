@@ -1,0 +1,26 @@
+﻿@model Asp.netWebDatVe.Models.PhanQuyen
+
+@{
+    ViewData["Title"] = "Xóa phân quyền";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa phân quyền</h2>
+
+<div class="alert alert-warning">
+    <p>Bạn có chắc chắn muốn xóa phân quyền này không?</p>
+    <table class="table">
+        <tr>
+            <th>Mã quyền:</th>
+            <td>@Model.MaQuyen</td>
+        </tr>
+        <tr>
+            <th>Tên quyền:</th>
+            <td>@Model.TenQuyen</td>
+        </tr>
+    </table>
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.MaQuyen" method="post">
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index", "PhanQuyen")" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

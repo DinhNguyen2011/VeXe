@@ -1,0 +1,54 @@
+﻿@model Asp.netWebDatVe.Models.LienHe
+
+@{
+    ViewData["Title"] = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/LienHeVoiChungToi.css" rel="stylesheet" />
+
+<section class="ka-contact-section py-5">
+    <div class="container">
+        <h2 class="mb-4">Liên hệ với Khánh An</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="ka-info-title">Thông tin liên hệ</h5>
+                <p><strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+                <p><strong>Điện thoại:</strong> 028 1234 5678</p>
+                <p><strong>Email:</strong> lienhe@khanhanbus.vn</p>
+                <p><strong>Website:</strong> www.khanhanbus.vn</p>
+            </div>
+            <div class="col-md-6">
+                <h5 class="ka-info-title">Gửi tin nhắn cho chúng tôi</h5>
+
+                @* Hiển thị thông báo khi gửi thành công *@
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Message</div>
+                }
+                <form asp-action="Index" asp-controller="LienHeVoiChungToi" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="HoVaTen" class="form-label ka-label"></label>
+                        <input asp-for="HoVaTen" class="form-control ka-input" />
+                        <span asp-validation-for="HoVaTen" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label ka-label"></label>
+                        <input asp-for="Email" class="form-control ka-input" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NoiDung" class="form-label ka-label"></label>
+                        <textarea asp-for="NoiDung" class="form-control ka-input" rows="4"></textarea>
+                        <span asp-validation-for="NoiDung" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn ka-submit-btn">Gửi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

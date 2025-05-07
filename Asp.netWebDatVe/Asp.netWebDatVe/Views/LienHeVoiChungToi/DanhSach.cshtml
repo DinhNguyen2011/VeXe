@@ -1,0 +1,35 @@
+﻿@model List<Asp.netWebDatVe.Models.LienHe>
+@{
+    ViewData["Title"] = "Danh sách liên hệ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mb-4">Danh sách liên hệ khách hàng</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Họ và tên</th>
+            <th>Email</th>
+            <th>Nội dung</th>
+            <th>Ngày gửi</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.HoVaTen</td>
+                <td>@item.Email</td>
+                <td>@item.NoiDung</td>
+                <td>@item.NgayGui?.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <form asp-action="Xoa" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa?');">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

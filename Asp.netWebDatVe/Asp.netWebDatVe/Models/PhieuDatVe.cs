@@ -15,6 +15,7 @@ namespace Asp.netWebDatVe.Models
         public DateTime? NgayDat { get; set; }
         public decimal? TongTien { get; set; }
         public string? TrangThai { get; set; }
+        public string? VnpTransactionId { get; set; }
 
         public virtual ICollection<VeXe> VeXes { get; set; }
     }

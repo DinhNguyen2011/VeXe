@@ -1,0 +1,73 @@
+﻿.lt-schedule {
+    padding: 40px 20px;
+    background-color: #fafafa; /* Nền sáng, mềm mại */
+    font-family: Arial, sans-serif;
+}
+
+.lt-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #333333; /* Đen xám sang trọng */
+    font-weight: bold;
+}
+
+.lt-search-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.lt-input {
+    padding: 12px 18px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 300px;
+    max-width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Tạo bóng nhẹ sang trọng */
+}
+
+.lt-btn {
+    background-color: #c0c0c0; /* Tông bạc nhẹ */
+    color: #333333; /* Màu chữ đen xám */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bóng nhẹ cho nút */
+}
+
+    .lt-btn:hover {
+        background-color: #a9a9a9; /* Xám đậm khi hover */
+        transform: scale(1.05); /* Hiệu ứng nở nhẹ khi hover */
+    }
+
+.lt-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bóng mờ để thêm sang trọng */
+}
+
+    .lt-table thead {
+        background-color: #d3d3d3; /* Xám sáng nhẹ cho header */
+        color: #333333;
+    }
+
+    .lt-table th,
+    .lt-table td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .lt-table th {
+        font-weight: bold;
+    }

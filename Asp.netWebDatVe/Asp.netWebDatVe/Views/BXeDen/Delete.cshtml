@@ -1,0 +1,46 @@
+﻿@model Asp.netWebDatVe.Models.BenXeDen
+
+@{
+    ViewData["Title"] = "Xóa bến đi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2 class="text-danger text-center">Xóa bến đi</h2>
+
+<div class="alert alert-warning">
+
+    <p>Bạn có chắc chắn muốn xóa bến xe sau?</p>
+    <table class="table">
+        <tr>
+            <th>Mã bến:</th>
+            <td>@Model.MaBenXeDen</td>
+        </tr>
+        <tr>
+            <th>Tên bến:</th>
+            <td>@Model.TenBenXeDen</td>
+        </tr>
+        <tr>
+            <th>Địa chỉ:</th>
+            <td>@Model.DiaChi</td>
+        </tr>
+        <tr>
+            <th>SĐT:</th>
+            <td>@Model.Sdt</td>
+        </tr>
+    </table>
+    @if (ViewBag.f > 0)
+    {
+        <p class="text-danger">
+            Không thể xóa bến xe này vì đang được sử dụng trong các tuyến xe.
+        </p>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    }
+    else
+    {
+        <form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.MaBenXeDen">
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </form>
+    }
+</div>

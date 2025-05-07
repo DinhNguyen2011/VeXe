@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.TuyenXe>
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Tuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .table {
+        width: 80%;
+        margin: auto;
+        font-size: 14px;
+        border-collapse: collapse; 
+    }
+
+        .table th, .table td {
+            padding: 3px; 
+            text-align: center; /* Canh giữa nội dung ô */
+        }
+
+        .table th {
+            background-color: #f4f4f4; 
+        }
+
+        .table td {
+            border: 1px solid #ddd; 
+        }
+
+    .btn {
+        font-size: 10px;
+        padding: 5px 10px; 
+        margin: 8px; 
+        border-radius: 5px; 
+    }
+
+    .btn-warning {
+        background-color: #ffc107; 
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545; 
+        color: white;
+    }
+
+</style>
+<h2>Danh sách tuyến xe</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm tuyến xe</a>
+
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Tuyến</th>
+            
+
+            <th>Điểm đi</th>
+            <th>Điểm đến</th>
+            <th>SNCTT</th>
+            <th>Giá hiện hành</th>
+            <th>Quảng đường</th>
+            <th>Bến Xe đi</th>
+            <th>Bến Xe đến</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaTuyen</td>
+                
+
+                <td>@item.DiemDi</td>
+                <td>@item.DiemDen</td>
+                <td>@item.SoNgayChayTrongTuan</td>
+                <td>@item.GiaHienHanh?.ToString("N0") VNĐ</td>
+                <td>@item.QuangDuong</td>
+                <td>@item.MaBenXeNavigation?.TenBenXe</td>
+                <td>@item.MaBenXeDenNavigation?.TenBenXeDen</td>
+
+                <td>
+                    <a asp-controller="TuyenXe" asp-action="Edit" asp-route-id="@item.MaTuyen" class="btn btn-warning">Sửa</a>
+                    <a asp-controller="TuyenXe" asp-action="Details" asp-route-id="@item.MaTuyen" class="btn btn-warning">Chi tiết</a>
+
+                    <a asp-controller="TuyenXe" asp-action="Delete" asp-route-id="@item.MaTuyen" class="btn btn-primary">Xóa</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

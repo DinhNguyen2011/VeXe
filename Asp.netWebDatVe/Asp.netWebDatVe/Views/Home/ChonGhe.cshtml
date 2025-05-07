@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "Chọn ghế";
+    var chuyenXe = ViewBag.ChuyenXe;
+    var danhSachGhe = ViewBag.DanhSachGhe as IEnumerable<dynamic>;
+    int soGhe = ViewBag.SoGhe ?? 0;
+    int soGheTren = soGhe / 2;
+    var giaVe = chuyenXe?.GiaVe ?? 0;
+}
+
+<link rel="stylesheet" href="~/css/ChonGhe.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<h2 class="title">Chọn ghế và điền thông tin</h2>
+
+<div class="legend">
+    <div><span class="legend-icon available"></span> Còn trống</div>
+    <div><span class="legend-icon occupied"></span> Đã đặt</div>
+    <div><span class="legend-icon selected"></span> Đang chọn</div>
+</div>
+
+<div class="row">
+    <!-- Cột bên trái: Ghế (2/3) -->
+    <div class="col-md-8">
+        <h3>Tầng trên</h3>
+        <div class="seat-map-container">
+            @foreach (var ghe in danhSachGhe.Take(soGheTren))
+            {
+                var gd = (bool?)ghe.Trangthai ?? false;
+                <button class="seat @(gd ? "seat-occupied" : "seat-available")"
+                @(gd ? "disabled" : "")
+                        data-id="@ghe.IdVitri"
+                        onclick="chonGhe(this)"
+                        title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                    <i class="fas fa-chair seat-icon"></i>
+                    <span class="seat-number">@ghe.Tenvitri</span>
+                </button>
+            }
+        </div>
+
+        <h3>Tầng dưới</h3>
+        <div class="seat-map-container">
+            @foreach (var ghe in danhSachGhe.Skip(soGheTren))
+            {
+                var gd = (bool?)ghe.Trangthai ?? false;
+                <button class="seat @(gd ? "seat-occupied" : "seat-available")"
+                @(gd ? "disabled" : "")
+                        data-id="@ghe.IdVitri"
+                        onclick="chonGhe(this)"
+                        title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                    <i class="fas fa-chair seat-icon"></i>
+                    <span class="seat-number">@ghe.Tenvitri</span>
+                </button>
+            }
+        </div>
+    </div>
+
+    <!-- Cột bên phải: Thông tin chuyến đi (1/3) -->
+    <div class="col-md-4">
+        <div class="terms">
+            <h3>Thông tin lượt đi</h3>
+            <p>Thời gian xuất bến: @chuyenXe.ThoiDiemKhoiHanh.ToString("HH:mm dd/MM/yyyy")</p>
+            <p>Giá vé/1 ghế: @chuyenXe.GiaVe.ToString("N0") VND</p>
+            <div class="total-price">
+                <h6>Tổng tiền: <span id="totalPrice">0</span> VND</h6>
+            </div>
+        </div>
+        <div class="cancel-policy mt-4">
+            <h5>Chính sách hủy vé</h5>
+            <ul>
+                <li>Hủy trước 24h: hoàn 90% giá vé</li>
+                <li>Hủy trước 12h: hoàn 50% giá vé</li>
+                <li>Hủy sau 12h: không hoàn tiền</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Điền thông tin cá nhân</h2>
+<div class="ticket-container">
+    <form method="post" asp-action="DatVe" class="ticket-form" onsubmit="return validateForm();">
+        <input type="hidden" name="maChuyen" value="@ViewBag.MaChuyen" />
+        <input type="hidden" id="selectedSeatsInput" name="selectedSeats" />
+        <input type="hidden" id="totalPriceInput" name="totalPrice" />
+
+        <div class="form-group">
+            <label for="tenKhachHang">Tên khách hàng</label>
+            <input type="text" id="tenKhachHang" name="tenKhachHang" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="soDienThoai">Số điện thoại</label>
+            <input type="text" id="soDienThoai" name="soDienThoai" class="form-control" pattern="^[0-9]{10}$" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="ghiChu">Ghi chú</label>
+            <textarea id="ghiChu" name="ghiChu" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Đặt vé</button>
+    </form>
+    <div class="terms">
+        <h5>Điều khoản & lưu ý</h5>
+        <p>
+            (*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ xe khởi hành.
+            Liên hệ tổng đài <b>1548 4565</b> để được hỗ trợ.
+        </p>
+        <p>
+            (*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển <b>1548 4565</b>
+            trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.
+        </p>
+    </div>
+</div>
+
+<!-- Modal thông báo chuyển hướng -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Đang chuyển hướng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss /modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bạn sẽ được chuyển hướng đến cổng thanh toán VNPay để hoàn tất thanh toán.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const seatButtons = document.querySelectorAll(".seat-available");
+    const selectedSeats = new Set();
+    const seatInput = document.getElementById("selectedSeatsInput");
+    const totalPriceSpan = document.getElementById("totalPrice");
+    const totalPriceInput = document.getElementById("totalPriceInput");
+    const maxSeats = 5;
+    const pricePerSeat = @giaVe;
+
+    seatButtons.forEach(button => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const seatId = this.dataset.id;
+
+            if (selectedSeats.has(seatId)) {
+                selectedSeats.delete(seatId);
+                this.classList.remove("selected");
+            } else {
+                if (selectedSeats.size >= maxSeats) {
+                    alert(`Bạn chỉ có thể chọn tối đa ${maxSeats} ghế.`);
+                    return;
+                }
+                selectedSeats.add(seatId);
+                this.classList.add("selected");
+            }
+            updateTotalPrice();
+        });
+    });
+
+    function updateTotalPrice() {
+        const totalPrice = selectedSeats.size * pricePerSeat;
+        totalPriceSpan.innerText = totalPrice.toLocaleString();
+        totalPriceInput.value = totalPrice;
+    }
+
+    function validateForm() {
+        if (selectedSeats.size === 0) {
+            alert("Vui lòng chọn ít nhất một ghế.");
+            return false;
+        }
+
+        const tenKhachHang = document.getElementById("tenKhachHang").value.trim();
+        const soDienThoai = document.getElementById("soDienThoai").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (!tenKhachHang || !soDienThoai || !email) {
+            alert("Vui lòng điền đầy đủ thông tin.");
+            return false;
+        }
+
+        seatInput.value = Array.from(selectedSeats).join(",");
+        totalPriceInput.value = selectedSeats.size * pricePerSeat;
+
+        // Hiển thị modal trước khi submit
+        $('#paymentModal').modal('show');
+
+        // Delay submit để người dùng thấy modal (1 giây)
+        setTimeout(() => {
+            document.querySelector('.ticket-form').submit();
+        }, 1000);
+
+        return false; // Ngăn submit ngay lập tức
+    }
+</script>

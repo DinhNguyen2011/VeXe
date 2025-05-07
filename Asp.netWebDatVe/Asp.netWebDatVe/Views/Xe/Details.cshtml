@@ -1,0 +1,49 @@
+﻿@model Asp.netWebDatVe.Models.Xe
+
+@{
+    ViewData["Title"] = "Chi Tiết Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2 class="text-center mb-4">Chi Tiết bến Xe</h2>
+
+<div class="card shadow-lg mx-auto" style="width: 60%;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title text-center mb-0">Thông tin chi tiết xe</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>Biển Số:</th>
+                <td>@Model.Bienso</td>
+            </tr>
+            <tr>
+                <th>Tên Xe:</th>
+                <td>@Model.Tenxe</td>
+            </tr>
+            <tr>
+                <th>Loại xe:</th>
+                <td>@Model.IdLoaiNavigation.Tenloai</td>
+            </tr>
+            <tr>
+                <th>Hình ảnh:</th>
+                <td>
+                    @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                    {
+                        <img src="@Url.Content(Model.HinhAnh)" alt="Hình ảnh xe" class="img-thumbnail" style="width: 100px; height:100px; " />
+                    }
+                    else
+                    {
+                        <span>Không có hình ảnh</span>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary me-2">Quay Lại</a>
+        <a asp-action="Edit" asp-route-id="@Model.Bienso" class="btn btn-warning me-2">Chỉnh Sửa</a>
+        <a asp-action="Delete" asp-route-id="@Model.Bienso" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model Asp.netWebDatVe.Models.PhieuDatVe
+
+@{
+    ViewData["Title"] = "Tra cứu vé";
+}
+<link rel="stylesheet" href="~/css/TraCuuPhieuDatVe.css" />
+<h1>TRA CỨU THÔNG TIN ĐẶT VÉ</h1>
+
+<div class="lookup-container">
+  
+    <form id="lookupForm" method="post">
+        <div class="form-group">
+            <label for="maVe">Mã vé:</label>
+            <input type="text" id="maVe" name="maVe" placeholder="Nhập mã vé" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email" required />
+        </div>
+        <button type="submit" class="btn-submit">Tra cứu</button>
+    </form>
+
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert-message error">
+            @ViewBag.Message
+        </div>
+    }
+
+    @if (ViewBag.PhieuDatVe != null)
+    {
+        var phieu = ViewBag.PhieuDatVe as Asp.netWebDatVe.Models.PhieuDatVe;
+        <div class="result-container">
+            <h2>Thông Tin Phiếu Đặt Vé</h2>
+            <table class="result-table">
+                <tr>
+                    <th>Mã Phiếu:</th>
+                    <td>@phieu.MaPhieu</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>@phieu.Email</td>
+                </tr>
+                <tr>
+                    <th>Ngày Đặt:</th>
+                    <td>@phieu.NgayDat?.ToString("dd/MM/yyyy")</td>
+                </tr>
+                <tr>
+                    <th>Tổng Tiền:</th>
+                    <td>@phieu.TongTien?.ToString("N0") VND</td>
+                </tr>
+                <tr>
+                    <th>Trạng Thái:</th>
+                    <td>@phieu.TrangThai</td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+
+<script>
+    document.getElementById("lookupForm").addEventListener("submit", function (event) {
+       // js nhap thong tin
+        let maVe = document.getElementById("maVe").value.trim();
+        let email = document.getElementById("email").value.trim();
+
+        if (!maVe || !email) {  
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            event.preventDefault();
+        }
+    });
+</script>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.PhanQuyen>
+
+@{
+    ViewData["Title"] = "Danh sách phân quyền";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách phân quyền</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm phân quyền mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã quyền</th>
+            <th>Tên quyền</th>
+            <th>Tác vụ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaQuyen</td>
+                <td>@item.TenQuyen</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaQuyen" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.MaQuyen" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@model Asp.netWebDatVe.Models.TuyenXe
+@{
+    ViewData["Title"] = "Chỉnh sửa Tuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>Chỉnh sửa Tuyến Xe</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" name="MaTuyen" value="@Model.MaTuyen" />
+    <div class="form-group">
+        <label asp-for ="DiemDi"></label>
+        <input type="text" class="form-control" id="DiemDi" name="DiemDi" value="@Model.DiemDi" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="DiemDen"></label>
+        <input type="text" class="form-control" id="DiemDen" name="DiemDen" value="@Model.DiemDen" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="SoNgayChayTrongTuan"></label>
+        <input type="number" class="form-control" id="SoNgayChayTrongTuan" name="SoNgayChayTrongTuan" value="@Model.SoNgayChayTrongTuan" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GiaHienHanh"></label>
+        <input type="number" class="form-control" id="GiaHienHanh" name="GiaHienHanh" value="@Model.GiaHienHanh" />
+    </div>
+    <div class="form-group">
+        <label asp-for="QuangDuong"></label>
+        <input type="number" class="form-control" id="QuangDuong" name="QuangDuong" value="@Model.QuangDuong" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaBenXe" class="control-label"></label>
+        <select asp-for="MaBenXe" class="form-control">
+            <option value="">Chọn bến xe đi</option>
+            @foreach (var item in ViewBag.BenXes as SelectList)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        <span asp-validation-for="MaBenXe" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaBenXeDen" class="control-label"></label>
+        <select asp-for="MaBenXeDen" class="form-control">
+            <option value="">Chọn bến xe đến</option>
+            @foreach (var item in ViewBag.BenXeDens as SelectList)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        <span asp-validation-for="MaBenXeDen" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Cập nhật</button>
+    <a href="@Url.Action("Index", "TuyenXe")" class="btn btn-secondary">Hủy</a>
+</form>

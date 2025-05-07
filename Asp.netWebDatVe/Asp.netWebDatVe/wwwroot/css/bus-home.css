@@ -1,44 +1,16 @@
-﻿/* Background */
-.bus-home-background {
+﻿/* Background section */
+.home-background {
     background: url('/images/bner.webp') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
     padding: 60px;
-    border-radius:15px;
-    background-attachment: fixed; /* Key để parallax */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin:20px 0px;
-    //animation: moveBackground 5s linear infinite;
-}
-@media (max-width: 768px) {
-    .bus-home-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .intro-section {
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .search-form {
-        max-width: 90%;
-    }
+    border-radius: 15px;
+    background-attachment: fixed;
+    margin: 20px 0px;
 }
 
-@keyframes moveBackground {
-    0% {
-        background-position: center 0;
-    }
-
-    100% {
-        background-position: center 1000px;
-    }
-}
-/* Layout container */
-.bus-home-container {
+/* Main container */
+.home-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,26 +18,26 @@
     backdrop-filter: blur(3px);
 }
 
-/* Intro section */
-.intro-section {
+/* Intro text */
+.home-intro {
     color: white;
     max-width: 50%;
     padding: 20px;
 }
 
-    .intro-section h1 {
+    .home-intro h1 {
         font-size: 56px;
         font-weight: bold;
     }
 
-    .intro-section h3 {
+    .home-intro h3 {
         font-size: 26px;
         margin-top: 15px;
         font-weight: 400;
     }
 
-/* Form search */
-.search-form {
+/* Search form */
+.home-search-form {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 40px;
     border-radius: 20px;
@@ -74,30 +46,30 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-    .search-form .form-group {
+    .home-search-form .form-group {
         margin-bottom: 20px;
     }
 
-    .search-form label {
+    .home-search-form label {
         font-weight: 600;
         margin-bottom: 8px;
         display: block;
         color: #333;
     }
 
-    .search-form input {
+    .home-search-form input {
         width: 100%;
         padding: 12px;
         border: 1px solid #ccc;
         border-radius: 8px;
     }
 
-.form-button {
+.home-form-button {
     text-align: center;
     margin-top: 20px;
 }
 
-.search-button {
+.home-search-button {
     background-color: #333;
     color: white;
     padding: 12px 30px;
@@ -108,37 +80,72 @@
     transition: background-color 0.3s;
 }
 
-    .search-button:hover {
+    .home-search-button:hover {
         background-color: #555;
     }
 
-/* Fade in effect */
-.fade-in {
+/* Search results */
+.home-search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.home-trip-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 320px;
+    transition: transform 0.3s;
+}
+
+    .home-trip-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .home-trip-card h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .home-trip-card p {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+/* Animation effects */
+.home-fade-in {
     animation: fadeIn 1s ease-in-out forwards;
 }
 
-.fade-in-left {
+.home-fade-in-left {
     animation: fadeInLeft 1.2s ease-in-out forwards;
 }
 
-.fade-in-right {
+.home-fade-in-right {
     animation: fadeInRight 1.2s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-30px);
     }
 
     to {
@@ -150,62 +157,11 @@
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(30px);
     }
 
     to {
         opacity: 1;
         transform: translateX(0);
-    }
-}
-
-/* Loading Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 250px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-    background-color: white;
-    margin: auto;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    width: 300px;
-    font-size: 18px;
-    font-weight: bold;
-}
-/* Form zoom effect */
-.search-form:hover {
-    transform: scale(1.03);
-    transition: transform 0.4s ease;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
-}
-
-/* Text sparkle animation */
-.intro-section h1 {
-    font-size: 56px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
-}
-
-@keyframes shine {
-    0% {
-        background-position: 0%;
-    }
-
-    100% {
-        background-position: 200%;
     }
 }

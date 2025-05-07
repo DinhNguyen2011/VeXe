@@ -1,0 +1,44 @@
+﻿@model Asp.netWebDatVe.Models.PhieuDatVe
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu đặt vé";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- CSS tùy chỉnh -->
+<style>
+
+    .phieudatve-container {
+        margin:50px 0px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+
+    .phieudatve-title {
+        margin-bottom: 20px;
+    }
+
+    .phieudatve-info p {
+        margin: 6px 0;
+    }
+
+    .phieudatve-back-btn {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Chi tiết phiếu đặt vé</h2>
+
+    <div class="phieudatve-info">
+        <p><strong>Mã phiếu:</strong> @Model.MaPhieu</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Ngày đặt:</strong> @Model.NgayDat?.ToString("dd/MM/yyyy")</p>
+        <p><strong>Tổng tiền:</strong> @Model.TongTien?.ToString("N0") VNĐ</p>
+        <p><strong>Trạng thái:</strong> @Model.TrangThai</p>
+    </div>
+
+    <a href="@Url.Action("XemCacPhieuDatVe", "Home")" class="btn btn-secondary phieudatve-back-btn">Quay lại</a>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<DoanhThuViewModel>
+
+@{
+    ViewData["Title"] = "Thống kê";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    #doanhThuChart {
+        max-width: 300px;
+        max-height: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+<h2>Thống kê doanh thu</h2>
+
+<form method="get" asp-action="ThongKeDoanhThu" class="form-inline mb-3">
+    <label>Từ ngày:</label>
+    <input type="date" name="fromDate" class="form-control mx-2" value="@ViewBag.FromDate" />
+
+    <label>Đến ngày:</label>
+    <input type="date" name="toDate" class="form-control mx-2" value="@ViewBag.ToDate" />
+
+    <button type="submit" class="btn btn-primary">Lọc</button>
+</form>
+
+
+
+@if (Model != null && Model.Any())
+{
+    <canvas id="doanhThuChart" width="250" height="250"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('doanhThuChart').getContext('2d');
+        var doanhThuChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+        @foreach (var item in Model)
+        {
+            <text>"@item.Ngay.ToString("dd/MM/yyyy")",</text>
+        }
+                ],
+                datasets: [{
+                    label: 'Doanh Thu',
+                    data: [
+        @foreach (var item in Model)
+        {
+            <text>@item.DoanhThu,</text>
+        }
+                    ],
+                    backgroundColor: [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#8e44ad', '#e67e22', '#2ecc71',
+                        '#1abc9c', '#3498db', '#9b59b6', '#f1c40f', '#e74c3c', '#95a5a6'
+                    ],
+                    hoverOffset: 4
+                }]
+            }
+        });
+    </script>
+}
+else
+{
+    <p>Không có dữ liệu thống kê trong khoảng thời gian này.</p>
+}

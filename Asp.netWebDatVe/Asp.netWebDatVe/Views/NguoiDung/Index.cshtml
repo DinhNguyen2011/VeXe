@@ -1,0 +1,70 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center">Danh sách người dùng</h1>
+<div class="text-center mt-4">
+    <a asp-action="Create" class="btn btn-primary">Thêm người dùng mới</a>
+</div>
+<div class="container mt-3">
+    <div class="table-responsive"> @* respon de bang k trang ra ngoai *@
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Địa chỉ</th>
+                    <th>Quyền</th>
+                    <th>Hình ảnh</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.nd != null)
+                {
+                    foreach (var nguoiDung in ViewBag.nd)
+                    {
+                        <tr>
+                            <td>@nguoiDung.Id</td>
+                            <td>@nguoiDung.Email</td>
+                            <td>@nguoiDung.Sdt</td>
+                            <td>@nguoiDung.HoTen</td>
+                            <td>@nguoiDung.NgaySinh?.ToString("dd/MM/yyyy")</td>
+                            <td>@nguoiDung.DiaChi</td>
+                            <td>@nguoiDung.MaQuyenNavigation?.TenQuyen</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(nguoiDung.HinhAnh))
+                                {
+                                    <img src="@Url.Content(nguoiDung.HinhAnh)" alt="Hình ảnh của @nguoiDung.HoTen" class="img-fluid" style="max-width: 100px; max-height: 100px; border-radius: 10px;" />
+                                }
+                                else
+                                {
+                                    <p>Không có hình ảnh.</p>
+                                }
+                            </td>
+                            
+                            <td>
+                                <a asp-controller="NguoiDung" asp-action="Edit" asp-route-id="@nguoiDung.Id" class="btn btn-warning">Sửa</a>
+                                <a asp-controller="NguoiDung" asp-action="Details" asp-route-id="@nguoiDung.Id" class="btn btn-warning">Chi tiết</a>
+                                <a asp-controller="NguoiDung" asp-action="Delete" asp-route-id="@nguoiDung.Id" class="btn btn-danger">Xóa</a>
+                            </td>
+                            
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center">Không có dữ liệu</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

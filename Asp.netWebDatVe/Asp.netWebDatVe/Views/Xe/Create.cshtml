@@ -1,0 +1,76 @@
+﻿@model Asp.netWebDatVe.Models.XeModel
+
+@{
+    ViewData["Title"] = "Thêm Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container mt-3">
+    <form asp-action="Create" asp-controller="Xe" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="Bienso" class="form-label">Biển Số</label>
+            <input type="text" id="Bienso" name="Bienso" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="IdLoai" class="form-label">Loại Xe</label>
+            <select id="IdLoai" name="IdLoai" class="form-select" required>
+                <option value="" disabled selected>Chọn loại xe</option>
+                @foreach (var loaiXe in ViewBag.LoaiXe as List<Asp.netWebDatVe.Models.Loaixe>)
+                {
+                    <option value="@loaiXe.IdLoai">@loaiXe.Tenloai</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Tenxe" class="form-label">Tên Xe</label>
+            <input type="text" id="Tenxe" name="Tenxe" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+   
+            <div class="mb-2">
+                <img id="preview" src="#" width="150" height="100" class="hidden border" alt="Preview Image" />
+            </div>
+
+            <label for="HinhAnh" class="form-label">Hình Ảnh</label>
+            <input type="file" id="HinhAnh" name="HinhAnh" class="form-control" accept="image/*" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a asp-action="Index" asp-controller="Xe" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>
+
+<script>
+    document.getElementById("HinhAnh").addEventListener("change", function (event) {
+        const file = event.target.files[0]; // Lấy file được chọn
+        const preview = document.getElementById("preview"); // Khung hiển thị ảnh
+
+        if (file) {
+       
+            if (file.type.startsWith("image/")) {
+                const reader = new FileReader();
+
+                
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove("hidden");
+                };
+
+                reader.readAsDataURL(file); // Đọc file dưới dạng DataURL
+            } else {
+                alert("Vui lòng chọn file ảnh hợp lệ!");
+                preview.src = "#";
+                preview.classList.add("hidden");
+            }
+        } else {
+            preview.src = "#";
+            preview.classList.add("hidden");
+        }
+    });
+</script>

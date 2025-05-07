@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.Vitrighe>
+
+@{
+    ViewData["Title"] = "Danh sách vị trí ghế";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách vị trí ghế</h2>
+<p><a class="btn btn-primary" asp-action="Create">Thêm vị trí</a></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã ghế</th>
+            <th>Tên ghế</th>
+            <th>Biển số xe</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdVitri</td>
+                <td>@item.Tenvitri</td>
+                <td>@item.Bienso</td>
+                <td>@(item.Trangthai == true ? "Đang sử dụng" : "Trống")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdVitri" class="btn btn-warning btn-sm">Sửa</a>
+                    <a asp-action="Details" asp-route-id="@item.IdVitri" class="btn btn-info btn-sm">Chi tiết</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdVitri" class="btn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xóa?');">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

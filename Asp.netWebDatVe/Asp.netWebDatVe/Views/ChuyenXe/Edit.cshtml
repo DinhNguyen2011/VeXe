@@ -1,0 +1,52 @@
+﻿@model Asp.netWebDatVe.Models.ChuyenXe
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Chuyến Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>Chỉnh Sửa Chuyến Xe</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="MaChuyen" />
+
+    <div class="form-group">
+        <label>Tên chuyến xe</label>
+        <input asp-for="TenChuyenXe" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Biển số xe</label>
+        <select asp-for="BienSoXe" class="form-control">
+            <option value="">Chọn Xe</option>
+            @foreach (var item in (List<SelectListItem>)ViewBag.Xes)
+            {
+                <option value="@item.Value">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Tuyến xe</label>
+        <select asp-for="MaTuyen" class="form-control">
+            <option value="">Chọn Tuyến</option>
+            @foreach (var item in (List<SelectListItem>)ViewBag.TuyenXes)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Thời Điểm Khởi Hành</label>
+        <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Thời Điểm Đến</label>
+        <input asp-for="ThoiDiemDenDuKien" type="datetime-local" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Giá vé</label>
+        <input asp-for="GiaVe" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

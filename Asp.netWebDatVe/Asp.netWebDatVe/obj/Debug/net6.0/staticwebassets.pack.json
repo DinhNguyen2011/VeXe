@@ -2697,6 +2697,22 @@
       "PackagePath": "staticwebassets\\assets\\plugins\\twitter-bootstrap-wizard\\prettify.js"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\ChonGhe.css",
+      "PackagePath": "staticwebassets\\css\\ChonGhe.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
+      "PackagePath": "staticwebassets\\css\\LienHeVoiChungToi.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\TraCuuPhieuDatVe.css",
+      "PackagePath": "staticwebassets\\css\\TraCuuPhieuDatVe.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\Vechungtoi.css",
+      "PackagePath": "staticwebassets\\css\\Vechungtoi.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\ajax-loader.gif",
       "PackagePath": "staticwebassets\\css\\ajax-loader.gif"
     },
@@ -2707,6 +2723,10 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
       "PackagePath": "staticwebassets\\css\\bus-home.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\indexLichTrinh.css",
+      "PackagePath": "staticwebassets\\css\\indexLichTrinh.css"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\site.css",
@@ -2723,6 +2743,10 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\29B-12345_xe3.jpg",
+      "PackagePath": "staticwebassets\\images\\29B-12345_xe3.jpg"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\BN.jpg",
@@ -2747,6 +2771,10 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\timkiem.jpg",
       "PackagePath": "staticwebassets\\images\\timkiem.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\LichTrinh.js",
+      "PackagePath": "staticwebassets\\js\\LichTrinh.js"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\ajax-loader.gif",

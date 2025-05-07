@@ -1,0 +1,51 @@
+﻿@model List<Asp.netWebDatVe.Models.TuyenXe>
+@{
+    ViewData["Title"] = "Lịch Trình";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/indexLichTrinh.css" />
+
+<div class="lt-schedule">
+    <h1 class="lt-title">Lịch Trình Các Tuyến Xe</h1>
+
+    <form method="get" asp-action="Index">
+        <div class="lt-search-box">
+            <input type="text" name="searchTerm" class="lt-input" placeholder="Nhập điểm đi hoặc điểm đến..." />
+            <button class="lt-btn" type="submit">Tìm Kiếm</button>
+        </div>
+    </form>
+
+    <table class="lt-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Điểm Đi</th>
+                <th>Điểm Đến</th>
+                <th>Quãng Đường (km)</th>
+                <th>Giá Hiện Hành (VND)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var tuyenXe = Model[i];
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@tuyenXe.DiemDi</td>
+                    <td>@tuyenXe.DiemDen</td>
+                    <td>@tuyenXe.QuangDuong</td>
+                    <td>@tuyenXe.GiaHienHanh?.ToString("N0")</td>
+                    <td>
+                        <form asp-controller="Home" asp-action="Index" method="get">
+                            <input type="hidden" name="diemDi" value="@tuyenXe.DiemDi" />
+                            <input type="hidden" name="diemDen" value="@tuyenXe.DiemDen" />
+                            <button type="submit" class="lt-btn">Chọn Tuyến Xe</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+,<script src="~/js/LichTrinh.js"></script>

@@ -1,0 +1,116 @@
+﻿@model Asp.netWebDatVe.Models.Xe
+
+@{
+    ViewData["Title"] = "Chỉnh sửa xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .outer-container {
+        width: 90%; /* Điều chỉnh chiều rộng container */
+        margin: -10px auto; /* Căn giữa và thêm khoảng cách phía trên */
+        padding: 25px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .table-wrapper {
+        max-height: 700px; /* Giới hạn chiều cao bảng */
+        overflow-y: auto; /* Kích hoạt cuộn dọc */
+        border: 1px solid #ddd; /* Thêm đường viền bao quanh bảng */
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .table {
+        width: 100%; /* Chiếm toàn bộ chiều rộng của wrapper */
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+            position: sticky; /* Giữ cố định tiêu đề khi cuộn */
+            top: 0;
+            z-index: 2;
+        }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+        margin: 5px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    img {
+        border-radius: 5px; /* Làm tròn góc hình ảnh */      
+    }
+</style>
+
+<div class="outer-container">
+    <h2>Danh sách Xe</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Thêm Xe</a>
+    </p>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Biển số</th>
+                    <th>Id Loại xe</th>
+                    <th>Tên xe</th>
+                    <th>Hình ảnh</th>
+                    <th>Tác Vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.xe)
+                {
+                    <tr>
+                        <td>@item.Bienso</td>
+                        <td>@item.IdLoai</td>
+                        <td>@item.Tenxe</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(@item.HinhAnh))
+                            {
+                                <div>
+                                    <img src="@Url.Content(@item.HinhAnh)" alt="Image of @item.Tenxe" style="width: 100px; height: 150px;" />
+                                </div>
+                            }
+                            else
+                            {
+                                <p>Không có hình ảnh.</p>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Xe" asp-action="Edit" asp-route-id="@item.Bienso" class="btn btn-warning">Sửa</a>
+                            <a asp-controller="Xe" asp-action="Details" asp-route-id="@item.Bienso" class="btn btn-warning">Chi tiết</a>
+                            <a asp-controller="Xe" asp-action="Delete" asp-route-id="@item.Bienso" class="btn btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

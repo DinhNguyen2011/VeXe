@@ -1,0 +1,54 @@
+﻿/* Phần chính của trang liên hệ Khánh An */
+.ka-contact-section {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .ka-contact-section h2 {
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .ka-contact-section .ka-info-title {
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .ka-contact-section p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .ka-contact-section form .ka-label {
+        font-weight: 600;
+        color: #444;
+    }
+
+    .ka-contact-section form .ka-input {
+        border-radius: 4px;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s;
+    }
+
+        .ka-contact-section form .ka-input:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+    .ka-contact-section .ka-submit-btn {
+        background-color: #007bff;
+        border-color: #007bff;
+        font-weight: bold;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .ka-contact-section .ka-submit-btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }

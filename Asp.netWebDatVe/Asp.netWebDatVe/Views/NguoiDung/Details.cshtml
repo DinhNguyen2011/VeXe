@@ -1,0 +1,60 @@
+﻿@model Asp.netWebDatVe.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Chi Tiết Người Dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center mb-4">Chi Tiết Người Dùng</h2>
+
+<div class="card shadow-lg mx-auto" style="width: 60%;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title text-center mb-0">Thông tin chi tiết người dùng</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>Email:</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Số điện thoại:</th>
+                <td>@Model.Sdt</td>
+            </tr>
+            <tr>
+                <th>Họ và tên:</th>
+                <td>@Model.HoTen</td>
+            </tr>
+            <tr>
+                <th>Ngày sinh:</th>
+                <td>@Model.NgaySinh</td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>@Model.DiaChi</td>
+            </tr>
+            <tr>
+                <th>Quyền:</th>
+                <td>@Model.MaQuyenNavigation?.TenQuyen</td>
+            </tr>
+            <tr>
+                <th>Ảnh đại diện:</th>
+                <td>
+                    @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                    {
+                        <img src="@Url.Content(Model.HinhAnh)" alt="Hình ảnh người dùng" class="img-thumbnail" style="width: 100px; height:100px;" />
+                    }
+                    else
+                    {
+                        <span>Không có hình ảnh</span>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary me-2">Quay Lại</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">Chỉnh Sửa</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

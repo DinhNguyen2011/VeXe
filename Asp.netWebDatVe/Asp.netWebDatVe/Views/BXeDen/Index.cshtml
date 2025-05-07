@@ -1,0 +1,97 @@
+﻿@model Asp.netWebDatVe.Models.BenXeDen
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Bến Xe Đến";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .outer-container {
+        width: 1232px;
+        height: 705px;
+        margin: -40px;
+        padding: 0px 145px 0px 35px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-wrapper {
+        width: 70%; /* Kích thước nhỏ hơn div */
+        margin: auto; /* Căn giữa bảng */
+        overflow: hidden; /* Loại bỏ nội dung dư thừa */
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    }
+
+    .table {
+        width: 100%; /* Chiếm 100% không gian của table-wrapper */
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+        margin: 5px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>
+
+<div class="outer-container">
+    <h2>Danh sách Bến Đến</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Thêm Bến Đến</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã Bến</th>
+                <th>Tên Bến</th>
+                <th>Địa Chỉ</th>
+                <th>Số Điện Thoại</th>
+                <th>Tác Vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.bxd)
+            {
+                <tr>
+                    <td>@item.MaBenXeDen</td>
+                    <td>@item.TenBenXeDen</td>
+                    <td>@item.DiaChi</td>
+                    <td>@item.Sdt</td>
+                    <td>
+                        <a asp-controller="BXeDen" asp-action="Edit" asp-route-id="@item.MaBenXeDen" class="btn btn-warning">Sửa</a>
+                        <a asp-controller="BXeDen" asp-action="Details" asp-route-id="@item.MaBenXeDen" class="btn btn-warning">Chi tiết</a>
+                        <a asp-controller="BXeDen" asp-action="Delete" asp-route-id="@item.MaBenXeDen" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

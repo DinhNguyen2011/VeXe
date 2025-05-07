@@ -1,0 +1,34 @@
+﻿@model Asp.netWebDatVe.Models.BenXe
+
+@{
+    ViewData["Title"] = "Chỉnh sửa bến xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa bến xe</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="MaBenXe" />
+
+    <div class="form-group">
+        <label asp-for="TenBenXe" class="control-label"></label>
+        <input asp-for="TenBenXe" class="form-control" required />
+        <span asp-validation-for="TenBenXe" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DiaChi" class="control-label"></label>
+        <input asp-for="DiaChi" class="form-control" required />
+        <span asp-validation-for="DiaChi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sdt" class="control-label"></label>
+        <input asp-for="Sdt" class="form-control" type="tel" />
+        <span asp-validation-for="Sdt" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Cập nhật</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

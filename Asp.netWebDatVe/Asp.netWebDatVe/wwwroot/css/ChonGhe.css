@@ -1,0 +1,252 @@
+﻿ Reset and base styles 
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/*body {
+    margin-bottom: 60px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
+}*/
+
+.title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.legend {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.legend-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+    .legend-icon.available {
+        background-color: #cce5ff;
+    }
+
+    .legend-icon.occupied {
+        background-color: #ffcdd2;
+    }
+
+    .legend-icon.selected {
+        background-color: #ffecb3;
+        border: 1px solid #ff9800;
+    }
+
+/* Container Layout */
+.ticket-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.ticket-form {
+    flex: 2;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.terms {
+    width: 280px;
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    .terms h5, .terms h3 {
+        color: #d32f2f;
+        margin-bottom: 12px;
+    }
+
+    .terms p {
+        color: #444;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+.total-price span {
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 1.2rem;
+}
+
+/* Button */
+.btn-primary {
+    background-color: #1976d2;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #1565c0;
+    }
+
+/* Seat Map Container */
+.seat-map-container {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 12px;
+    justify-items: center;
+}
+
+/* Seat Buttons */
+.seat {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .seat:hover:not(.seat-occupied) {
+        transform: scale(1.05);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+.seat-icon {
+    font-size: 34px;
+    transition: color 0.3s ease;
+    color: #2196f3; /* Default: available */
+}
+
+.seat-occupied .seat-icon {
+    color: #9e9e9e;
+}
+
+.seat.selected .seat-icon {
+    color: #ff9800;
+}
+
+/* Seat number text */
+.seat-number {
+    position: absolute;
+    font-size: 13px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    pointer-events: none;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-body h3 {
+    color: #388e3c;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modal-body p {
+    color: #555;
+    font-size: 16px;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+    }
+
+#closeModal {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    #closeModal:hover {
+        background-color: #2e7d32;
+    }
+.cancel-policy {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+    .cancel-policy h5 {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .cancel-policy ul {
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .cancel-policy li {
+        margin-bottom: 5px;
+    }

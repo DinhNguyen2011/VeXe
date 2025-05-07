@@ -1,0 +1,30 @@
+﻿@model Asp.netWebDatVe.Models.Loaixe
+
+@{
+    ViewData["Title"] = "Xóa loại xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa loại xe</h2>
+
+<div class="alert alert-warning">
+    <p>Bạn có chắc chắn muốn xóa loại xe này không?</p>
+    <table class="table">
+        <tr>
+            <th>Mã loại:</th>
+            <td>@Model.IdLoai</td>
+        </tr>
+        <tr>
+            <th>Tên loại xe:</th>
+            <td>@Model.Tenloai</td>
+        </tr>
+        <tr>
+            <th>Số ghế:</th>
+            <td>@Model.Soghe</td>
+        </tr>
+    </table>
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.IdLoai" method="post">
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index", "LoaiXe")" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

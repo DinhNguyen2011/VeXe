@@ -114,6 +114,38 @@ namespace Asp.netWebDatVe.Migrations
                     b.ToTable("ChuyenXe", (string)null);
                 });
 
+            modelBuilder.Entity("Asp.netWebDatVe.Models.LienHe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("HoVaTen")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("NgayGui")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<string>("NoiDung")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LienHe", (string)null);
+                });
+
             modelBuilder.Entity("Asp.netWebDatVe.Models.Loaixe", b =>
                 {
                     b.Property<int>("IdLoai")
