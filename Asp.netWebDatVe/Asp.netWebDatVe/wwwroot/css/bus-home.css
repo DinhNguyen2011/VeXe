@@ -1,4 +1,5 @@
-﻿@keyframes shine {
+﻿/* Shine animation for text sparkle effect */
+@keyframes shine {
     0% {
         background-position: 0%;
     }
@@ -8,7 +9,6 @@
     }
 }
 
-
 /* Background */
 .bus-home-background {
     background: url('/images/timkiem.jpg') no-repeat center center fixed;
@@ -17,7 +17,6 @@
     padding: 60px;
     border-radius: 10px;
 }
-
 
 /* Layout container */
 .bus-home-container {
@@ -38,6 +37,11 @@
     .intro-section h1 {
         font-size: 56px;
         font-weight: bold;
+        background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s linear infinite;
     }
 
     .intro-section h3 {
@@ -53,7 +57,7 @@
     border-radius: 20px;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
     .search-form .form-group {
@@ -94,7 +98,14 @@
         background-color: #555;
     }
 
-/* Fade in effect */
+/* Form zoom effect */
+.search-form:hover {
+    transform: scale(1.03);
+    transition: transform 0.4s ease;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Fade-in effects */
 .fade-in {
     animation: fadeIn 1s ease-in-out forwards;
 }
@@ -141,6 +152,18 @@
     }
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Loading Modal */
 .modal {
     display: none;
@@ -151,7 +174,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal-content {
@@ -164,21 +187,286 @@
     font-size: 18px;
     font-weight: bold;
 }
-/* Form zoom effect */
-.search-form:hover {
-    transform: scale(1.03);
-    transition: transform 0.4s ease;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+/* Additional content */
+.additional-content {
+    padding: 50px 0;
+    background-color: #f8f9fa;
 }
 
-/* Text sparkle animation */
-.intro-section h1 {
-    font-size: 56px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
+/* Service Intro Section */
+.service-intro {
+    padding: 20px;
 }
 
+.service-item {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .service-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.service-item h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Popular Routes Section */
+.popular-routes-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+    .popular-routes-section h2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: #28a745;
+        margin-bottom: 30px;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .popular-routes-section .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .popular-routes-section .col-md-4 {
+        display: flex;
+        flex: 1 1 30%;
+    }
+
+    .popular-routes-section .route-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        animation: fadeInUp 1.2s ease-in-out forwards;
+    }
+
+    .popular-routes-section .route-image {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popular-routes-section .route-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 8px 16px;
+        border-radius: 8px;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        margin: 0;
+    }
+
+    .popular-routes-section .route-details {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .popular-routes-section .route-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+        color: #333;
+    }
+
+        .popular-routes-section .route-item:last-child {
+            border-bottom: none;
+        }
+
+    .popular-routes-section .destination {
+        font-weight: 600;
+        color: #28a745;
+        flex: 0 0 50%;
+    }
+
+    .popular-routes-section .info {
+        text-align: right;
+        flex: 0 0 50%;
+        color: #666;
+    }
+
+    .popular-routes-section .price {
+        font-weight: bold;
+        color: #28a745;
+        margin-left: 5px;
+    }
+
+/* Bus Lines Section */
+.bus-lines-section {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+    .bus-lines-section h2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: #28a745;
+        margin-bottom: 15px;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .bus-lines-section p {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 30px;
+        animation: fadeIn 1.2s ease-in-out forwards;
+    }
+
+    .bus-lines-section .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .bus-lines-section .col-md-4 {
+        display: flex;
+    }
+
+    .bus-lines-section .icon-box {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeInUp 1.4s ease-in-out forwards;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .bus-lines-section .icon-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .bus-lines-section .icon-box img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .bus-lines-section .icon-box h5 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .bus-lines-section .icon-box p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bus-home-background {
+        padding: 30px 15px;
+    }
+
+    .bus-home-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .intro-section {
+        max-width: 100%;
+        text-align: center;
+    }
+
+        .intro-section h1 {
+            font-size: 40px;
+        }
+
+        .intro-section h3 {
+            font-size: 20px;
+        }
+
+    .search-form {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .popular-routes-section,
+    .bus-lines-section {
+        padding: 30px 15px;
+    }
+
+        .popular-routes-section h2,
+        .bus-lines-section h2 {
+            font-size: 28px;
+        }
+
+        .popular-routes-section .col-md-4,
+        .bus-lines-section .col-md-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .popular-routes-section .route-image {
+            height: 120px;
+        }
+
+        .popular-routes-section .route-item {
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .popular-routes-section .destination,
+        .popular-routes-section .info {
+            flex: 0 0 100%;
+        }
+
+        .popular-routes-section .info {
+            margin-top: 5px;
+        }
+
+        .bus-lines-section .icon-box {
+            margin-bottom: 20px;
+        }
+
+            .bus-lines-section .icon-box img {
+                width: 60px;
+                height: 60px;
+            }
+}

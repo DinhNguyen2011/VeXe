@@ -532,7 +532,13 @@ wwwroot\images\backround.png
 wwwroot\images\BannnerBus.png
 wwwroot\images\BN.jpg
 wwwroot\images\bner.webp
+wwwroot\images\customer.png
+wwwroot\images\DaLat.jpg
+wwwroot\images\front-of-bus.png
+wwwroot\images\HCMCityMyLove.jpg
 wwwroot\images\main-lg.png
+wwwroot\images\office-building.png
+wwwroot\images\ThuaThienHue.jpg
 wwwroot\images\timkiem.jpg
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
