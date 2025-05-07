@@ -113,20 +113,6 @@
     </div>
 </div>
 
-<!-- Modal thông báo chuyển hướng -->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Đang chuyển hướng</h5>
-                <button type="button" class="btn-close" data-bs-dismiss /modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Bạn sẽ được chuyển hướng đến cổng thanh toán VNPay để hoàn tất thanh toán.
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     const seatButtons = document.querySelectorAll(".seat-available");
@@ -181,14 +167,6 @@
         seatInput.value = Array.from(selectedSeats).join(",");
         totalPriceInput.value = selectedSeats.size * pricePerSeat;
 
-        // Hiển thị modal trước khi submit
-        $('#paymentModal').modal('show');
-
-        // Delay submit để người dùng thấy modal (1 giây)
-        setTimeout(() => {
-            document.querySelector('.ticket-form').submit();
-        }, 1000);
-
-        return false; // Ngăn submit ngay lập tức
+     
     }
 </script>

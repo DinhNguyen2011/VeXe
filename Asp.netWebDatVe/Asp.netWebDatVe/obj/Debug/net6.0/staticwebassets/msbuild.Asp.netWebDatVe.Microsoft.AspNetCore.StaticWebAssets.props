@@ -9372,8 +9372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7jce6vgb5g</Fingerprint>
-      <Integrity>85gwOBRdS0UrNRtCMfFax5rK9QuoBEJ1oMNEdTYN3cM=</Integrity>
+      <Fingerprint>bbyz9sr30q</Fingerprint>
+      <Integrity>iV5scCxUsoDUKQEKx+bCR2vtrX8Zhuc50ETvLhHCyM8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</OriginalItemSpec>
@@ -9390,8 +9390,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x62h452c01</Fingerprint>
-      <Integrity>Wf20aAWVnhVA9SrJ+7onOTgUjgLc03XXDagJyh33xCY=</Integrity>
+      <Fingerprint>prtsl4sxxc</Fingerprint>
+      <Integrity>tUp27A8a9/onPT6so9ES94WPP0y98md7gYhbX2EjUNs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChonGhe.css'))</OriginalItemSpec>

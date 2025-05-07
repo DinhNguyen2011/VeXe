@@ -1,9 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Trang chủ";
 }
+
+<link rel="stylesheet" href="~/css/bus-home.css" />
+
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
-
         <div class="intro-section fade-in-left">
             <h1>Khánh An Luxury</h1>
             <h3>Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
@@ -18,7 +20,7 @@
                     <datalist id="danhSachDiemDi">
                         @if (ViewBag.DanhSachDiemDi != null)
                         {
-                            @foreach (var diem in ViewBag.DanhSachDiemDi)
+                            foreach (var diem in ViewBag.DanhSachDiemDi)
                             {
                                 <option value="@diem"></option>
                             }
@@ -33,7 +35,7 @@
                     <datalist id="danhSachDiemDen">
                         @if (ViewBag.DanhSachDiemDen != null)
                         {
-                            @foreach (var diem in ViewBag.DanhSachDiemDen)
+                            foreach (var diem in ViewBag.DanhSachDiemDen)
                             {
                                 <option value="@diem"></option>
                             }
@@ -44,7 +46,8 @@
                 <div class="form-group">
                     <label for="ngayDi">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
-                           min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@ViewBag.NgayDi" required />
+                           min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi.ToString("yyyy-MM-dd") : "")" required />
                 </div>
 
                 <div class="form-button">
@@ -52,7 +55,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 
@@ -65,16 +67,19 @@
 
 <!-- Kết quả tìm kiếm -->
 <div class="search-results mt-5">
+    <noscript>
+        <p style="color: red; text-align: center;">Vui lòng bật JavaScript để sử dụng tính năng lọc chuyến xe.</p>
+    </noscript>
     @if (ViewBag.TuyenXe != null && ViewBag.ChuyenXes?.Count > 0)
     {
         <div class="row">
             <!-- Bộ lọc -->
             <div class="col-md-4">
                 <div class="card" style="margin: 35px 0px !important;">
-                    <div class="card-header bg-secondary text-white" style="background-color:pink !important">
+                    <div class="card-header bg-primary text-white">
                         <strong>Lọc theo khung giờ</strong>
                     </div>
-                    <div class="card-body" style="background-color:pink">
+                    <div class="card-body" style="background-color: #f8f9fa;">
                         <div class="form-check">
                             <input class="form-check-input time-filter" type="checkbox" value="0-6" id="time1">
                             <label class="form-check-label" for="time1">Sáng sớm 00:00 - 06:00</label>
@@ -143,8 +148,6 @@
     }
 </div>
 
-<!-- Liên kết CSS/JS -->
-<link rel="stylesheet" href="~/css/bus-home.css" />
 <script src="~/js/bus-home.js"></script>
 
 <!-- Script lọc khung giờ -->
@@ -180,5 +183,11 @@
                 trip.style.display = visible ? "block" : "none";
             });
         }
+
+        // Hiển thị modal loading khi submit form
+        const form = document.getElementById("searchForm");
+        form.addEventListener("submit", function () {
+            document.getElementById("loadingModal").style.display = "block";
+        });
     });
 </script>
