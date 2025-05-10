@@ -7,6 +7,7 @@ namespace Asp.netWebDatVe.Models
     {
         public PhieuDatVe()
         {
+            ThanhToans = new HashSet<ThanhToan>();
             VeXes = new HashSet<VeXe>();
         }
 
@@ -16,7 +17,10 @@ namespace Asp.netWebDatVe.Models
         public decimal? TongTien { get; set; }
         public string? TrangThai { get; set; }
         public string? VnpTransactionId { get; set; }
+        public int? MaKhuyenMai { get; set; }
 
+        public virtual KhuyenMai? MaKhuyenMaiNavigation { get; set; }
+        public virtual ICollection<ThanhToan> ThanhToans { get; set; }
         public virtual ICollection<VeXe> VeXes { get; set; }
     }
 }

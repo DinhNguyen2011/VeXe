@@ -16,11 +16,11 @@ namespace Asp.netWebDatVe.Models
         public int? SoNgayChayTrongTuan { get; set; }
         public decimal? GiaHienHanh { get; set; }
         public int? QuangDuong { get; set; }
-        public int? MaBenXe { get; set; }
-        public int? MaBenXeDen { get; set; }
+        public int MaBenXeDi { get; set; }
+        public int MaBenXeDen { get; set; }
 
-        public virtual BenXeDen? MaBenXeDenNavigation { get; set; }
-        public virtual BenXe? MaBenXeNavigation { get; set; }
+        public virtual BenXe MaBenXeDenNavigation { get; set; } = null!;
+        public virtual BenXe MaBenXeDiNavigation { get; set; } = null!;
         public virtual ICollection<ChuyenXe> ChuyenXes { get; set; }
     }
 }

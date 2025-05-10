@@ -10,5 +10,6 @@ namespace Asp.netWebDatVe.Models
         public string Email { get; set; } = null!;
         public string NoiDung { get; set; } = null!;
         public DateTime? NgayGui { get; set; }
+        public string? Sdt { get; set; }
     }
 }

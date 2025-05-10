@@ -15,6 +15,7 @@ namespace Asp.netWebDatVe.Models
         public string? Email { get; set; }
         public int? IdVitri { get; set; }
         public DateTime? NgayDat { get; set; }
+        public string? Sđt { get; set; }
 
         public virtual Vitrighe? IdVitriNavigation { get; set; }
         public virtual ChuyenXe? MaChuyenNavigation { get; set; }

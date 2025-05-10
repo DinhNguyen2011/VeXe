@@ -17,8 +17,15 @@ namespace Asp.netWebDatVe.Models
         public decimal? GiaVe { get; set; }
         public string? BienSoXe { get; set; }
         public string? TenChuyenXe { get; set; }
+        public string? GhiChu { get; set; }
+        public int? MaNhanVien { get; set; }
+        public int? MaTaiXe { get; set; }
+        public int? MaNhanVien1 { get; set; }
 
         public virtual Xe? BienSoXeNavigation { get; set; }
+        public virtual NhanVien? MaNhanVien1Navigation { get; set; }
+        public virtual NhanVien? MaNhanVienNavigation { get; set; }
+        public virtual NhanVien? MaTaiXeNavigation { get; set; }
         public virtual TuyenXe? MaTuyenNavigation { get; set; }
         public virtual ICollection<VeXe> VeXes { get; set; }
     }

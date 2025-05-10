@@ -14,6 +14,7 @@ namespace Asp.netWebDatVe.Models
         public string? DiaChi { get; set; }
         public int? MaQuyen { get; set; }
         public string? HinhAnh { get; set; }
+        public string? ChuThich { get; set; }
 
         public virtual PhanQuyen? MaQuyenNavigation { get; set; }
     }

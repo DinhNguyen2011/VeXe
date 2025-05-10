@@ -7,14 +7,17 @@ namespace Asp.netWebDatVe.Models
     {
         public BenXe()
         {
-            TuyenXes = new HashSet<TuyenXe>();
+            TuyenXeMaBenXeDenNavigations = new HashSet<TuyenXe>();
+            TuyenXeMaBenXeDiNavigations = new HashSet<TuyenXe>();
         }
 
         public int MaBenXe { get; set; }
-        public string? TenBenXe { get; set; }
-        public string? DiaChi { get; set; }
-        public string? Sdt { get; set; }
+        public string TenBenXe { get; set; } = null!;
+        public string DiaChi { get; set; } = null!;
+        public string Sdt { get; set; } = null!;
+        public string? ThanhPho { get; set; }
 
-        public virtual ICollection<TuyenXe> TuyenXes { get; set; }
+        public virtual ICollection<TuyenXe> TuyenXeMaBenXeDenNavigations { get; set; }
+        public virtual ICollection<TuyenXe> TuyenXeMaBenXeDiNavigations { get; set; }
     }
 }

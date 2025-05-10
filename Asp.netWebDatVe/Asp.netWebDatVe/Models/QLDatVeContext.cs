@@ -17,13 +17,15 @@ namespace Asp.netWebDatVe.Models
         }
 
         public virtual DbSet<BenXe> BenXes { get; set; } = null!;
-        public virtual DbSet<BenXeDen> BenXeDens { get; set; } = null!;
         public virtual DbSet<ChuyenXe> ChuyenXes { get; set; } = null!;
+        public virtual DbSet<KhuyenMai> KhuyenMais { get; set; } = null!;
         public virtual DbSet<LienHe> LienHes { get; set; } = null!;
         public virtual DbSet<Loaixe> Loaixes { get; set; } = null!;
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; } = null!;
+        public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; } = null!;
         public virtual DbSet<PhieuDatVe> PhieuDatVes { get; set; } = null!;
+        public virtual DbSet<ThanhToan> ThanhToans { get; set; } = null!;
         public virtual DbSet<TuyenXe> TuyenXes { get; set; } = null!;
         public virtual DbSet<VeXe> VeXes { get; set; } = null!;
         public virtual DbSet<Vitrighe> Vitrighes { get; set; } = null!;
@@ -34,7 +36,7 @@ namespace Asp.netWebDatVe.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-CBMQVLA;Database=QLDatVe;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DINHNGUYEN;Database=QLDatVe;Trusted_Connection=True;");
             }
         }
 
@@ -43,33 +45,17 @@ namespace Asp.netWebDatVe.Models
             modelBuilder.Entity<BenXe>(entity =>
             {
                 entity.HasKey(e => e.MaBenXe)
-                    .HasName("PK__BenXe__436ED7BADC83220E");
+                    .HasName("PK__BenXe__436ED7BA873F7318");
 
                 entity.ToTable("BenXe");
 
-                entity.Property(e => e.DiaChi).HasMaxLength(255);
+                entity.Property(e => e.DiaChi).HasMaxLength(200);
 
-                entity.Property(e => e.Sdt)
-                    .HasMaxLength(20)
-                    .HasColumnName("SDT");
+                entity.Property(e => e.Sdt).HasMaxLength(15);
 
                 entity.Property(e => e.TenBenXe).HasMaxLength(100);
-            });
 
-            modelBuilder.Entity<BenXeDen>(entity =>
-            {
-                entity.HasKey(e => e.MaBenXeDen)
-                    .HasName("PK__BenXeDen__FA9521107644CDCA");
-
-                entity.ToTable("BenXeDen");
-
-                entity.Property(e => e.DiaChi).HasMaxLength(255);
-
-                entity.Property(e => e.Sdt)
-                    .HasMaxLength(20)
-                    .HasColumnName("SDT");
-
-                entity.Property(e => e.TenBenXeDen).HasMaxLength(100);
+                entity.Property(e => e.ThanhPho).HasMaxLength(50);
             });
 
             modelBuilder.Entity<ChuyenXe>(entity =>
@@ -94,10 +80,43 @@ namespace Asp.netWebDatVe.Models
                     .HasForeignKey(d => d.BienSoXe)
                     .HasConstraintName("FK_ChuyenXe_BienSoXe");
 
+                entity.HasOne(d => d.MaNhanVienNavigation)
+                    .WithMany(p => p.ChuyenXeMaNhanVienNavigations)
+                    .HasForeignKey(d => d.MaNhanVien)
+                    .HasConstraintName("FK_ChuyenXe_NhanVien_NhanVien");
+
+                entity.HasOne(d => d.MaNhanVien1Navigation)
+                    .WithMany(p => p.ChuyenXeMaNhanVien1Navigations)
+                    .HasForeignKey(d => d.MaNhanVien1)
+                    .HasConstraintName("FK_ChuyenXe_NhanVien_NhanVien1");
+
+                entity.HasOne(d => d.MaTaiXeNavigation)
+                    .WithMany(p => p.ChuyenXeMaTaiXeNavigations)
+                    .HasForeignKey(d => d.MaTaiXe)
+                    .HasConstraintName("FK_ChuyenXe_NhanVien_TaiXe");
+
                 entity.HasOne(d => d.MaTuyenNavigation)
                     .WithMany(p => p.ChuyenXes)
                     .HasForeignKey(d => d.MaTuyen)
                     .HasConstraintName("FK__ChuyenXe__MaTuye__3C69FB99");
+            });
+
+            modelBuilder.Entity<KhuyenMai>(entity =>
+            {
+                entity.HasKey(e => e.MaKhuyenMai)
+                    .HasName("PK__KhuyenMa__6F56B3BD77E05726");
+
+                entity.ToTable("KhuyenMai");
+
+                entity.Property(e => e.MoTa).HasMaxLength(200);
+
+                entity.Property(e => e.NgayBatDau).HasColumnType("date");
+
+                entity.Property(e => e.NgayKetThuc).HasColumnType("date");
+
+                entity.Property(e => e.PhanTramGiam).HasColumnType("decimal(5, 2)");
+
+                entity.Property(e => e.TenKhuyenMai).HasMaxLength(100);
             });
 
             modelBuilder.Entity<LienHe>(entity =>
@@ -111,6 +130,8 @@ namespace Asp.netWebDatVe.Models
                 entity.Property(e => e.NgayGui)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Sdt).HasMaxLength(15);
             });
 
             modelBuilder.Entity<Loaixe>(entity =>
@@ -138,6 +159,8 @@ namespace Asp.netWebDatVe.Models
                 entity.HasIndex(e => e.Email, "UQ__NguoiDun__A9D10534EAA83623")
                     .IsUnique();
 
+                entity.Property(e => e.ChuThich).HasMaxLength(50);
+
                 entity.Property(e => e.DiaChi).HasMaxLength(255);
 
                 entity.Property(e => e.Email).HasMaxLength(255);
@@ -158,6 +181,24 @@ namespace Asp.netWebDatVe.Models
                     .WithMany(p => p.NguoiDungs)
                     .HasForeignKey(d => d.MaQuyen)
                     .HasConstraintName("FK__NguoiDung__MaQuy__656C112C");
+            });
+
+            modelBuilder.Entity<NhanVien>(entity =>
+            {
+                entity.HasKey(e => e.MaNhanVien)
+                    .HasName("PK__NhanVien__77B2CA47CD53549F");
+
+                entity.ToTable("NhanVien");
+
+                entity.Property(e => e.DiaChi).HasMaxLength(200);
+
+                entity.Property(e => e.HoTen).HasMaxLength(100);
+
+                entity.Property(e => e.Sdt).HasMaxLength(15);
+
+                entity.Property(e => e.VaiTro)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(N'Nhân Viên')");
             });
 
             modelBuilder.Entity<PhanQuyen>(entity =>
@@ -186,6 +227,37 @@ namespace Asp.netWebDatVe.Models
                 entity.Property(e => e.TongTien).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.TrangThai).HasMaxLength(50);
+
+                entity.HasOne(d => d.MaKhuyenMaiNavigation)
+                    .WithMany(p => p.PhieuDatVes)
+                    .HasForeignKey(d => d.MaKhuyenMai)
+                    .HasConstraintName("FK_PhieuDatVe_KhuyenMai");
+            });
+
+            modelBuilder.Entity<ThanhToan>(entity =>
+            {
+                entity.HasKey(e => e.MaThanhToan)
+                    .HasName("PK__ThanhToa__D4B25844477DF218");
+
+                entity.ToTable("ThanhToan");
+
+                entity.Property(e => e.MaGiaoDich).HasMaxLength(100);
+
+                entity.Property(e => e.NgayThanhToan)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.PhuongThuc).HasMaxLength(50);
+
+                entity.Property(e => e.SoTien).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.TrangThai).HasMaxLength(50);
+
+                entity.HasOne(d => d.MaPhieuNavigation)
+                    .WithMany(p => p.ThanhToans)
+                    .HasForeignKey(d => d.MaPhieu)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__ThanhToan__MaPhi__7D0E9093");
             });
 
             modelBuilder.Entity<TuyenXe>(entity =>
@@ -201,15 +273,17 @@ namespace Asp.netWebDatVe.Models
 
                 entity.Property(e => e.GiaHienHanh).HasColumnType("decimal(18, 2)");
 
-                entity.HasOne(d => d.MaBenXeNavigation)
-                    .WithMany(p => p.TuyenXes)
-                    .HasForeignKey(d => d.MaBenXe)
-                    .HasConstraintName("FK_TuyenXe_BenXe");
-
                 entity.HasOne(d => d.MaBenXeDenNavigation)
-                    .WithMany(p => p.TuyenXes)
+                    .WithMany(p => p.TuyenXeMaBenXeDenNavigations)
                     .HasForeignKey(d => d.MaBenXeDen)
-                    .HasConstraintName("FK_TuyenXe_BenXeDen");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaBenXeDen");
+
+                entity.HasOne(d => d.MaBenXeDiNavigation)
+                    .WithMany(p => p.TuyenXeMaBenXeDiNavigations)
+                    .HasForeignKey(d => d.MaBenXeDi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaBenXeDi");
             });
 
             modelBuilder.Entity<VeXe>(entity =>
@@ -228,6 +302,10 @@ namespace Asp.netWebDatVe.Models
                 entity.Property(e => e.NgayDat)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Sđt)
+                    .HasMaxLength(50)
+                    .HasColumnName("SĐT");
 
                 entity.Property(e => e.TenKh)
                     .HasMaxLength(50)

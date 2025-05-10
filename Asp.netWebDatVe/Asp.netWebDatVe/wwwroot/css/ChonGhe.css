@@ -250,3 +250,10 @@ html {
     .cancel-policy li {
         margin-bottom: 5px;
     }
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+}

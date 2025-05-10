@@ -21,7 +21,7 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddScoped<IVNPayService,  VNPayService>();
-
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
