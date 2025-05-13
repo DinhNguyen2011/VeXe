@@ -4,38 +4,7 @@
     ViewData["Title"] = "Danh sách phiếu đặt vé";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<style>
-    .phieudatve-list-container {
-        margin: 50px 0px;
-        padding: 20px;
-    }
-
-    .phieudatve-title {
-        margin-bottom: 20px;
-    }
-
-    .phieudatve-table {
-        background-color: #fff;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-        .phieudatve-table th,
-        .phieudatve-table td {
-            vertical-align: middle;
-        }
-
-    .phieudatve-no-ticket {
-        color: #dc3545;
-        font-weight: bold;
-    }
-
-    .btn-action {
-        margin-right: 5px;
-    }
-</style>
+<link rel="stylesheet" href="~/css/DanhSachPDTProF.css">
 
 <div class="phieudatve-list-container">
     <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
@@ -74,12 +43,15 @@
                         <td>@item.TongTien?.ToString("N0") VNĐ</td>
                         <td>@item.TrangThai</td>
                         <td>
-                            <a class="btn btn-info btn-sm btn-action" asp-controller="Home" asp-action="Details" asp-route-id="@item.MaPhieu">Xem</a>
+                            <a class="btn btn-info btn-sm btn-action" asp-controller="XuLyPhieuDatVe" asp-action="Details" asp-route-id="@item.MaPhieu">Xem</a>
 
-                            <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
-                                <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
-                                <button type="submit" class="btn btn-danger btn-sm">Hủy</button>
-                            </form>
+                            @if (item.TrangThai == "Đã thanh toán")
+                            {
+                                <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
+                                    <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
+                                    <button type="submit" class="btn btn-danger btn-sm">Hủy</button>
+                                </form>
+                            }
                         </td>
                     </tr>
                 }

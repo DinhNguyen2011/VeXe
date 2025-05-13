@@ -141,10 +141,6 @@
       "PackagePath": "staticwebassets\\LayoutAdmin\\assets\\images\\faces-clipart\\pic-4.png"
     },
     {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\LayoutAdmin\\assets\\images\\faces\\avt.jpg",
-      "PackagePath": "staticwebassets\\LayoutAdmin\\assets\\images\\faces\\avt.jpg"
-    },
-    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\LayoutAdmin\\assets\\images\\faces\\face1.jpg",
       "PackagePath": "staticwebassets\\LayoutAdmin\\assets\\images\\faces\\face1.jpg"
     },
@@ -665,54 +661,6 @@
       "PackagePath": "staticwebassets\\assets\\img\\brand\\samsung.png"
     },
     {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer1.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer2.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer3.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer4.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer5.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer6.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer7.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\customer8.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\customer8.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\profile2.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\profile2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\profile3.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\profile3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\profile4.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\profile4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\customer\\profile5.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\customer\\profile5.jpg"
-    },
-    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\favicon.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\favicon.jpg"
     },
@@ -1031,10 +979,6 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\logo3.png",
       "PackagePath": "staticwebassets\\assets\\img\\logo3.png"
-    },
-    {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\logso.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\logso.jpg"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\assets\\img\\main-lg.png",
@@ -2697,20 +2641,52 @@
       "PackagePath": "staticwebassets\\assets\\plugins\\twitter-bootstrap-wizard\\prettify.js"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\BenXe.css",
+      "PackagePath": "staticwebassets\\css\\BenXe.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\ChangePassword.css",
+      "PackagePath": "staticwebassets\\css\\ChangePassword.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\ChonGhe.css",
       "PackagePath": "staticwebassets\\css\\ChonGhe.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\DanhSachPDTProF.css",
+      "PackagePath": "staticwebassets\\css\\DanhSachPDTProF.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\EditProfile.css",
+      "PackagePath": "staticwebassets\\css\\EditProfile.css"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "PackagePath": "staticwebassets\\css\\LienHeVoiChungToi.css"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\PhieuDatVe.css",
+      "PackagePath": "staticwebassets\\css\\PhieuDatVe.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\Profile.css",
+      "PackagePath": "staticwebassets\\css\\Profile.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\TraCuuPhieuDatVe.css",
       "PackagePath": "staticwebassets\\css\\TraCuuPhieuDatVe.css"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\TuyenXe.css",
+      "PackagePath": "staticwebassets\\css\\TuyenXe.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\Vechungtoi.css",
       "PackagePath": "staticwebassets\\css\\Vechungtoi.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\Vitrighe.css",
+      "PackagePath": "staticwebassets\\css\\Vitrighe.css"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\ajax-loader.gif",
@@ -2749,6 +2725,18 @@
       "PackagePath": "staticwebassets\\images\\29B-12345_xe3.jpg"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\36A-78901_bird.png",
+      "PackagePath": "staticwebassets\\images\\36A-78901_bird.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png",
+      "PackagePath": "staticwebassets\\images\\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\901b9cfd-393d-40df-9c52-25df5c763896.png",
+      "PackagePath": "staticwebassets\\images\\901b9cfd-393d-40df-9c52-25df5c763896.png"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\BN.jpg",
       "PackagePath": "staticwebassets\\images\\BN.jpg"
     },
@@ -2773,6 +2761,14 @@
       "PackagePath": "staticwebassets\\images\\backround.png"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bfad1782-8a62-49ab-a28b-a113af69340c.png",
+      "PackagePath": "staticwebassets\\images\\bfad1782-8a62-49ab-a28b-a113af69340c.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bird.png",
+      "PackagePath": "staticwebassets\\images\\bird.png"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bner.webp",
       "PackagePath": "staticwebassets\\images\\bner.webp"
     },
@@ -2781,8 +2777,44 @@
       "PackagePath": "staticwebassets\\images\\customer.png"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer1.jpg",
+      "PackagePath": "staticwebassets\\images\\customer1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer2.jpg",
+      "PackagePath": "staticwebassets\\images\\customer2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer3.jpg",
+      "PackagePath": "staticwebassets\\images\\customer3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer4.jpg",
+      "PackagePath": "staticwebassets\\images\\customer4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer5.jpg",
+      "PackagePath": "staticwebassets\\images\\customer5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer6.jpg",
+      "PackagePath": "staticwebassets\\images\\customer6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer7.jpg",
+      "PackagePath": "staticwebassets\\images\\customer7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer8.jpg",
+      "PackagePath": "staticwebassets\\images\\customer8.jpg"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\front-of-bus.png",
       "PackagePath": "staticwebassets\\images\\front-of-bus.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\lgmain.png",
+      "PackagePath": "staticwebassets\\images\\lgmain.png"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\main-lg.png",
@@ -2791,6 +2823,22 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\office-building.png",
       "PackagePath": "staticwebassets\\images\\office-building.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\profile2.jpg",
+      "PackagePath": "staticwebassets\\images\\profile2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\profile3.jpg",
+      "PackagePath": "staticwebassets\\images\\profile3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\profile4.jpg",
+      "PackagePath": "staticwebassets\\images\\profile4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\profile5.jpg",
+      "PackagePath": "staticwebassets\\images\\profile5.jpg"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\timkiem.jpg",

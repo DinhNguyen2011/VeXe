@@ -4,53 +4,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<link rel="stylesheet" href="~/css/Profile.css" />
-
-<style>
- 
-</style>
+<link rel="stylesheet" href="~/css/Profile.css/>
 
 <div class="container my-5">
-    <h2>Thông Tin Cá Nhân</h2>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            @if (!string.IsNullOrEmpty(Model.HinhAnh))
-            {
-                <div>
-                    <img src="@Url.Content(Model.HinhAnh)" alt="Image of @Model.HoTen" style="width: 290px; height:200px;" />
+    <h2 class="text-center mb-4">Thông Tin Cá Nhân</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4 text-center p-4">
+                        @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                        {
+                            <img src="@Url.Content(Model.HinhAnh)" alt="Image of @Model.HoTen" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <img src="~/images/default-avatar.png" alt="Default Avatar" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" />
+                        }
+                        <a href="@Url.Action("EditProfile", new { id = Model.Id })#upload-image" class="btn btn-outline-primary btn-sm">Tải ảnh lên</a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">@Model.HoTen</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>@Model.Email</td>
+                                </tr>
+                                <tr>
+                                    <th>Số điện thoại:</th>
+                                    <td>@Model.Sdt</td>
+                                </tr>
+                                <tr>
+                                    <th>Ngày sinh:</th>
+                                    <td>@Model.NgaySinh?.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <th>Địa chỉ:</th>
+                                    <td>@Model.DiaChi</td>
+                                </tr>
+                            </table>
+                            <div class="d-flex gap-2">
+                                <a asp-action="EditProfile" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
+                                <a asp-action="ChangePassword" class="btn btn-info">Đổi mật khẩu</a>
+                                <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lịch sử đặt vé -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <h3 class="mb-4">Lịch Sử Đặt Vé</h3>
+            @if (ViewBag.Tickets != null && ((IEnumerable<dynamic>)ViewBag.Tickets).Any())
+
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Mã Vé</th>
+                            <th>Chuyến Xe</th>
+                            <th>Ngày Đi</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ticket in ViewBag.Tickets)
+                        {
+                            <tr>
+                                <td>@ticket.MaVe</td>
+                                <td>@ticket.TenVe</td>
+                                <td>@ticket.NgayDat?.ToString("dd/MM/yyyy")</td>
+                                <td>@ticket.TrangThai</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
             else
             {
-                <p>Không có hình ảnh.</p>
+                <p class="text-muted">Bạn chưa có lịch sử đặt vé nào.</p>
             }
-        </div>
-        <div class="col-md-8">
-            <table class="table table-borderless">
-                <tr>
-                    <th>Họ và tên:</th>
-                    <td>@Model.HoTen</td>
-                </tr>
-                <tr>
-                    <th>Email:</th>
-                    <td>@Model.Email</td>
-                </tr>
-                <tr>
-                    <th>Số điện thoại:</th>
-                    <td>@Model.Sdt</td>
-                </tr>
-                <tr>
-                    <th>Ngày sinh:</th>
-                    <td>@Model.NgaySinh?.ToString("dd/MM/yyyy")</td>
-                </tr>
-                <tr>
-                    <th>Địa chỉ:</th>
-                    <td>@Model.DiaChi</td>
-                </tr>
-            </table>
-
-            <a asp-action="EditProfile" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
         </div>
     </div>
 </div>

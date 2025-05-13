@@ -90,9 +90,9 @@ namespace Asp.netWebDatVe.Controllers
                 .Include(cx => cx.BienSoXeNavigation)
                 .ThenInclude(x => x.IdLoaiNavigation)
                 .Include(cx => cx.MaTuyenNavigation)
-                .ThenInclude(tx => tx.MaBenXeDiNavigation) // Bao gồm bến xe đi
+                .ThenInclude(tx => tx.MaBenXeDiNavigation)
                 .Include(cx => cx.MaTuyenNavigation)
-                .ThenInclude(tx => tx.MaBenXeDenNavigation) // Bao gồm bến xe đến
+                .ThenInclude(tx => tx.MaBenXeDenNavigation)
                 .FirstOrDefault(cx => cx.MaChuyen == maChuyen);
 
             if (chuyenXe == null || chuyenXe.BienSoXeNavigation == null || chuyenXe.BienSoXeNavigation.IdLoaiNavigation == null || chuyenXe.MaTuyenNavigation == null)
@@ -102,10 +102,11 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             var loaixe = chuyenXe.BienSoXeNavigation.IdLoaiNavigation;
-            var soGhe = loaixe.Soghe;
+            var soGhe = loaixe.Soghe; // Số ghế từ loại xe
 
             var danhSachGhe = db.Vitrighes
                 .Where(ghe => ghe.Bienso == chuyenXe.BienSoXe)
+                .OrderBy(ghe => ghe.Tenvitri) // Sắp xếp theo Tenvitri (G1, G2, ..., G40)
                 .Select(ghe => new
                 {
                     ghe.IdVitri,
@@ -114,18 +115,25 @@ namespace Asp.netWebDatVe.Controllers
                 })
                 .ToList();
 
+            // Kiểm tra số ghế thực tế
+            var soGheThucTe = danhSachGhe.Count; // Tổng số ghế thực tế trong danhSachGhe
+            if (soGhe != soGheThucTe)
+            {
+                // Nếu số ghế từ loaixe.Soghe không khớp với danhSachGhe, sửa lại soGhe
+                soGhe = soGheThucTe;
+                _logger.LogWarning($"Số ghế trong loaixe.Soghe ({loaixe.Soghe}) không khớp với danh sách ghế thực tế ({soGheThucTe}) cho chuyến xe {maChuyen}.");
+            }
+
             ViewBag.MaChuyen = maChuyen;
             ViewBag.ChuyenXe = chuyenXe;
-            ViewBag.SoGhe = soGhe;
+            ViewBag.SoGhe = soGhe; // Cập nhật lại số ghế
             ViewBag.GheDaDat = danhSachGhe.Where(ghe => ghe.Trangthai == true).Select(ghe => ghe.IdVitri).ToList();
             ViewBag.DanhSachGhe = danhSachGhe;
 
-            // Gán thông tin tuyến xe vào ViewBag để sử dụng trong view
             ViewBag.TuyenXe = chuyenXe.MaTuyenNavigation;
 
             return View("ChonGhe");
         }
-
         [HttpPost]
         public IActionResult DatVe(int maChuyen, string selectedSeats, string tenKhachHang, string soDienThoai, string email, string ghiChu, decimal totalPrice)
         {
@@ -209,6 +217,8 @@ namespace Asp.netWebDatVe.Controllers
         [HttpGet]
         public async Task<IActionResult> PaymentCallback()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var paymentResponse = _vnpayService.PaymentExecute(Request.Query);
 
             if (!paymentResponse.Success && paymentResponse.VnPayResponseCode == "97")
@@ -357,111 +367,6 @@ namespace Asp.netWebDatVe.Controllers
 
             return View("PaymentCallback", paymentResponse);
         }
-        public IActionResult XemCacPhieuDatVe()
-        {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-            ViewData["Title"] = "Thông tin vé";
-
-            string? userInfo = HttpContext.Session.GetString("UserInfo");
-
-            if (string.IsNullOrEmpty(userInfo))
-            {
-                TempData["Error"] = "Vui lòng đăng nhập để xem thông tin đặt vé.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            var user = JsonConvert.DeserializeObject<NguoiDung>(userInfo);
-            if (user == null || string.IsNullOrEmpty(user.Email))
-            {
-                TempData["Error"] = "Thông tin người dùng không hợp lệ.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            var bookings = db.PhieuDatVes
-                .Include(p => p.VeXes)
-                .ThenInclude(v => v.MaChuyenNavigation)
-                .Include(p => p.MaKhuyenMaiNavigation)
-                .Where(p => p.Email == user.Email)
-                .OrderByDescending(p => p.NgayDat)
-                .ToList();
-
-            return View(bookings);
-        }
-
-        [HttpPost]
-        public IActionResult HuyPhieuDatVe(int maPhieu)
-        {
-            var phieu = db.PhieuDatVes
-                .Include(p => p.VeXes)
-                .ThenInclude(v => v.IdVitriNavigation)
-                .FirstOrDefault(p => p.MaPhieu == maPhieu);
-
-            if (phieu == null)
-            {
-                TempData["Error"] = "Không tìm thấy phiếu đặt vé.";
-                return RedirectToAction("XemCacPhieuDatVe");
-            }
-
-            // Kiểm tra trạng thái trước khi hủy
-            if (phieu.TrangThai != "Đã thanh toán")
-            {
-                TempData["Error"] = "Chỉ có thể hủy vé đã thanh toán.";
-                return RedirectToAction("XemCacPhieuDatVe");
-            }
-
-            // Đổi trạng thái ghế về false
-            foreach (var ve in phieu.VeXes)
-            {
-                if (ve.IdVitriNavigation != null)
-                {
-                    ve.IdVitriNavigation.Trangthai = false;
-                }
-            }
-
-            db.VeXes.RemoveRange(phieu.VeXes);
-            db.PhieuDatVes.Remove(phieu);
-            db.SaveChanges();
-
-            TempData["Message"] = "Hủy vé thành công.";
-            return RedirectToAction("XemCacPhieuDatVe");
-        }
-
-        public IActionResult Details(int id)
-        {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-            ViewData["Title"] = "Chi tiết phiếu đặt vé";
-
-            string? userInfo = HttpContext.Session.GetString("UserInfo");
-
-            if (string.IsNullOrEmpty(userInfo))
-            {
-                TempData["Error"] = "Vui lòng đăng nhập để xem chi tiết phiếu đặt vé.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            var user = JsonConvert.DeserializeObject<NguoiDung>(userInfo);
-            if (user == null || string.IsNullOrEmpty(user.Email))
-            {
-                TempData["Error"] = "Thông tin người dùng không hợp lệ.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            var booking = db.PhieuDatVes
-                .Include(p => p.VeXes)
-                .ThenInclude(v => v.IdVitriNavigation)
-                .ThenInclude(vg => vg.BiensoNavigation)
-                .Include(p => p.MaKhuyenMaiNavigation)
-                .FirstOrDefault(p => p.MaPhieu == id && p.Email == user.Email);
-
-            if (booking == null)
-            {
-                TempData["Error"] = "Phiếu đặt vé không tồn tại hoặc không thuộc về bạn.";
-                return RedirectToAction("XemCacPhieuDatVe");
-            }
-
-            return View(booking);
-        }
+       
     }
 }

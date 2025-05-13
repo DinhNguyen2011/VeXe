@@ -17,6 +17,8 @@ namespace Asp.netWebDatVe.Controllers
 
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var veXeList = _context.VeXes
                 .Include(v => v.MaChuyenNavigation)
                 .Include(v => v.IdVitriNavigation)
@@ -28,7 +30,8 @@ namespace Asp.netWebDatVe.Controllers
 
         public IActionResult Create()
         {
-
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.ChuyenXeList = new SelectList(_context.ChuyenXes, "MaChuyen", "TenChuyenXe");
 
             ViewBag.BienSoList = new SelectList(_context.Xes, "Bienso", "Bienso");
@@ -44,6 +47,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(VeXe veXe, string selectedBienSo)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (ModelState.IsValid)
             {
                 _context.VeXes.Add(veXe);
@@ -65,6 +70,8 @@ namespace Asp.netWebDatVe.Controllers
         [HttpGet]
         public IActionResult GetViTriGheByBienSo(string bienSo)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var viTriList = _context.Vitrighes
                                     .Where(v => v.Bienso == bienSo && v.Trangthai == false)
                                     .Select(v => new
@@ -101,6 +108,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (_context.VeXes == null)
             {
                 return Problem("Entity set 'QLDatVeContext.VeXes'  is null.");
@@ -131,6 +140,8 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult ThongKeDoanhThu(DateTime? fromDate, DateTime? toDate)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.FromDate = fromDate?.ToString("yyyy-MM-dd");
             ViewBag.ToDate = toDate?.ToString("yyyy-MM-dd");
 

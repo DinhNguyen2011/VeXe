@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Truy cập bị từ chối";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Truy cập bị từ chối</h2>
+    <div class="alert alert-danger">
+        Bạn không có quyền truy cập trang này. Vui lòng liên hệ quản trị viên nếu bạn nghĩ đây là lỗi.
+    </div>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Quay lại trang chủ</a>
+    <a asp-action="Login" asp-controller="Account" class="btn btn-primary">Đăng nhập với tài khoản khác</a>
+</div>

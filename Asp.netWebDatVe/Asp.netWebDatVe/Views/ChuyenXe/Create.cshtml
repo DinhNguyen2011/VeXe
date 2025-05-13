@@ -5,7 +5,90 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thêm chuyến xe</h2>
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Thêm chuyến xe</h2>
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="TenChuyenXe" class="phieudatve-label"></label>
+            <input asp-for="TenChuyenXe" class="form-control phieudatve-input" placeholder="Nhập tên chuyến xe" />
+            <span asp-validation-for="TenChuyenXe" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="BienSoXe" class="phieudatve-label"></label>
+            <select asp-for="BienSoXe" class="form-control phieudatve-select" asp-items="ViewBag.Xes">
+                <option value="">Chọn xe</option>
+            </select>
+            <span asp-validation-for="BienSoXe" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="MaTuyen" class="phieudatve-label"></label>
+            <select asp-for="MaTuyen" class="form-control phieudatve-select" asp-items="ViewBag.TuyenXes">
+                <option value="">Chọn tuyến</option>
+            </select>
+            <span asp-validation-for="MaTuyen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="ThoiDiemKhoiHanh" class="phieudatve-label"></label>
+            <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" class="form-control phieudatve-input" />
+            <span asp-validation-for="ThoiDiemKhoiHanh" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="ThoiDiemDenDuKien" class="phieudatve-label"></label>
+            <input asp-for="ThoiDiemDenDuKien" type="datetime-local" class="form-control phieudatve-input" />
+            <span asp-validation-for="ThoiDiemDenDuKien" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="GiaVe" class="phieudatve-label"></label>
+            <input asp-for="GiaVe" type="number" step="0.01" class="form-control phieudatve-input" placeholder="Nhập giá vé" />
+            <span asp-validation-for="GiaVe" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="GhiChu" class="phieudatve-label"></label>
+            <textarea asp-for="GhiChu" class="form-control phieudatve-input" placeholder="Nhập ghi chú"></textarea>
+            <span asp-validation-for="GhiChu" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="MaTaiXe" class="phieudatve-label">Tài xế</label>
+            <select asp-for="MaTaiXe" class="form-control phieudatve-select" asp-items="ViewBag.TaiXes">
+                <option value="">Chọn tài xế</option>
+            </select>
+            <span asp-validation-for="MaTaiXe" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="MaNhanVien" class="phieudatve-label">Nhân viên hỗ trợ</label>
+            <select asp-for="MaNhanVien" class="form-control phieudatve-select" asp-items="ViewBag.NhanViens">
+                <option value="">Chọn nhân viên hỗ trợ</option>
+            </select>
+            <span asp-validation-for="MaNhanVien" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="MaNhanVien1" class="phieudatve-label">Nhân viên phụ xe</label>
+            <select asp-for="MaNhanVien1" class="form-control phieudatve-select" asp-items="ViewBag.NhanVien1s">
+                <option value="">Chọn nhân viên phụ xe</option>
+            </select>
+            <span asp-validation-for="MaNhanVien1" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-primary phieudatve-btn">Thêm</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Quay lại</a>
+        </div>
+    </form>
+</div>
 
 <style>
     select.form-control {
@@ -15,47 +98,3 @@
         color: #000000;
     }
 </style>
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label>Tên chuyến xe</label>
-        <input asp-for="TenChuyenXe" class="form-control" placeholder="Nhập tên chuyến xe" />
-    </div>
-    <div class="form-group">
-        <label>Biển số xe</label>
-        <select asp-for="BienSoXe" class="form-control">
-            <option value="">Chọn xe</option>
-            @foreach (var item in (List<SelectListItem>)ViewBag.Xes)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </select>
-        <span asp-validation-for="BienSoXe" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label>Tuyến xe</label>
-        <select asp-for="MaTuyen" class="form-control">
-            <option value="">Chọn tuyến</option>
-            @foreach (var item in (List<SelectListItem>)ViewBag.TuyenXes)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </select>
-        <span asp-validation-for="MaTuyen" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label>Thời điểm khởi hành</label>
-        <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" class="form-control" />
-        <span asp-validation-for="ThoiDiemKhoiHanh" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label>Thời điểm đến</label>
-        <input asp-for="ThoiDiemDenDuKien" type="datetime-local" class="form-control" />
-        <span asp-validation-for="ThoiDiemDenDuKien" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label>Giá vé</label>
-        <input asp-for="GiaVe" type="number" step="0.01" class="form-control" placeholder="Nhập giá vé" />
-        <span asp-validation-for="GiaVe" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Thêm</button>
-</form>

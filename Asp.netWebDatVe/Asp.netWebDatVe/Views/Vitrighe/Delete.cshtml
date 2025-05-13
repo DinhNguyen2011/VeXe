@@ -1,0 +1,39 @@
+﻿@model Asp.netWebDatVe.Models.Vitrighe
+
+@{
+    ViewData["Title"] = "Xóa vị trí ghế";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Vitrighe.css" />
+
+<div class="vitrighe-container">
+    <h2 class="vitrighe-title">Xóa vị trí ghế</h2>
+
+    <div class="alert alert-warning vitrighe-alert">
+        Bạn có chắc chắn muốn xóa vị trí ghế <strong>@Model.Tenvitri</strong> của xe <strong>@Model.Bienso</strong> không? Hành động này không thể hoàn tác.
+    </div>
+
+    <dl class="row vitrighe-details">
+        <dt class="col-sm-3 vitrighe-label">Mã vị trí</dt>
+        <dd class="col-sm-9">@Model.IdVitri</dd>
+
+        <dt class="col-sm-3 vitrighe-label">Biển số xe</dt>
+        <dd class="col-sm-9">@Model.Bienso</dd>
+
+        <dt class="col-sm-3 vitrighe-label">Tên vị trí</dt>
+        <dd class="col-sm-9">@Model.Tenvitri</dd>
+
+        <dt class="col-sm-3 vitrighe-label">Trạng thái</dt>
+        <dd class="col-sm-9">@(Model.Trangthai == true ? "Đã đặt" : "Trống")</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="IdVitri" />
+        <div class="form-group vitrighe-form-group">
+            <button type="submit" class="btn btn-danger vitrighe-btn">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary vitrighe-btn">Hủy</a>
+        </div>
+    </form>
+</div>

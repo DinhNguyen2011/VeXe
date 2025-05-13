@@ -1,59 +1,66 @@
-﻿@* @model Asp.netWebDatVe.Models.TuyenXe *@
-@* @{ *@
-@*     ViewData["Title"] = "Chỉnh sửa Tuyến Xe"; *@
-@*     Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; *@
+﻿@model Asp.netWebDatVe.Models.TuyenXe
 
-@* } *@
+@{
+    ViewData["Title"] = "Sửa tuyến xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-@* <h2>Chỉnh sửa Tuyến Xe</h2> *@
+<link rel="stylesheet" href="~/css/TuyenXe.css" />
 
-@* <form asp-action="Edit"> *@
-@*     <input type="hidden" name="MaTuyen" value="@Model.MaTuyen" /> *@
-@*     <div class="form-group"> *@
-@*         <label asp-for ="DiemDi"></label> *@
-@*         <input type="text" class="form-control" id="DiemDi" name="DiemDi" value="@Model.DiemDi" required /> *@
-@*     </div> *@
-@*     <div class="form-group"> *@
-@*         <label asp-for="DiemDen"></label> *@
-@*         <input type="text" class="form-control" id="DiemDen" name="DiemDen" value="@Model.DiemDen" required /> *@
-@*     </div> *@
-@*     <div class="form-group"> *@
-@*         <label asp-for="SoNgayChayTrongTuan"></label> *@
-@*         <input type="number" class="form-control" id="SoNgayChayTrongTuan" name="SoNgayChayTrongTuan" value="@Model.SoNgayChayTrongTuan" /> *@
-@*     </div> *@
-@*     <div class="form-group"> *@
-@*         <label asp-for="GiaHienHanh"></label> *@
-@*         <input type="number" class="form-control" id="GiaHienHanh" name="GiaHienHanh" value="@Model.GiaHienHanh" /> *@
-@*     </div> *@
-@*     <div class="form-group"> *@
-@*         <label asp-for="QuangDuong"></label> *@
-@*         <input type="number" class="form-control" id="QuangDuong" name="QuangDuong" value="@Model.QuangDuong" /> *@
-@*     </div> *@
+<div class="tuyenxe-container">
+    <h2 class="tuyenxe-title">Sửa tuyến xe</h2>
 
-@*     <div class="form-group"> *@
-@*         <label asp-for="MaBenXe" class="control-label"></label> *@
-@*         <select asp-for="MaBenXe" class="form-control"> *@
-@*             <option value="">Chọn bến xe đi</option> *@
-@*             @foreach (var item in ViewBag.BenXes as SelectList) *@
-@*             { *@
-@*                 <option value="@item.Value">@item.Text</option> *@
-@*             } *@
-@*         </select> *@
-@*         <span asp-validation-for="MaBenXe" class="text-danger"></span> *@
-@*     </div> *@
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaTuyen" />
 
-@*     <div class="form-group"> *@
-@*         <label asp-for="MaBenXeDen" class="control-label"></label> *@
-@*         <select asp-for="MaBenXeDen" class="form-control"> *@
-@*             <option value="">Chọn bến xe đến</option> *@
-@*             @foreach (var item in ViewBag.BenXeDens as SelectList) *@
-@*             { *@
-@*                 <option value="@item.Value">@item.Text</option> *@
-@*             } *@
-@*         </select> *@
-@*         <span asp-validation-for="MaBenXeDen" class="text-danger"></span> *@
-@*     </div> *@
+        <div asp-validation-summary="All" class="text-danger"></div>
 
-@*     <button type="submit" class="btn btn-success">Cập nhật</button> *@
-@*     <a href="@Url.Action("Index", "TuyenXe")" class="btn btn-secondary">Hủy</a> *@
-@* </form> *@
+        <div class="form-group">
+            <label asp-for="DiemDi"></label>
+            <input asp-for="DiemDi" class="form-control" />
+            <span asp-validation-for="DiemDi" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DiemDen"></label>
+            <input asp-for="DiemDen" class="form-control" />
+            <span asp-validation-for="DiemDen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MaBenXeDi"></label>
+            <select asp-for="MaBenXeDi" class="form-control" asp-items="ViewBag.MaBenXeDi"></select>
+            <span asp-validation-for="MaBenXeDi" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MaBenXeDen"></label>
+            <select asp-for="MaBenXeDen" class="form-control" asp-items="ViewBag.MaBenXeDen"></select>
+            <span asp-validation-for="MaBenXeDen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SoNgayChayTrongTuan"></label>
+            <input asp-for="SoNgayChayTrongTuan" class="form-control" type="number" />
+            <span asp-validation-for="SoNgayChayTrongTuan" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GiaHienHanh"></label>
+            <input asp-for="GiaHienHanh" class="form-control" type="number" step="1000" />
+            <span asp-validation-for="GiaHienHanh" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="QuangDuong"></label>
+            <input asp-for="QuangDuong" class="form-control" type="number" />
+            <span asp-validation-for="QuangDuong" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>

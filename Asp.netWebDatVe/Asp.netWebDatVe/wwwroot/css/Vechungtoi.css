@@ -1,54 +1,233 @@
-﻿.about-us h2,
-.mission h3,
-.contact-info h4 {
-    color: #514e13; /* Màu đỏ đặc trưng Khánh An */
+﻿
+/* Section About Us */
+.about-us {
+    background: #f8f9fa;
 }
 
-.about-us p,
-.mission p,
-.contact-info p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #333;
-}
-
-.statistics .p-4 {
-    border: 1px solid #e3e3e3;
-    transition: transform 0.3s ease;
-}
-
-    .statistics .p-4:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .about-us h2 {
+        color: #007bff;
+        position: relative;
+        padding-bottom: 10px;
     }
 
-.statistics h3 {
-    color: #d42c2c;
-}
+        .about-us h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #00c4b4;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-.bg-light {
-    background-color: #f9f9f9 !important;
-}
-
-img.img-fluid {
-    border-radius: 10px;
-}
-
-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-.text-primary {
-    color: #d42c2c !important;
-}
-
-.contact-info {
-    background-color: #fdf4f4;
-    border-top: 2px solid #d42c2c;
-    border-bottom: 2px solid #d42c2c;
-}
-
-    .contact-info p {
-        margin-bottom: 0.5rem;
+    .about-us .lead {
+        color: #555;
     }
+
+    .about-us img {
+        transition: transform 0.3s ease;
+    }
+
+        .about-us img:hover {
+            transform: scale(1.05);
+        }
+
+    .about-us p {
+        color: #666;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+/* Section Statistics */
+.statistics {
+    background: #fff;
+}
+
+    .statistics .container > .row > div {
+        transition: transform 0.3s ease;
+    }
+
+        .statistics .container > .row > div:hover {
+            transform: translateY(-10px);
+        }
+
+    .statistics h3 {
+        color: #007bff;
+    }
+
+    .statistics p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+/* Section Mission */
+.mission {
+    background: #f8f9fa;
+}
+
+    .mission h3 {
+        color: #007bff;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+        .mission h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: #00c4b4;
+            bottom: 0;
+            left: 0;
+        }
+
+    .mission img {
+        transition: transform 0.3s ease;
+    }
+
+        .mission img:hover {
+            transform: scale(1.05);
+        }
+
+    .mission p {
+        color: #666;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+/* Section Vision & Values */
+.vision-values .row {
+    display: flex;
+    flex-wrap: wrap; /* Đảm bảo các item wrap nếu cần trên thiết bị nhỏ */
+}
+
+.vision-values .col-md-6 {
+    display: flex; /* Biến col thành flex container */
+}
+
+    .vision-values .col-md-6 > div {
+        flex: 1; /* Chiếm toàn bộ chiều cao của col */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Phân bố nội dung đều */
+        min-height: 300px; /* Đặt chiều cao tối thiểu để đồng bộ */
+    }
+
+.vision-values ul {
+    margin-bottom: 0; /* Loại bỏ margin dưới của danh sách để không gây lệch */
+}
+
+    .vision-values ul li {
+        margin-bottom: 10px;
+    }
+
+/* Section Team */
+.team .row {
+    display: flex;
+    flex-wrap: wrap; /* Đảm bảo các item wrap nếu cần trên thiết bị nhỏ */
+}
+
+.team .col-md-4 {
+    display: flex; /* Biến col thành flex container */
+}
+
+.team .card {
+    flex: 1; /* Chiếm toàn bộ chiều cao của col */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Phân bố nội dung đều */
+    min-height: 400px; /* Đặt chiều cao tối thiểu để đồng bộ */
+}
+
+.team .card-body {
+    flex-grow: 1; /* Đảm bảo card-body chiếm không gian còn lại */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung trong card-body */
+}
+
+.team .card-img-top {
+    margin-bottom: 15px; /* Khoảng cách giữa hình ảnh và nội dung */
+}
+
+/* Section Testimonials */
+.testimonials {
+    background: #fff;
+}
+
+    .testimonials h3 {
+        color: #007bff;
+    }
+
+    .testimonials .lead {
+        color: #555;
+        font-style: italic;
+    }
+
+    .testimonials .carousel-item {
+        padding: 20px;
+    }
+
+    .testimonials img {
+        transition: transform 0.3s ease;
+    }
+
+        .testimonials img:hover {
+            transform: scale(1.1);
+        }
+
+    .testimonials h5 {
+        color: #333;
+        font-size: 1.2rem;
+    }
+
+    .testimonials p {
+        color: #666;
+    }
+
+/* Section CTA */
+.cta {
+    background: #007bff;
+}
+
+    .cta h3 {
+        color: #fff;
+    }
+
+    .cta .lead {
+        color: #e9ecef;
+    }
+
+    .cta .btn {
+        background: #fff;
+        color: #007bff;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .cta .btn:hover {
+            background: #00c4b4;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-us h2, .statistics h3, .mission h3, .vision-values h3, .team h3, .testimonials h3, .cta h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-us img, .mission img {
+        margin-bottom: 20px;
+    }
+
+    .statistics .container > .row > div, .vision-values .container > .row > div, .team .card {
+        margin-bottom: 20px;
+    }
+
+    .cta .btn {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+}

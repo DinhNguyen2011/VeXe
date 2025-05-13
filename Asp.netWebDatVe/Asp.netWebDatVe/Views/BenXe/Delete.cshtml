@@ -1,0 +1,42 @@
+﻿@model Asp.netWebDatVe.Models.BenXe
+
+@{
+    ViewData["Title"] = "Xóa bến xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/BenXe.css" />
+
+<div class="benxe-container">
+    <h2 class="benxe-title">Xóa bến xe</h2>
+
+    <div class="alert alert-warning benxe-alert">
+        Bạn có chắc chắn muốn xóa bến xe <strong>@Model.TenBenXe</strong> không? Hành động này không thể hoàn tác.
+    </div>
+
+    <dl class="row benxe-details">
+        <dt class="col-sm-3 benxe-label">Mã bến xe</dt>
+        <dd class="col-sm-9">@Model.MaBenXe</dd>
+
+        <dt class="col-sm-3 benxe-label">Tên bến xe</dt>
+        <dd class="col-sm-9">@Model.TenBenXe</dd>
+
+        <dt class="col-sm-3 benxe-label">Địa chỉ</dt>
+        <dd class="col-sm-9">@Model.DiaChi</dd>
+
+        <dt class="col-sm-3 benxe-label">Số điện thoại</dt>
+        <dd class="col-sm-9">@Model.Sdt</dd>
+
+        <dt class="col-sm-3 benxe-label">Thành phố</dt>
+        <dd class="col-sm-9">@Model.ThanhPho</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaBenXe" />
+        <div class="form-group benxe-form-group">
+            <button type="submit" class="btn btn-danger benxe-btn">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary benxe-btn">Hủy</a>
+        </div>
+    </form>
+</div>

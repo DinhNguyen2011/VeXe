@@ -50,7 +50,11 @@
                         {
                             <div class="alert alert-danger">@ViewBag.Error</div>
                         }
-
+                        <!-- Hiển thị thông báo thành công -->
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success">@TempData["Success"]</div>
+                        }
                         <form asp-action="register" method="post">
                         
 
@@ -128,23 +132,6 @@
 
                         <div class="form-setlogin">
                             <h4>Hoặc đăng ký với</h4>
-                        </div>
-
-                        <div class="form-sociallink">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../assets/img/icons/google.png" class="me-2" alt="google">
-                                        Đăng ký bằng Google
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../assets/img/icons/facebook.png" class="me-2" alt="facebook">
-                                        Đăng ký bằng Facebook
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>

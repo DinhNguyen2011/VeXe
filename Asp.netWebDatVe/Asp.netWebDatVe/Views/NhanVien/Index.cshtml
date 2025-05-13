@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.NhanVien>
+
+@{
+    ViewData["Title"] = "Danh sách nhân viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Danh sách nhân viên</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success phieudatve-alert">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger phieudatve-alert">@TempData["Error"]</div>
+    }
+
+    <div class="phieudatve-filter">
+        <form asp-action="Index" method="get">
+            <div class="form-group phieudatve-form-group">
+                <label for="vaiTro" class="phieudatve-label">Lọc theo vai trò</label>
+                <select name="vaiTro" id="vaiTro" class="form-control phieudatve-select" onchange="this.form.submit()">
+                    <option value="">Tất cả</option>
+                    @foreach (var item in ViewBag.VaiTroList)
+                    {
+                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary phieudatve-btn">Thêm nhân viên</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Vai trò</th>
+                <th>CCCD</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaNhanVien</td>
+                    <td>@item.HoTen</td>
+                    <td>@item.Sdt</td>
+                    <td>@item.DiaChi</td>
+                    <td>@item.VaiTro</td>
+                    <td>@item.Cccd</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MaNhanVien" class="btn btn-warning btn-sm phieudatve-btn-action">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.MaNhanVien" class="btn btn-danger btn-sm phieudatve-btn-action">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .table {
+        width: 80%;
+        margin: auto;
+        font-size: 14px;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 3px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+    .btn {
+        font-size: 10px;
+        padding: 5px 10px;
+        margin: 8px;
+        border-radius: 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>

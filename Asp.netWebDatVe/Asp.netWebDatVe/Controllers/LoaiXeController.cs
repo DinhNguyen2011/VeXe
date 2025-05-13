@@ -1,9 +1,11 @@
 ﻿using Asp.netWebDatVe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace Asp.netWebDatVe.Controllers
 {
+    [Authorize(Roles = "1")]
     public class LoaiXeController : Controller
     {
         private readonly QLDatVeContext _context;
@@ -16,6 +18,8 @@ namespace Asp.netWebDatVe.Controllers
   
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var loaiXeList = _context.Loaixes.ToList();
             return View(loaiXeList);
         }
@@ -23,6 +27,8 @@ namespace Asp.netWebDatVe.Controllers
     
         public IActionResult Create()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             return View();
         }
 
@@ -30,6 +36,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Loaixe loaiXe)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (ModelState.IsValid)
             {
                 _context.Loaixes.Add(loaiXe);
@@ -41,6 +49,8 @@ namespace Asp.netWebDatVe.Controllers
 
         public IActionResult Edit(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var loaiXe = _context.Loaixes.Find(id);
             if (loaiXe == null)
             {
@@ -53,6 +63,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Loaixe loaiXe)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id != loaiXe.IdLoai)
             {
                 return BadRequest();
@@ -80,6 +92,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var loaiXe = _context.Loaixes.Find(id);
             if (loaiXe != null)
             {

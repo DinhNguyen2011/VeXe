@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.BenXe>
+
+@{
+    ViewData["Title"] = "Danh sách bến xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/BenXe.css" />
+
+<div class="benxe-container">
+    <h2 class="benxe-title">Danh sách bến xe</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success benxe-alert">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger benxe-alert">@TempData["Error"]</div>
+    }
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary benxe-btn">Thêm bến xe</a>
+    </p>
+
+    <table class="table table-striped benxe-table">
+        <thead>
+            <tr>
+                <th>Mã bến xe</th>
+                <th>Tên bến xe</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+                <th>Thành phố</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaBenXe</td>
+                    <td>@item.TenBenXe</td>
+                    <td>@item.DiaChi</td>
+                    <td>@item.Sdt</td>
+                    <td>@item.ThanhPho</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MaBenXe" class="btn btn-warning btn-sm benxe-btn-action">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.MaBenXe" class="btn btn-danger btn-sm benxe-btn-action">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Asp.netWebDatVe.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Sửa nhân viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Sửa nhân viên</h2>
+
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaNhanVien" />
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="HoTen" class="phieudatve-label"></label>
+            <input asp-for="HoTen" class="form-control phieudatve-input" placeholder="Nhập họ tên" />
+            <span asp-validation-for="HoTen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="Sdt" class="phieudatve-label"></label>
+            <input asp-for="Sdt" class="form-control phieudatve-input" placeholder="Nhập số điện thoại" />
+            <span asp-validation-for="Sdt" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="DiaChi" class="phieudatve-label"></label>
+            <input asp-for="DiaChi" class="form-control phieudatve-input" placeholder="Nhập địa chỉ" />
+            <span asp-validation-for="DiaChi" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="VaiTro" class="phieudatve-label"></label>
+            <select asp-for="VaiTro" class="form-control phieudatve-select" asp-items="ViewBag.VaiTro"></select>
+            <span asp-validation-for="VaiTro" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="Cccd" class="phieudatve-label"></label>
+            <input asp-for="Cccd" class="form-control phieudatve-input" placeholder="Nhập CCCD" />
+            <span asp-validation-for="Cccd" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-primary phieudatve-btn">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Quay lại</a>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,51 @@
+﻿@model Asp.netWebDatVe.Models.PhieuDatVe
+
+@{
+    ViewData["Title"] = "Xóa phiếu đặt vé";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Xóa phiếu đặt vé</h2>
+
+    <div class="alert alert-warning phieudatve-alert">
+        Bạn có chắc chắn muốn xóa phiếu đặt vé <strong>@Model.MaPhieu</strong> không? Hành động này sẽ đặt lại trạng thái ghế và không thể hoàn tác.
+    </div>
+
+    <dl class="row phieudatve-details">
+        <dt class="col-sm-3 phieudatve-label">Mã phiếu</dt>
+        <dd class="col-sm-9">@Model.MaPhieu</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Ngày đặt</dt>
+        <dd class="col-sm-9">@Model.NgayDat?.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Tổng tiền</dt>
+        <dd class="col-sm-9">@Model.TongTien?.ToString("N0") VNĐ</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Trạng thái</dt>
+        <dd class="col-sm-9">@Model.TrangThai</dd>
+
+        <dt class="col-sm-3 phieudatve-label">VNP Transaction ID</dt>
+        <dd class="col-sm-9">@Model.VnpTransactionId</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Khuyến mãi</dt>
+        <dd class="col-sm-9">@(Model.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Số vé xe</dt>
+        <dd class="col-sm-9">@ViewBag.VeXeCount</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaPhieu" />
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-danger phieudatve-btn" @(ViewBag.ThanhToanExists ? "disabled" : "")>Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Hủy</a>
+        </div>
+    </form>
+</div>

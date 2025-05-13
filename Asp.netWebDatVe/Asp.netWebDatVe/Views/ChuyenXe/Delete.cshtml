@@ -4,42 +4,60 @@
     ViewData["Title"] = "Xóa Chuyến Xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>Xóa chuyến xe</h2>
-<h4 class="text-center">Bạn có chắc chắn muốn xóa chuyến xe này?</h4>
-<div>
-    <h4>Thông tin chuyến xe</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Mã chuyến xe</dt>
-        <dd class="col-sm-10">@Model.MaChuyen</dd>
 
-        <dt class="col-sm-2">Tên chuyến xe</dt>
-        <dd class="col-sm-10">@Model.TenChuyenXe</dd>
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
 
-        <dt class="col-sm-2">Giá vé</dt>
-        <dd class="col-sm-10">@Model.GiaVe</dd>
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Xóa chuyến xe</h2>
 
-        <dt class="col-sm-2">Ngày khởi hành</dt>
-        <dd class="col-sm-10">@Model.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</dd>
+    <div class="alert alert-warning phieudatve-alert">
+        Bạn có chắc chắn muốn xóa chuyến xe <strong>@Model.MaChuyen</strong> không? Hành động này không thể hoàn tác.
+    </div>
 
-        <dt class="col-sm-2">Biển số xe</dt>
-        <dd class="col-sm-10">@Model.BienSoXe</dd>
+    <dl class="row phieudatve-details">
+        <dt class="col-sm-3 phieudatve-label">Mã chuyến</dt>
+        <dd class="col-sm-9">@Model.MaChuyen</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Tên chuyến xe</dt>
+        <dd class="col-sm-9">@Model.TenChuyenXe</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Tuyến xe</dt>
+        <dd class="col-sm-9">@Model.MaTuyenNavigation?.DiemDi - @Model.MaTuyenNavigation?.DiemDen</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Biển số xe</dt>
+        <dd class="col-sm-9">@Model.BienSoXe</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Thời điểm khởi hành</dt>
+        <dd class="col-sm-9">@Model.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Thời điểm đến dự kiến</dt>
+        <dd class="col-sm-9">@Model.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Giá vé</dt>
+        <dd class="col-sm-9">@Model.GiaVe?.ToString("N0") VNĐ</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Ghi chú</dt>
+        <dd class="col-sm-9">@Model.GhiChu</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Tài xế</dt>
+        <dd class="col-sm-9">@(Model.MaTaiXeNavigation?.HoTen ?? "Không có")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Nhân viên hỗ trợ</dt>
+        <dd class="col-sm-9">@(Model.MaNhanVienNavigation?.HoTen ?? "Không có")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Nhân viên phụ xe</dt>
+        <dd class="col-sm-9">@(Model.MaNhanVien1Navigation?.HoTen ?? "Không có")</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Số vé xe</dt>
+        <dd class="col-sm-9">@(ViewBag.CanDelete ? "0" : "Có vé liên quan")</dd>
     </dl>
 
-    @if (ViewBag.CanDelete)
-    {
-        <form asp-action="Delete" asp-route-id="@Model.MaChuyen" method="post">
-            <div class="form-group">
-                <input type="submit" value="Xóa" class="btn btn-danger" />
-                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-            </div>
-        </form>
-    }
-    else
-    {
-        <div class="alert alert-warning">
-            Không thể xóa chuyến xe này vì có vé xe liên quan.
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaChuyen" />
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-danger phieudatve-btn" @(ViewBag.CanDelete ? "" : "disabled")>Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Hủy</a>
         </div>
-        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
-    }
+    </form>
 </div>

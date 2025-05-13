@@ -48,7 +48,17 @@
     <a asp-action="Create" class="btn btn-primary">Thêm chuyến xe</a>
 
 </p>
-
+<div class="vitrighe-filter">
+    <form asp-action="Index" method="get">
+        <div class="form-group vitrighe-form-group">
+            <label class="vitrighe-label">
+                <input type="checkbox" name="isCompleted" value="true" @(ViewBag.IsCompleted == true ? "checked" : "") onchange="this.form.submit()" />
+                Chỉ hiển thị chuyến xe đã kết thúc
+            </label>
+        </div>
+    </form>
+</div>
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -59,7 +69,9 @@
             <th><label asp-for="ThoiDiemDenDuKien" class="control-label"></label></th>
             <th><label asp-for="GiaVe" class="control-label"></label></th>
             <th><label asp-for="BienSoXe" class="control-label"></label></th>
-
+            <th><label asp-for="MaTaiXe" class="control-label"></label></th>
+            <th><label asp-for="MaNhanVien1" class="control-label"></label></th>
+            <th><label asp-for="MaNhanVien" class="control-label"></label></th>
             <th>Tác vụ</th>
         </tr>
     </thead>
@@ -73,8 +85,11 @@
                 <td>@item.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@item.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@item.GiaVe?.ToString("N0") VNĐ</td>
-                    <td>@item.BienSoXe</td>            
-                   <td>
+                <td>@item.BienSoXe</td>
+                    <td>@item.MaTaiXeNavigation?.HoTen</td>
+                    <td>@item.MaNhanVien1Navigation?.HoTen</td>
+                    <td>@item.MaNhanVienNavigation?.HoTen</td>
+                <td>
                         <a asp-controller="ChuyenXe" asp-action="Edit" asp-route-id="@item.MaChuyen" class="btn btn-warning">Sửa</a>
                     <a asp-controller="ChuyenXe" asp-action="Details" asp-route-id="@item.MaChuyen" class="btn btn-warning">Chi tiết</a>
 
@@ -86,3 +101,4 @@
         }
     </tbody>
 </table>
+</div>

@@ -1,0 +1,80 @@
+﻿.benxe-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.benxe-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.benxe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .benxe-table th,
+    .benxe-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .benxe-table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+.benxe-form-group {
+    margin-bottom: 20px;
+}
+
+.benxe-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.benxe-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.benxe-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.benxe-btn-action {
+    margin-right: 5px;
+}
+
+.benxe-alert {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.benxe-details {
+    margin-bottom: 20px;
+}
+
+    .benxe-details dt {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .benxe-details dd {
+        margin-bottom: 10px;
+    }

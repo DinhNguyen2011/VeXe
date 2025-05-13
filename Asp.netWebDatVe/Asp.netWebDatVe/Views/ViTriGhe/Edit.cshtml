@@ -1,27 +1,44 @@
 ﻿@model Asp.netWebDatVe.Models.Vitrighe
 
 @{
-    ViewData["Title"] = "Thêm/Sửa vị trí ghế";
+    ViewData["Title"] = "Sửa vị trí ghế";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>@ViewData["Title"]</h2>
+<link rel="stylesheet" href="~/css/Vitrighe.css" />
 
-<form asp-action="Edit">
-    <div class="form-group">
-        <label>Tên ghế</label>
-        <input asp-for="Tenvitri" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Biển số</label>
-        <select asp-for="Bienso" class="form-control" asp-items="@(new SelectList(ViewBag.XeList, "Bienso", "Bienso"))"></select>
-    </div>
-    <div class="form-group">
-        <label>Trạng thái</label>
-        <select asp-for="Trangthai" class="form-control">
-            <option value="true">Đang sử dụng</option>
-            <option value="false">Trống</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-success">Lưu</button>
-</form>
+<div class="vitrighe-container">
+    <h2 class="vitrighe-title">Sửa vị trí ghế</h2>
+
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="IdVitri" />
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Bienso" class="vitrighe-label">Biển số xe</label>
+            <select asp-for="Bienso" class="form-control vitrighe-select" asp-items="ViewBag.Bienso"></select>
+            <span asp-validation-for="Bienso" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Tenvitri" class="vitrighe-label"></label>
+            <input asp-for="Tenvitri" class="form-control vitrighe-input" />
+            <span asp-validation-for="Tenvitri" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Trangthai" class="vitrighe-label"></label>
+            <select asp-for="Trangthai" class="form-control vitrighe-select">
+                <option value="">Chọn trạng thái</option>
+                <option value="true">Đã đặt</option>
+                <option value="false">Trống</option>
+            </select>
+            <span asp-validation-for="Trangthai" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <button type="submit" class="btn btn-primary vitrighe-btn">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary vitrighe-btn">Quay lại</a>
+        </div>
+    </form>
+</div>

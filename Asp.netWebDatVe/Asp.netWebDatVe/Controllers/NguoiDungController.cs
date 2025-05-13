@@ -1,4 +1,5 @@
 ﻿using Asp.netWebDatVe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Linq;
 
 namespace Asp.netWebDatVe.Controllers
 {
+    [Authorize(Roles = "1")]
     public class NguoiDungController : Controller
     {
 
@@ -17,11 +19,15 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.nd = _context.NguoiDungs.Include(n => n.MaQuyenNavigation).ToList();
             return View();
         }
         public async Task<IActionResult> Create()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.pq = new SelectList(await _context.PhanQuyens.ToListAsync(), "MaQuyen", "TenQuyen");
             return View();
         }
@@ -31,6 +37,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NguoiDung model, IFormFile? HinhAnh)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (ModelState.IsValid)
             {
             
@@ -68,6 +76,8 @@ namespace Asp.netWebDatVe.Controllers
    
         public async Task<IActionResult> Edit(int? id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id == null)
             {
                 return NotFound();
@@ -88,6 +98,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, NguoiDung model, IFormFile? HinhAnh)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id != model.Id)
             {
                 return NotFound();
@@ -151,6 +163,8 @@ namespace Asp.netWebDatVe.Controllers
 
         public IActionResult Delete(int? id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id == null)
             {
                 return NotFound();
@@ -171,6 +185,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var nguoiDung = _context.NguoiDungs.Find(id);
 
             if (nguoiDung == null)
@@ -185,6 +201,8 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult Details(int? id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id == null)
             {
                 return NotFound();

@@ -1,0 +1,48 @@
+﻿@model Asp.netWebDatVe.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Xóa nhân viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Xóa nhân viên</h2>
+
+    <div class="alert alert-warning phieudatve-alert">
+        Bạn có chắc chắn muốn xóa nhân viên <strong>@Model.HoTen</strong> không? Hành động này không thể hoàn tác.
+    </div>
+
+    <dl class="row phieudatve-details">
+        <dt class="col-sm-3 phieudatve-label">Mã nhân viên</dt>
+        <dd class="col-sm-9">@Model.MaNhanVien</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Họ tên</dt>
+        <dd class="col-sm-9">@Model.HoTen</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Số điện thoại</dt>
+        <dd class="col-sm-9">@Model.Sdt</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Địa chỉ</dt>
+        <dd class="col-sm-9">@Model.DiaChi</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Vai trò</dt>
+        <dd class="col-sm-9">@Model.VaiTro</dd>
+
+        <dt class="col-sm-3 phieudatve-label">CCCD</dt>
+        <dd class="col-sm-9">@Model.Cccd</dd>
+
+        <dt class="col-sm-3 phieudatve-label">Số chuyến xe liên quan</dt>
+        <dd class="col-sm-9">@ViewBag.ChuyenXeCount</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaNhanVien" />
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-danger phieudatve-btn" @(ViewBag.ChuyenXeCount > 0 ? "disabled" : "")>Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Hủy</a>
+        </div>
+    </form>
+</div>

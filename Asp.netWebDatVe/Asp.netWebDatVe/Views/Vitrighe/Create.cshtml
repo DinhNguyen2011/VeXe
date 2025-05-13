@@ -1,0 +1,46 @@
+﻿@model Asp.netWebDatVe.Models.Vitrighe
+
+@{
+    ViewData["Title"] = "Thêm vị trí ghế";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Thêm vị trí ghế</h2>
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="Bienso" class="phieudatve-label"></label>
+            <select asp-for="Bienso" class="form-control phieudatve-select" asp-items="ViewBag.Bienso">
+                <option value="">Chọn biển số xe</option>
+            </select>
+            <span asp-validation-for="Bienso" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="Tenvitri" class="phieudatve-label"></label>
+            <input asp-for="Tenvitri" class="form-control phieudatve-input" placeholder="Nhập tên vị trí (ví dụ: G1, G2)" />
+            <span asp-validation-for="Tenvitri" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <label asp-for="Trangthai" class="phieudatve-label"></label>
+            <select asp-for="Trangthai" class="form-control phieudatve-select">
+                <option value="">Chọn trạng thái</option>
+                <option value="true">Đã đặt</option>
+                <option value="false">Trống</option>
+            </select>
+            <span asp-validation-for="Trangthai" class="text-danger"></span>
+        </div>
+
+        <div class="form-group phieudatve-form-group">
+            <button type="submit" class="btn btn-primary phieudatve-btn">Thêm</button>
+            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Quay lại</a>
+        </div>
+    </form>
+</div>
+

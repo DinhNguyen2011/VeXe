@@ -29,10 +29,7 @@
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown">
-                            <div class="nav-profile-img">
-                                <img src="../../LayoutAdmin/assets/images/faces/avt.jpg" alt="image">
-                                <span class="availability-status online"></span>
-                            </div>
+                          
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black"> Hi, @ViewData["UserName"]</p>
                             </div>
@@ -42,7 +39,7 @@
                                 <i class="mdi mdi-cached me-2 text-success"></i> Nhật ký
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="@Url.Action("Login", "Account")">
+                            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">
                                 <i class="mdi mdi-logout me-2 text-primary"></i> Đăng xuất
                             </a>
                         </div>
@@ -64,17 +61,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","BenXeDi")">
-                            <span class="menu-title">Quản lý bến đi</span>
+                        <a class="nav-link" href="@Url.Action("Index","BenXe")">
+                            <span class="menu-title">Quản lý bến xe</span>
                             <i class="mdi mdi-playstation menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","BXeDen")">
-                            <span class="menu-title">Quản lý bến đến</span>
-                            <i class="mdi mdi-playstation menu-icon"></i>
-                        </a>
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","TuyenXe")">
                             <span class="menu-title">Quản lý Tuyến Xe</span>
@@ -94,10 +86,15 @@
                             <i class="mdi mdi-ticket-confirmation menu-icon"></i>
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","PhieuDatVe")">
+                            <span class="menu-title">Quản lý Phiếu đặt vé</span>
+                            <i class="mdi mdi-ticket-confirmation menu-icon"></i>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","ViTriGhe")">
+                        <a class="nav-link" href="@Url.Action("Index","Vitrighe")">
                             <span class="menu-title">Quản lý vị trí ghế</span>
                             <i class="mdi mdi-chair-school menu-icon"></i>
                         </a>
@@ -114,6 +111,12 @@
 
                             <span class="menu-title">Quản lý liên hệ</span>
                             <i class="mdi mdi-account menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","NhanVien")">
+                            <span class="menu-title">Quản lý Nhân Viên</span>
+                            <i class="mdi mdi-bus menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -134,14 +137,7 @@
                             <i class="mdi mdi-car menu-icon"></i>
                         </a>
                     </li>
-                    @*     <li class="nav-item sidebar-actions">
-                        <span class="nav-link">
-                            <div class="border-bottom">
-                                <h6 class="font-weight-normal mb-3">Dự án</h6>
-                            </div>
-                            <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Thêm mới dự án</button>
-                        </span>
-                    </li> *@
+                   
                 </ul>
             </nav>
 

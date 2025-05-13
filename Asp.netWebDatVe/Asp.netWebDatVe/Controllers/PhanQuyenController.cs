@@ -1,9 +1,11 @@
 ﻿using Asp.netWebDatVe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace Asp.netWebDatVe.Controllers
 {
+    [Authorize(Roles = "1")]
     public class PhanQuyenController : Controller
     {
         private readonly QLDatVeContext _context;
@@ -16,6 +18,8 @@ namespace Asp.netWebDatVe.Controllers
         // Hiển thị danh sách phân quyền
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var phanQuyenList = _context.PhanQuyens.ToList();
             return View(phanQuyenList);
         }
@@ -23,6 +27,8 @@ namespace Asp.netWebDatVe.Controllers
         // Trang thêm mới phân quyền
         public IActionResult Create()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             return View();
         }
 
@@ -30,6 +36,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(PhanQuyen phanQuyen)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (ModelState.IsValid)
             {
                 _context.PhanQuyens.Add(phanQuyen);
@@ -42,6 +50,8 @@ namespace Asp.netWebDatVe.Controllers
         // Trang chỉnh sửa phân quyền
         public IActionResult Edit(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var phanQuyen = _context.PhanQuyens.Find(id);
             if (phanQuyen == null)
             {
@@ -54,6 +64,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, PhanQuyen phanQuyen)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id != phanQuyen.MaQuyen)
             {
                 return BadRequest();
@@ -71,6 +83,8 @@ namespace Asp.netWebDatVe.Controllers
         // Trang xóa phân quyền
         public IActionResult Delete(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var phanQuyen = _context.PhanQuyens.Find(id);
             if (phanQuyen == null)
             {
@@ -83,6 +97,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var phanQuyen = _context.PhanQuyens.Find(id);
             if (phanQuyen != null)
             {

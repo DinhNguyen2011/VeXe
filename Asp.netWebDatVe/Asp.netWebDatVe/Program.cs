@@ -12,23 +12,31 @@ builder.Services.AddDbContext<QLDatVeContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("BusTicket"));
 });
+
 builder.Services.AddDistributedMemoryCache(); // Required for session
+
+// Cấu hình authentication (chỉ giữ một cấu hình)
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login"; // Đúng với action Login
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true; // Tự động gia hạn cookie nếu người dùng hoạt động
+    });
+
+builder.Services.AddAuthorization();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Yêu cầu HTTPS
 });
 
-builder.Services.AddScoped<IVNPayService,  VNPayService>();
+builder.Services.AddScoped<IVNPayService, VNPayService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Home/Login";
-        options.AccessDeniedPath = "/Home/";
-    });
 builder.Services.AddSignalR();
 builder.Services.AddMvc();
 
@@ -47,8 +55,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
-app.UseSession();        
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

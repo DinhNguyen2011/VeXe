@@ -50,7 +50,11 @@
                         {
                             <div class="alert alert-danger">@ViewBag.error</div>
                         }
-
+                        <!-- Trong Login.cshtml -->
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success">@TempData["Success"]</div>
+                        }
                         <form asp-action="Login" method="post">
                           
                             <!-- Email -->
@@ -90,26 +94,7 @@
 
                         </form>
 
-                        <div class="form-setlogin">
-                            <h4>Hoặc đăng nhập bằng</h4>
-                        </div>
-
-                        <div class="form-sociallink">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../assets/img/icons/google.png" class="me-2" alt="google">
-                                         Google
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../assets/img/icons/facebook.png" class="me-2" alt="facebook">
-                                         Facebook
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                       
 
                     </div>
                 </div>

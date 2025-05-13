@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Asp.netWebDatVe.Models.PhieuDatVe>
+
+@{
+    ViewData["Title"] = "Danh sách phiếu đặt vé";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+
+<div class="phieudatve-container">
+    <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success phieudatve-alert">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger phieudatve-alert">@TempData["Error"]</div>
+    }
+
+    <div class="phieudatve-filter">
+        <form asp-action="Index" method="get">
+            <div class="form-group phieudatve-form-group">
+                <label for="trangThai" class="phieudatve-label">Lọc theo trạng thái</label>
+                <select name="trangThai" id="trangThai" class="form-control phieudatve-select" onchange="this.form.submit()">
+                    <option value="">Tất cả</option>
+                    @foreach (var item in ViewBag.TrangThaiList)
+                    {
+                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary phieudatve-btn">Thêm phiếu đặt vé</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã phiếu</th>
+                <th>Email</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>VNP Transaction ID</th>
+                <th>Khuyến mãi</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaPhieu</td>
+                    <td>@item.Email</td>
+                    <td>@item.NgayDat?.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@item.TongTien?.ToString("N0") VNĐ</td>
+                    <td>@item.TrangThai</td>
+                    <td>@item.VnpTransactionId</td>
+                    <td>@(item.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MaPhieu" class="btn btn-warning btn-sm phieudatve-btn-action">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.MaPhieu" class="btn btn-danger btn-sm phieudatve-btn-action">Xóa</a>
+                        @if (item.TrangThai == "Hủy")
+                        {
+                            <form asp-action="ResetSeatsByPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại trạng thái ghế cho phiếu @item.MaPhieu không?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
+                                <button type="submit" class="btn btn-secondary btn-sm phieudatve-btn-action">Đặt lại ghế</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .table {
+        width: 80%;
+        margin: auto;
+        font-size: 14px;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 3px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+    .btn {
+        font-size: 10px;
+        padding: 5px 10px;
+        margin: 8px;
+        border-radius: 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>

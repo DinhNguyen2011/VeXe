@@ -1,0 +1,92 @@
+﻿.vitrighe-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vitrighe-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vitrighe-subtitle {
+    color: #333;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.vitrighe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .vitrighe-table th,
+    .vitrighe-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .vitrighe-table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+.vitrighe-form-group {
+    margin-bottom: 20px;
+}
+
+.vitrighe-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.vitrighe-input,
+.vitrighe-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.vitrighe-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.vitrighe-btn-action {
+    margin-right: 5px;
+}
+
+.vitrighe-alert {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.vitrighe-details {
+    margin-bottom: 20px;
+}
+
+    .vitrighe-details dt {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .vitrighe-details dd {
+        margin-bottom: 10px;
+    }
+
+.vitrighe-filter {
+    margin-bottom: 20px;
+}

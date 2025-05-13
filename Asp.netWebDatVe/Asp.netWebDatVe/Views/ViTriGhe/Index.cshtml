@@ -5,33 +5,76 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Danh sách vị trí ghế</h2>
-<p><a class="btn btn-primary" asp-action="Create">Thêm vị trí</a></p>
+<link rel="stylesheet" href="~/css/Vitrighe.css" />
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Mã ghế</th>
-            <th>Tên ghế</th>
-            <th>Biển số xe</th>
-            <th>Trạng thái</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="vitrighe-container">
+    <h2 class="vitrighe-title">Danh sách vị trí ghế</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
+    }
+    <div class="vitrighe-filter">
+        <form asp-action="Index" method="get">
+            <div class="form-group vitrighe-form-group">
+                <label for="bienso" class="vitrighe-label">Lọc theo biển số xe</label>
+                <select name="bienso" id="bienso" class="form-control vitrighe-select" onchange="this.form.submit()">
+                    <option value="">Tất cả</option>
+                    @foreach (var item in ViewBag.BiensoList)
+                    {
+                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary vitrighe-btn">Thêm vị trí ghế</a>
+    </p>
+    <h5 class="vitrighe-subtitle">Đặt lại trạng thái ghế theo xe</h5>
+
+    <div class="vtg" style="padding:10px;">
+
+    @foreach (var bienso in Model.Select(v => v.Bienso).Distinct())
+    {
+        <form asp-action="ResetSeatsByBienso" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại tất cả ghế của xe @bienso thành trống không?');">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="bienso" value="@bienso" />
+                <button type="submit" style="padding:5px !important;" class="btn btn-secondary btn-sm vitrighe-btn-action">Đặt lại ghế xe @bienso</button>
+        </form>
+    }
+    </div>
+    <table class="table table-striped vitrighe-table">
+        <thead>
             <tr>
-                <td>@item.IdVitri</td>
-                <td>@item.Tenvitri</td>
-                <td>@item.Bienso</td>
-                <td>@(item.Trangthai == true ? "Đang sử dụng" : "Trống")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdVitri" class="btn btn-warning btn-sm">Sửa</a>
-                    <a asp-action="Details" asp-route-id="@item.IdVitri" class="btn btn-info btn-sm">Chi tiết</a>
-                    <a asp-action="Delete" asp-route-id="@item.IdVitri" class="btn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xóa?');">Xóa</a>
-                </td>
+                <th>Mã vị trí</th>
+                <th>Biển số xe</th>
+                <th>Tên vị trí</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdVitri</td>
+                    <td>@item.Bienso</td>
+                    <td>@item.Tenvitri</td>
+                    <td>@(item.Trangthai == true ? "Đã đặt" : "Trống")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdVitri" class="btn btn-warning btn-sm vitrighe-btn-action">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdVitri" class="btn btn-danger btn-sm vitrighe-btn-action">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+  
+</div>

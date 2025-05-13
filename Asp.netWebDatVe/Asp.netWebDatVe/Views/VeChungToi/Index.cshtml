@@ -3,6 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/css/Vechungtoi.css" rel="stylesheet" />
+
 <section class="about-us py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
@@ -68,12 +69,120 @@
         </div>
     </div>
 </section>
-
-<section class="contact-info py-5">
-    <div class="container text-center">
-        <h4 class="fw-bold mb-3">Liên hệ với chúng tôi</h4>
-        <p><strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
-        <p><strong>Hotline:</strong> 1900 123 456</p>
-        <p><strong>Email:</strong> lienhe@khanhanbus.vn</p>
+<!-- Section Vision & Values -->
+<section class="vision-values py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">Tầm Nhìn & Giá Trị Cốt Lõi</h3>
+            <p class="lead">Định hướng và giá trị mà Khánh An luôn theo đuổi</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="p-4 bg-white rounded shadow-sm text-center" style="height:300px !important">
+                    <i class="fas fa-eye fa-2x text-primary mb-3"></i>
+                    <h4 class="fw-bold">Tầm Nhìn</h4>
+                    <p>Trở thành nhà xe hàng đầu Việt Nam, mang đến trải nghiệm di chuyển an toàn, tiện nghi và hiện đại cho mọi khách hàng.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 bg-white rounded shadow-sm text-center" style="height:300px !important">
+                    <i class="fas fa-heart fa-2x text-primary mb-3"></i>
+                    <h4 class="fw-bold">Giá Trị Cốt Lõi</h4>
+                    <ul class="text-start list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Chất lượng: Luôn đặt chất lượng dịch vụ lên hàng đầu.</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Tận tâm: Phục vụ khách hàng bằng sự tận tâm và chu đáo.</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Đổi mới: Không ngừng cải tiến để đáp ứng nhu cầu khách hàng.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+<section class="team py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">Đội Ngũ Của Chúng Tôi</h3>
+            <p class="lead">Những con người tận tâm đứng sau mỗi hành trình của bạn</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm text-center" style="height:400px !important">
+                    <img src="~/images/profile2.jpg" alt="Team Member" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Nguyễn Văn An</h5>
+                        <p class="card-text text-muted">Quản Lý Vận Hành</p>
+                        <p class="card-text">"Tôi luôn nỗ lực để mỗi chuyến xe của Khánh An là một trải nghiệm tuyệt vời cho khách hàng."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm text-center" style="height:400px !important">
+                    <img src="~/images/profile3.jpg" alt="Team Member" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Trần Thị Bình</h5>
+                        <p class="card-text text-muted">Tài Xế Tiêu Biểu</p>
+                        <p class="card-text">"Với 10 năm kinh nghiệm, tôi cam kết mang đến hành trình an toàn và thoải mái nhất."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm text-center" style="height:400px !important">
+                    <img src="~/images/profile4.jpg" alt="Team Member" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Lê Minh Châu</h5>
+                        <p class="card-text text-muted">Chăm Sóc Khách Hàng</p>
+                        <p class="card-text">"Tôi luôn sẵn sàng hỗ trợ bạn 24/7 để giải đáp mọi thắc mắc."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">Khách Hàng Nói Gì Về Chúng Tôi</h3>
+            <p class="lead">Những chia sẻ chân thành từ hành khách của Khánh An</p>
+        </div>
+        <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="text-center">
+                        <img src="~/images/customer1.jpg" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                        <p class="lead">"Chuyến đi rất thoải mái, tài xế thân thiện và xe sạch sẽ. Tôi sẽ tiếp tục chọn Khánh An!"</p>
+                        <h5 class="fw-bold">Nguyễn Thị Mai</h5>
+                        <p class="text-muted">Khách hàng từ Hà Nội</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="text-center">
+                        <img src="~/images/customer2.jpg" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                        <p class="lead">"Dịch vụ rất chuyên nghiệp, đặt vé dễ dàng và đúng giờ. Rất hài lòng!"</p>
+                        <h5 class="fw-bold">Trần Văn Hùng</h5>
+                        <p class="text-muted">Khách hàng từ TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="cta py-5 bg-primary text-white text-center" style="margin-bottom:20px !important; border-radius:10px;">
+    <div class="container">
+        <h3 class="fw-bold mb-3">Sẵn Sàng Cho Hành Trình Tiếp Theo?</h3>
+        <p class="lead mb-4">Đặt vé ngay hôm nay để trải nghiệm dịch vụ chất lượng cao từ Khánh An!</p>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-light btn-lg rounded-pill px-5 py-3">Đặt Vé Ngay</a>
+    </div>
+</section>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />

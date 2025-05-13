@@ -1,21 +1,26 @@
 ﻿using Asp.netWebDatVe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netWebDatVe.Controllers
-{   
-
+{
+    [Authorize(Roles = "1")]
     public class XeController : Controller
     {
         private QLDatVeContext db =new QLDatVeContext();
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.xe = db.Xes.Include(x=>x.IdLoaiNavigation).ToList();
            
             return View();
         }
         public IActionResult Create()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             ViewBag.LoaiXe = db.Loaixes.ToList(); 
             return View();
         }
@@ -24,6 +29,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Models.XeModel xe)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (!ModelState.IsValid)
             {
 
@@ -84,6 +91,8 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult Edit(string id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var xe = db.Xes.Find(id);
             if (xe == null)
             {
@@ -108,6 +117,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit([FromForm] XeModel xeModel)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (!ModelState.IsValid)
             {
                 ViewBag.LoaiXe = db.Loaixes.ToList();
@@ -164,6 +175,8 @@ namespace Asp.netWebDatVe.Controllers
 
         public IActionResult Details(string id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
@@ -183,6 +196,8 @@ namespace Asp.netWebDatVe.Controllers
  
         public async Task<IActionResult> Delete(string id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (id == null || db.Xes == null)
             {
                 return NotFound();
@@ -211,6 +226,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             if (db.Xes == null)
             {
                 return Problem("Entity set 'QLDatVeContext.Xes' is null.");
