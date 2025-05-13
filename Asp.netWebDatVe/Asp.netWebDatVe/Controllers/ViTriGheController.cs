@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Asp.netWebDatVe.Controllers
 {
-    [Authorize(Roles = "1")] // Chỉ admin được truy cập
+    [Authorize(Roles = "1")]
     public class VitrigheController : Controller
     {
         private readonly QLDatVeContext _context;
@@ -32,7 +34,6 @@ namespace Asp.netWebDatVe.Controllers
 
             var vitriGhes = await query.ToListAsync();
 
-            // Tạo SelectList cho dropdown, giữ giá trị bienso đã chọn
             ViewBag.BiensoList = new SelectList(
                 await _context.Xes.Select(x => new { x.Bienso }).ToListAsync(),
                 "Bienso",
@@ -49,20 +50,52 @@ namespace Asp.netWebDatVe.Controllers
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             ViewBag.Bienso = new SelectList(_context.Xes, "Bienso", "Bienso");
-            return View();
+            return View(new Vitrighe { Trangthai = false }); // Giá trị mặc định
         }
 
         // POST: Vitrighe/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Vitrighe vitrighe)
+        public async Task<IActionResult> Create([Bind("Bienso,Tenvitri,Trangthai")] Vitrighe vitrighe)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+
+            // Kiểm tra Bienso tồn tại
+            if (string.IsNullOrEmpty(vitrighe.Bienso) || !_context.Xes.Any(x => x.Bienso == vitrighe.Bienso))
+            {
+                ModelState.AddModelError("Bienso", "Vui lòng chọn biển số xe hợp lệ.");
+            }
+
+            // Kiểm tra Tenvitri trùng lặp
+            if (!string.IsNullOrEmpty(vitrighe.Tenvitri) &&
+                _context.Vitrighes.Any(v => v.Bienso == vitrighe.Bienso && v.Tenvitri == vitrighe.Tenvitri))
+            {
+                ModelState.AddModelError("Tenvitri", "Tên vị trí đã tồn tại cho xe này.");
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Add(vitrighe);
-                await _context.SaveChangesAsync();
-                TempData["Message"] = "Thêm vị trí ghế thành công.";
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(vitrighe);
+                    await _context.SaveChangesAsync();
+                    TempData["Message"] = "Thêm vị trí ghế thành công.";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", $"Lỗi khi thêm: {ex.InnerException?.Message ?? ex.Message}");
+                }
+            }
+
+            // Log lỗi ModelState
+            foreach (var error in ModelState)
+            {
+                foreach (var err in error.Value.Errors)
+                {
+                    Console.WriteLine($"Create Error - {error.Key}: {err.ErrorMessage}");
+                }
             }
 
             ViewBag.Bienso = new SelectList(_context.Xes, "Bienso", "Bienso", vitrighe.Bienso);
@@ -92,13 +125,26 @@ namespace Asp.netWebDatVe.Controllers
         // POST: Vitrighe/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Vitrighe vitrighe)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVitri,Bienso,Tenvitri,Trangthai")] Vitrighe vitrighe)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             if (id != vitrighe.IdVitri)
             {
                 return NotFound();
+            }
+
+            // Kiểm tra Bienso tồn tại
+            if (string.IsNullOrEmpty(vitrighe.Bienso) || !_context.Xes.Any(x => x.Bienso == vitrighe.Bienso))
+            {
+                ModelState.AddModelError("Bienso", "Vui lòng chọn biển số xe hợp lệ.");
+            }
+
+            // Kiểm tra Tenvitri trùng lặp (loại trừ bản ghi hiện tại)
+            if (!string.IsNullOrEmpty(vitrighe.Tenvitri) &&
+                _context.Vitrighes.Any(v => v.Bienso == vitrighe.Bienso && v.Tenvitri == vitrighe.Tenvitri && v.IdVitri != id))
+            {
+                ModelState.AddModelError("Tenvitri", "Tên vị trí đã tồn tại cho xe này.");
             }
 
             if (ModelState.IsValid)
@@ -108,6 +154,7 @@ namespace Asp.netWebDatVe.Controllers
                     _context.Update(vitrighe);
                     await _context.SaveChangesAsync();
                     TempData["Message"] = "Cập nhật vị trí ghế thành công.";
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,7 +164,19 @@ namespace Asp.netWebDatVe.Controllers
                     }
                     throw;
                 }
-                return RedirectToAction(nameof(Index));
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", $"Lỗi khi cập nhật: {ex.InnerException?.Message ?? ex.Message}");
+                }
+            }
+
+            // Log lỗi ModelState
+            foreach (var error in ModelState)
+            {
+                foreach (var err in error.Value.Errors)
+                {
+                    Console.WriteLine($"Edit Error - {error.Key}: {err.ErrorMessage}");
+                }
             }
 
             ViewBag.Bienso = new SelectList(_context.Xes, "Bienso", "Bienso", vitrighe.Bienso);
@@ -159,7 +218,6 @@ namespace Asp.netWebDatVe.Controllers
                 return NotFound();
             }
 
-            // Kiểm tra xem vị trí ghế có vé xe liên quan không
             if (_context.VeXes.Any(v => v.IdVitri == id))
             {
                 TempData["Error"] = "Không thể xóa vị trí ghế vì có vé xe liên quan.";

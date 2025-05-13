@@ -1,5 +1,4 @@
-﻿@model Asp.netWebDatVe.Models.ChuyenXe
-
+﻿@model List<Asp.netWebDatVe.Models.ChuyenXe>
 @{
     ViewData["Title"] = "Chỉnh sửa Chuyến Xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -62,21 +61,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th><label asp-for="MaTuyen" class="control-label"></label></th>
-            <th><label asp-for="MaChuyen" class="control-label"></label></th>
-            <th><label asp-for="TenChuyenXe" class="control-label"></label></th>
-            <th><label asp-for="ThoiDiemKhoiHanh" class="control-label"></label></th>
-            <th><label asp-for="ThoiDiemDenDuKien" class="control-label"></label></th>
-            <th><label asp-for="GiaVe" class="control-label"></label></th>
-            <th><label asp-for="BienSoXe" class="control-label"></label></th>
-            <th><label asp-for="MaTaiXe" class="control-label"></label></th>
-            <th><label asp-for="MaNhanVien1" class="control-label"></label></th>
-            <th><label asp-for="MaNhanVien" class="control-label"></label></th>
-            <th>Tác vụ</th>
+                <th>Tuyến</th>
+                <th>Mã chuyến</th>
+                <th>Tên chuyến</th>
+                <th>Khởi hành</th>
+                <th>Đến dự kiến</th>
+                <th>Giá vé</th>
+                <th>Biển số</th>
+                <th>Tài xế</th>
+                <th>Phụ xe</th>
+                <th>NV hỗ trợ</th>
+                <th>Tác vụ</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in ViewBag.ct)
+        @foreach (var item in Model)
         {
                 <tr>
                     <td>@item.MaTuyen</td>

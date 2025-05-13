@@ -663,5 +663,5 @@ C:\Users\HUYNH THUY KHANH AN\OneDrive\Documents\GitHub\VeXe\Asp.netWebDatVe\Asp.
 C:\Users\HUYNH THUY KHANH AN\OneDrive\Documents\GitHub\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\HUYNH THUY KHANH AN\OneDrive\Documents\GitHub\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\HUYNH THUY KHANH AN\OneDrive\Documents\GitHub\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\dinhn\OneDrive\Desktop\QuanLyBanVeXe\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
 C:\Users\dinhn\OneDrive\Desktop\QuanLyBanVeXe\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\dinhn\OneDrive\Desktop\QuanLyBanVeXe\VeXe\Asp.netWebDatVe\Asp.netWebDatVe\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt

@@ -80,13 +80,23 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult Delete(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+
             var loaiXe = _context.Loaixes.Find(id);
             if (loaiXe == null)
             {
                 return NotFound();
             }
+
+            var xeDangDungLoai = _context.Xes
+                .Where(x => x.IdLoai == id)
+                .ToList();
+
+            ViewBag.XeDangDungLoai = xeDangDungLoai;
             return View(loaiXe);
         }
+
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
@@ -94,13 +104,26 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+
             var loaiXe = _context.Loaixes.Find(id);
-            if (loaiXe != null)
+            if (loaiXe == null)
             {
-                _context.Loaixes.Remove(loaiXe);
-                _context.SaveChanges();
+                return NotFound();
             }
+
+            // Kiểm tra xem loại xe này có đang được dùng trong bảng Xe không
+            bool hasXe = _context.Xes.Any(x => x.IdLoai == id);
+            if (hasXe)
+            {
+                TempData["Error"] = "Không thể xóa loại xe vì có xe đang sử dụng loại này.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            _context.Loaixes.Remove(loaiXe);
+            _context.SaveChanges();
+            TempData["Success"] = "Xóa loại xe thành công.";
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

@@ -40,6 +40,10 @@ namespace Asp.netWebDatVe.Controllers
             if (string.IsNullOrEmpty(diemDi) || string.IsNullOrEmpty(diemDen) || ngayDi == null)
             {
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
+                // Lấy khuyến mãi ngay cả khi không tìm kiếm chuyến xe
+                ViewBag.KhuyenMais = db.KhuyenMais
+                    .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+                    .ToList();
                 return View();
             }
 
@@ -52,13 +56,16 @@ namespace Asp.netWebDatVe.Controllers
             {
                 ViewBag.Message = "Không tìm thấy tuyến xe phù hợp.";
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
+                ViewBag.KhuyenMais = db.KhuyenMais
+                    .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+                    .ToList();
                 return View();
             }
 
             var chuyenXes = db.ChuyenXes
                 .Include(cx => cx.BienSoXeNavigation)
                 .ThenInclude(x => x.IdLoaiNavigation)
-                .Include(cx => cx.MaNhanVienNavigation) // Thêm để lấy thông tin nhân viên
+                .Include(cx => cx.MaNhanVienNavigation)
                 .Include(cx => cx.MaTaiXeNavigation)
                 .Include(cx => cx.MaNhanVien1Navigation)
                 .Include(cx => cx.VeXes)
@@ -75,6 +82,9 @@ namespace Asp.netWebDatVe.Controllers
 
             ViewBag.TuyenXe = tuyenXe;
             ViewBag.ChuyenXes = chuyenXes;
+            ViewBag.KhuyenMais = db.KhuyenMais
+                .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+                .ToList();
 
             return View();
         }
@@ -85,7 +95,7 @@ namespace Asp.netWebDatVe.Controllers
             ViewData["UserName"] = userName;
             ViewData["Title"] = "Chọn ghế";
 
-            // Truy vấn ChuyenXe, bao gồm cả thông tin tuyến xe và bến xe
+            // Truy vấn ChuyenXe
             var chuyenXe = db.ChuyenXes
                 .Include(cx => cx.BienSoXeNavigation)
                 .ThenInclude(x => x.IdLoaiNavigation)
@@ -102,34 +112,39 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             var loaixe = chuyenXe.BienSoXeNavigation.IdLoaiNavigation;
-            var soGhe = loaixe.Soghe; // Số ghế từ loại xe
+            var soGhe = loaixe.Soghe;
 
+            // Lấy danh sách ghế và chuyển sang client-side
             var danhSachGhe = db.Vitrighes
                 .Where(ghe => ghe.Bienso == chuyenXe.BienSoXe)
-                .OrderBy(ghe => ghe.Tenvitri) // Sắp xếp theo Tenvitri (G1, G2, ..., G40)
                 .Select(ghe => new
                 {
                     ghe.IdVitri,
                     ghe.Tenvitri,
                     ghe.Trangthai
                 })
+                .ToList() // Chuyển sang client-side để xử lý int.Parse
+                .OrderBy(ghe =>
+                {
+                    // Tách số từ Tenvitri (bỏ "G") và chuyển thành số
+                    string number = ghe.Tenvitri.Replace("G", "");
+                    return int.TryParse(number, out int result) ? result : int.MaxValue; // Xử lý lỗi nếu Tenvitri không đúng định dạng
+                })
                 .ToList();
 
             // Kiểm tra số ghế thực tế
-            var soGheThucTe = danhSachGhe.Count; // Tổng số ghế thực tế trong danhSachGhe
+            var soGheThucTe = danhSachGhe.Count;
             if (soGhe != soGheThucTe)
             {
-                // Nếu số ghế từ loaixe.Soghe không khớp với danhSachGhe, sửa lại soGhe
                 soGhe = soGheThucTe;
                 _logger.LogWarning($"Số ghế trong loaixe.Soghe ({loaixe.Soghe}) không khớp với danh sách ghế thực tế ({soGheThucTe}) cho chuyến xe {maChuyen}.");
             }
 
             ViewBag.MaChuyen = maChuyen;
             ViewBag.ChuyenXe = chuyenXe;
-            ViewBag.SoGhe = soGhe; // Cập nhật lại số ghế
+            ViewBag.SoGhe = soGhe;
             ViewBag.GheDaDat = danhSachGhe.Where(ghe => ghe.Trangthai == true).Select(ghe => ghe.IdVitri).ToList();
             ViewBag.DanhSachGhe = danhSachGhe;
-
             ViewBag.TuyenXe = chuyenXe.MaTuyenNavigation;
 
             return View("ChonGhe");

@@ -105,13 +105,14 @@ html {
 }
 
 body {
-  font-family: var(--body-font);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 164%;
-  letter-spacing: 0.32px;
-  color: var(--dark-color);
-  margin: 0;
+    font-family: var(--body-font);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 164%;
+    letter-spacing: 0.32px;
+    color: var(--dark-color);
+    margin: 0;
+    background-color: beige !important;
 }
 
 p {

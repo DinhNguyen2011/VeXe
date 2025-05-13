@@ -297,8 +297,6 @@ namespace Asp.netWebDatVe.Models
 
                 entity.Property(e => e.GhiChu).HasMaxLength(200);
 
-                entity.Property(e => e.IdVitri).HasColumnName("ID_VITRI");
-
                 entity.Property(e => e.NgayDat)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
@@ -334,29 +332,19 @@ namespace Asp.netWebDatVe.Models
             modelBuilder.Entity<Vitrighe>(entity =>
             {
                 entity.HasKey(e => e.IdVitri)
-                    .HasName("PK__vitrighe__121D67D0DAE6F32D");
+                    .HasName("PK__Vitrighe__5965B3AB6EFE223C");
 
-                entity.ToTable("vitrighe");
+                entity.ToTable("Vitrighe");
 
-                entity.Property(e => e.IdVitri)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID_VITRI");
+                entity.Property(e => e.Bienso).HasMaxLength(15);
 
-                entity.Property(e => e.Bienso)
-                    .HasMaxLength(15)
-                    .HasColumnName("BIENSO");
-
-                entity.Property(e => e.Tenvitri)
-                    .HasMaxLength(50)
-                    .HasColumnName("TENVITRI");
-
-                entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
+                entity.Property(e => e.Tenvitri).HasMaxLength(50);
 
                 entity.HasOne(d => d.BiensoNavigation)
                     .WithMany(p => p.Vitrighes)
                     .HasForeignKey(d => d.Bienso)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__vitrighe__BIENSO__45F365D3");
+                    .HasConstraintName("FK_Vitrighe_Xe");
             });
 
             modelBuilder.Entity<Xe>(entity =>

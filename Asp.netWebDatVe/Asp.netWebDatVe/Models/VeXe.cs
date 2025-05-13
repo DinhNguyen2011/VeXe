@@ -1,50 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
     public partial class VeXe
     {
+        [DisplayName("Mã Vé")]
         public int MaVe { get; set; }
-        [Display(Name = "Mã phiếu đặt vé")]
+
+        [DisplayName("Mã Phiếu Đặt Vé")]
         public int? MaPhieu { get; set; }
 
-        [Display(Name = "Mã chuyến xe")]
+        [DisplayName("Mã Chuyến Xe")]
         public int? MaChuyen { get; set; }
 
-        [Display(Name = "Tên vé")]
-        [StringLength(100, ErrorMessage = "Tên vé không được vượt quá 100 ký tự")]
+        [DisplayName("Tên Vé")]
         public string? TenVe { get; set; }
 
-        [Display(Name = "Trạng thái")]
-        [StringLength(50, ErrorMessage = "Trạng thái không được vượt quá 50 ký tự")]
+        [DisplayName("Trạng Thái")]
         public string? TrangThai { get; set; }
 
-        [Display(Name = "Ghi chú")]
-        [StringLength(500, ErrorMessage = "Ghi chú không được vượt quá 500 ký tự")]
+        [DisplayName("Ghi Chú")]
         public string? GhiChu { get; set; }
 
-        [Display(Name = "Tên khách hàng")]
-        [StringLength(100, ErrorMessage = "Tên khách hàng không được vượt quá 100 ký tự")]
+        [DisplayName("Tên Khách Hàng")]
         public string? TenKh { get; set; }
 
-        [Display(Name = "Email")]
-        [EmailAddress(ErrorMessage = "Địa chỉ email không hợp lệ")]
-        [StringLength(100, ErrorMessage = "Email không được vượt quá 100 ký tự")]
+        [DisplayName("Email Khách Hàng")]
         public string? Email { get; set; }
 
-        [Display(Name = "Vị trí ghế")]
-        public int? IdVitri { get; set; }
-
-        [Display(Name = "Ngày đặt")]
-        [DataType(DataType.Date)]
+        [DisplayName("Ngày Đặt")]
         public DateTime? NgayDat { get; set; }
 
-        [Display(Name = "Số điện thoại")]
-        [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
-        [StringLength(15, ErrorMessage = "Số điện thoại không được vượt quá 15 ký tự")]
+        [DisplayName("Số Điện Thoại")]
         public string? Sđt { get; set; }
+
+        [DisplayName("Vị Trí Ghế")]
+        public int? IdVitri { get; set; }
+
 
         public virtual Vitrighe? IdVitriNavigation { get; set; }
         public virtual ChuyenXe? MaChuyenNavigation { get; set; }

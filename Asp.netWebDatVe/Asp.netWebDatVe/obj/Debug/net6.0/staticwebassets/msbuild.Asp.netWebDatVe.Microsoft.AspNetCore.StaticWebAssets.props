@@ -9210,8 +9210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>s8ygdpjzb0</Fingerprint>
-      <Integrity>XDJ/WODVQo4i5pZNmkuAO6HncCPvRmrA68k43YnL5xA=</Integrity>
+      <Fingerprint>6nrc692bxo</Fingerprint>
+      <Integrity>Dn8RdRZRuanQWDb35w1H74xgnlTMFds8W5mki96twp4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\DanhSachPDTProF.css'))</OriginalItemSpec>
@@ -9246,11 +9246,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bto0yz540t</Fingerprint>
-      <Integrity>YWTbPwS2kWXYoFa/bOapHw7orZbdUGnSSx5f64fpyVc=</Integrity>
+      <Fingerprint>j06f7pbzyl</Fingerprint>
+      <Integrity>zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\indexLichTrinh.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\KhuyeMai.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Asp.netWebDatVe</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Asp.netWebDatVe</BasePath>
+      <RelativePath>css/KhuyeMai.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>qk98yvf6pf</Fingerprint>
+      <Integrity>hm8MKQ4k62LXEAAboTKFkJb/04+L9Ut2p/Seul1YYdA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\KhuyeMai.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\LienHeVoiChungToi.css'))">
       <SourceType>Package</SourceType>
@@ -9318,8 +9336,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oq8r4nbcb2</Fingerprint>
-      <Integrity>AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL+c=</Integrity>
+      <Fingerprint>yg7tvolus4</Fingerprint>
+      <Integrity>7oXtb8invju03HSMRLChQoQXgOBLlOsSNi5Ao1RjJ8Q=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -9336,8 +9354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jwlxeh42t3</Fingerprint>
-      <Integrity>3aDa5Gs+s3u4L45/N9dipeYHchHhXTwAuFEj7ffE8CI=</Integrity>
+      <Fingerprint>l6pt97pfse</Fingerprint>
+      <Integrity>Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</OriginalItemSpec>
@@ -9792,6 +9810,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\customer8.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\da777f82-355c-48a0-90cf-22fdae352102.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Asp.netWebDatVe</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Asp.netWebDatVe</BasePath>
+      <RelativePath>images/da777f82-355c-48a0-90cf-22fdae352102.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>p3jbncd064</Fingerprint>
+      <Integrity>i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\da777f82-355c-48a0-90cf-22fdae352102.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\DaLat.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Asp.netWebDatVe</SourceId>
@@ -9971,6 +10007,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profile5.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\T59-12345_icon bus.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Asp.netWebDatVe</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Asp.netWebDatVe</BasePath>
+      <RelativePath>images/T59-12345_icon bus.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>p3jbncd064</Fingerprint>
+      <Integrity>i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\T59-12345_icon bus.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\T99-11111_xe4.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Asp.netWebDatVe</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Asp.netWebDatVe</BasePath>
+      <RelativePath>images/T99-11111_xe4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>b9vvmtqg2r</Fingerprint>
+      <Integrity>AUZX4t1R09yphhrpH3W1yAPWGnLCCoN/W77Y1aDFyZw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\T99-11111_xe4.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ThuaThienHue.jpg'))">
       <SourceType>Package</SourceType>

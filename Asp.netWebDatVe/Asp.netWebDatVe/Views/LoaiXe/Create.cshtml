@@ -9,6 +9,11 @@
 
 <form asp-action="Create" method="post">
     <div class="form-group">
+        <label asp-for="IdLoai" class="control-label"></label>
+        <input asp-for="IdLoai" class="form-control" />
+        <span asp-validation-for="IdLoai" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="Tenloai" class="control-label"></label>
         <input asp-for="Tenloai" class="form-control" />
         <span asp-validation-for="Tenloai" class="text-danger"></span>

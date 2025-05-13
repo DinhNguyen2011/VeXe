@@ -1,4 +1,5 @@
 ﻿using Asp.netWebDatVe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Linq;
 
 namespace Asp.netWebDatVe.Controllers
 {
+    [Authorize(Roles = "1,2")]
     public class VeXeController : Controller
     {
         private readonly QLDatVeContext _context;

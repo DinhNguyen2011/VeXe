@@ -10,19 +10,30 @@
 <div class="vitrighe-container">
     <h2 class="vitrighe-title">Sửa vị trí ghế</h2>
 
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
+    }
+
     <form asp-action="Edit" method="post">
         @Html.AntiForgeryToken()
         <input type="hidden" asp-for="IdVitri" />
 
         <div class="form-group vitrighe-form-group">
-            <label asp-for="Bienso" class="vitrighe-label">Biển số xe</label>
-            <select asp-for="Bienso" class="form-control vitrighe-select" asp-items="ViewBag.Bienso"></select>
+            <label asp-for="Bienso" class="vitrighe-label"></label>
+            <select asp-for="Bienso" class="form-control vitrighe-select" asp-items="ViewBag.Bienso">
+                <option value="">Chọn biển số xe</option>
+            </select>
             <span asp-validation-for="Bienso" class="text-danger"></span>
         </div>
 
         <div class="form-group vitrighe-form-group">
             <label asp-for="Tenvitri" class="vitrighe-label"></label>
-            <input asp-for="Tenvitri" class="form-control vitrighe-input" />
+            <input asp-for="Tenvitri" class="form-control vitrighe-input" placeholder="Nhập tên vị trí (ví dụ: G1, G2)" />
             <span asp-validation-for="Tenvitri" class="text-danger"></span>
         </div>
 
@@ -30,8 +41,8 @@
             <label asp-for="Trangthai" class="vitrighe-label"></label>
             <select asp-for="Trangthai" class="form-control vitrighe-select">
                 <option value="">Chọn trạng thái</option>
-                <option value="true">Đã đặt</option>
-                <option value="false">Trống</option>
+                <option value="true" selected="@(Model.Trangthai == true ? "selected" : null)">Đã đặt</option>
+                <option value="false" selected="@(Model.Trangthai == false ? "selected" : null)">Trống</option>
             </select>
             <span asp-validation-for="Trangthai" class="text-danger"></span>
         </div>
@@ -42,3 +53,11 @@
         </div>
     </form>
 </div>
+<script>
+    $("form").submit(function() {
+        return confirm("Bạn có chắc chắn muốn lưu không?");
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>

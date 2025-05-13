@@ -24,14 +24,14 @@
     }
     else
     {
-        <table class="table table-striped phieudatve-table">
+        <table class="table phieudatve-table">
             <thead>
                 <tr>
                     <th>Mã phiếu</th>
                     <th>Ngày đặt</th>
                     <th>Tổng tiền</th>
                     <th>Trạng thái</th>
-                    <th>Thao tác</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -49,7 +49,7 @@
                             {
                                 <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
                                     <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
-                                    <button type="submit" class="btn btn-danger btn-sm">Hủy</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Hủy vé</button>
                                 </form>
                             }
                         </td>

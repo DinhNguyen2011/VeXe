@@ -8,17 +8,20 @@
 }
 
 .phieudatve-table {
+    width: 100%;
     background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-    .phieudatve-table th,
-    .phieudatve-table td {
-        vertical-align: middle;
+    .phieudatve-table td:last-child {
+        text-align: center;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
     }
-
 .phieudatve-no-ticket {
     color: #dc3545;
     font-weight: bold;

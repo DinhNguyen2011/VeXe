@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Asp.netWebDatVe.Controllers
 {
-    [Authorize] 
+    [Authorize(Roles = "1,2")]
     public class HomeAdminController : Controller
     {
         public IActionResult Index()

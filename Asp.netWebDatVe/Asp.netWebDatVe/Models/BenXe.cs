@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -11,24 +11,21 @@ namespace Asp.netWebDatVe.Models
             TuyenXeMaBenXeDenNavigations = new HashSet<TuyenXe>();
             TuyenXeMaBenXeDiNavigations = new HashSet<TuyenXe>();
         }
-        [Display(Name = "Mã bến xe")]
 
+        [DisplayName("Mã Bến Xe")]
         public int MaBenXe { get; set; }
-        [Required(ErrorMessage = "Tên bến xe không được để trống")]
-        [Display(Name = "Tên bến xe")]
+
+        [DisplayName("Tên Bến Xe")]
         public string TenBenXe { get; set; } = null!;
 
-        [Required(ErrorMessage = "Địa chỉ không được để trống")]
-        [Display(Name = "Địa chỉ")]
+        [DisplayName("Địa Chỉ")]
         public string DiaChi { get; set; } = null!;
 
-        [Required(ErrorMessage = "Số điện thoại không được để trống")]
-        [Display(Name = "Số điện thoại")]
+        [DisplayName("Số Điện Thoại")]
         public string Sdt { get; set; } = null!;
 
-        [Display(Name = "Thành phố")]
+        [DisplayName("Thành Phố")]
         public string? ThanhPho { get; set; }
-
         public virtual ICollection<TuyenXe> TuyenXeMaBenXeDenNavigations { get; set; }
         public virtual ICollection<TuyenXe> TuyenXeMaBenXeDiNavigations { get; set; }
     }

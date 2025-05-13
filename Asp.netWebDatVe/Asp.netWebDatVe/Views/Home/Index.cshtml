@@ -3,6 +3,7 @@
 }
 
 <link rel="stylesheet" href="~/css/bus-home.css" />
+<link rel="stylesheet" href="~/css/KhuyeMai.css" />
 
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
@@ -146,7 +147,37 @@
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
-    <div class="popular-routes-section mt-5">
+
+    <!-- Phần khuyến mãi -->
+    <div class="promotion-section mt-5" style="border-radius:5px !important;">
+        <h2 class="text-center text-success mb-4">KHUYẾN MÃI HẤP DẪN</h2>
+        <div class="promotion-carousel">
+            <button class="carousel-prev" onclick="moveCarousel('prev')">&#10094;</button>
+            <div class="carousel-container">
+                <div class="carousel-inner">
+                    @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
+                    {
+                        foreach (var km in ViewBag.KhuyenMais)
+                        {
+                            <div class="promotion-card">
+                                <h3 class="promotion-title">@km.TenKhuyenMai</h3>
+                                <p class="promotion-discount">Giảm @km.PhanTramGiam%</p>
+                                <p class="promotion-desc">@km.MoTa</p>
+                                <p class="promotion-date">Từ @km.NgayBatDau.ToString("dd/MM/yyyy") đến @km.NgayKetThuc.ToString("dd/MM/yyyy")</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-center">Hiện chưa có khuyến mãi nào.</p>
+                    }
+                </div>
+            </div>
+            <button class="carousel-next" onclick="moveCarousel('next')">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="popular-routes-section mt-5" style="border-radius:5px !important;">
         <h2 class="text-center text-success mb-4">TUYẾN PHỔ BIẾN</h2>
         <div class="row">
             <div class="col-md-4">
@@ -193,7 +224,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" >
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('/images/ThuaThienHue.jpg');">
                         <h5 class="route-title">Tuyến xe từ Đà Nẵng</h5>
@@ -216,7 +247,8 @@
             </div>
         </div>
     </div>
-    <div class="bus-lines-section mt-5">
+
+    <div class="bus-lines-section mt-5" style="margin-bottom:20px !important;">
         <h2 class="text-center text-success">Bus Ticket System - An toàn là trên hết</h2>
         <p class="text-center">Được khách hàng tin tưởng và lựa chọn</p>
         <div class="row text-center mt-4">
@@ -243,17 +275,15 @@
             </div>
         </div>
     </div>
-
 </div>
-
 
 <script src="~/js/bus-home.js"></script>
 
-<!-- Script lọc khung giờ -->
+<!-- Script lọc khung giờ và carousel khuyến mãi -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Lọc khung giờ
         const checkboxes = document.querySelectorAll(".time-filter");
-
         checkboxes.forEach(cb => {
             cb.addEventListener("change", function () {
                 if (this.checked) {
@@ -275,7 +305,6 @@
             }
 
             const [start, end] = selectedCb.value.split('-').map(Number);
-
             trips.forEach(trip => {
                 const gio = parseInt(trip.dataset.gioKhoihanh);
                 const visible = gio >= start && gio < end;
@@ -283,10 +312,35 @@
             });
         }
 
-        // Hiển thị modal loading khi submit form
+        // Hiển thị modal loading
         const form = document.getElementById("searchForm");
         form.addEventListener("submit", function () {
             document.getElementById("loadingModal").style.display = "block";
         });
+
+        // Carousel khuyến mãi
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.promotion-card');
+        const totalItems = items.length;
+        const itemsPerView = 3;
+
+        if (totalItems > itemsPerView) {
+            document.querySelector('.carousel-prev').style.display = 'block';
+            document.querySelector('.carousel-next').style.display = 'block';
+        }
+
+        window.moveCarousel = function(direction) {
+            const container = document.querySelector('.carousel-inner');
+            const itemWidth = items[0].offsetWidth + 20; // 20px margin
+            const maxIndex = totalItems - itemsPerView;
+
+            if (direction === 'next' && currentIndex < maxIndex) {
+                currentIndex++;
+            } else if (direction === 'prev' && currentIndex > 0) {
+                currentIndex--;
+            }
+
+            container.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        };
     });
 </script>

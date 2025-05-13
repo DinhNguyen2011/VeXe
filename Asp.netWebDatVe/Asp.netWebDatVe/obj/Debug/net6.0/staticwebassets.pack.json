@@ -2661,6 +2661,10 @@
       "PackagePath": "staticwebassets\\css\\EditProfile.css"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\KhuyeMai.css",
+      "PackagePath": "staticwebassets\\css\\KhuyeMai.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "PackagePath": "staticwebassets\\css\\LienHeVoiChungToi.css"
     },
@@ -2753,6 +2757,14 @@
       "PackagePath": "staticwebassets\\images\\HCMCityMyLove.jpg"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\T59-12345_icon bus.png",
+      "PackagePath": "staticwebassets\\images\\T59-12345_icon bus.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\T99-11111_xe4.jpg",
+      "PackagePath": "staticwebassets\\images\\T99-11111_xe4.jpg"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\ThuaThienHue.jpg",
       "PackagePath": "staticwebassets\\images\\ThuaThienHue.jpg"
     },
@@ -2807,6 +2819,10 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\customer8.jpg",
       "PackagePath": "staticwebassets\\images\\customer8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\da777f82-355c-48a0-90cf-22fdae352102.png",
+      "PackagePath": "staticwebassets\\images\\da777f82-355c-48a0-90cf-22fdae352102.png"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\front-of-bus.png",

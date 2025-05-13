@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -10,11 +10,10 @@ namespace Asp.netWebDatVe.Models
         {
             NguoiDungs = new HashSet<NguoiDung>();
         }
-
+        [DisplayName("Mã Quyền")]
         public int MaQuyen { get; set; }
-        [Display(Name = "Tên quyền")]
-        [Required(ErrorMessage = "Tên quyền không được để trống")]
-        [StringLength(50, ErrorMessage = "Tên quyền không được vượt quá 50 ký tự")]
+
+        [DisplayName("Tên Quyền")]
         public string? TenQuyen { get; set; }
         public virtual ICollection<NguoiDung> NguoiDungs { get; set; }
     }

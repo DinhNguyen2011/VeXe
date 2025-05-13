@@ -1,73 +1,291 @@
-﻿.lt-schedule {
-    padding: 40px 20px;
-    background-color: #fafafa; /* Nền sáng, mềm mại */
-    font-family: Arial, sans-serif;
+﻿/* Shine animation for text sparkle effect */
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.lt-schedule {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Title */
 .lt-title {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #333333; /* Đen xám sang trọng */
+    font-size: 32px;
     font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    margin-bottom: 30px;
 }
 
+/* Search box */
 .lt-search-box {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 30px;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .lt-input {
-    padding: 12px 18px;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 300px;
-    max-width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Tạo bóng nhẹ sang trọng */
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+    .lt-input:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+        outline: none;
+    }
+
+    .lt-input::placeholder {
+        color: #6c757d;
+        opacity: 0.7;
+    }
+
+/* Button */
 .lt-btn {
-    background-color: #c0c0c0; /* Tông bạc nhẹ */
-    color: #333333; /* Màu chữ đen xám */
+    padding: 12px 24px;
+    font-size: 15px; /* Nhỏ hơn */
+    font-weight: 500;
+    color: #fff;
+    background-color: #28a745;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bóng nhẹ cho nút */
+    border-radius: 8px;
+    min-width: 120px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase; /* In hoa */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
     .lt-btn:hover {
-        background-color: #a9a9a9; /* Xám đậm khi hover */
-        transform: scale(1.05); /* Hiệu ứng nở nhẹ khi hover */
+        background-color: #218838;
+        transform: scale(1.05);
     }
 
+/* Table */
 .lt-table {
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bóng mờ để thêm sang trọng */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
     .lt-table thead {
-        background-color: #d3d3d3; /* Xám sáng nhẹ cho header */
-        color: #333333;
-    }
-
-    .lt-table th,
-    .lt-table td {
-        padding: 15px;
-        text-align: center;
-        border: 1px solid #ddd;
-        font-size: 16px;
+        background-color: #28a745;
+        color: #fff;
     }
 
     .lt-table th {
-        font-weight: bold;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
     }
+
+        .lt-table th:last-child {
+            min-width: 180px;
+            text-align: center;
+        }
+
+    .lt-table tbody tr {
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .lt-table tbody tr:hover {
+            background-color: #f1f3f5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    .lt-table td {
+        padding: 15px;
+        font-size: 16px; /* Tăng chữ */
+        font-weight: 500; /* Đậm hơn */
+        color: #333;
+        border-bottom: 1px solid #eee;
+        white-space: normal;
+    }
+
+        .lt-table td:last-child {
+            text-align: center;
+        }
+
+        .lt-table td:nth-child(5) {
+            color: #dc3545; /* Giá Hiện Hành màu đỏ */
+            font-weight: 600;
+        }
+
+/* Responsive for tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .lt-schedule {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 25px;
+    }
+
+    .lt-title {
+        font-size: 30px;
+    }
+
+    .lt-search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .lt-input {
+        max-width: 100%;
+    }
+
+    .lt-table th, .lt-table td {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+        .lt-table th:last-child {
+            min-width: 160px;
+        }
+
+    .lt-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 110px;
+    }
+}
+
+/* Responsive for mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .lt-schedule {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .lt-title {
+        font-size: 28px;
+    }
+
+    .lt-search-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .lt-input {
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+
+    .lt-table {
+        display: block;
+        overflow-x: auto;
+        touch-action: pan-x;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #28a745 #e9ecef;
+    }
+
+        .lt-table::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .lt-table::-webkit-scrollbar-track {
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .lt-table::-webkit-scrollbar-thumb {
+            background: #28a745;
+            border-radius: 4px;
+        }
+
+            .lt-table::-webkit-scrollbar-thumb:hover {
+                background: #218838;
+            }
+
+        .lt-table th, .lt-table td {
+            font-size: 15px;
+            padding: 10px;
+            min-width: 100px;
+        }
+
+            .lt-table th:last-child {
+                min-width: 140px;
+            }
+
+    .lt-btn {
+        padding: 8px 16px;
+        font-size: 13px; /* Nhỏ hơn */
+        min-width: 100px;
+        min-height: 40px;
+    }
+}
+
+/* Responsive for very small screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .lt-schedule {
+        margin: 15px 8px;
+        padding: 15px;
+    }
+
+    .lt-title {
+        font-size: 24px;
+    }
+
+    .lt-input {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .lt-table th, .lt-table td {
+        font-size: 14px;
+        padding: 8px;
+        min-width: 80px;
+    }
+
+        .lt-table th:last-child {
+            min-width: 120px;
+        }
+
+    .lt-btn {
+        padding: 6px 12px;
+        font-size: 12px; /* Nhỏ hơn */
+        min-width: 90px;
+        min-height: 36px;
+    }
+}

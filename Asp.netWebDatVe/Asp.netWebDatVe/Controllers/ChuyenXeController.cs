@@ -38,7 +38,8 @@ namespace Asp.netWebDatVe.Controllers
             ViewBag.ct = chuyenXes;
             ViewBag.IsCompleted = isCompleted;
 
-            return View();
+            return View(chuyenXes);
+
         }
 
         // GET: ChuyenXe/Create

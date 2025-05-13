@@ -93,7 +93,7 @@ namespace Asp.netWebDatVe.Controllers
             HttpContext.Session.SetString("UserName", user.HoTen ?? user.Email);
             HttpContext.Session.SetInt32("UserId", user.Id);
 
-            TempData["Success"] = "Đăng nhập thành công!";
+            TempData["Success"] = "Đăng nhập!";
 
             // Xử lý ReturnUrl
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
@@ -268,6 +268,8 @@ namespace Asp.netWebDatVe.Controllers
         }
 
         [HttpPost]
+        
+        [ValidateAntiForgeryToken]
         public IActionResult ChangePassword(string oldPassword, string newPassword, string confirmPassword)
         {
             var userJson = HttpContext.Session.GetString("UserInfo");
@@ -275,31 +277,48 @@ namespace Asp.netWebDatVe.Controllers
 
             var user = JsonConvert.DeserializeObject<NguoiDung>(userJson);
             var currentUser = _context.NguoiDungs.FirstOrDefault(u => u.Id == user.Id);
-
             if (currentUser == null) return NotFound();
 
-            if (currentUser.MatKhau != oldPassword)
+            // Kiểm tra mật khẩu cũ
+            bool isPasswordValid = false;
+            if (IsBCryptHash(currentUser.MatKhau))
+            {
+                isPasswordValid = BCrypt.Net.BCrypt.Verify(oldPassword, currentUser.MatKhau);
+            }
+            else
+            {
+                isPasswordValid = currentUser.MatKhau == oldPassword;
+            }
+
+            if (!isPasswordValid)
             {
                 ViewBag.Error = "Mật khẩu cũ không chính xác!";
+                ViewData["UserName"] = HttpContext.Session.GetString("UserName");
                 return View();
             }
 
+            // Kiểm tra mật khẩu xác nhận
             if (newPassword != confirmPassword)
             {
                 ViewBag.Error = "Mật khẩu xác nhận không khớp!";
+                ViewData["UserName"] = HttpContext.Session.GetString("UserName");
                 return View();
             }
 
-          
+            // Kiểm tra định dạng mật khẩu mới
             if (newPassword.Length < 8 || !newPassword.Any(char.IsDigit) || !newPassword.Any(char.IsLetter))
             {
                 ViewBag.Error = "Mật khẩu mới phải có ít nhất 8 ký tự, bao gồm cả chữ cái và số!";
+                ViewData["UserName"] = HttpContext.Session.GetString("UserName");
                 return View();
             }
 
-            currentUser.MatKhau = newPassword;
+            // Mã hóa mật khẩu mới bằng BCrypt
+            currentUser.MatKhau = BCrypt.Net.BCrypt.HashPassword(newPassword);
+            _context.Update(currentUser);
             _context.SaveChanges();
 
+            // Xóa session và yêu cầu đăng nhập lại
             HttpContext.Session.Clear();
             TempData["Success"] = "Đổi mật khẩu thành công! Vui lòng đăng nhập lại.";
             return RedirectToAction("Login");

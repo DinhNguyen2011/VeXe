@@ -5,42 +5,87 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+<link rel="stylesheet" href="~/css/Vitrighe.css" />
 
-<div class="phieudatve-container">
-    <h2 class="phieudatve-title">Thêm vị trí ghế</h2>
+<div class="vitrighe-container">
+    <h2 class="vitrighe-title">Thêm vị trí ghế</h2>
 
-    <form asp-action="Create" method="post">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
+    }
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger vitrighe-alert">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+
+    <form asp-action="Create" method="post" id="createForm">
         @Html.AntiForgeryToken()
 
-        <div class="form-group phieudatve-form-group">
-            <label asp-for="Bienso" class="phieudatve-label"></label>
-            <select asp-for="Bienso" class="form-control phieudatve-select" asp-items="ViewBag.Bienso">
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Bienso" class="vitrighe-label"></label>
+            <select asp-for="Bienso" class="form-control vitrighe-select" asp-items="ViewBag.Bienso" required>
                 <option value="">Chọn biển số xe</option>
             </select>
             <span asp-validation-for="Bienso" class="text-danger"></span>
         </div>
 
-        <div class="form-group phieudatve-form-group">
-            <label asp-for="Tenvitri" class="phieudatve-label"></label>
-            <input asp-for="Tenvitri" class="form-control phieudatve-input" placeholder="Nhập tên vị trí (ví dụ: G1, G2)" />
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Tenvitri" class="vitrighe-label"></label>
+            <input asp-for="Tenvitri" class="form-control vitrighe-input" placeholder="Nhập đúng tên vị trí (ví dụ: G1, G2)" pattern="^G\d+$" />
             <span asp-validation-for="Tenvitri" class="text-danger"></span>
         </div>
 
-        <div class="form-group phieudatve-form-group">
-            <label asp-for="Trangthai" class="phieudatve-label"></label>
-            <select asp-for="Trangthai" class="form-control phieudatve-select">
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="Trangthai" class="vitrighe-label"></label>
+            <select asp-for="Trangthai" class="form-control vitrighe-select" required>
                 <option value="">Chọn trạng thái</option>
-                <option value="true">Đã đặt</option>
-                <option value="false">Trống</option>
+                <option value="true" selected="@(Model.Trangthai == true)">Đã đặt</option>
+                <option value="false" selected="@(Model.Trangthai == false)">Trống</option>
             </select>
             <span asp-validation-for="Trangthai" class="text-danger"></span>
         </div>
 
-        <div class="form-group phieudatve-form-group">
-            <button type="submit" class="btn btn-primary phieudatve-btn">Thêm</button>
-            <a asp-action="Index" class="btn btn-secondary phieudatve-btn">Quay lại</a>
+        <div class="form-group vitrighe-form-group">
+            <button type="submit" class="btn btn-primary vitrighe-btn">Thêm</button>
+            <a asp-action="Index" class="btn btn-secondary vitrighe-btn">Quay lại</a>
         </div>
     </form>
 </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#createForm").validate({
+                rules: {
+                    Bienso: { required: true },
+                    Tenvitri: {
+                        required: false,
+                        pattern: /^G\d+$/
+                    },
+                    Trangthai: { required: true }
+                },
+                messages: {
+                    Bienso: { required: "Vui lòng chọn biển số xe" },
+                    Tenvitri: {
+                        pattern: "Tên vị trí phải có định dạng G + số (ví dụ: G1, G2)"
+                    },
+                    Trangthai: { required: "Vui lòng chọn trạng thái" }
+                },
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element);
+                }
+            });
+        });
+    </script>

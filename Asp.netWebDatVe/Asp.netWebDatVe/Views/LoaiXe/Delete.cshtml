@@ -3,13 +3,15 @@
 @{
     ViewData["Title"] = "Xóa loại xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var danhSachXe = ViewBag.XeDangDungLoai as List<Asp.netWebDatVe.Models.Xe>;
 }
 
 <h2>Xóa loại xe</h2>
 
 <div class="alert alert-warning">
-    <p>Bạn có chắc chắn muốn xóa loại xe này không?</p>
-    <table class="table">
+    <p>⚠️ Bạn có chắc chắn muốn xóa loại xe này không?</p>
+
+    <table class="table table-bordered">
         <tr>
             <th>Mã loại:</th>
             <td>@Model.IdLoai</td>
@@ -23,8 +25,40 @@
             <td>@Model.Soghe</td>
         </tr>
     </table>
-    <form asp-action="DeleteConfirmed" asp-route-id="@Model.IdLoai" method="post">
-        <button type="submit" class="btn btn-danger">Xóa</button>
-        <a href="@Url.Action("Index", "LoaiXe")" class="btn btn-secondary">Hủy</a>
-    </form>
+
+    @if (danhSachXe != null && danhSachXe.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <p><strong>Không thể xóa:</strong> Có @danhSachXe.Count xe đang sử dụng loại xe này.</p>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Biển số</th>
+                        <th>Hãng xe</th>
+                        <th>Loại xe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var xe in danhSachXe)
+                    {
+                        <tr>
+                            <td>@xe.Bienso</td>
+                            <td>@xe.Tenxe</td>
+                            <td>@Model.Tenloai</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+        </div>
+    }
+    else
+    {
+        <form asp-action="DeleteConfirmed" asp-route-id="@Model.IdLoai" method="post">
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </form>
+    }
 </div>

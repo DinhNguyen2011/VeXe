@@ -511,6 +511,7 @@ wwwroot\css\ChonGhe.css
 wwwroot\css\DanhSachPDTProF.css
 wwwroot\css\EditProfile.css
 wwwroot\css\indexLichTrinh.css
+wwwroot\css\KhuyeMai.css
 wwwroot\css\LienHeVoiChungToi.css
 wwwroot\css\PhieuDatVe.css
 wwwroot\css\Profile.css
@@ -541,6 +542,7 @@ wwwroot\images\customer5.jpg
 wwwroot\images\customer6.jpg
 wwwroot\images\customer7.jpg
 wwwroot\images\customer8.jpg
+wwwroot\images\da777f82-355c-48a0-90cf-22fdae352102.png
 wwwroot\images\DaLat.jpg
 wwwroot\images\front-of-bus.png
 wwwroot\images\HCMCityMyLove.jpg
@@ -551,6 +553,8 @@ wwwroot\images\profile2.jpg
 wwwroot\images\profile3.jpg
 wwwroot\images\profile4.jpg
 wwwroot\images\profile5.jpg
+wwwroot\images\T59-12345_icon bus.png
+wwwroot\images\T99-11111_xe4.jpg
 wwwroot\images\ThuaThienHue.jpg
 wwwroot\images\timkiem.jpg
 wwwroot\js\ajax-loader.gif

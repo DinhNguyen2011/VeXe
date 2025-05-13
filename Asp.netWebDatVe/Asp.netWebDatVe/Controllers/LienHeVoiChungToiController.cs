@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Asp.netWebDatVe.Controllers
 {
-   
+ 
     public class LienHeVoiChungToiController : Controller
     {
         private readonly QLDatVeContext db;
@@ -82,7 +82,7 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(lienHe);
         }
-        [Authorize]
+        [Authorize(Roles = "1,2")]
         public IActionResult DanhSach()
         {
             var userName = HttpContext.Session.GetString("UserName");
@@ -94,7 +94,7 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(danhSachLienHe);
         }
-        [Authorize]
+        [Authorize(Roles = "1,2")]
         [HttpPost]
         public IActionResult Xoa(int id)
         {

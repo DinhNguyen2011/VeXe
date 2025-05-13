@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -11,35 +11,29 @@ namespace Asp.netWebDatVe.Models
         {
             ChuyenXes = new HashSet<ChuyenXe>();
         }
-        [Display(Name = "Mã tuyến")]
+
+        [DisplayName("Mã Tuyến")]
         public int MaTuyen { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập điểm đi")]
-        [Display(Name = "Điểm đi")]
+        [DisplayName("Điểm Đi")]
         public string DiemDi { get; set; } = null!;
 
-        [Required(ErrorMessage = "Vui lòng nhập điểm đến")]
-        [Display(Name = "Điểm đến")]
+        [DisplayName("Điểm Đến")]
         public string DiemDen { get; set; } = null!;
 
-        [Required(ErrorMessage = "Vui lòng nhập số ngày chạy trong tuần")]
-        [Display(Name = "Số ngày chạy trong tuần")]
+        [DisplayName("Số Ngày Chạy Trong Tuần")]
         public int? SoNgayChayTrongTuan { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập giá hiện hành")]
-        [Display(Name = "Giá hiện hành")]
+        [DisplayName("Giá Hiện Hành")]
         public decimal? GiaHienHanh { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập quãng đường")]
-        [Display(Name = "Quãng đường (km)")]
+        [DisplayName("Quãng Đường (km)")]
         public int? QuangDuong { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng chọn bến xe đi")]
-        [Display(Name = "Bến xe đi")]
+        [DisplayName("Mã Bến Xe Đi")]
         public int MaBenXeDi { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng chọn bến xe đến")]
-        [Display(Name = "Bến xe đến")]
+        [DisplayName("Mã Bến Xe Đến")]
         public int MaBenXeDen { get; set; }
         [ValidateNever]
         public virtual BenXe MaBenXeDenNavigation { get; set; } = null!;

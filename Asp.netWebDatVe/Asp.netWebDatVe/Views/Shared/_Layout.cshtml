@@ -15,7 +15,7 @@
 
     <!-- Bootstrap ================================================== -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
-
+  
     <!-- Vendor css ================================================== -->
     <link rel="stylesheet" type="text/css" href="~/css/vendor.css">
 
@@ -38,31 +38,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 
-<body>
-
-
-    <!-- Top Info Bar -->
-    <div class="bg-light py-2 border-bottom" style="padding-right:3.5rem!important;padding-left:3.5rem!important; background-color: #ffc11085 !important;">
-        <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-            <div class="d-flex align-items-center flex-wrap">
-                <span class="me-4">
-                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>Quận 8, HCM
-                </span>
-                <span class="me-4">
-                    <i class="fas fa-phone-alt me-2 text-primary"></i>+012 345 5454
-                </span>
-                <span>
-                    <i class="fas fa-envelope me-2 text-primary"></i>KhanhAn@gmail.com
-                </span>
-            </div>
-            <div class="d-flex">
-                <a href="#" class="text-dark me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-dark me-3"><i class="fab fa-twitch"></i></a>
-                <a href="#" class="text-dark"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div>
+<body style="color:bisque !important">
 
 
 
@@ -80,9 +56,7 @@
                     </a>
                     <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
                             data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
-                        <svg class="navbar-icon" width="60" height="60">
-                            <use xlink:href="#navbar-icon"></use>
-                        </svg>
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="header-bottom offcanvas offcanvas-end " id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" style="padding-left: 5rem !important;">
                         <div class="offcanvas-header px-4 pb-0">
@@ -218,7 +192,7 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <h4 class="display-6 fw-normal">Liên kết nhanh</h4>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="@Url.Action("Index","HomeAdmin")" class="p-0 "> Trang chủ </a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index","Home")" class="p-0 "> Trang chủ </a></li>
                         <li class="nav-item"><a href="@Url.Action("Index","LichTrinh")" class="p-0 "> Các tuyến đường </a></li>
                         <li class="nav-item"><a href="@Url.Action("Index","HomeAdmin")" class="p-0 "> Đặt vé xe </a></li>
                      

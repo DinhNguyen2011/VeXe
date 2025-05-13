@@ -1,0 +1,96 @@
+﻿@model Asp.netWebDatVe.Models.KhuyenMai
+
+@{
+    ViewData["Title"] = "Thêm khuyến mãi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Vitrighe.css" />
+
+<div class="vitrighe-container">
+    <h2 class="vitrighe-title">Thêm khuyến mãi</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
+    }
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger vitrighe-alert">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+
+    <form asp-action="Create" method="post" id="createForm">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="TenKhuyenMai" class="vitrighe-label"></label>
+            <input asp-for="TenKhuyenMai" class="form-control vitrighe-input" required />
+            <span asp-validation-for="TenKhuyenMai" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="MoTa" class="vitrighe-label"></label>
+            <textarea asp-for="MoTa" class="form-control vitrighe-input" rows="4"></textarea>
+            <span asp-validation-for="MoTa" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="PhanTramGiam" class="vitrighe-label"></label>
+            <input asp-for="PhanTramGiam" class="form-control vitrighe-input" type="number" min="1" max="100" required />
+            <span asp-validation-for="PhanTramGiam" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="NgayBatDau" class="vitrighe-label"></label>
+            <input asp-for="NgayBatDau" class="form-control vitrighe-input" type="date" required />
+            <span asp-validation-for="NgayBatDau" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <label asp-for="NgayKetThuc" class="vitrighe-label"></label>
+            <input asp-for="NgayKetThuc" class="form-control vitrighe-input" type="date" required />
+            <span asp-validation-for="NgayKetThuc" class="text-danger"></span>
+        </div>
+
+        <div class="form-group vitrighe-form-group">
+            <button type="submit" class="btn btn-primary vitrighe-btn">Thêm</button>
+            <a asp-action="Index" class="btn btn-secondary vitrighe-btn">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#createForm").validate({
+                rules: {
+                    TenKhuyenMai: { required: true },
+                    PhanTramGiam: { required: true, min: 1, max: 100 },
+                    NgayBatDau: { required: true },
+                    NgayKetThuc: { required: true }
+                },
+                messages: {
+                    TenKhuyenMai: { required: "Vui lòng nhập tên khuyến mãi" },
+                    PhanTramGiam: {
+                        required: "Vui lòng nhập phần trăm giảm",
+                        min: "Phần trăm giảm phải từ 1",
+                        max: "Phần trăm giảm tối đa 100"
+                    },
+                    NgayBatDau: { required: "Vui lòng chọn ngày bắt đầu" },
+                    NgayKetThuc: { required: "Vui lòng chọn ngày kết thúc" }
+                }
+            });
+        });
+    </script>

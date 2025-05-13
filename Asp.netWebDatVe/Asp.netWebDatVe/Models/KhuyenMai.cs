@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -11,28 +11,22 @@ namespace Asp.netWebDatVe.Models
             PhieuDatVes = new HashSet<PhieuDatVe>();
         }
 
+        [DisplayName("Mã Khuyến Mãi")]
         public int MaKhuyenMai { get; set; }
-        [Required(ErrorMessage = "Tên khuyến mãi không được để trống")]
-        [Display(Name = "Tên khuyến mãi")]
-        [StringLength(100, ErrorMessage = "Tên khuyến mãi không được vượt quá 100 ký tự")]
+
+        [DisplayName("Tên Khuyến Mãi")]
         public string TenKhuyenMai { get; set; } = null!;
 
-        [Display(Name = "Mô tả")]
-        [StringLength(500, ErrorMessage = "Mô tả không được vượt quá 500 ký tự")]
+        [DisplayName("Mô Tả")]
         public string? MoTa { get; set; }
 
-        [Display(Name = "Phần trăm giảm")]
-        [Range(0, 100, ErrorMessage = "Phần trăm giảm phải nằm trong khoảng từ 0 đến 100")]
+        [DisplayName("Phần Trăm Giảm")]
         public decimal PhanTramGiam { get; set; }
 
-        [Display(Name = "Ngày bắt đầu")]
-        [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Ngày bắt đầu không được để trống")]
+        [DisplayName("Ngày Bắt Đầu")]
         public DateTime NgayBatDau { get; set; }
 
-        [Display(Name = "Ngày kết thúc")]
-        [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Ngày kết thúc không được để trống")]
+        [DisplayName("Ngày Kết Thúc")]
         public DateTime NgayKetThuc { get; set; }
 
         public virtual ICollection<PhieuDatVe> PhieuDatVes { get; set; }

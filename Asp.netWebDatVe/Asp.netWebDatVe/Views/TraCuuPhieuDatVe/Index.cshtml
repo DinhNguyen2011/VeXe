@@ -4,18 +4,18 @@
     ViewData["Title"] = "Tra cứu vé";
 }
 <link rel="stylesheet" href="~/css/TraCuuPhieuDatVe.css" />
-<h3>TRA CỨU THÔNG TIN ĐẶT VÉ</h3>
+<h4>TRA CỨU THÔNG TIN ĐẶT VÉ</h4>
 
 <div class="lookup-container" >
   
     <form id="lookupForm" method="post">
         <div class="form-group">
-            <label for="maVe">Mã vé:</label>
-            <input type="text" id="maVe" name="maVe" placeholder="Nhập mã vé" required />
+            @* <label for="maVe">Mã vé:</label> *@
+            <input type="text" id="maVe" name="maVe" placeholder="Nhập mã phiếu của bạn" required />
         </div>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Nhập email" required />
+            @* <label for="email">Email:</label> *@
+            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required />
         </div>
         <button type="submit" class="btn-submit">Tra cứu</button>
     </form>

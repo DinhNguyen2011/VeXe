@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -11,49 +12,47 @@ namespace Asp.netWebDatVe.Models
             VeXes = new HashSet<VeXe>();
         }
 
+        [DisplayName("Mã Chuyến")]
         public int MaChuyen { get; set; }
-        [Display(Name = "Mã tuyến")]
-        [Required(ErrorMessage = "Mã tuyến không được để trống")]
+
+        [DisplayName("Mã Tuyến")]
         public int? MaTuyen { get; set; }
 
-        [Display(Name = "Thời điểm khởi hành")]
-        [Required(ErrorMessage = "Thời điểm khởi hành không được để trống")]
+        [DisplayName("Thời Điểm Khởi Hành")]
         public DateTime? ThoiDiemKhoiHanh { get; set; }
 
-        [Display(Name = "Thời điểm đến dự kiến")]
+        [DisplayName("Thời Điểm Đến Dự Kiến")]
         public DateTime? ThoiDiemDenDuKien { get; set; }
 
-        [Display(Name = "Giá vé")]
-        [Required(ErrorMessage = "Giá vé không được để trống")]
-       
+        [DisplayName("Giá Vé")]
         public decimal? GiaVe { get; set; }
 
-        [Display(Name = "Biển số xe")]
-        [Required(ErrorMessage = "Biển số xe không được để trống")]
+        [DisplayName("Biển Số Xe")]
         public string? BienSoXe { get; set; }
 
-        [Display(Name = "Tên chuyến xe")]
-        [Required(ErrorMessage = "Tên chuyến xe không được để trống")]
+        [DisplayName("Tên Chuyến Xe")]
         public string? TenChuyenXe { get; set; }
 
-        [Display(Name = "Ghi chú")]
+        [DisplayName("Ghi Chú")]
         public string? GhiChu { get; set; }
 
-        [Display(Name = "Mã nhân viên hỗ trợ")]
+        [DisplayName("Mã Nhân Viên")]
         public int? MaNhanVien { get; set; }
 
-        [Display(Name = "Mã tài xế")]
-      
+        [DisplayName("Mã Tài Xế")]
         public int? MaTaiXe { get; set; }
 
-        [Display(Name = "Mã nhân viên phụ xe")]
+        [DisplayName("Mã Nhân Viên (Phụ)")]
         public int? MaNhanVien1 { get; set; }
-
-
+        [ValidateNever]
         public virtual Xe? BienSoXeNavigation { get; set; }
+        [ValidateNever]
         public virtual NhanVien? MaNhanVien1Navigation { get; set; }
+        [ValidateNever]
         public virtual NhanVien? MaNhanVienNavigation { get; set; }
+        [ValidateNever]
         public virtual NhanVien? MaTaiXeNavigation { get; set; }
+        [ValidateNever]
         public virtual TuyenXe? MaTuyenNavigation { get; set; }
         public virtual ICollection<VeXe> VeXes { get; set; }
     }
