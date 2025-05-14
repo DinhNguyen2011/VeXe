@@ -30,6 +30,7 @@
 }
 
 .promotion-card {
+    height: 300px;
     flex: 0 0 calc(33.33% - 30px); /* Tăng khoảng cách giữa các card */
     background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Gradient nền card */
     border: none;

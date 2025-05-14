@@ -9156,8 +9156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1jrcyuyx6x</Fingerprint>
-      <Integrity>XRAgRC31AlJ1IhPb3LrGPoch9jk9vMB5EIftUaWRRmg=</Integrity>
+      <Fingerprint>b9wg52yit0</Fingerprint>
+      <Integrity>sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</OriginalItemSpec>
@@ -9264,8 +9264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qk98yvf6pf</Fingerprint>
-      <Integrity>hm8MKQ4k62LXEAAboTKFkJb/04+L9Ut2p/Seul1YYdA=</Integrity>
+      <Fingerprint>t30emvadg3</Fingerprint>
+      <Integrity>CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\KhuyeMai.css'))</OriginalItemSpec>

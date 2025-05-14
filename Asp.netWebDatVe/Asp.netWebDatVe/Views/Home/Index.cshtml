@@ -5,6 +5,14 @@
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <link rel="stylesheet" href="~/css/KhuyeMai.css" />
 
+@if (@ViewData["UserName"]!= null)
+{
+    <div class="welcome-section text-center mb-4">
+        <h4>Chào mừng,@ViewData["UserName"]!</h4>
+        <p>Khám phá các chuyến xe phù hợp với bạn hôm nay.</p>
+    </div>
+}
+
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
         <div class="intro-section fade-in-left">
@@ -154,7 +162,43 @@
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
-
+    <!-- Về Khánh An Luxury -->
+    <div class="about-section mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="text-success mb-4">Về Khánh An Luxury</h2>
+                <h4>Đồng hành cùng bạn trên mọi hành trình</h4>
+                <p class="text-muted">
+                    Thành lập từ năm 2010, <strong>Khánh An Luxury</strong> tự hào là nhà xe hàng đầu Việt Nam, mang đến trải nghiệm di chuyển an toàn, đẳng cấp và tiện nghi. Với hơn 350 phòng vé và 500 chuyến xe mỗi ngày, chúng tôi cam kết:
+                </p>
+                <ul class="text-muted">
+                    <li><strong>An toàn tuyệt đối</strong>: Xe hiện đại, tài xế giàu kinh nghiệm.</li>
+                    <li><strong>Tiện nghi vượt trội</strong>: Nội thất sang trọng, dịch vụ chu đáo.</li>
+                    <li><strong>Phủ sóng toàn quốc</strong>: Kết nối từ TP.HCM, Đà Lạt đến Đà Nẵng và hơn thế nữa.</li>
+                </ul>
+                <a href="@Url.Action("Index", "VeChungToi")" class="btn btn-primary mt-3">Tìm hiểu thêm</a>
+            </div>
+            <div class="col-md-6">
+                <div class="swiper about-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="~/images/T99-11111_xe4.jpg" alt="Xe VIP Khánh An Luxury" class="img-fluid rounded-4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="~/images/T99-11111_xe4.jpg" alt="Nội thất xe Khánh An Luxury" class="img-fluid rounded-4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="~/images/T99-11111_xe4.jpg" alt="Đội ngũ Khánh An Luxury" class="img-fluid rounded-4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="~/images/T99-11111_xe4.jpg" alt="Bến xe Khánh An Luxury" class="img-fluid rounded-4" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination about-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Phần khuyến mãi -->
     <div class="promotion-section mt-5" style="border-radius:10px !important;">
         <h2 class="text-center text-success mb-4">KHUYẾN MÃI HẤP DẪN</h2>
@@ -256,7 +300,7 @@
     </div>
 
     <div class="bus-lines-section mt-5" style="margin-bottom:20px !important; border-radius:15px !important;">
-        <h2 class="text-center text-success">Bus Ticket System - An toàn là trên hết</h2>
+        <h2 class="text-center text-success">Khánh An Bus - An toàn là trên hết</h2>
         <p class="text-center">Được khách hàng tin tưởng và lựa chọn</p>
         <div class="row text-center mt-4" style="padding:15px !important;">
             <div class="col-md-4">
@@ -270,7 +314,7 @@
                 <div class="icon-box">
                     <img src="~/images/office-building.png" alt="Hơn 350 văn phòng" class="img-fluid mb-3">
                     <h5>Hơn 350</h5>
-                    <p>Bus Ticket System có hơn 350 phòng vé, trạm trung chuyển, bến xe trên toàn hệ thống</p>
+                    <p>Khánh An Bus có hơn 350 phòng vé, trạm trung chuyển, bến xe trên toàn hệ thống</p>
                 </div>
             </div>
             <div class="col-md-4">
