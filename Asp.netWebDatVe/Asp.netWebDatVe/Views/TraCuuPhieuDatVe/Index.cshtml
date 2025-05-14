@@ -11,11 +11,11 @@
     <form id="lookupForm" method="post">
         <div class="form-group">
             @* <label for="maVe">Mã vé:</label> *@
-            <input type="text" id="maVe" name="maVe" placeholder="Nhập mã phiếu của bạn" required />
+            <input asp-for="MaPhieu"  type="text" id="maVe" name="maVe" placeholder="Nhập mã phiếu của bạn"  />
         </div>
         <div class="form-group">
             @* <label for="email">Email:</label> *@
-            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required />
+            <input asp-for="Email" type="email" id="email" name="email" placeholder="Nhập email của bạn"  />
         </div>
         <button type="submit" class="btn-submit">Tra cứu</button>
     </form>
@@ -31,7 +31,7 @@
     @if (ViewBag.PhieuDatVe != null)
     {
         var phieu = ViewBag.PhieuDatVe as Asp.netWebDatVe.Models.PhieuDatVe;
-        <div class="result-container">
+        <div class="result-container" style="color:red !important;">
             <h2>Thông Tin Phiếu Đặt Vé</h2>
             <table class="result-table">
                 <tr>
@@ -60,14 +60,14 @@
 </div>
 
 <script>
-    document.getElementById("lookupForm").addEventListener("submit", function (event) {
-       // js nhap thong tin
-        let maVe = document.getElementById("maVe").value.trim();
-        let email = document.getElementById("email").value.trim();
+    // document.getElementById("lookupForm").addEventListener("submit", function (event) {
+    //    js nhap thong tin
+    //     let maVe = document.getElementById("maVe").value.trim();
+    //     let email = document.getElementById("email").value.trim();
 
-        if (!maVe || !email) {  
-            alert("Vui lòng nhập đầy đủ thông tin!");
-            event.preventDefault();
-        }
-    });
+    //     if (!maVe || !email) {  
+    //         alert("Vui lòng nhập đầy đủ thông tin!");
+    //         event.preventDefault();
+    //     }
+    // });
 </script>

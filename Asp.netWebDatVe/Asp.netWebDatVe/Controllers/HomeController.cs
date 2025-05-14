@@ -24,7 +24,7 @@ namespace Asp.netWebDatVe.Controllers
             _emailService = emailService; 
         }
 
-        public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null)
+        public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null, bool isSubmitted = false)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
@@ -36,11 +36,10 @@ namespace Asp.netWebDatVe.Controllers
             ViewBag.DiemDi = diemDi;
             ViewBag.DiemDen = diemDen;
             ViewBag.NgayDi = ngayDi;
-
-            if (string.IsNullOrEmpty(diemDi) || string.IsNullOrEmpty(diemDen) || ngayDi == null)
+            if (isSubmitted && (string.IsNullOrEmpty(diemDi) || string.IsNullOrEmpty(diemDen) || ngayDi == null))
             {
+                ViewBag.Mes = "Vui lòng nhập đầy đủ thông tin chuyến đi";
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
-                // Lấy khuyến mãi ngay cả khi không tìm kiếm chuyến xe
                 ViewBag.KhuyenMais = db.KhuyenMais
                     .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
                     .ToList();

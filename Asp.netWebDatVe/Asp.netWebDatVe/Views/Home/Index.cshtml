@@ -13,11 +13,18 @@
         </div>
 
         <div class="search-form fade-in-right">
+            @if (ViewBag.Mes != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Mes
+                </div>
+            }
             <form id="searchForm" asp-action="Index" method="get">
+                <input type="hidden" name="isSubmitted" value="true" />
                 <div class="form-group">
                     <label for="diemDi">Điểm đi</label>
                     <input list="danhSachDiemDi" class="form-control" id="diemDi" name="diemDi"
-                           placeholder="Nhập hoặc chọn điểm đi" value="@ViewBag.DiemDi" required />
+                           placeholder="Nhập hoặc chọn điểm đi" value="@ViewBag.DiemDi" />
                     <datalist id="danhSachDiemDi">
                         @if (ViewBag.DanhSachDiemDi != null)
                         {
@@ -32,7 +39,7 @@
                 <div class="form-group">
                     <label for="diemDen">Điểm đến</label>
                     <input list="danhSachDiemDen" class="form-control" id="diemDen" name="diemDen"
-                           placeholder="Nhập hoặc chọn điểm đến" value="@ViewBag.DiemDen" required />
+                           placeholder="Nhập hoặc chọn điểm đến" value="@ViewBag.DiemDen" />
                     <datalist id="danhSachDiemDen">
                         @if (ViewBag.DanhSachDiemDen != null)
                         {
@@ -48,7 +55,7 @@
                     <label for="ngayDi">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
                            min="@DateTime.Now.ToString("yyyy-MM-dd")"
-                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi.ToString("yyyy-MM-dd") : "")" required />
+                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi.ToString("yyyy-MM-dd") : "")" />
                 </div>
 
                 <div class="form-button">
@@ -149,7 +156,7 @@
     }
 
     <!-- Phần khuyến mãi -->
-    <div class="promotion-section mt-5" style="border-radius:5px !important;">
+    <div class="promotion-section mt-5" style="border-radius:10px !important;">
         <h2 class="text-center text-success mb-4">KHUYẾN MÃI HẤP DẪN</h2>
         <div class="promotion-carousel">
             <button class="carousel-prev" onclick="moveCarousel('prev')">&#10094;</button>
@@ -177,7 +184,7 @@
         </div>
     </div>
 
-    <div class="popular-routes-section mt-5" style="border-radius:5px !important;">
+    <div class="popular-routes-section mt-5" style="border-radius:10px !important; padding:5px !important;">
         <h2 class="text-center text-success mb-4">TUYẾN PHỔ BIẾN</h2>
         <div class="row">
             <div class="col-md-4">
@@ -248,10 +255,10 @@
         </div>
     </div>
 
-    <div class="bus-lines-section mt-5" style="margin-bottom:20px !important;">
+    <div class="bus-lines-section mt-5" style="margin-bottom:20px !important; border-radius:15px !important;">
         <h2 class="text-center text-success">Bus Ticket System - An toàn là trên hết</h2>
         <p class="text-center">Được khách hàng tin tưởng và lựa chọn</p>
-        <div class="row text-center mt-4">
+        <div class="row text-center mt-4" style="padding:15px !important;">
             <div class="col-md-4">
                 <div class="icon-box">
                     <img src="~/images/customer.png" alt="Hơn 20 triệu lượt khách" class="img-fluid mb-3">
