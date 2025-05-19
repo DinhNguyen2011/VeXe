@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/css/indexLichTrinh.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <div class="lt-schedule">
     <h1 class="lt-title">Lịch Trình Các Tuyến Xe</h1>
@@ -11,7 +12,7 @@
     <form method="get" asp-action="Index">
         <div class="lt-search-box">
             <input type="text" name="searchTerm" class="lt-input" placeholder="Nhập điểm đi hoặc điểm đến..." value="@ViewBag.SearchTerm" />
-         
+            <input type="date" name="ngayDi" class="lt-input" value="@ViewBag.NgayDi" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
             <button class="lt-btn" type="submit">Tìm Kiếm</button>
         </div>
     </form>
@@ -24,7 +25,6 @@
                 <th>Điểm Đến</th>
                 <th>Quãng Đường (km)</th>
                 <th>Giá Hiện Hành (VND)</th>
-             
                 <th></th>
             </tr>
         </thead>
@@ -38,12 +38,12 @@
                     <td>@tuyenXe.DiemDen</td>
                     <td>@tuyenXe.QuangDuong</td>
                     <td>@tuyenXe.GiaHienHanh?.ToString("N0")</td>
-                  
                     <td>
                         <form asp-controller="Home" asp-action="Index" method="get">
                             <input type="hidden" name="diemDi" value="@tuyenXe.DiemDi" />
                             <input type="hidden" name="diemDen" value="@tuyenXe.DiemDen" />
-                         
+                            <input type="hidden" name="ngayDi" value="@ViewBag.NgayDi" />
+                            <input type="hidden" name="isSubmitted" value="true" />
                             <button type="submit" class="lt-btn">Chọn Tuyến Xe</button>
                         </form>
                     </td>
@@ -52,4 +52,6 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="~/js/LichTrinh.js"></script>

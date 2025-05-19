@@ -61,6 +61,8 @@ namespace Asp.netWebDatVe.Controllers
                 return View();
             }
 
+            var searchDate = ngayDi ?? DateTime.Now;
+
             var chuyenXes = db.ChuyenXes
                 .Include(cx => cx.BienSoXeNavigation)
                 .ThenInclude(x => x.IdLoaiNavigation)
@@ -70,9 +72,10 @@ namespace Asp.netWebDatVe.Controllers
                 .Include(cx => cx.VeXes)
                 .Where(cx => cx.MaTuyen == tuyenXe.MaTuyen &&
                              cx.ThoiDiemKhoiHanh.HasValue &&
-                             cx.ThoiDiemKhoiHanh.Value.Date == ngayDi.Value.Date &&
+                             cx.ThoiDiemKhoiHanh.Value.Date == searchDate.Date &&
                              cx.ThoiDiemKhoiHanh >= tgian)
                 .ToList();
+
 
             if (chuyenXes.Count == 0)
             {

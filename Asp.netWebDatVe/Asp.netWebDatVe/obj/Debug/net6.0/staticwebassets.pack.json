@@ -2661,10 +2661,6 @@
       "PackagePath": "staticwebassets\\css\\EditProfile.css"
     },
     {
-      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\KhuyeMai.css",
-      "PackagePath": "staticwebassets\\css\\KhuyeMai.css"
-    },
-    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "PackagePath": "staticwebassets\\css\\LienHeVoiChungToi.css"
     },
@@ -2707,6 +2703,10 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\indexLichTrinh.css",
       "PackagePath": "staticwebassets\\css\\indexLichTrinh.css"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\khuyenmai.css",
+      "PackagePath": "staticwebassets\\css\\khuyenmai.css"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\site.css",

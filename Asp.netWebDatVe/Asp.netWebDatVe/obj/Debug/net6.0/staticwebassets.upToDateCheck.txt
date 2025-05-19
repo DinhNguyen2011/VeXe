@@ -511,7 +511,7 @@ wwwroot\css\ChonGhe.css
 wwwroot\css\DanhSachPDTProF.css
 wwwroot\css\EditProfile.css
 wwwroot\css\indexLichTrinh.css
-wwwroot\css\KhuyeMai.css
+wwwroot\css\khuyenmai.css
 wwwroot\css\LienHeVoiChungToi.css
 wwwroot\css\PhieuDatVe.css
 wwwroot\css\Profile.css

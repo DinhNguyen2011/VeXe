@@ -3,12 +3,13 @@
 }
 
 <link rel="stylesheet" href="~/css/bus-home.css" />
-<link rel="stylesheet" href="~/css/KhuyeMai.css" />
+<link rel="stylesheet" href="~/css/khuyenmai.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-@if (@ViewData["UserName"]!= null)
+@if (ViewData["UserName"] != null)
 {
     <div class="welcome-section text-center mb-4">
-        <h4>Chào mừng,@ViewData["UserName"]!</h4>
+        <h4>Chào mừng, @ViewData["UserName"]!</h4>
         <p>Khám phá các chuyến xe phù hợp với bạn hôm nay.</p>
     </div>
 }
@@ -63,7 +64,7 @@
                     <label for="ngayDi">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
                            min="@DateTime.Now.ToString("yyyy-MM-dd")"
-                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi.ToString("yyyy-MM-dd") : "")" />
+                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi : "")" />
                 </div>
 
                 <div class="form-button">
@@ -162,6 +163,7 @@
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
+
     <!-- Về Khánh An Luxury -->
     <div class="about-section mt-5">
         <div class="row align-items-center">
@@ -199,35 +201,38 @@
             </div>
         </div>
     </div>
+
     <!-- Phần khuyến mãi -->
-    <div class="promotion-section mt-5" style="border-radius:10px !important;">
+    <div class="km-promotion-section mt-5">
         <h2 class="text-center text-success mb-4">KHUYẾN MÃI HẤP DẪN</h2>
-        <div class="promotion-carousel">
-            <button class="carousel-prev" onclick="moveCarousel('prev')">&#10094;</button>
-            <div class="carousel-container">
-                <div class="carousel-inner">
-                    @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
+        @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
+        {
+            <div class="swiper promotion-swiper">
+                <div class="swiper-wrapper">
+                    @foreach (var km in ViewBag.KhuyenMais)
                     {
-                        foreach (var km in ViewBag.KhuyenMais)
-                        {
-                            <div class="promotion-card">
-                                <h3 class="promotion-title">@km.TenKhuyenMai</h3>
-                                <p class="promotion-discount">Giảm @km.PhanTramGiam%</p>
-                                <p class="promotion-desc">@km.MoTa</p>
-                                <p class="promotion-date">Từ @km.NgayBatDau.ToString("dd/MM/yyyy") đến @km.NgayKetThuc.ToString("dd/MM/yyyy")</p>
+                        <div class="swiper-slide">
+                            <div class="km-promotion-card">
+                                <h3 class="km-promotion-title">@km.TenKhuyenMai</h3>
+                                <p class="km-promotion-discount">Giảm @km.PhanTramGiam%</p>
+                                <p class="km-promotion-desc">@km.MoTa</p>
+                                <p class="km-promotion-date">Từ @km.NgayBatDau.ToString("dd/MM/yyyy") đến @km.NgayKetThuc.ToString("dd/MM/yyyy")</p>
                             </div>
-                        }
-                    }
-                    else
-                    {
-                        <p class="text-center">Hiện chưa có khuyến mãi nào.</p>
+                        </div>
                     }
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination promotion-pagination"></div>
             </div>
-            <button class="carousel-next" onclick="moveCarousel('next')">&#10095;</button>
-        </div>
+        }
+        else
+        {
+            <p class="text-center">Hiện chưa có khuyến mãi nào.</p>
+        }
     </div>
 
+    <!-- Tuyến phổ biến -->
     <div class="popular-routes-section mt-5" style="border-radius:10px !important; padding:5px !important;">
         <h2 class="text-center text-success mb-4">TUYẾN PHỔ BIẾN</h2>
         <div class="row">
@@ -275,7 +280,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4" >
+            <div class="col-md-4">
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('/images/ThuaThienHue.jpg');">
                         <h5 class="route-title">Tuyến xe từ Đà Nẵng</h5>
@@ -299,6 +304,7 @@
         </div>
     </div>
 
+    <!-- Thống kê -->
     <div class="bus-lines-section mt-5" style="margin-bottom:20px !important; border-radius:15px !important;">
         <h2 class="text-center text-success">Khánh An Bus - An toàn là trên hết</h2>
         <p class="text-center">Được khách hàng tin tưởng và lựa chọn</p>
@@ -328,70 +334,5 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="~/js/bus-home.js"></script>
-
-<!-- Script lọc khung giờ và carousel khuyến mãi -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Lọc khung giờ
-        const checkboxes = document.querySelectorAll(".time-filter");
-        checkboxes.forEach(cb => {
-            cb.addEventListener("change", function () {
-                if (this.checked) {
-                    checkboxes.forEach(otherCb => {
-                        if (otherCb !== this) otherCb.checked = false;
-                    });
-                }
-                filterTrips();
-            });
-        });
-
-        function filterTrips() {
-            const selectedCb = Array.from(checkboxes).find(cb => cb.checked);
-            const trips = document.querySelectorAll(".chuyen-xe");
-
-            if (!selectedCb) {
-                trips.forEach(trip => trip.style.display = "block");
-                return;
-            }
-
-            const [start, end] = selectedCb.value.split('-').map(Number);
-            trips.forEach(trip => {
-                const gio = parseInt(trip.dataset.gioKhoihanh);
-                const visible = gio >= start && gio < end;
-                trip.style.display = visible ? "block" : "none";
-            });
-        }
-
-        // Hiển thị modal loading
-        const form = document.getElementById("searchForm");
-        form.addEventListener("submit", function () {
-            document.getElementById("loadingModal").style.display = "block";
-        });
-
-        // Carousel khuyến mãi
-        let currentIndex = 0;
-        const items = document.querySelectorAll('.promotion-card');
-        const totalItems = items.length;
-        const itemsPerView = 3;
-
-        if (totalItems > itemsPerView) {
-            document.querySelector('.carousel-prev').style.display = 'block';
-            document.querySelector('.carousel-next').style.display = 'block';
-        }
-
-        window.moveCarousel = function(direction) {
-            const container = document.querySelector('.carousel-inner');
-            const itemWidth = items[0].offsetWidth + 20; // 20px margin
-            const maxIndex = totalItems - itemsPerView;
-
-            if (direction === 'next' && currentIndex < maxIndex) {
-                currentIndex++;
-            } else if (direction === 'prev' && currentIndex > 0) {
-                currentIndex--;
-            }
-
-            container.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-        };
-    });
-</script>

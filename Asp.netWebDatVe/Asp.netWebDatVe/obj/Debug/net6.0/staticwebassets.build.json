@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "stMYBu2dvtXb0m5aT2liWiwo3H4RlON7N9uihOb4wCw=",
+  "Hash": "g1BtVNbrFtZ05QdbMPJtpElyCL4CJdQpOXCXXbMimsw=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -10720,8 +10720,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9wg52yit0",
-      "Integrity": "sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw=",
+      "Fingerprint": "upzr81srq8",
+      "Integrity": "buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bus-home.css"
@@ -10832,12 +10832,12 @@
       "OriginalItemSpec": "wwwroot\\css\\indexLichTrinh.css"
     },
     {
-      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\KhuyeMai.css",
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\khuyenmai.css",
       "SourceId": "Asp.netWebDatVe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
       "BasePath": "_content/Asp.netWebDatVe",
-      "RelativePath": "css/KhuyeMai#[.{fingerprint}]?.css",
+      "RelativePath": "css/khuyenmai#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -10846,11 +10846,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "t30emvadg3",
-      "Integrity": "CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ=",
+      "Fingerprint": "l2ebmknka5",
+      "Integrity": "A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\KhuyeMai.css"
+      "OriginalItemSpec": "wwwroot\\css\\khuyenmai.css"
     },
     {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
@@ -11854,8 +11854,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yr6922wnk2",
-      "Integrity": "jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w=",
+      "Fingerprint": "ibjcg5qlgh",
+      "Integrity": "Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bus-home.js"
@@ -58179,51 +58179,6 @@
       ]
     },
     {
-      "Route": "css/bus-home.b9wg52yit0.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12100"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:21:17 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "b9wg52yit0"
-        },
-        {
-          "Name": "label",
-          "Value": "css/bus-home.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw="
-        }
-      ]
-    },
-    {
       "Route": "css/bus-home.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
       "Selectors": [],
@@ -58234,7 +58189,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12100"
+          "Value": "12118"
         },
         {
           "Name": "Content-Type",
@@ -58242,11 +58197,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw=\""
+          "Value": "\"buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:21:17 GMT"
+          "Value": "Mon, 19 May 2025 15:57:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58256,7 +58211,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw="
+          "Value": "sha256-buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw="
+        }
+      ]
+    },
+    {
+      "Route": "css/bus-home.upzr81srq8.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12118"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 15:57:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "upzr81srq8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/bus-home.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw="
         }
       ]
     },
@@ -58671,8 +58671,8 @@
       ]
     },
     {
-      "Route": "css/KhuyeMai.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\KhuyeMai.css",
+      "Route": "css/khuyenmai.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\khuyenmai.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -58681,7 +58681,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4148"
+          "Value": "3320"
         },
         {
           "Name": "Content-Type",
@@ -58689,11 +58689,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ=\""
+          "Value": "\"A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 08:59:19 GMT"
+          "Value": "Mon, 19 May 2025 16:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58703,13 +58703,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ="
+          "Value": "sha256-A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4="
         }
       ]
     },
     {
-      "Route": "css/KhuyeMai.t30emvadg3.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\KhuyeMai.css",
+      "Route": "css/khuyenmai.l2ebmknka5.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\khuyenmai.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -58718,7 +58718,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4148"
+          "Value": "3320"
         },
         {
           "Name": "Content-Type",
@@ -58726,11 +58726,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ=\""
+          "Value": "\"A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 08:59:19 GMT"
+          "Value": "Mon, 19 May 2025 16:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58740,15 +58740,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "t30emvadg3"
+          "Value": "l2ebmknka5"
         },
         {
           "Name": "label",
-          "Value": "css/KhuyeMai.css"
+          "Value": "css/khuyenmai.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ="
+          "Value": "sha256-A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4="
         }
       ]
     },
@@ -62607,6 +62607,51 @@
       ]
     },
     {
+      "Route": "js/bus-home.ibjcg5qlgh.js",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\bus-home.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 16:39:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ibjcg5qlgh"
+        },
+        {
+          "Name": "label",
+          "Value": "js/bus-home.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY="
+        }
+      ]
+    },
+    {
       "Route": "js/bus-home.js",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\bus-home.js",
       "Selectors": [],
@@ -62617,7 +62662,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "354"
+          "Value": "2996"
         },
         {
           "Name": "Content-Type",
@@ -62625,11 +62670,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w=\""
+          "Value": "\"Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 07:33:48 GMT"
+          "Value": "Mon, 19 May 2025 16:39:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -62639,52 +62684,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w="
-        }
-      ]
-    },
-    {
-      "Route": "js/bus-home.yr6922wnk2.js",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\bus-home.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "354"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 07:33:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yr6922wnk2"
-        },
-        {
-          "Name": "label",
-          "Value": "js/bus-home.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w="
+          "Value": "sha256-Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY="
         }
       ]
     },

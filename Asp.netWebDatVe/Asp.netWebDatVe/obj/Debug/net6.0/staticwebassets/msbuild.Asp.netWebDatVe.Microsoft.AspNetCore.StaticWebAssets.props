@@ -9156,8 +9156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>b9wg52yit0</Fingerprint>
-      <Integrity>sevwNJjtkvOqJWD3AVzj/XLJ8dNsaNuMhTH6yHNHkWw=</Integrity>
+      <Fingerprint>upzr81srq8</Fingerprint>
+      <Integrity>buYTot1vUNbzrTS8gYVlAwcix2ZH0aMKHXsN+riiwfw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bus-home.css'))</OriginalItemSpec>
@@ -9252,23 +9252,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\indexLichTrinh.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\KhuyeMai.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\khuyenmai.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Asp.netWebDatVe</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Asp.netWebDatVe</BasePath>
-      <RelativePath>css/KhuyeMai.css</RelativePath>
+      <RelativePath>css/khuyenmai.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>t30emvadg3</Fingerprint>
-      <Integrity>CYrzbNF+Lf1BrNTNSj4/xJ7aVwTWOcIRTHW38/SCbwQ=</Integrity>
+      <Fingerprint>l2ebmknka5</Fingerprint>
+      <Integrity>A86Zy+QL19XvCGOr8powE7kQgMFtiA3HLXIdrgTGbC4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\KhuyeMai.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\khuyenmai.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\LienHeVoiChungToi.css'))">
       <SourceType>Package</SourceType>
@@ -10128,8 +10128,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yr6922wnk2</Fingerprint>
-      <Integrity>jtSkgp00JXVqbZv5V0DdpQoUNEUToFhb4rFLB9km+2w=</Integrity>
+      <Fingerprint>ibjcg5qlgh</Fingerprint>
+      <Integrity>Mu/AbiLsYzH2UplI/x1ntCZZQAA20/bpIjevHbrsyAY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\bus-home.js'))</OriginalItemSpec>
