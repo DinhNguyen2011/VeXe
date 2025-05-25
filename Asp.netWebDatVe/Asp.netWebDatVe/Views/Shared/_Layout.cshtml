@@ -1,9 +1,7 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Khánh An - Đặt Vé Xe Khách Online</title>
+    <title data-lang-key="title">Khánh An - Đặt Vé Xe Khách Online</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,52 +11,60 @@
     <meta name="keywords" content="Đặt vé xe khách, Vé xe Phương Trang, Xe khách, Vé xe online">
     <meta name="description" content="Đặt vé xe khách Phương Trang nhanh chóng, dễ dàng qua hệ thống online của chúng tôi.">
 
-    <!-- Bootstrap ================================================== -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
-  
-    <!-- Vendor css ================================================== -->
+
+    <!-- Vendor CSS -->
     <link rel="stylesheet" type="text/css" href="~/css/vendor.css">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
-    <!-- Link Swiper's CSS ================================================== -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    <!-- Link AOS's CSS ================================================== -->
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Style Sheet ================================================== -->
+    <!-- Style Sheet -->
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/layout.css">
 
-    <!-- Google Fonts ================================================== -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 
 <body style="background-color:#ffffff !important">
-
-
-
     <div class="preloader">
         <div class="loader"></div>
     </div>
 
     <header id="header">
-
         <nav id="primary-header" class="navbar navbar-expand-lg py-4">
             <div class="container-fluid padding-side">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                        <img src="~/images/main-lg.png" class="logo img-fluid" style="width: 200px;height: 70px; border-radius:10px;">
-                    </a>
+                    <!-- Logo và chọn ngôn ngữ -->
+                    <div class="d-flex align-items-center">
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                            <img src="~/images/main-lg.png" class="logo img-fluid" style="width: 200px;height: 70px; border-radius:10px;">
+                        </a>
+                        <!-- Chọn ngôn ngữ bằng hình ảnh cờ -->
+                        <div class="language-switch ms-3">
+                            <a href="#" class="language-flag active" data-lang="vi" title="Tiếng Việt">
+                                <img src="~/images/vn-flag.png" alt="Vietnam Flag" class="flag-icon">
+                            </a>
+                            <a href="#" class="language-flag" data-lang="en" title="English">
+                                <img src="~/images/uk-flag.png" alt="UK Flag" class="flag-icon">
+                            </a>
+                        </div>
+                    </div>
                     <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
                             data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="header-bottom offcanvas offcanvas-end " id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" style="padding-left: 5rem !important;">
+                    <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" style="padding-left: 5rem !important;">
                         <div class="offcanvas-header px-4 pb-0">
                             <button type="button" class="btn-close btn-close-black mt-2" data-bs-dismiss="offcanvas"
                                     aria-label="Close" data-bs-target="#bdNavbar"></button>
@@ -66,45 +72,40 @@
                         <div class="offcanvas-body align-items-center justify-content-center">
                             <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
                                 <li class="nav-item px-3">
-                                    <a class="nav-link" aria-current="page" href="@Url.Action("Index","Home")">Trang chủ</a>
+                                    <a class="nav-link" aria-current="page" href="@Url.Action("Index","Home")" data-lang-key="menu_home">Trang chủ</a>
                                 </li>
                                 <li class="nav-item px-3">
-                                    <a class="nav-link @(ViewData["Title"] as string == "Lịch Trình" ? "active" : "")" asp-controller="LichTrinh" asp-action="Index">Lịch trình</a>
+                                    <a class="nav-link @(ViewData["Title"] as string == "Lịch Trình" ? "active" : "")" asp-controller="LichTrinh" asp-action="Index" data-lang-key="menu_schedule">Lịch trình</a>
                                 </li>
                                 <li class="nav-item px-3">
-                                    <a class="nav-link @(ViewData["Title"] as string == "Tra cứu vé" ? "active" : "")" asp-controller="TraCuuPhieuDatVe" asp-action="Index">Tra cứu vé</a>
-
+                                    <a class="nav-link @(ViewData["Title"] as string == "Tra cứu vé" ? "active" : "")" asp-controller="TraCuuPhieuDatVe" asp-action="Index" data-lang-key="menu_ticket_lookup">Tra cứu vé</a>
                                 </li>
                                 <li class="nav-item px-3">
-                                    <a class="nav-link @(ViewData["Title"] as string == "Liên hệ" ? "active" : "")" asp-controller="LienHeVoiChungToi" asp-action="Index">Liên hệ</a>
-
+                                    <a class="nav-link @(ViewData["Title"] as string == "Liên hệ" ? "active" : "")" asp-controller="LienHeVoiChungToi" asp-action="Index" data-lang-key="menu_contact">Liên hệ</a>
                                 </li>
-                              
                                 <li class="nav-item px-3">
-                                    <a class="nav-link @(ViewData["Title"] as string == "Về chúng tôi" ? "active" : "")" asp-controller="VeChungToi" asp-action="Index">Về chúng tôi</a>
-
+                                    <a class="nav-link @(ViewData["Title"] as string == "Về chúng tôi" ? "active" : "")" asp-controller="VeChungToi" asp-action="Index" data-lang-key="menu_about">Về chúng tôi</a>
                                 </li>
                                 @if (ViewData["UserName"] != null)
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Hi, @ViewData["UserName"]
+                                            <span data-lang-key="menu_hi">Hi</span>, @ViewData["UserName"]
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">Xem thông tin</a></li>
-                                            <li><a class="dropdown-item" asp-controller="XuLyPhieuDatVe" asp-action="XemCacPhieuDatVe">Xem các phiếu đặt vé</a></li>
+                                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile" data-lang-key="menu_profile">Xem thông tin</a></li>
+                                            <li><a class="dropdown-item" asp-controller="XuLyPhieuDatVe" asp-action="XemCacPhieuDatVe" data-lang-key="menu_view_bookings">Xem các phiếu đặt vé</a></li>
                                             <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item text-danger" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li>
+                                            <li><a class="dropdown-item text-danger" asp-controller="Account" asp-action="Logout" data-lang-key="menu_logout">Đăng xuất</a></li>
                                         </ul>
                                     </li>
                                 }
                                 else
                                 {
                                     <li class="nav-item">
-                                        <a class="nav-link" asp-controller="Account" asp-action="Login">Đăng nhập/Đăng ký</a>
+                                        <a class="nav-link" asp-controller="Account" asp-action="Login" data-lang-key="menu_login_register">Đăng nhập/Đăng ký</a>
                                     </li>
                                 }
-
                             </ul>
                         </div>
                     </div>
@@ -113,7 +114,6 @@
         </nav>
     </header>
 
-    @* style="max-width: 1400px !important;     width: 1345px !important;" *@
     <div class="container">
         @RenderBody()
     </div>
@@ -123,7 +123,7 @@
             <footer class="row">
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <img src="~/images/main-lg.png" alt="logo-footer" class="img-fluid" style="width: 200px;height:70px; border-radius:10px;">
-                    <p class="mt-3">
+                    <p class="mt-3" data-lang-key="footer_welcome">
                         Chào mừng đến với nhà xe Khánh An, hệ thống xe khách uy tín và tiện lợi. Đặt vé xe dễ dàng chỉ với vài thao tác.
                     </p>
                     <ul class="social-links d-flex flex-wrap list-unstyled mt-4 mb-0">
@@ -151,30 +151,28 @@
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 offset-lg-1 mb-4 mb-lg-0">
-                    <h4 class="display-6 fw-normal">Thông tin của chúng tôi</h4>
+                    <h4 class="display-6 fw-normal" data-lang-key="footer_our_info">Thông tin của chúng tôi</h4>
                     <ul class="nav flex-column">
                         <li class="location text-capitalize d-flex align-items-center">
-                            <p>Trụ sở nhà xe Khánh An, Thành phố Hồ Chí Minh</p>
-                           
-                            
+                            <p data-lang-key="footer_location">Trụ sở nhà xe Khánh An, Thành phố Hồ Chí Minh</p>
                         </li>
                         <li class="phone text-capitalize d-flex align-items-center mt-2">
-                            <p>Phone: 01223464654</p>
+                            <p data-lang-key="footer_phone">Phone: 01223464654</p>
                         </li>
                         <li class="email text-capitalize d-flex align-items-center mt-2">
-                            <p>Email: khanhanbus@gmail.com</p>
+                            <p data-lang-key="footer_email">Email: khanhanbus@gmail.com</p>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 offset-lg-1 mb-4 mb-lg-0">
-                    <h4 class="display-6 fw-normal">Đăng ký nhận bản tin</h4>
-                    <p>Đăng ký nhận bản tin để nhận thông tin khuyến mãi nhanh nhất.</p>
-                    <form class=" position-relative" asp-action="Index" asp-controller="LienHeVoiChungToi">
-                        <input type="text" class="form-control px-4 py-3 bg-transparent mb-3" placeholder="Tên của bạn">
-                        <input type="email" class="form-control px-4 py-3 bg-transparent" placeholder="Email của bạn">
+                    <h4 class="display-6 fw-normal" data-lang-key="footer_newsletter">Đăng ký nhận bản tin</h4>
+                    <p data-lang-key="footer_newsletter_desc">Đăng ký nhận bản tin để nhận thông tin khuyến mãi nhanh nhất.</p>
+                    <form class="position-relative" asp-action="Index" asp-controller="LienHeVoiChungToi">
+                        <input type="text" class="form-control px-4 py-3 bg-transparent mb-3" placeholder="Tên của bạn" data-lang-key="footer_name_placeholder">
+                        <input type="email" class="form-control px-4 py-3 bg-transparent" placeholder="Email của bạn" data-lang-key="footer_email_placeholder">
                         <div class="d-grid">
                             <button type="submit" class="btn btn-arrow btn-primary mt-3">
-                                <span>
+                                <span data-lang-key="footer_subscribe_btn">
                                     Đăng ký ngay
                                     <svg width="18" height="18">
                                         <use xlink:href="#arrow-right"></use>
@@ -190,25 +188,24 @@
         <div class="container-fluid padding-side padding-small" data-aos="fade-up">
             <footer class="row">
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <h4 class="display-6 fw-normal">Liên kết nhanh</h4>
+                    <h4 class="display-6 fw-normal" data-lang-key="footer_quick_links">Liên kết nhanh</h4>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="@Url.Action("Index","Home")" class="p-0 "> Trang chủ </a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index","LichTrinh")" class="p-0 "> Các tuyến đường </a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index","HomeAdmin")" class="p-0 "> Đặt vé xe </a></li>
-                     
-                        <li class="nav-item"><a href="@Url.Action("Index","LienHeVoiChungToi")" class="p-0 "> Liên hệ chúng tôi </a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index","Home")" class="p-0" data-lang-key="footer_home_link">Trang chủ</a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index","LichTrinh")" class="p-0" data-lang-key="footer_routes_link">Các tuyến đường</a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index","HomeAdmin")" class="p-0" data-lang-key="footer_book_ticket_link">Đặt vé xe</a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index","LienHeVoiChungToi")" class="p-0" data-lang-key="footer_contact_link">Liên hệ chúng tôi</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 offset-lg-1 mb-4 mb-lg-0">
-                    <h4 class="display-6 fw-normal">Dịch vụ</h4>
+                    <h4 class="display-6 fw-normal" data-lang-key="footer_services">Dịch vụ</h4>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="#" class="p-0 "> Xe giường nằm </a></li>
-                        <li class="nav-item"><a href="#" class="p-0 "> Xe khách VIP </a></li>
-                        <li class="nav-item"><a href="#" class="p-0 "> Vé xe nhanh </a></li>
+                        <li class="nav-item"><a href="#" class="p-0" data-lang-key="footer_service_sleeper">Xe giường nằm</a></li>
+                        <li class="nav-item"><a href="#" class="p-0" data-lang-key="footer_service_vip">Xe khách VIP</a></li>
+                        <li class="nav-item"><a href="#" class="p-0" data-lang-key="footer_service_express">Vé xe nhanh</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 offset-lg-1 mb-4 mb-lg-0">
-                    <p class="m-0">© Khánh An BookTicket</p>
+                    <p class="m-0" data-lang-key="footer_copyright">© Khánh An BookTicket</p>
                 </div>
             </footer>
         </div>
@@ -220,8 +217,114 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="~/js/script.js"></script>
-
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
+    <!-- JavaScript cho chuyển đổi ngôn ngữ -->
+    <script>
+        // Dữ liệu ngôn ngữ
+        const translations = {
+            vi: {
+                title: "Khánh An - Đặt Vé Xe Khách Online",
+                menu_home: "Trang chủ",
+                menu_schedule: "Lịch trình",
+                menu_ticket_lookup: "Tra cứu vé",
+                menu_contact: "Liên hệ",
+                menu_about: "Về chúng tôi",
+                menu_hi: "Hi",
+                menu_profile: "Xem thông tin",
+                menu_view_bookings: "Xem các phiếu đặt vé",
+                menu_logout: "Đăng xuất",
+                menu_login_register: "Đăng nhập/Đăng ký",
+                footer_welcome: "Chào mừng đến với nhà xe Khánh An, hệ thống xe khách uy tín và tiện lợi. Đặt vé xe dễ dàng chỉ với vài thao tác.",
+                footer_our_info: "Thông tin của chúng tôi",
+                footer_location: "Trụ sở nhà xe Khánh An, Thành phố Hồ Chí Minh",
+                footer_phone: "Phone: 01223464654",
+                footer_email: "Email: khanhanbus@gmail.com",
+                footer_newsletter: "Đăng ký nhận bản tin",
+                footer_newsletter_desc: "Đăng ký nhận bản tin để nhận thông tin khuyến mãi nhanh nhất.",
+                footer_name_placeholder: "Tên của bạn",
+                footer_email_placeholder: "Email của bạn",
+                footer_subscribe_btn: "Đăng ký ngay",
+                footer_quick_links: "Liên kết nhanh",
+                footer_home_link: "Trang chủ",
+                footer_routes_link: "Các tuyến đường",
+                footer_book_ticket_link: "Đặt vé xe",
+                footer_contact_link: "Liên hệ chúng tôi",
+                footer_services: "Dịch vụ",
+                footer_service_sleeper: "Xe giường nằm",
+                footer_service_vip: "Xe khách VIP",
+                footer_service_express: "Vé xe nhanh",
+                footer_copyright: "© Khánh An BookTicket"
+            },
+            en: {
+                title: "Khanh An - Book Bus Tickets Online",
+                menu_home: "Home",
+                menu_schedule: "Schedule",
+                menu_ticket_lookup: "Ticket Lookup",
+                menu_contact: "Contact",
+                menu_about: "About Us",
+                menu_hi: "Hi",
+                menu_profile: "View Profile",
+                menu_view_bookings: "View Bookings",
+                menu_logout: "Logout",
+                menu_login_register: "Login/Register",
+                footer_welcome: "Welcome to Khanh An Bus, a trusted and convenient bus service. Book your tickets easily with just a few steps.",
+                footer_our_info: "Our Information",
+                footer_location: "Khanh An Bus Headquarters, Ho Chi Minh City",
+                footer_phone: "Phone: 01223464654",
+                footer_email: "Email: khanhanbus@gmail.com",
+                footer_newsletter: "Subscribe to Newsletter",
+                footer_newsletter_desc: "Subscribe to our newsletter to receive the latest promotions.",
+                footer_name_placeholder: "Your Name",
+                footer_email_placeholder: "Your Email",
+                footer_subscribe_btn: "Subscribe Now",
+                footer_quick_links: "Quick Links",
+                footer_home_link: "Home",
+                footer_routes_link: "Routes",
+                footer_book_ticket_link: "Book Tickets",
+                footer_contact_link: "Contact Us",
+                footer_services: "Services",
+                footer_service_sleeper: "Sleeper Bus",
+                footer_service_vip: "VIP Bus",
+                footer_service_express: "Express Tickets",
+                footer_copyright: "© Khanh An BookTicket"
+            }
+        };
+
+        // Hàm chuyển đổi ngôn ngữ
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                } else if (element.tagName === 'TITLE') {
+                    element.textContent = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            // Cập nhật trạng thái hình ảnh cờ
+            document.querySelectorAll('.language-flag').forEach(flag => {
+                flag.classList.toggle('active', flag.getAttribute('data-lang') === lang);
+            });
+            // Lưu ngôn ngữ vào localStorage
+            localStorage.setItem('language', lang);
+        }
+
+        // Khởi tạo ngôn ngữ khi tải trang
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'vi'; // Mặc định là Tiếng Việt
+            changeLanguage(savedLang);
+
+            // Xử lý sự kiện click vào cờ
+            document.querySelectorAll('.language-flag').forEach(flag => {
+                flag.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = flag.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

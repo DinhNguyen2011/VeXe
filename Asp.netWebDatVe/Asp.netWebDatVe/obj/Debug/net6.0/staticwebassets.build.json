@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g1BtVNbrFtZ05QdbMPJtpElyCL4CJdQpOXCXXbMimsw=",
+  "Hash": "KeSB1tv9KgI7g61kT9IgN5+ffBZ/rOqq3VDcZE5+L8Y=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -10853,6 +10853,27 @@
       "OriginalItemSpec": "wwwroot\\css\\khuyenmai.css"
     },
     {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\layout.css",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "css/layout#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0fwqqa96iu",
+      "Integrity": "nPjuJHK5QeBauW8Hvqsfcv9zB9wO9Pvwx69Fiy090rc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\layout.css"
+    },
+    {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "SourceId": "Asp.netWebDatVe",
       "SourceType": "Discovered",
@@ -10951,8 +10972,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "l6pt97pfse",
-      "Integrity": "Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho=",
+      "Fingerprint": "lh8l122350",
+      "Integrity": "xxgUQ4pNYq2H1hj0K5vevGjQzNLidCJ5y8GlZGwmLFg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -11796,6 +11817,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\timkiem.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\uk-flag.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/uk-flag#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g2p9934o1o",
+      "Integrity": "KLxAHM24eT4qDMBrTxXZQmiVOVY9/piABTlHK2o/TFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\uk-flag.png"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.jpg",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/vn-flag#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x2nw669pq6",
+      "Integrity": "2ao+szvpevJvZXsRDRqVeHXngyZBGjlHoBShONv9s5g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\vn-flag.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/vn-flag#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b25rm8xydy",
+      "Integrity": "nScJk90uyQS6N2c8x4YjlD/A2Xk86r90yfFS2MALhqM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\vn-flag.png"
     },
     {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\ajax-loader.gif",
@@ -58201,7 +58285,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 15:57:54 GMT"
+          "Value": "Sun, 25 May 2025 14:14:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58238,7 +58322,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 15:57:54 GMT"
+          "Value": "Sun, 25 May 2025 14:14:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58753,6 +58837,88 @@
       ]
     },
     {
+      "Route": "css/layout.0fwqqa96iu.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\layout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nPjuJHK5QeBauW8Hvqsfcv9zB9wO9Pvwx69Fiy090rc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:51:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0fwqqa96iu"
+        },
+        {
+          "Name": "label",
+          "Value": "css/layout.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nPjuJHK5QeBauW8Hvqsfcv9zB9wO9Pvwx69Fiy090rc="
+        }
+      ]
+    },
+    {
+      "Route": "css/layout.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\layout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nPjuJHK5QeBauW8Hvqsfcv9zB9wO9Pvwx69Fiy090rc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:51:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nPjuJHK5QeBauW8Hvqsfcv9zB9wO9Pvwx69Fiy090rc="
+        }
+      ]
+    },
+    {
       "Route": "css/LienHeVoiChungToi.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "Selectors": [],
@@ -59091,7 +59257,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19068"
+          "Value": "19073"
         },
         {
           "Name": "Content-Type",
@@ -59099,11 +59265,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho=\""
+          "Value": "\"xxgUQ4pNYq2H1hj0K5vevGjQzNLidCJ5y8GlZGwmLFg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 14:41:27 GMT"
+          "Value": "Sun, 25 May 2025 14:51:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59113,12 +59279,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho="
+          "Value": "sha256-xxgUQ4pNYq2H1hj0K5vevGjQzNLidCJ5y8GlZGwmLFg="
         }
       ]
     },
     {
-      "Route": "css/style.l6pt97pfse.css",
+      "Route": "css/style.lh8l122350.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -59128,7 +59294,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19068"
+          "Value": "19073"
         },
         {
           "Name": "Content-Type",
@@ -59136,11 +59302,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho=\""
+          "Value": "\"xxgUQ4pNYq2H1hj0K5vevGjQzNLidCJ5y8GlZGwmLFg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 14:41:27 GMT"
+          "Value": "Sun, 25 May 2025 14:51:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59150,7 +59316,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l6pt97pfse"
+          "Value": "lh8l122350"
         },
         {
           "Name": "label",
@@ -59158,7 +59324,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Q2YnsSS7lTqP7zSO0/qKAeSDrvJY6P2c21jMv9v1/ho="
+          "Value": "sha256-xxgUQ4pNYq2H1hj0K5vevGjQzNLidCJ5y8GlZGwmLFg="
         }
       ]
     },
@@ -62443,6 +62609,252 @@
       ]
     },
     {
+      "Route": "images/uk-flag.g2p9934o1o.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\uk-flag.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KLxAHM24eT4qDMBrTxXZQmiVOVY9/piABTlHK2o/TFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:39:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g2p9934o1o"
+        },
+        {
+          "Name": "label",
+          "Value": "images/uk-flag.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KLxAHM24eT4qDMBrTxXZQmiVOVY9/piABTlHK2o/TFU="
+        }
+      ]
+    },
+    {
+      "Route": "images/uk-flag.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\uk-flag.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KLxAHM24eT4qDMBrTxXZQmiVOVY9/piABTlHK2o/TFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:39:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KLxAHM24eT4qDMBrTxXZQmiVOVY9/piABTlHK2o/TFU="
+        }
+      ]
+    },
+    {
+      "Route": "images/vn-flag.b25rm8xydy.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1246"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nScJk90uyQS6N2c8x4YjlD/A2Xk86r90yfFS2MALhqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:38:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b25rm8xydy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/vn-flag.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nScJk90uyQS6N2c8x4YjlD/A2Xk86r90yfFS2MALhqM="
+        }
+      ]
+    },
+    {
+      "Route": "images/vn-flag.jpg",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ao+szvpevJvZXsRDRqVeHXngyZBGjlHoBShONv9s5g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:44:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ao+szvpevJvZXsRDRqVeHXngyZBGjlHoBShONv9s5g="
+        }
+      ]
+    },
+    {
+      "Route": "images/vn-flag.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1246"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nScJk90uyQS6N2c8x4YjlD/A2Xk86r90yfFS2MALhqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:38:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nScJk90uyQS6N2c8x4YjlD/A2Xk86r90yfFS2MALhqM="
+        }
+      ]
+    },
+    {
+      "Route": "images/vn-flag.x2nw669pq6.jpg",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ao+szvpevJvZXsRDRqVeHXngyZBGjlHoBShONv9s5g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:44:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x2nw669pq6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/vn-flag.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ao+szvpevJvZXsRDRqVeHXngyZBGjlHoBShONv9s5g="
+        }
+      ]
+    },
+    {
       "Route": "js/ajax-loader.fypy1n2a1i.gif",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\ajax-loader.gif",
       "Selectors": [],
@@ -62629,7 +63041,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:39:21 GMT"
+          "Value": "Sun, 25 May 2025 14:14:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -62674,7 +63086,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:39:21 GMT"
+          "Value": "Sun, 25 May 2025 14:14:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -62711,7 +63123,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 17:12:58 GMT"
+          "Value": "Sun, 25 May 2025 13:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -62756,7 +63168,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 17:12:58 GMT"
+          "Value": "Sun, 25 May 2025 13:12:34 GMT"
         },
         {
           "Name": "Cache-Control",

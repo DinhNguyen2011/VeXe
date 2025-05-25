@@ -1,0 +1,49 @@
+﻿/* Thêm vào file style.css */
+
+/* Style cho phần chọn ngôn ngữ bằng hình ảnh cờ */
+.language-switch {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.language-flag {
+    display: inline-block;
+    width: 16px; /* Giảm từ 24px xuống 16px */
+    height: 16px; /* Giảm từ 16px xuống 16px, tỷ lệ 1:1 như icon */
+    transition: transform 0.2s, opacity 0.2s;
+    text-decoration: none;
+}
+
+    .language-flag .flag-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2px;
+    }
+
+    .language-flag.active {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    .language-flag:not(.active) {
+        opacity: 0.6;
+    }
+
+    .language-flag:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .language-switch {
+        margin-left: 10px;
+    }
+
+    .language-flag {
+        width: 14px; /* Giảm từ 20px xuống 14px */
+        height: 14px; /* Giảm từ 13px xuống 14px */
+    }
+}

@@ -512,6 +512,7 @@ wwwroot\css\DanhSachPDTProF.css
 wwwroot\css\EditProfile.css
 wwwroot\css\indexLichTrinh.css
 wwwroot\css\khuyenmai.css
+wwwroot\css\layout.css
 wwwroot\css\LienHeVoiChungToi.css
 wwwroot\css\PhieuDatVe.css
 wwwroot\css\Profile.css
@@ -557,6 +558,9 @@ wwwroot\images\T59-12345_icon bus.png
 wwwroot\images\T99-11111_xe4.jpg
 wwwroot\images\ThuaThienHue.jpg
 wwwroot\images\timkiem.jpg
+wwwroot\images\uk-flag.png
+wwwroot\images\vn-flag.jpg
+wwwroot\images\vn-flag.png
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js

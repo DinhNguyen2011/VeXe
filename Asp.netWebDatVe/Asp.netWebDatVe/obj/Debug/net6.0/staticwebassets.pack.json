@@ -2709,6 +2709,10 @@
       "PackagePath": "staticwebassets\\css\\khuyenmai.css"
     },
     {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -2859,6 +2863,18 @@
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\timkiem.jpg",
       "PackagePath": "staticwebassets\\images\\timkiem.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\uk-flag.png",
+      "PackagePath": "staticwebassets\\images\\uk-flag.png"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.jpg",
+      "PackagePath": "staticwebassets\\images\\vn-flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\vn-flag.png",
+      "PackagePath": "staticwebassets\\images\\vn-flag.png"
     },
     {
       "Id": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\js\\ChonGhe.js",

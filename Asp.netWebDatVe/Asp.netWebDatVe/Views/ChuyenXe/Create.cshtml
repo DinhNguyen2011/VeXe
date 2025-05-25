@@ -37,13 +37,15 @@
 
         <div class="form-group phieudatve-form-group">
             <label asp-for="ThoiDiemKhoiHanh" class="phieudatve-label"></label>
-            <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" class="form-control phieudatve-input" />
+            <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+
             <span asp-validation-for="ThoiDiemKhoiHanh" class="text-danger"></span>
         </div>
 
         <div class="form-group phieudatve-form-group">
             <label asp-for="ThoiDiemDenDuKien" class="phieudatve-label"></label>
-            <input asp-for="ThoiDiemDenDuKien" type="datetime-local" class="form-control phieudatve-input" />
+            <input asp-for="ThoiDiemDenDuKien" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+
             <span asp-validation-for="ThoiDiemDenDuKien" class="text-danger"></span>
         </div>
 
