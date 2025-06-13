@@ -1,0 +1,40 @@
+﻿@model Asp.netWebDatVe.Models.PhieuDatVe
+@{
+    ViewData["Title"] = "Thanh Toán";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/dat-ve-cho-kh.css" />
+
+<div class="datve-container">
+    <h2 class="datve-title">Thanh toán cho phiếu @Model.MaPhieu</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5>Thông tin phiếu đặt vé</h5>
+            <p>Tổng tiền: @Model.TongTien?.ToString("N0")₫</p>
+            <p>Khuyến mãi: @(Model.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</p>
+            <ul>
+                @foreach (var ve in Model.VeXes)
+                {
+                    <li>Ghế @ve.IdVitriNavigation?.Tenvitri - @ve.TenKh</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <form asp-action="ThanhToan" method="post">
+        <input type="hidden" name="maPhieu" value="@Model.MaPhieu" />
+        <div class="form-group">
+            <label>Phương thức thanh toán</label>
+            <select name="phuongThuc" class="form-control" required>
+                <option value="Tiền mặt">Tiền mặt</option>
+                <option value="Chuyển khoản">Chuyển khoản</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+            <a asp-action="ChonGhe" asp-route-maChuyen="@Model.VeXes.FirstOrDefault()?.MaChuyen" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>

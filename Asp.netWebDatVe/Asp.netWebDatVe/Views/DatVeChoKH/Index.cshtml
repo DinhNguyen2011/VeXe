@@ -1,0 +1,92 @@
+﻿@model List<Asp.netWebDatVe.Models.ChuyenXe>
+@{
+    ViewData["Title"] = "Trang Chủ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/dat-ve-cho-kh.css" />
+
+<div class="datve-container">
+    @if (TempData["Error"] != null)
+    {
+        <div style="color: red; margin-bottom: 15px;">
+            @TempData["Error"]
+        </div>
+    }
+    <h2 class="datve-title">Tìm kiếm chuyến xe cho khách</h2>
+
+    <!-- Form tìm kiếm -->
+    <form asp-action="Index" method="get" class="search-form">
+        <input type="hidden" name="isSubmitted" value="true" />
+        <div class="form-group">
+            <label>Điểm đi</label>
+            <input list="danhSachDiemDi" class="form-control" name="diemDi" placeholder="Nhập điểm đi" value="@ViewBag.DiemDi" />
+            <datalist id="danhSachDiemDi">
+                @foreach (var diem in ViewBag.DanhSachDiemDi)
+                {
+                    <option value="@diem"></option>
+                }
+            </datalist>
+        </div>
+
+        <div class="form-group">
+            <label>Điểm đến</label>
+            <input list="danhSachDiemDen" class="form-control" name="diemDen" placeholder="Nhập điểm đến" value="@ViewBag.DiemDen" />
+            <datalist id="danhSachDiemDen">
+                @foreach (var diem in ViewBag.DanhSachDiemDen)
+                {
+                    <option value="@diem"></option>
+                }
+            </datalist>
+        </div>
+
+        <div class="form-group">
+            <label>Ngày đi</label>
+            <input type="date" class="form-control" name="ngayDi" min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@ViewBag.NgayDi" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Tìm chuyến xe</button>
+        </div>
+    </form>
+
+    <!-- Hiển thị thông báo lỗi nếu có -->
+    @if (!string.IsNullOrEmpty(ViewBag.Mes))
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Mes
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div class="alert alert-warning mt-3">
+            @ViewBag.Message
+        </div>
+    }
+
+    <!-- Danh sách chuyến xe -->
+    @if (ViewBag.ChuyenXes != null && ((List<Asp.netWebDatVe.Models.ChuyenXe>)ViewBag.ChuyenXes).Any())
+    {
+        <h4 class="mt-4">Danh sách chuyến xe từ @ViewBag.TuyenXe?.DiemDi đến @ViewBag.TuyenXe?.DiemDen</h4>
+        <div class="row">
+            @foreach (var chuyen in (List<Asp.netWebDatVe.Models.ChuyenXe>)ViewBag.ChuyenXes)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@chuyen.TenChuyenXe</h5>
+                            <p class="card-text">Khởi hành: @chuyen.ThoiDiemKhoiHanh?.ToString("HH:mm dd/MM/yyyy")</p>
+                            <p class="card-text">Đến dự kiến: @chuyen.ThoiDiemDenDuKien?.ToString("HH:mm dd/MM/yyyy")</p>
+                            <p class="card-text">Giá: @chuyen.GiaVe?.ToString("N0")₫</p>
+                            <p class="card-text">Tài xế: @chuyen.MaTaiXeNavigation?.HoTen</p>
+                            <p class="card-text">Loại xe: @chuyen.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai</p>
+                            <a asp-action="ChonGheHK" asp-route-maChuyen="@chuyen.MaChuyen" class="btn btn-success">Chọn ghế</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+ 
+    </div>
+</div>

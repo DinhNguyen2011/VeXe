@@ -66,7 +66,7 @@
                 <p><i class="fas fa-bus"></i> Bến xuất phát: @(ViewBag.TuyenXe?.MaBenXeDiNavigation?.TenBenXe ?? "Chưa có thông tin")</p>
                 <p><i class="fas fa-clock"></i> Thời gian xuất bến: @chuyenXe.ThoiDiemKhoiHanh?.ToString("HH:mm dd/MM/yyyy")</p>
                 <p><i class="fas fa-car"></i> Loại xe: @(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định") (@(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Soghe ?? 0) ghế)</p>
-                <p><i class="fas fa-money-bill-wave"></i> Giá vé/1 ghế: @giaVe.ToString("N0") VND</p>
+                    <p><i class="fas fa-money-bill-wave"></i> Giá vé/1 ghế: @giaVe.ToString("N0") VND</p> <p>Biển số xe: @chuyenXe.BienSoXe</p>
                 <div class="total-price">
                     <p>Tổng tiền: <span id="totalPrice">0</span> VND</p>
                 </div>

@@ -508,9 +508,12 @@ wwwroot\css\bootstrap.min.css
 wwwroot\css\bus-home.css
 wwwroot\css\ChangePassword.css
 wwwroot\css\ChonGhe.css
+wwwroot\css\ChonGheKH.css
 wwwroot\css\DanhSachPDTProF.css
+wwwroot\css\dat-ve-cho-kh.css
 wwwroot\css\EditProfile.css
 wwwroot\css\indexLichTrinh.css
+wwwroot\css\InVe.css
 wwwroot\css\khuyenmai.css
 wwwroot\css\layout.css
 wwwroot\css\LienHeVoiChungToi.css
@@ -565,6 +568,7 @@ wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js
 wwwroot\js\ChonGhe.js
+wwwroot\js\ChonGheKH.js
 wwwroot\js\jquery-1.11.0.min.js
 wwwroot\js\LichTrinh.js
 wwwroot\js\plugins.js

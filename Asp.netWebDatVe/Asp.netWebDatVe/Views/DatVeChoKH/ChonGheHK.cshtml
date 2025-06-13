@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Chọn ghế";
+    var chuyenXe = ViewBag.ChuyenXe as Asp.netWebDatVe.Models.ChuyenXe;
+    var danhSachGhe = ViewBag.DanhSachGhe as IEnumerable<dynamic>;
+    int soGhe = ViewBag.SoGhe ?? 0;
+    int soGheTren = soGhe / 2;
+    var giaVe = chuyenXe?.GiaVe ?? 0;
+    var gheDaDat = ViewBag.GheDaDat as List<int> ?? new List<int>();
+    var selectedSeats = ViewBag.SelectedSeats as List<string> ?? new List<string>();
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/ChonGheKH.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<div class="chonghe" style="margin: 50px 0px;">
+    @if (TempData["Error"] != null)
+    {
+        <div style="color: red; margin-bottom: 15px;">
+            @TempData["Error"]
+        </div>
+    }
+    
+    <h2 class="title">Chọn ghế và điền thông tin</h2>
+    <div class="legend">
+        <div><span class="legend-icon available"></span> Còn trống</div>
+        <div><span class="legend-icon occupied"></span> Đã đặt</div>
+        <div><span class="legend-icon selected"></span> Đang chọn</div>
+    </div>
+
+    <div class="row">
+        <!-- Cột bên trái: Ghế (2/3) -->
+        <div class="col-md-8">
+            <div class="seat-section">
+                <h3 class="section-title">Tầng trên</h3>
+                <div class="seat-map-container">
+                    @foreach (var ghe in danhSachGhe.Take(soGheTren))
+                    {
+                        var gd = (bool?)ghe.Trangthai ?? false;
+                        var isSelected = selectedSeats.Contains(ghe.IdVitri.ToString());
+                        <button class="seat @(gd ? "seat-occupied" : "seat-available") @(isSelected ? "seat-selected" : "")"
+                        @(gd ? "disabled" : "")
+                                data-id="@ghe.IdVitri"
+                                onclick="chonGhe(this)"
+                                title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                            <i class="fas fa-chair seat-icon"></i>
+                            <span class="seat-number">@ghe.Tenvitri</span>
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="seat-section">
+                <h3 class="section-title">Tầng dưới</h3>
+                <div class="seat-map-container">
+                    @foreach (var ghe in danhSachGhe.Skip(soGheTren))
+                    {
+                        var gd = (bool?)ghe.Trangthai ?? false;
+                        var isSelected = selectedSeats.Contains(ghe.IdVitri.ToString());
+                        <button class="seat @(gd ? "seat-occupied" : "seat-available") @(isSelected ? "seat-selected" : "")"
+                        @(gd ? "disabled" : "")
+                                data-id="@ghe.IdVitri"
+                                onclick="chonGhe(this)"
+                                title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                            <i class="fas fa-chair seat-icon"></i>
+                            <span class="seat-number">@ghe.Tenvitri</span>
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- Cột bên phải: Thông tin chuyến đi và chính sách hủy vé (1/3) -->
+        <div class="col-md-4">
+            <div class="trip-info-container">
+                <div class="trip-info-details">
+                    <h3 style="color: yellow">Thông tin lượt đi</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Tuyến: @(chuyenXe?.TenChuyenXe ?? "Chưa có thông tin")</p>
+                    <p><i class="fas fa-bus"></i> Bến xuất phát: @(ViewBag.TuyenXe?.MaBenXeDiNavigation?.TenBenXe ?? "Chưa có thông tin")</p>
+                    <p><i class="fas fa-clock"></i> Thời gian xuất bến: @chuyenXe?.ThoiDiemKhoiHanh?.ToString("HH:mm dd/MM/yyyy")</p>
+
+                    <p><i class="fas fa-car"></i> Biển số: @chuyenXe.BienSoXe
+
+                    <p><i class="fas fa-car"></i> Loại xe: @(chuyenXe?.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định") (@(chuyenXe?.BienSoXeNavigation?.IdLoaiNavigation?.Soghe ?? 0) ghế)</p>
+                    <p><i class="fas fa-money-bill-wave"></i> Giá vé/1 ghế: @giaVe.ToString("N0") VND</p>
+                    <div class="total-price">
+                        <p>Tổng tiền: <span id="totalPrice">0</span> VND</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <h2>Điền thông tin cá nhân</h2>
+    <div class="ticket-container">
+        <form method="post" asp-action="DatVe" class="ticket-form" onsubmit="return validateForm();">
+            <input type="hidden" name="maChuyen" value="@ViewBag.MaChuyen" />
+            <input type="hidden" id="selectedSeatsInput" name="selectedSeats" />
+            <input type="hidden" id="totalPriceInput" name="totalPrice" />
+
+            <div class="form-group">
+                <label for="tenKhachHang">Tên khách hàng</label>
+                <input type="text" id="tenKhachHang" name="tenKhachHang" class="form-control" placeholder="Nhập họ và tên" />
+                <span style="color: red" class="error-message" id="tenKhachHang-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="soDienThoai">Số điện thoại</label>
+                <input type="text" id="soDienThoai" name="soDienThoai" class="form-control" placeholder="Ví dụ: 0912345678" />
+                <span style="color: red" class="error-message" id="soDienThoai-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Ví dụ: example@gmail.com" />
+                <span style="color: red" class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="ghiChu">Ghi chú</label>
+                <textarea id="ghiChu" name="ghiChu" class="form-control" placeholder="Nhập ghi chú nếu có"></textarea>
+                <span class="error-message" id="ghiChu-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="phuongThuc">Phương thức thanh toán</label>
+                <select id="phuongThuc" name="phuongThuc" class="form-control" required>
+                    <option value="" disabled selected>Chọn phương thức thanh toán</option>
+                    <option value="Thanh toán tại quầy">Thanh toán bằng tiền mặt</option>
+                    <option value="VNPAY">VNPAY</option>
+                </select>
+                <span style="color: red" class="error-message" id="phuongThuc-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Đặt vé</button>
+        </form>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/ChonGheKH.js"></script>
+<script>
+    const seatButtons = document.querySelectorAll(".seat-available");
+    const selectedSeats = new Set();
+    const seatInput = document.getElementById("selectedSeatsInput");
+    const totalPriceSpan = document.getElementById("totalPrice");
+    const totalPriceInput = document.getElementById("totalPriceInput");
+    const maxSeats = 5;
+    const pricePerSeat = @giaVe;
+
+    seatButtons.forEach(button => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const seatId = this.dataset.id;
+
+            if (selectedSeats.has(seatId)) {
+                selectedSeats.delete(seatId);
+                this.classList.remove("seat-selected");
+            } else {
+                if (selectedSeats.size >= maxSeats) {
+                    alert(`Bạn chỉ có thể chọn tối đa ${maxSeats} ghế.`);
+                    return;
+                }
+                selectedSeats.add(seatId);
+                this.classList.add("seat-selected");
+            }
+            updateTotalPrice();
+        });
+    });
+
+    function updateTotalPrice() {
+        const totalPrice = selectedSeats.size * pricePerSeat;
+        totalPriceSpan.innerText = totalPrice.toLocaleString();
+        totalPriceInput.value = totalPrice;
+        seatInput.value = Array.from(selectedSeats).join(",");
+    }
+
+</script> 

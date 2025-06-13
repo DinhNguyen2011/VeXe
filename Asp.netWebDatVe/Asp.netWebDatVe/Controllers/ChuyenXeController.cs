@@ -87,27 +87,52 @@ namespace Asp.netWebDatVe.Controllers
         }
 
         // POST: ChuyenXe/Create
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ChuyenXe chuyenXe)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+
             if (ModelState.IsValid)
             {
-                // Nếu không nhập giá vé, lấy giá hiện hành từ tuyến xe
-                if (chuyenXe.GiaVe == null)
-                {
-                    var tuyenXe = _context.TuyenXes.Find(chuyenXe.MaTuyen);
-                    chuyenXe.GiaVe = tuyenXe?.GiaHienHanh;
-                }
+                // Kiểm tra trùng lặp biển số xe với chuyến đang hoạt động
+                var existingTrips = _context.ChuyenXes
+                    .Where(cx => cx.BienSoXe == chuyenXe.BienSoXe
+                              && cx.ThoiDiemDenDuKien.HasValue
+                              && cx.ThoiDiemDenDuKien > DateTime.Now)
+                    .ToList();
 
-                _context.ChuyenXes.Add(chuyenXe);
-                _context.SaveChanges();
-                TempData["Success"] = "Thêm chuyến xe thành công.";
-                return RedirectToAction("Index");
+                if (existingTrips.Any())
+                {
+                    ModelState.AddModelError("BienSoXe", "Biển số xe này đang được sử dụng cho một chuyến xe chưa kết thúc. Vui lòng chọn xe khác.");
+                }
+                else
+                {
+                    // Kiểm tra thời gian dự kiến đến đã kết thúc so với hiện tại
+                    if (chuyenXe.ThoiDiemDenDuKien.HasValue && chuyenXe.ThoiDiemDenDuKien <= DateTime.Now)
+                    {
+                        ModelState.AddModelError("ThoiDiemDenDuKien", "Thời gian đến dự kiến phải lớn hơn thời gian hiện tại.");
+                    }
+                    else
+                    {
+                        // Nếu không nhập giá vé, lấy giá hiện hành từ tuyến xe
+                        if (chuyenXe.GiaVe == null)
+                        {
+                            var tuyenXe = _context.TuyenXes.Find(chuyenXe.MaTuyen);
+                            chuyenXe.GiaVe = tuyenXe?.GiaHienHanh;
+                        }
+
+                        _context.ChuyenXes.Add(chuyenXe);
+                        _context.SaveChanges();
+                        TempData["Success"] = "Thêm chuyến xe thành công.";
+                        return RedirectToAction("Index");
+                    }
+                }
             }
 
+            // Nếu có lỗi, nạp lại dữ liệu cho các dropdown
             ViewBag.TuyenXes = _context.TuyenXes.Select(t => new SelectListItem
             {
                 Value = t.MaTuyen.ToString(),
