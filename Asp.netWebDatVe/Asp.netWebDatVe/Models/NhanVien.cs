@@ -13,6 +13,7 @@ namespace Asp.netWebDatVe.Models
             ChuyenXeMaTaiXeNavigations = new HashSet<ChuyenXe>();
         }
 
+
         [DisplayName("Mã Nhân Viên")]
         public int MaNhanVien { get; set; }
 
@@ -30,6 +31,7 @@ namespace Asp.netWebDatVe.Models
 
         [DisplayName("CCCD")]
         public long? Cccd { get; set; }
+        public string? HinhAnh { get; set; }
 
         public virtual ICollection<ChuyenXe> ChuyenXeMaNhanVien1Navigations { get; set; }
         public virtual ICollection<ChuyenXe> ChuyenXeMaNhanVienNavigations { get; set; }

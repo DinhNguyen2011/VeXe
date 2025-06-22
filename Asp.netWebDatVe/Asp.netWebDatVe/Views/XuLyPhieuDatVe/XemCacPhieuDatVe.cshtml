@@ -4,6 +4,7 @@
     ViewData["Title"] = "Danh sách phiếu đặt vé";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <link rel="stylesheet" href="~/css/DanhSachPDTProF.css">
 
 <div class="phieudatve-list-container">
@@ -37,6 +38,15 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+              
+                    var earliestDeparture = item.VeXes
+                    .Select(v => v.MaChuyenNavigation?.ThoiDiemKhoiHanh)
+                    .Where(d => d.HasValue)
+                    .Min();
+
+                    // Check if current time is equal to departure time
+                    bool canCancel = earliestDeparture.HasValue && DateTime.Now < earliestDeparture.Value;
+
                     <tr>
                         <td>@item.MaPhieu</td>
                         <td>@item.NgayDat?.ToString("dd/MM/yyyy")</td>
@@ -45,7 +55,7 @@
                         <td>
                             <a class="btn btn-info btn-sm btn-action" asp-controller="XuLyPhieuDatVe" asp-action="Details" asp-route-id="@item.MaPhieu">Xem</a>
 
-                            @if (item.TrangThai == "Đã thanh toán")
+                            @if (item.TrangThai == "Đã thanh toán" && canCancel)
                             {
                                 <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
                                     <input type="hidden" name="maPhieu" value="@item.MaPhieu" />

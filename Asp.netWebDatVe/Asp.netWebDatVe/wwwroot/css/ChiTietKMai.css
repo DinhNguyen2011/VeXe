@@ -1,0 +1,171 @@
+﻿/* ~/css/ChiTietKMai.css */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px 15px;
+    margin: 0 auto;
+}
+
+    .container h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+.card-img-top {
+    padding: 10px; /* Thêm padding để tạo khoảng cách */
+    background-color: #f0f0f0; /* Nền cho khoảng trống */
+    text-align: center; /* Căn giữa hình ảnh */
+}
+
+.detail-promotion-image {
+    max-width: 600px; /* Giới hạn chiều rộng */
+    max-height: 250px; /* Giới hạn chiều cao */
+    width: 100%;
+    height: auto; /* Giữ tỷ lệ */
+    object-fit: contain; /* Hiển thị toàn bộ hình ảnh */
+    object-position: center;
+    border-radius: 8px; /* Bo góc nhẹ */
+    display: inline-block; /* Căn giữa trong card-img-top */
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+    .card-text strong {
+        color: #555555;
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .btn-primary:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .center-wrapper {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 15px 10px;
+    }
+
+        .container h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+    .detail-promotion-image {
+        max-width: 400px; /* Giảm chiều rộng */
+        max-height: 180px; /* Giảm chiều cao */
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .card-text {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .center-wrapper {
+        padding: 10px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .detail-promotion-image {
+        max-width: 300px;
+        max-height: 150px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+}

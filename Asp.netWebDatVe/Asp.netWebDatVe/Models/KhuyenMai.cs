@@ -28,6 +28,7 @@ namespace Asp.netWebDatVe.Models
 
         [DisplayName("Ngày Kết Thúc")]
         public DateTime NgayKetThuc { get; set; }
+        public string? HinhAnh { get; set; }
 
         public virtual ICollection<PhieuDatVe> PhieuDatVes { get; set; }
     }

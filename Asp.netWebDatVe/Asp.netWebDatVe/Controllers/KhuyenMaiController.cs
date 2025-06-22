@@ -37,7 +37,6 @@ namespace Asp.netWebDatVe.Controllers
                 NgayKetThuc = DateTime.Now.AddDays(7)
             });
         }
-
         // POST: KhuyenMai/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

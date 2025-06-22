@@ -1,0 +1,37 @@
+﻿@model Asp.netWebDatVe.Models.KhuyenMai
+@{
+    ViewData["Title"] = $"Chi tiết Khuyến mãi: {Model.TenKhuyenMai}";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/css/ChiTietKMai.css" />
+
+<div class="center-wrapper">
+    <div class="container">
+        <h1 class="text-center mb-4">@Model.TenKhuyenMai</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-img-top">
+                        @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                        {
+                            <img src="@Url.Content(Model.HinhAnh)" alt="@Model.TenKhuyenMai" class="img-fluid detail-promotion-image" loading="lazy" />
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/images/default-promotion.jpg")" alt="Khuyến mãi mặc định" class="img-fluid detail-promotion-image" loading="lazy" />
+                        }
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Giảm @Model.PhanTramGiam%</h3>
+                        <p class="card-text"><strong>Mô tả:</strong> @Model.MoTa</p>
+                        <p class="card-text"><strong>Thời gian áp dụng:</strong> Từ @Model.NgayBatDau.ToString("dd/MM/yyyy") đến @Model.NgayKetThuc.ToString("dd/MM/yyyy")</p>
+                        <div class="text-center mt-4">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay lại</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

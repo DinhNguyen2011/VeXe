@@ -33,7 +33,7 @@ namespace Asp.netWebDatVe.Models
         public int? MaKhuyenMai { get; set; }
 
         [DisplayName("Khuyến Mãi Áp Dụng")]
-      
+
 
         public virtual KhuyenMai? MaKhuyenMaiNavigation { get; set; }
         public virtual ICollection<ThanhToan> ThanhToans { get; set; }

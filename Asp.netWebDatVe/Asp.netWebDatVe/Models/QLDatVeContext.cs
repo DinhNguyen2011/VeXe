@@ -108,6 +108,8 @@ namespace Asp.netWebDatVe.Models
 
                 entity.ToTable("KhuyenMai");
 
+                entity.Property(e => e.HinhAnh).HasMaxLength(50);
+
                 entity.Property(e => e.MoTa).HasMaxLength(200);
 
                 entity.Property(e => e.NgayBatDau).HasColumnType("date");
@@ -191,6 +193,8 @@ namespace Asp.netWebDatVe.Models
                 entity.ToTable("NhanVien");
 
                 entity.Property(e => e.DiaChi).HasMaxLength(200);
+
+                entity.Property(e => e.HinhAnh).HasMaxLength(50);
 
                 entity.Property(e => e.HoTen).HasMaxLength(100);
 

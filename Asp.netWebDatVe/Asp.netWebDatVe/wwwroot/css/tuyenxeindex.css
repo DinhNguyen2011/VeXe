@@ -1,0 +1,89 @@
+﻿.popular-routes-container {
+    padding: 10px 20px;
+}
+
+.route-box {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo box chiếm full height trong col */
+}
+
+    .route-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 128, 0, 0.1);
+    }
+
+.route-image {
+    background-size: cover;
+    background-position: center;
+    height: 160px;
+    position: relative;
+    display: flex;
+    align-items: end;
+    padding: 15px;
+}
+
+.route-title {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.route-info {
+    padding: 15px;
+    flex: 1; /* chiếm phần còn lại của .route-box */
+    min-height: 180px; /* ✅ chiều cao tối thiểu */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.route-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+    .route-line .route-sub {
+        font-size: 13px;
+        color: #666;
+    }
+
+    .route-line .price {
+        color: #d30000;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+
+.reason-box {
+    border: 1px solid #198754;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    background-color: #f8fff8;
+}
+
+    .reason-box:hover {
+        background-color: #e6f9e6;
+        box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+    }
+
+.reason-icon {
+    font-size: 24px;
+    color: #198754;
+    margin-right: 10px;
+}
+
+.why-choose-us h5 {
+    margin-top: 10px;
+}

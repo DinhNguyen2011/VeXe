@@ -11,6 +11,35 @@
             filterTrips();
         });
     });
+    document.addEventListener('DOMContentLoaded', function () {
+        var promotionSwiper = new Swiper('.promotion-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 8, // Giảm từ 15 xuống 8px
+            loop: true,
+            pagination: {
+                el: '.promotion-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 5 // Giảm từ 10 xuống 5px
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 6 // Giảm từ 12 xuống 6px
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 8 // Giảm từ 15 xuống 8px
+                }
+            }
+        });
+    });
 
     function filterTrips() {
         const selectedCb = Array.from(checkboxes).find(cb => cb.checked);

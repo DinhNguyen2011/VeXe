@@ -507,6 +507,7 @@ wwwroot\css\BenXe.css
 wwwroot\css\bootstrap.min.css
 wwwroot\css\bus-home.css
 wwwroot\css\ChangePassword.css
+wwwroot\css\ChiTietKMai.css
 wwwroot\css\ChonGhe.css
 wwwroot\css\ChonGheKH.css
 wwwroot\css\DanhSachPDTProF.css
@@ -514,7 +515,6 @@ wwwroot\css\dat-ve-cho-kh.css
 wwwroot\css\EditProfile.css
 wwwroot\css\indexLichTrinh.css
 wwwroot\css\InVe.css
-wwwroot\css\khuyenmai.css
 wwwroot\css\layout.css
 wwwroot\css\LienHeVoiChungToi.css
 wwwroot\css\PhieuDatVe.css
@@ -523,6 +523,7 @@ wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\TraCuuPhieuDatVe.css
 wwwroot\css\TuyenXe.css
+wwwroot\css\tuyenxeindex.css
 wwwroot\css\Vechungtoi.css
 wwwroot\css\vendor.css
 wwwroot\css\Vitrighe.css
@@ -536,7 +537,6 @@ wwwroot\images\BannnerBus.png
 wwwroot\images\bfad1782-8a62-49ab-a28b-a113af69340c.png
 wwwroot\images\bird.png
 wwwroot\images\BN.jpg
-wwwroot\images\bner.webp
 wwwroot\images\customer.png
 wwwroot\images\customer1.jpg
 wwwroot\images\customer2.jpg
@@ -548,9 +548,14 @@ wwwroot\images\customer7.jpg
 wwwroot\images\customer8.jpg
 wwwroot\images\da777f82-355c-48a0-90cf-22fdae352102.png
 wwwroot\images\DaLat.jpg
+wwwroot\images\dangnang.jpg
+wwwroot\images\dich-vu.png
 wwwroot\images\front-of-bus.png
 wwwroot\images\HCMCityMyLove.jpg
+wwwroot\images\hotline-support.jpg
+wwwroot\images\latda.jpg
 wwwroot\images\lgmain.png
+wwwroot\images\lich-trinh.png
 wwwroot\images\main-lg.png
 wwwroot\images\office-building.png
 wwwroot\images\profile2.jpg
@@ -558,12 +563,14 @@ wwwroot\images\profile3.jpg
 wwwroot\images\profile4.jpg
 wwwroot\images\profile5.jpg
 wwwroot\images\T59-12345_icon bus.png
-wwwroot\images\T99-11111_xe4.jpg
+wwwroot\images\T99-11111_icon bus.png
 wwwroot\images\ThuaThienHue.jpg
+wwwroot\images\tien-nghi.jpg
 wwwroot\images\timkiem.jpg
 wwwroot\images\uk-flag.png
 wwwroot\images\vn-flag.jpg
 wwwroot\images\vn-flag.png
+wwwroot\images\vungtau.jpg
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js

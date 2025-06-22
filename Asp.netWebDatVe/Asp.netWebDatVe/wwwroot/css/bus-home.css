@@ -230,103 +230,6 @@
 }
 
 /* Popular Routes Section */
-.popular-routes-section {
-    padding: 50px 0;
-    background-color: #f8f9fa;
-}
-
-    .popular-routes-section h2 {
-        font-size: 32px;
-        font-weight: bold;
-        color: #28a745;
-        margin-bottom: 30px;
-        animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    .popular-routes-section .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .popular-routes-section .col-md-4 {
-        display: flex;
-        flex: 1 1 30%;
-    }
-
-    .popular-routes-section .route-card {
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        animation: fadeInUp 1.2s ease-in-out forwards;
-    }
-
-    .popular-routes-section .route-image {
-        height: 150px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .popular-routes-section .route-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 8px 16px;
-        border-radius: 8px;
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        margin: 0;
-    }
-
-    .popular-routes-section .route-details {
-        padding: 15px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .popular-routes-section .route-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 14px;
-        color: #333;
-    }
-
-        .popular-routes-section .route-item:last-child {
-            border-bottom: none;
-        }
-
-    .popular-routes-section .destination {
-        font-weight: 600;
-        color: #28a745;
-        flex: 0 0 50%;
-    }
-
-    .popular-routes-section .info {
-        text-align: right;
-        flex: 0 0 50%;
-        color: #666;
-    }
-
-    .popular-routes-section .price {
-        font-weight: bold;
-        color: #28a745;
-        margin-left: 5px;
-    }
 
 /* Bus Lines Section */
 .bus-lines-section {
@@ -569,4 +472,119 @@
             height: 200px;
         }
 }
-/*css khuyemai*/
+/* Dịch vụ Khánh An */
+.service-section h4 {
+    font-weight: bold;
+    color: #2a2a2a;
+}
+
+.service-section p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.service-section ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+    .service-section ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        color: #444;
+    }
+
+        .service-section ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745; /* màu xanh lá */
+            font-weight: bold;
+        }
+
+.service-section img {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+    .service-section img:hover {
+        transform: scale(1.03);
+    }
+
+@media (max-width: 768px) {
+    .service-section .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
+.hotline-section {
+    background-color: #fff7f1;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+    .hotline-section h3 {
+        font-size: 28px;
+    }
+
+    .hotline-section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+.hotline-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.hotline-list i {
+    font-size: 18px;
+}
+
+/*css <!-- Hướng dẫn đặt xe -->*/
+.booking-steps {
+    background: #f5fff8; /* nền xanh nhạt dịu */
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 128, 0, 0.08);
+}
+
+    .booking-steps h4 {
+        color: #1d6b33; /* tiêu đề xanh đậm */
+    }
+
+    .booking-steps .step-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+        .booking-steps .step-icon svg {
+            width: 48px;
+            height: 48px;
+            fill: #28a745; /* xanh lá chủ đạo */
+            transition: transform 0.3s ease;
+        }
+
+        .booking-steps .step-icon:hover svg {
+            transform: scale(1.15);
+        }
+
+    .booking-steps h6 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f8f3b;
+        margin-bottom: 6px;
+    }
+
+    .booking-steps p {
+        font-size: 14px;
+        color: #5e856d;
+        line-height: 1.4;
+    }

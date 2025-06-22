@@ -53,7 +53,7 @@ namespace Asp.netWebDatVe.Controllers
 
             if (tuyenXe == null)
             {
-                ViewBag.Message = "Không tìm thấy tuyến xe phù hợp.";
+                ViewBag.Message = "Tìm chuyến xe phù hợp để đi.";
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
                 ViewBag.KhuyenMais = db.KhuyenMais
                     .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
@@ -90,7 +90,33 @@ namespace Asp.netWebDatVe.Controllers
 
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> ChiTietKhuyenMai(int? maKhuyenMai)
+        {
+            if (maKhuyenMai == null)
+            {
 
+                TempData["Error"] = "Mã khuyến mãi không hợp lệ.";
+                return RedirectToAction("Index");
+            }
+
+            var khuyenMai = await db.KhuyenMais
+                .AsNoTracking()
+                .FirstOrDefaultAsync(km => km.MaKhuyenMai == maKhuyenMai);
+
+            if (khuyenMai == null)
+            {
+
+                TempData["Error"] = "Không tìm thấy chương trình khuyến mãi.";
+                return RedirectToAction("Index");
+            }
+
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+            ViewData["Title"] = $"Chi tiết Khuyến mãi: {khuyenMai.TenKhuyenMai}";
+
+            return View(khuyenMai);
+        }
         public IActionResult ChonGhe(int maChuyen)
         {
             var userName = HttpContext.Session.GetString("UserName");
