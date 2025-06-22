@@ -5,44 +5,40 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<QLDatVeContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("BusTicket"));
 });
 
-builder.Services.AddDistributedMemoryCache(); // Required for session
-
-// Cấu hình authentication (chỉ giữ một cấu hình)
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Account/Login"; // Đúng với action Login
-        options.AccessDeniedPath = "/Account/AccessDenied";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-        options.SlidingExpiration = true; // Tự động gia hạn cookie nếu người dùng hoạt động
-    });
-
-builder.Services.AddAuthorization();
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Yêu cầu HTTPS
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 
-builder.Services.AddScoped<IVNPayService, VNPayService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
 
+builder.Services.AddAuthorization();
+builder.Services.AddScoped<IVNPayService, VNPayService>();
+builder.Services.AddScoped<IMoMoService, MoMoService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddHttpClient<IMoMoService, MoMoService>();
 builder.Services.AddSignalR();
 builder.Services.AddMvc();
 
 var app = builder.Build();
 
-// Configure middleware pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -51,9 +47,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();

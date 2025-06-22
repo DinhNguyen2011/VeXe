@@ -27,5 +27,6 @@ namespace Asp.netWebDatVe.Models.Payment
         public DateTime NgayDat { get; set; }
 
         public string TenChuyenXe { get; set; }
+        public string PaymentMethod { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace Asp.netWebDatVe.Models
 
         [DisplayName("Mã Khuyến Mãi")]
         public int? MaKhuyenMai { get; set; }
+        public string? MoMoTransactionId { get; set; } // Thêm trường này
 
         [DisplayName("Khuyến Mãi Áp Dụng")]
 

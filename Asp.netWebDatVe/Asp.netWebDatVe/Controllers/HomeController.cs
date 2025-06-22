@@ -5,7 +5,8 @@ using Asp.netWebDatVe.Models.Payment;
 using Asp.netWebDatVe.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Asp.netWebDatVe.Controllers
 {
@@ -14,16 +15,17 @@ namespace Asp.netWebDatVe.Controllers
         private readonly QLDatVeContext db;
         private readonly ILogger<HomeController> _logger;
         private readonly IVNPayService _vnpayService;
-        private readonly IEmailService _emailService; 
+        private readonly IMoMoService _moMoService;
+        private readonly IEmailService _emailService;
 
-        public HomeController(QLDatVeContext context, ILogger<HomeController> logger, IVNPayService vnpayService, IEmailService emailService)
+        public HomeController(QLDatVeContext context, ILogger<HomeController> logger, IVNPayService vnpayService, IMoMoService moMoService, IEmailService emailService)
         {
             db = context;
             _logger = logger;
             _vnpayService = vnpayService;
-            _emailService = emailService; 
+            _moMoService = moMoService;
+            _emailService = emailService;
         }
-
         public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null, bool isSubmitted = false)
         {
             var userName = HttpContext.Session.GetString("UserName");
@@ -178,7 +180,7 @@ namespace Asp.netWebDatVe.Controllers
             return View("ChonGhe");
         }
         [HttpPost]
-        public IActionResult DatVe(int maChuyen, string selectedSeats, string tenKhachHang, string soDienThoai, string email, string ghiChu, decimal totalPrice)
+        public IActionResult DatVe(int maChuyen, string selectedSeats, string tenKhachHang, string soDienThoai, string email, string ghiChu, decimal totalPrice, string paymentMethod)
         {
             if (string.IsNullOrWhiteSpace(tenKhachHang) || string.IsNullOrWhiteSpace(soDienThoai) || string.IsNullOrWhiteSpace(email))
             {
@@ -192,8 +194,13 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
 
-            var seatIds = selectedSeats.Split(',').Select(int.Parse).ToList();
+            if (string.IsNullOrWhiteSpace(paymentMethod) || !new[] { "VNPay", "MoMo" }.Contains(paymentMethod))
+            {
+                TempData["Error"] = "Vui lòng chọn phương thức thanh toán hợp lệ.";
+                return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
+            }
 
+            var seatIds = selectedSeats.Split(',').Select(int.Parse).ToList();
             var vitri = db.Vitrighes
                 .Where(g => seatIds.Contains(g.IdVitri) && g.Trangthai != true)
                 .ToList();
@@ -222,13 +229,6 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
 
-            // KHÔNG đánh dấu ghế ở đây nữa
-            // foreach (var seat in vitri)
-            // {
-            //     seat.Trangthai = true;
-            // }
-            // db.SaveChanges();
-
             var pendingBooking = new BangJSonTamPDV
             {
                 MaChuyen = maChuyen,
@@ -239,10 +239,23 @@ namespace Asp.netWebDatVe.Controllers
                 GhiChu = ghiChu,
                 TotalPrice = totalPrice,
                 NgayDat = DateTime.Now,
-                TenChuyenXe = chuyenXe.TenChuyenXe
+                TenChuyenXe = chuyenXe.TenChuyenXe,
+                PaymentMethod = paymentMethod
             };
 
-            HttpContext.Session.SetString("PendingBooking", JsonConvert.SerializeObject(pendingBooking));
+            try
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var serializedBooking = JsonSerializer.Serialize(pendingBooking, options);
+                _logger.LogInformation("Serialized PendingBooking: {serializedBooking}", serializedBooking);
+                HttpContext.Session.SetString("PendingBooking", serializedBooking);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi serialize PendingBooking: {message}", ex.Message);
+                TempData["Error"] = "Lỗi khi lưu thông tin đặt vé. Vui lòng thử lại.";
+                return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
+            }
 
             var paymentInfo = new PaymentInformationModel
             {
@@ -253,8 +266,25 @@ namespace Asp.netWebDatVe.Controllers
                 OrderType = "bus_booking"
             };
 
-            string vnpayUrl = _vnpayService.CreatePaymentUrl(paymentInfo, HttpContext);
-            return Redirect(vnpayUrl);
+            try
+            {
+                if (paymentMethod == "MoMo")
+                {
+                    var paymentUrl = _moMoService.CreatePaymentUrl(paymentInfo, HttpContext);
+                    return Redirect(paymentUrl);
+                }
+                else
+                {
+                    var paymentUrl = _vnpayService.CreatePaymentUrl(paymentInfo, HttpContext);
+                    return Redirect(paymentUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Lỗi khi tạo URL thanh toán {paymentMethod}: {ex.Message}");
+                TempData["Error"] = $"Lỗi khi tạo URL thanh toán: {ex.Message}";
+                return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
+            }
         }
 
         [HttpGet]
@@ -262,22 +292,42 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            var paymentResponse = _vnpayService.PaymentExecute(Request.Query);
+            var response = _vnpayService.PaymentExecute(Request.Query);
+            return await ProcessPaymentCallback(response, "VNPay");
+        }
 
-            if (!paymentResponse.Success && paymentResponse.VnPayResponseCode == "97")
-            {
-                TempData["ThongBao"] = "Dữ liệu trả về từ VNPay không hợp lệ.";
-                return View("PaymentCallback", paymentResponse);
-            }
+        [HttpGet]
+        public async Task<IActionResult> MoMoPaymentCallback()
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+            var response = _moMoService.PaymentExecute(Request.Query);
+            return await ProcessPaymentCallback(response, "MoMo");
+        }
 
+        private async Task<IActionResult> ProcessPaymentCallback(PaymentResponse response, string paymentMethod)
+        {
             var pendingBookingJson = HttpContext.Session.GetString("PendingBooking");
             if (string.IsNullOrEmpty(pendingBookingJson))
             {
+                _logger.LogWarning("PendingBookingJson is empty or null.");
                 TempData["ThongBao"] = "Phiên đặt vé đã hết hạn hoặc không tồn tại.";
-                return View("PaymentCallback", paymentResponse);
+                return View("PaymentCallback", response);
             }
 
-            var pendingBooking = JsonConvert.DeserializeObject<BangJSonTamPDV>(pendingBookingJson);
+            BangJSonTamPDV pendingBooking;
+            try
+            {
+                _logger.LogInformation("PendingBookingJson: {pendingBookingJson}", pendingBookingJson);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                pendingBooking = JsonSerializer.Deserialize<BangJSonTamPDV>(pendingBookingJson, options);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi deserialize PendingBooking: {message}", ex.Message);
+                TempData["ThongBao"] = "Lỗi khi đọc thông tin đặt vé. Vui lòng thử lại.";
+                return View("PaymentCallback", response);
+            }
 
             var vitri = db.Vitrighes
                 .Where(g => pendingBooking.SeatIds.Contains(g.IdVitri) && g.Trangthai != true)
@@ -287,14 +337,13 @@ namespace Asp.netWebDatVe.Controllers
             {
                 HttpContext.Session.Remove("PendingBooking");
                 TempData["ThongBao"] = "Một hoặc nhiều ghế đã được đặt bởi người khác.";
-                return View("PaymentCallback", paymentResponse);
+                return View("PaymentCallback", response);
             }
 
             try
             {
-                if (paymentResponse.Success)
+                if (response.Success)
                 {
-                    // Thanh toán thành công: Đánh dấu ghế là đã đặt
                     foreach (var seat in vitri)
                     {
                         seat.Trangthai = true;
@@ -306,10 +355,11 @@ namespace Asp.netWebDatVe.Controllers
                         NgayDat = pendingBooking.NgayDat,
                         TongTien = pendingBooking.TotalPrice,
                         TrangThai = "Đã thanh toán",
-                        VnpTransactionId = paymentResponse.TransactionId
+                        VnpTransactionId = paymentMethod == "VNPay" ? response.TransactionId : null,
+                        MoMoTransactionId = paymentMethod == "MoMo" ? response.TransactionId : null
                     };
                     db.PhieuDatVes.Add(phieuDatVe);
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
 
                     foreach (var seatId in pendingBooking.SeatIds)
                     {
@@ -329,26 +379,24 @@ namespace Asp.netWebDatVe.Controllers
                         db.VeXes.Add(veXe);
                     }
 
-                    // Tạo bản ghi ThanhToan dựa trên PhieuDatVe
                     var thanhToan = new ThanhToan
                     {
                         MaPhieu = phieuDatVe.MaPhieu,
-                        PhuongThuc = "VNPAY",
+                        PhuongThuc = paymentMethod,
                         SoTien = pendingBooking.TotalPrice,
                         NgayThanhToan = DateTime.Now,
-                        MaGiaoDich = paymentResponse.TransactionId,
+                        MaGiaoDich = response.TransactionId,
                         TrangThai = "Thành công"
                     };
                     db.ThanhToans.Add(thanhToan);
 
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
 
-                    // Gửi email xác nhận
                     try
                     {
-                        var chuyenXe = db.ChuyenXes
+                        var chuyenXe = await db.ChuyenXes
                             .Include(cx => cx.MaTuyenNavigation)
-                            .FirstOrDefault(cx => cx.MaChuyen == pendingBooking.MaChuyen);
+                            .FirstOrDefaultAsync(cx => cx.MaChuyen == pendingBooking.MaChuyen);
 
                         var seatNames = db.Vitrighes
                             .Where(g => pendingBooking.SeatIds.Contains(g.IdVitri))
@@ -358,7 +406,7 @@ namespace Asp.netWebDatVe.Controllers
                         string emailSubject = "Xác Nhận Thanh Toán Đặt Vé Xe Thành Công";
                         string emailBody = "<h2>Xác Nhận Thanh Toán Đặt Vé</h2>" +
                                            $"<p>Xin chào {pendingBooking.TenKhachHang},</p>" +
-                                           "<p>Chúng tôi xin xác nhận rằng bạn đã thanh toán thành công cho vé xe. Dưới đây là thông tin chi tiết:</p>" +
+                                           "<p>Chúng tôi xin xác nhận rằng bạn đã thanh toán thành công cho vé xe qua Trang Website Xe Khách Khánh An. Dưới đây là thông tin chi tiết:</p>" +
                                            "<ul>" +
                                            $"<li><strong>Mã Phiếu:</strong> {phieuDatVe.MaPhieu}</li>" +
                                            $"<li><strong>Tên Chuyến Xe:</strong> {pendingBooking.TenChuyenXe}</li>" +
@@ -367,7 +415,7 @@ namespace Asp.netWebDatVe.Controllers
                                            $"<li><strong>Ghế:</strong> {string.Join(", ", seatNames)}</li>" +
                                            $"<li><strong>1v/G:</strong> {chuyenXe.GiaVe?.ToString("N0")} VND</li>" +
                                            $"<li><strong>Tổng Tiền:</strong> {pendingBooking.TotalPrice.ToString("N0")} VND</li>" +
-                                           $"<li><strong>Mã Giao Dịch:</strong> {paymentResponse.TransactionId}</li>" +
+                                           $"<li><strong>Mã Giao Dịch:</strong> {response.TransactionId}</li>" +
                                            $"<li><strong>Ngày Thanh Toán:</strong> {DateTime.Now.ToString("HH:mm dd/MM/yyyy")}</li>" +
                                            "</ul>" +
                                            "<p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Nếu có thắc mắc, vui lòng liên hệ qua tổng đài <strong>1000 1234</strong>.</p>" +
@@ -381,20 +429,20 @@ namespace Asp.netWebDatVe.Controllers
                         TempData["ThongBao"] = "Thanh toán thành công, nhưng không thể gửi email xác nhận. Vui lòng kiểm tra thông tin vé trong hệ thống.";
                     }
 
-                    TempData["ThongBao"] = "Thanh toán thành công! Vé của bạn đã được xác nhận.";
+                    TempData["ThongBao"] = $"Thanh toán thành công qua {paymentMethod}! Vé của bạn đã được xác nhận.";
                 }
                 else
                 {
-                    TempData["ThongBao"] = "Thanh toán thất bại hoặc bị hủy. Ghế đã được trả lại trạng thái trống.";
+                    TempData["ThongBao"] = $"Thanh toán {paymentMethod} thất bại. Mã lỗi: {response.MoMoResponseCode ?? response.VnPayResponseCode}";
                 }
 
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 HttpContext.Session.Remove("PendingBooking");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Lỗi khi xử lý thanh toán cho email {pendingBooking.Email}");
-                TempData["ThongBao"] = "Đã xảy ra lỗi khi xử lý thanh toán. Vui lòng liên hệ hỗ trợ.";
+                _logger.LogError(ex, $"Lỗi khi xử lý thanh toán {paymentMethod} cho email {pendingBooking.Email}");
+                TempData["ThongBao"] = $"Đã xảy ra lỗi khi xử lý thanh toán {paymentMethod}. Vui lòng liên hệ hỗ trợ.";
 
                 foreach (var seatId in pendingBooking.SeatIds)
                 {
@@ -404,12 +452,114 @@ namespace Asp.netWebDatVe.Controllers
                         ghe.Trangthai = false;
                     }
                 }
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 HttpContext.Session.Remove("PendingBooking");
             }
 
-            return View("PaymentCallback", paymentResponse);
+            return View("PaymentCallback", response);
         }
-       
+
+        [HttpPost]
+        public async Task<IActionResult> MoMoNotify()
+        {
+            var response = _moMoService.PaymentExecute(Request.Query);
+            if (!response.Success)
+            {
+                _logger.LogWarning("MoMo Notify: Payment failed or invalid signature.");
+                return Ok();
+            }
+
+            var pendingBookingJson = HttpContext.Session.GetString("PendingBooking");
+            if (string.IsNullOrEmpty(pendingBookingJson))
+            {
+                _logger.LogWarning("MoMo Notify: Pending booking not found.");
+                return Ok();
+            }
+
+            BangJSonTamPDV pendingBooking;
+            try
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                pendingBooking = JsonSerializer.Deserialize<BangJSonTamPDV>(pendingBookingJson, options);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi deserialize PendingBooking trong MoMoNotify: {message}", ex.Message);
+                return Ok();
+            }
+
+            var vitri = db.Vitrighes
+                .Where(g => pendingBooking.SeatIds.Contains(g.IdVitri) && g.Trangthai != true)
+                .ToList();
+
+            if (vitri.Count != pendingBooking.SeatIds.Count)
+            {
+                _logger.LogWarning("MoMo Notify: One or more seats are already booked.");
+                return Ok();
+            }
+
+            try
+            {
+                foreach (var seat in vitri)
+                {
+                    seat.Trangthai = true;
+                }
+
+                var phieuDatVe = new PhieuDatVe
+                {
+                    Email = pendingBooking.Email,
+                    NgayDat = pendingBooking.NgayDat,
+                    TongTien = pendingBooking.TotalPrice,
+                    TrangThai = "Đã thanh toán",
+                    MoMoTransactionId = response.TransactionId
+                };
+                db.PhieuDatVes.Add(phieuDatVe);
+                await db.SaveChangesAsync();
+
+                foreach (var seatId in pendingBooking.SeatIds)
+                {
+                    var veXe = new VeXe
+                    {
+                        MaPhieu = phieuDatVe.MaPhieu,
+                        MaChuyen = pendingBooking.MaChuyen,
+                        IdVitri = seatId,
+                        TenKh = pendingBooking.TenKhachHang,
+                        Email = pendingBooking.Email,
+                        GhiChu = pendingBooking.GhiChu,
+                        TenVe = pendingBooking.TenChuyenXe,
+                        TrangThai = "Đã thanh toán",
+                        NgayDat = pendingBooking.NgayDat,
+                        Sđt = pendingBooking.SoDienThoai
+                    };
+                    db.VeXes.Add(veXe);
+                }
+
+                var thanhToan = new ThanhToan
+                {
+                    MaPhieu = phieuDatVe.MaPhieu,
+                    PhuongThuc = "MoMo",
+                    SoTien = pendingBooking.TotalPrice,
+                    NgayThanhToan = DateTime.Now,
+                    MaGiaoDich = response.TransactionId,
+                    TrangThai = "Thành công"
+                };
+                db.ThanhToans.Add(thanhToan);
+
+                await db.SaveChangesAsync();
+                HttpContext.Session.Remove("PendingBooking");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "MoMo Notify: Error processing payment.");
+            }
+
+            return Ok();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

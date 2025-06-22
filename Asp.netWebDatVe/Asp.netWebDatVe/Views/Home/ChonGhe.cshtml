@@ -110,7 +110,16 @@
                 <textarea id="ghiChu" name="ghiChu" class="form-control" placeholder="Nhập ghi chú nếu có"></textarea>
                 <span class="error-message" id="ghiChu-error"></span>
             </div>
-        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Đặt vé</button>
+            <div class="form-group">
+                <label for="paymentMethod">Phương thức thanh toán</label>
+                <select id="paymentMethod" name="paymentMethod" class="form-control" required>
+                    <option value="">Chọn phương thức</option>
+                    <option value="VNPay">VNPay</option>
+                    <option value="MoMo">MoMo</option>
+                </select>
+                <span style="color:red" class="error-message" id="paymentMethod-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Đặt vé</button>
     </form>
     <div class="terms">
         <h5>Điều khoản & lưu ý</h5>

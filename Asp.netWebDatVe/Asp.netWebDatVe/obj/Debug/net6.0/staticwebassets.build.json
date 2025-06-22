@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YGFxXe4B+vmA7/8xSoyHoVd5FgJOLoTMs4opN2TZlo0=",
+  "Hash": "NkeOr71ubqKAgWbp1J+qxtRbhClAPVtdIG/uonqXQWE=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -11098,8 +11098,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d9w6a8hl1w",
-      "Integrity": "0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU=",
+      "Fingerprint": "h70o27cs7x",
+      "Integrity": "82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\tuyenxeindex.css"
@@ -11691,6 +11691,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\HCMCityMyLove.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\hotline.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/hotline#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3op5tezby0",
+      "Integrity": "zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotline.png"
     },
     {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\hotline-support.jpg",
@@ -59980,7 +60001,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1842"
+          "Value": "1846"
         },
         {
           "Name": "Content-Type",
@@ -59988,11 +60009,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU=\""
+          "Value": "\"82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Jun 2025 00:48:43 GMT"
+          "Value": "Sun, 22 Jun 2025 00:51:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -60002,12 +60023,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU="
+          "Value": "sha256-82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o="
         }
       ]
     },
     {
-      "Route": "css/tuyenxeindex.d9w6a8hl1w.css",
+      "Route": "css/tuyenxeindex.h70o27cs7x.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\tuyenxeindex.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -60017,7 +60038,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1842"
+          "Value": "1846"
         },
         {
           "Name": "Content-Type",
@@ -60025,11 +60046,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU=\""
+          "Value": "\"82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Jun 2025 00:48:43 GMT"
+          "Value": "Sun, 22 Jun 2025 00:51:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -60039,7 +60060,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d9w6a8hl1w"
+          "Value": "h70o27cs7x"
         },
         {
           "Name": "label",
@@ -60047,7 +60068,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU="
+          "Value": "sha256-82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o="
         }
       ]
     },
@@ -62344,6 +62365,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-cQEkFZ8ieauUa5HNpK8gTbWBZoFoOArP5EUgOLL+83Y="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotline.3op5tezby0.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\hotline.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1420975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 22 Jun 2025 00:49:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3op5tezby0"
+        },
+        {
+          "Name": "label",
+          "Value": "images/hotline.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotline.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\hotline.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1420975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 22 Jun 2025 00:49:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4="
         }
       ]
     },

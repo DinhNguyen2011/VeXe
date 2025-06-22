@@ -552,6 +552,7 @@ wwwroot\images\dangnang.jpg
 wwwroot\images\dich-vu.png
 wwwroot\images\front-of-bus.png
 wwwroot\images\HCMCityMyLove.jpg
+wwwroot\images\hotline.png
 wwwroot\images\hotline-support.jpg
 wwwroot\images\latda.jpg
 wwwroot\images\lgmain.png

@@ -9,7 +9,6 @@ using System.Web;
 using Asp.netWebDatVe.Models.Payment;
 using System.Net;
 
-
 namespace Asp.netWebDatVe.Services
 {
     public interface IVNPayService
@@ -68,7 +67,11 @@ namespace Asp.netWebDatVe.Services
             var vnpResponseCode = pay.GetResponseData("vnp_ResponseCode");
             var vnpSecureHash = collections["vnp_SecureHash"];
             var vnpHashSecret = _configuration["Vnpay:HashSecret"];
+            var vnpAmount = pay.GetResponseData("vnp_Amount"); // Lấy vnp_Amount từ response
             var checkSignature = pay.ValidateSignature(vnpSecureHash, vnpHashSecret);
+
+            // Chuyển vnp_Amount (đã nhân 100) về VND
+            decimal amount = decimal.TryParse(vnpAmount, out var amt) ? amt / 100 : 0;
 
             return new PaymentResponse
             {
@@ -78,7 +81,8 @@ namespace Asp.netWebDatVe.Services
                 OrderId = vnpOrderId.ToString(),
                 TransactionId = vnpTransactionId.ToString(),
                 Token = pay.GetResponseData("vnp_SecureHash"),
-                VnPayResponseCode = vnpResponseCode
+                VnPayResponseCode = vnpResponseCode,
+                Amount = amount // Gán Amount sau khi chia 100
             };
         }
     }

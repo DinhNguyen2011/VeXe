@@ -9480,8 +9480,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d9w6a8hl1w</Fingerprint>
-      <Integrity>0aJWR1Ugkzd1XHDS7xaLWevX9vV25mVn8vH7Z87JvaU=</Integrity>
+      <Fingerprint>h70o27cs7x</Fingerprint>
+      <Integrity>82rSy0aQheyOuI5eAjAXPQ7ljVb7KkytUo509PIBR2o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\tuyenxeindex.css'))</OriginalItemSpec>
@@ -9989,6 +9989,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\HCMCityMyLove.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\hotline.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Asp.netWebDatVe</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Asp.netWebDatVe</BasePath>
+      <RelativePath>images/hotline.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3op5tezby0</Fingerprint>
+      <Integrity>zckRp0A/kKXK7e3vd3V/aOGd44qhXBS/SCCO+eVgPw4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\hotline.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\hotline-support.jpg'))">
       <SourceType>Package</SourceType>
