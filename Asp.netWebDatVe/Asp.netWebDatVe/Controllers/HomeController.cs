@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Security.Claims;
 
 namespace Asp.netWebDatVe.Controllers
 {
@@ -26,8 +27,27 @@ namespace Asp.netWebDatVe.Controllers
             _moMoService = moMoService;
             _emailService = emailService;
         }
+
+        private IActionResult RestrictAdminAccess()
+        {
+         
+            if (User.Identity.IsAuthenticated)
+            {
+                var maQuyen = User.FindFirst(ClaimTypes.Role)?.Value;
+                if (maQuyen == "1" || maQuyen == "2") // Admin hoặc Moderator
+                {
+                    HttpContext.Session.Clear(); // Xóa session
+                    TempData["Error"] = "Tài khoản admin không được phép truy cập giao diện người dùng.";
+                    return RedirectToAction("Login", "Account");
+                }
+            }
+            return null;
+        }
         public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null, bool isSubmitted = false)
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
+
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             ViewData["Title"] = "Trang Chủ";
@@ -95,6 +115,8 @@ namespace Asp.netWebDatVe.Controllers
         [HttpGet]
         public async Task<IActionResult> ChiTietKhuyenMai(int? maKhuyenMai)
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
             if (maKhuyenMai == null)
             {
 
@@ -121,6 +143,9 @@ namespace Asp.netWebDatVe.Controllers
         }
         public IActionResult ChonGhe(int maChuyen)
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
+
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             ViewData["Title"] = "Chọn ghế";
@@ -182,6 +207,9 @@ namespace Asp.netWebDatVe.Controllers
         [HttpPost]
         public IActionResult DatVe(int maChuyen, string selectedSeats, string tenKhachHang, string soDienThoai, string email, string ghiChu, decimal totalPrice, string paymentMethod)
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
+
             if (string.IsNullOrWhiteSpace(tenKhachHang) || string.IsNullOrWhiteSpace(soDienThoai) || string.IsNullOrWhiteSpace(email))
             {
                 TempData["Error"] = "Vui lòng điền đầy đủ thông tin.";
@@ -290,6 +318,9 @@ namespace Asp.netWebDatVe.Controllers
         [HttpGet]
         public async Task<IActionResult> PaymentCallback()
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
+
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             var response = _vnpayService.PaymentExecute(Request.Query);
@@ -299,6 +330,9 @@ namespace Asp.netWebDatVe.Controllers
         [HttpGet]
         public async Task<IActionResult> MoMoPaymentCallback()
         {
+            var restrictResult = RestrictAdminAccess();
+            if (restrictResult != null) return restrictResult;
+
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             var response = _moMoService.PaymentExecute(Request.Query);

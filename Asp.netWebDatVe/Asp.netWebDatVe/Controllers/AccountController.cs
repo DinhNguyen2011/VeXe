@@ -22,7 +22,7 @@ namespace Asp.netWebDatVe.Controllers
         }
         private bool IsBCryptHash(string password)
         {
-            // Chuỗi băm BCrypt bắt đầu bằng $2a$, $2b$, hoặc $2y$ và có độ dài ~60 ký tự
+        
             return password != null && password.StartsWith("$2") && password.Length >= 50;
         }
         [HttpGet]
@@ -142,7 +142,7 @@ namespace Asp.netWebDatVe.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult AccessDenied()
         {
