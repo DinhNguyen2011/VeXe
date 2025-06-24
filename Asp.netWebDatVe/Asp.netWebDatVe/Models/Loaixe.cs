@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -15,7 +16,9 @@ namespace Asp.netWebDatVe.Models
         public int IdLoai { get; set; }
 
         [DisplayName("Tên Loại Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập tên loại xe.")]
         public string? Tenloai { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập số ghế.")]
 
         [DisplayName("Số Ghế")]
         public int Soghe { get; set; }

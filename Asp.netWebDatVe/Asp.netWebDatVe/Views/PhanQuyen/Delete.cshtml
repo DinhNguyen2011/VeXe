@@ -7,6 +7,13 @@
 
 <h2>Xóa phân quyền</h2>
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 <div class="alert alert-warning">
     <p>Bạn có chắc chắn muốn xóa phân quyền này không?</p>
     <table class="table">

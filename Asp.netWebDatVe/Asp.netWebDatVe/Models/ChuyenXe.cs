@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -14,23 +15,28 @@ namespace Asp.netWebDatVe.Models
 
         [DisplayName("Mã Chuyến")]
         public int MaChuyen { get; set; }
+        [Required(ErrorMessage = "Vui lòng chọn tuyến xe")]
 
         [DisplayName("Mã Tuyến")]
         public int? MaTuyen { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập thời điểm khởi hành")]
 
         [DisplayName("Thời Điểm Khởi Hành")]
         public DateTime? ThoiDiemKhoiHanh { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập thời điểm đến dự kiến")]
 
         [DisplayName("Thời Điểm Đến Dự Kiến")]
         public DateTime? ThoiDiemDenDuKien { get; set; }
 
         [DisplayName("Giá Vé")]
         public decimal? GiaVe { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập biển số xe")]
 
         [DisplayName("Biển Số Xe")]
         public string? BienSoXe { get; set; }
 
         [DisplayName("Tên Chuyến Xe")]
+           [Required(ErrorMessage = "Vui lòng nhập tên chuyến xe")]
         public string? TenChuyenXe { get; set; }
 
         [DisplayName("Ghi Chú")]

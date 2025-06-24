@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Asp.netWebDatVe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+165be236e8fa170e07ee1880710fc10dbfdf112f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+289882316fb30c312cf64a72ed63480d2d76fb37")]
 [assembly: System.Reflection.AssemblyProductAttribute("Asp.netWebDatVe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Asp.netWebDatVe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,10 +11,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <div class="chonghe" style="margin:50px 0px;">
-<h2 class="title">Chọn ghế và điền thông tin</h2>
+    <h2 class="title" style="color:#00ff34 !important">Chọn ghế và điền thông tin</h2>
 <div class="legend">
     <div><span class="legend-icon available"></span> Còn trống</div>
-    <div><span class="legend-icon occupied"></span> Đã đặt</div>
+        <div><span class="legend-icon occupied" style="background-color:#90949c5c !important;"></span> Đã đặt</div>
     <div><span class="legend-icon selected"></span> Đang chọn</div>
 </div>
 
@@ -61,7 +61,7 @@
     <div class="col-md-4">
         <div class="trip-info-container">
             <div class="trip-info-details">
-                <h3 style="color:yellow">Thông tin lượt đi</h3>
+                    <h3 style="color:#00ff34 !important">Thông tin lượt đi</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Tuyến: @chuyenXe.TenChuyenXe</p>
                 <p><i class="fas fa-bus"></i> Bến xuất phát: @(ViewBag.TuyenXe?.MaBenXeDiNavigation?.TenBenXe ?? "Chưa có thông tin")</p>
                 <p><i class="fas fa-clock"></i> Thời gian xuất bến: @chuyenXe.ThoiDiemKhoiHanh?.ToString("HH:mm dd/MM/yyyy")</p>
@@ -83,7 +83,7 @@
         </div>
     </div>
 </div>
-<h2>Điền thông tin cá nhân</h2>
+    <h2 style="color:#00ff34 !important">Điền thông tin cá nhân</h2>
 <div class="ticket-container">
     <form method="post" asp-action="DatVe" class="ticket-form" onsubmit="return validateForm();">
         <input type="hidden" name="maChuyen" value="@ViewBag.MaChuyen" />

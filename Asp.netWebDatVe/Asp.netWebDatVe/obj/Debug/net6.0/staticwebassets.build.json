@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NkeOr71ubqKAgWbp1J+qxtRbhClAPVtdIG/uonqXQWE=",
+  "Hash": "S2i4CxG4sPO6qAnF1pkGohAZmnxBGt+zvW8mCZSzyaM=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -10720,8 +10720,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "olm7bngsar",
-      "Integrity": "LBXqbUlVFXk8ySdlDEmCd3d9m9MJwJPWkgp2CtEctEA=",
+      "Fingerprint": "gbghwvws06",
+      "Integrity": "3GgDDQNScB40c93sRJj8VZMoDc3wyD8zZvvP8akU+94=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bus-home.css"
@@ -10888,8 +10888,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j06f7pbzyl",
-      "Integrity": "zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo=",
+      "Fingerprint": "bg37omxsrj",
+      "Integrity": "O01dTahz0lw+yf7clvrq+2ek1A4ewIfvlaLC3Z9R/2I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\indexLichTrinh.css"
@@ -10951,8 +10951,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gp2dbmt39t",
-      "Integrity": "DB62Bg4oHT+VwrT6f+R3gse6bpXlsKAmF/LxgDhbo4Q=",
+      "Fingerprint": "2c7tm8keu2",
+      "Integrity": "nn9nuOL3Y0uXrxV7HihG6BETkO1ppV0Htdb3WbQyJ1A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\LienHeVoiChungToi.css"
@@ -11056,8 +11056,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "16igkdkqra",
-      "Integrity": "+WcJSshfUIUz2/BYxJT+c0ZPCzWNXi2z89BW3p4mL4Q=",
+      "Fingerprint": "4cdf53c07s",
+      "Integrity": "vD3JAQxvXrSLrZUYi23sMjXfrV1DlenIkVZTAg8N4+U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\TraCuuPhieuDatVe.css"
@@ -11271,6 +11271,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\901b9cfd-393d-40df-9c52-25df5c763896.png"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\92C-67890_icon bus.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/92C-67890_icon bus#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p3jbncd064",
+      "Integrity": "i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\92C-67890_icon bus.png"
     },
     {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\backround.png",
@@ -11630,6 +11651,27 @@
       "OriginalItemSpec": "wwwroot\\images\\dangnang.jpg"
     },
     {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dathongbao.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/dathongbao#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8jx4um22fs",
+      "Integrity": "POdn08iTihLH/YrpKwo9hh01B3PiuZ4buw12VQ6WzT8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\dathongbao.png"
+    },
+    {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dich-vu.png",
       "SourceId": "Asp.netWebDatVe",
       "SourceType": "Discovered",
@@ -11733,6 +11775,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hotline-support.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\khuyenmai.png",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "images/khuyenmai#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "y77r2c9ncb",
+      "Integrity": "Tp/tTFPyaot1rUZFwkOWz7JIXOfJqVYwqTqA+Oqv354=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\khuyenmai.png"
     },
     {
       "Identity": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\latda.jpg",
@@ -58525,7 +58588,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12193"
+          "Value": "12195"
         },
         {
           "Name": "Content-Type",
@@ -58533,11 +58596,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LBXqbUlVFXk8ySdlDEmCd3d9m9MJwJPWkgp2CtEctEA=\""
+          "Value": "\"3GgDDQNScB40c93sRJj8VZMoDc3wyD8zZvvP8akU+94=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Jun 2025 00:48:43 GMT"
+          "Value": "Mon, 23 Jun 2025 16:32:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58547,12 +58610,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LBXqbUlVFXk8ySdlDEmCd3d9m9MJwJPWkgp2CtEctEA="
+          "Value": "sha256-3GgDDQNScB40c93sRJj8VZMoDc3wyD8zZvvP8akU+94="
         }
       ]
     },
     {
-      "Route": "css/bus-home.olm7bngsar.css",
+      "Route": "css/bus-home.gbghwvws06.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\bus-home.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -58562,7 +58625,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12193"
+          "Value": "12195"
         },
         {
           "Name": "Content-Type",
@@ -58570,11 +58633,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LBXqbUlVFXk8ySdlDEmCd3d9m9MJwJPWkgp2CtEctEA=\""
+          "Value": "\"3GgDDQNScB40c93sRJj8VZMoDc3wyD8zZvvP8akU+94=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Jun 2025 00:48:43 GMT"
+          "Value": "Mon, 23 Jun 2025 16:32:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58584,7 +58647,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "olm7bngsar"
+          "Value": "gbghwvws06"
         },
         {
           "Name": "label",
@@ -58592,7 +58655,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-LBXqbUlVFXk8ySdlDEmCd3d9m9MJwJPWkgp2CtEctEA="
+          "Value": "sha256-3GgDDQNScB40c93sRJj8VZMoDc3wyD8zZvvP8akU+94="
         }
       ]
     },
@@ -59171,6 +59234,51 @@
       ]
     },
     {
+      "Route": "css/indexLichTrinh.bg37omxsrj.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\indexLichTrinh.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6180"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O01dTahz0lw+yf7clvrq+2ek1A4ewIfvlaLC3Z9R/2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:33:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bg37omxsrj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/indexLichTrinh.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O01dTahz0lw+yf7clvrq+2ek1A4ewIfvlaLC3Z9R/2I="
+        }
+      ]
+    },
+    {
       "Route": "css/indexLichTrinh.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\indexLichTrinh.css",
       "Selectors": [],
@@ -59189,11 +59297,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo=\""
+          "Value": "\"O01dTahz0lw+yf7clvrq+2ek1A4ewIfvlaLC3Z9R/2I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 15:55:30 GMT"
+          "Value": "Mon, 23 Jun 2025 16:33:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59203,52 +59311,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo="
-        }
-      ]
-    },
-    {
-      "Route": "css/indexLichTrinh.j06f7pbzyl.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\indexLichTrinh.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6180"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 15:55:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "j06f7pbzyl"
-        },
-        {
-          "Name": "label",
-          "Value": "css/indexLichTrinh.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-zVj5Zq9xdA+MS0ecLnRKaHryzVdS6QopknkYymIpwpo="
+          "Value": "sha256-O01dTahz0lw+yf7clvrq+2ek1A4ewIfvlaLC3Z9R/2I="
         }
       ]
     },
@@ -59417,6 +59480,51 @@
       ]
     },
     {
+      "Route": "css/LienHeVoiChungToi.2c7tm8keu2.css",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5164"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nn9nuOL3Y0uXrxV7HihG6BETkO1ppV0Htdb3WbQyJ1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:43:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2c7tm8keu2"
+        },
+        {
+          "Name": "label",
+          "Value": "css/LienHeVoiChungToi.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nn9nuOL3Y0uXrxV7HihG6BETkO1ppV0Htdb3WbQyJ1A="
+        }
+      ]
+    },
+    {
       "Route": "css/LienHeVoiChungToi.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
       "Selectors": [],
@@ -59427,7 +59535,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5198"
+          "Value": "5164"
         },
         {
           "Name": "Content-Type",
@@ -59435,11 +59543,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DB62Bg4oHT+VwrT6f+R3gse6bpXlsKAmF/LxgDhbo4Q=\""
+          "Value": "\"nn9nuOL3Y0uXrxV7HihG6BETkO1ppV0Htdb3WbQyJ1A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:58:17 GMT"
+          "Value": "Mon, 23 Jun 2025 16:43:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59449,52 +59557,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DB62Bg4oHT+VwrT6f+R3gse6bpXlsKAmF/LxgDhbo4Q="
-        }
-      ]
-    },
-    {
-      "Route": "css/LienHeVoiChungToi.gp2dbmt39t.css",
-      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\LienHeVoiChungToi.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5198"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DB62Bg4oHT+VwrT6f+R3gse6bpXlsKAmF/LxgDhbo4Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:58:17 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gp2dbmt39t"
-        },
-        {
-          "Name": "label",
-          "Value": "css/LienHeVoiChungToi.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-DB62Bg4oHT+VwrT6f+R3gse6bpXlsKAmF/LxgDhbo4Q="
+          "Value": "sha256-nn9nuOL3Y0uXrxV7HihG6BETkO1ppV0Htdb3WbQyJ1A="
         }
       ]
     },
@@ -59827,7 +59890,7 @@
       ]
     },
     {
-      "Route": "css/TraCuuPhieuDatVe.16igkdkqra.css",
+      "Route": "css/TraCuuPhieuDatVe.4cdf53c07s.css",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\TraCuuPhieuDatVe.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -59845,11 +59908,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+WcJSshfUIUz2/BYxJT+c0ZPCzWNXi2z89BW3p4mL4Q=\""
+          "Value": "\"vD3JAQxvXrSLrZUYi23sMjXfrV1DlenIkVZTAg8N4+U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:28:50 GMT"
+          "Value": "Mon, 23 Jun 2025 16:37:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59859,7 +59922,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "16igkdkqra"
+          "Value": "4cdf53c07s"
         },
         {
           "Name": "label",
@@ -59867,7 +59930,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+WcJSshfUIUz2/BYxJT+c0ZPCzWNXi2z89BW3p4mL4Q="
+          "Value": "sha256-vD3JAQxvXrSLrZUYi23sMjXfrV1DlenIkVZTAg8N4+U="
         }
       ]
     },
@@ -59890,11 +59953,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+WcJSshfUIUz2/BYxJT+c0ZPCzWNXi2z89BW3p4mL4Q=\""
+          "Value": "\"vD3JAQxvXrSLrZUYi23sMjXfrV1DlenIkVZTAg8N4+U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:28:50 GMT"
+          "Value": "Mon, 23 Jun 2025 16:37:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -59904,7 +59967,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+WcJSshfUIUz2/BYxJT+c0ZPCzWNXi2z89BW3p4mL4Q="
+          "Value": "sha256-vD3JAQxvXrSLrZUYi23sMjXfrV1DlenIkVZTAg8N4+U="
         }
       ]
     },
@@ -60725,6 +60788,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-eo7tAAynVESr51pMZXtM9pixxlNeCTsndd2Q4qm7iMo="
+        }
+      ]
+    },
+    {
+      "Route": "images/92C-67890_icon bus.p3jbncd064.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\92C-67890_icon bus.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 17:45:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p3jbncd064"
+        },
+        {
+          "Name": "label",
+          "Value": "images/92C-67890_icon bus.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo="
+        }
+      ]
+    },
+    {
+      "Route": "images/92C-67890_icon bus.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\92C-67890_icon bus.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 17:45:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i9PAXlUxo+7RV5t1EiW4mexqm2djGN9160LyH6c8sJo="
         }
       ]
     },
@@ -62123,6 +62268,88 @@
       ]
     },
     {
+      "Route": "images/dathongbao.8jx4um22fs.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dathongbao.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "40074"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"POdn08iTihLH/YrpKwo9hh01B3PiuZ4buw12VQ6WzT8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:17:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8jx4um22fs"
+        },
+        {
+          "Name": "label",
+          "Value": "images/dathongbao.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-POdn08iTihLH/YrpKwo9hh01B3PiuZ4buw12VQ6WzT8="
+        }
+      ]
+    },
+    {
+      "Route": "images/dathongbao.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dathongbao.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "40074"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"POdn08iTihLH/YrpKwo9hh01B3PiuZ4buw12VQ6WzT8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:17:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-POdn08iTihLH/YrpKwo9hh01B3PiuZ4buw12VQ6WzT8="
+        }
+      ]
+    },
+    {
       "Route": "images/dich-vu.7iuyov6gam.png",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dich-vu.png",
       "Selectors": [],
@@ -62533,6 +62760,88 @@
       ]
     },
     {
+      "Route": "images/khuyenmai.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\khuyenmai.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "121981"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tp/tTFPyaot1rUZFwkOWz7JIXOfJqVYwqTqA+Oqv354=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:18:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tp/tTFPyaot1rUZFwkOWz7JIXOfJqVYwqTqA+Oqv354="
+        }
+      ]
+    },
+    {
+      "Route": "images/khuyenmai.y77r2c9ncb.png",
+      "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\khuyenmai.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "121981"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tp/tTFPyaot1rUZFwkOWz7JIXOfJqVYwqTqA+Oqv354=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 16:18:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y77r2c9ncb"
+        },
+        {
+          "Name": "label",
+          "Value": "images/khuyenmai.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tp/tTFPyaot1rUZFwkOWz7JIXOfJqVYwqTqA+Oqv354="
+        }
+      ]
+    },
+    {
       "Route": "images/latda.b2zrrl3e9b.jpg",
       "AssetFile": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\latda.jpg",
       "Selectors": [],
@@ -62637,7 +62946,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 21:46:17 GMT"
+          "Value": "Mon, 23 Jun 2025 17:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -62682,7 +62991,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 21:46:17 GMT"
+          "Value": "Mon, 23 Jun 2025 17:47:28 GMT"
         },
         {
           "Name": "Cache-Control",

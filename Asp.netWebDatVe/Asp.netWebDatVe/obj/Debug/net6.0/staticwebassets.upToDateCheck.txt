@@ -532,6 +532,7 @@ wwwroot\images\29B-12345_xe3.jpg
 wwwroot\images\36A-78901_bird.png
 wwwroot\images\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png
 wwwroot\images\901b9cfd-393d-40df-9c52-25df5c763896.png
+wwwroot\images\92C-67890_icon bus.png
 wwwroot\images\backround.png
 wwwroot\images\BannnerBus.png
 wwwroot\images\bfad1782-8a62-49ab-a28b-a113af69340c.png
@@ -549,11 +550,13 @@ wwwroot\images\customer8.jpg
 wwwroot\images\da777f82-355c-48a0-90cf-22fdae352102.png
 wwwroot\images\DaLat.jpg
 wwwroot\images\dangnang.jpg
+wwwroot\images\dathongbao.png
 wwwroot\images\dich-vu.png
 wwwroot\images\front-of-bus.png
 wwwroot\images\HCMCityMyLove.jpg
 wwwroot\images\hotline.png
 wwwroot\images\hotline-support.jpg
+wwwroot\images\khuyenmai.png
 wwwroot\images\latda.jpg
 wwwroot\images\lgmain.png
 wwwroot\images\lich-trinh.png
