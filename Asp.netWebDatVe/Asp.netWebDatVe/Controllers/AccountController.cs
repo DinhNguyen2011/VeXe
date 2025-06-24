@@ -176,6 +176,8 @@ namespace Asp.netWebDatVe.Controllers
         [Authorize]
         public IActionResult EditProfile(int id)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             // Lấy ID người dùng từ claims
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
             if (userId != id)
@@ -198,6 +200,8 @@ namespace Asp.netWebDatVe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProfile(NguoiDung model, IFormFile? hinhAnh)
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
             if (userId != model.Id)
             {

@@ -172,7 +172,19 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(thongKe);
         }
-
+  
+        public IActionResult VeHuy()
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+            var cancelledVeXeList = _context.VeXes
+                .Include(v => v.MaChuyenNavigation)
+                .Include(v => v.IdVitriNavigation)
+                .Include(v => v.MaPhieuNavigation)
+                .Where(v => v.TrangThai == "Đã hủy")
+                .ToList();
+            return View(cancelledVeXeList);
+        }
 
 
     }

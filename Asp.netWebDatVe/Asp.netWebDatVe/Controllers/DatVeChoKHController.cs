@@ -91,6 +91,7 @@ namespace Asp.netWebDatVe.Controllers
         // GET: DatVeChoKH/ChonGheHK
         public IActionResult ChonGheHK(int maChuyen)
         {
+
             _logger.LogInformation($"ChonGheHK called with maChuyen={maChuyen}");
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;

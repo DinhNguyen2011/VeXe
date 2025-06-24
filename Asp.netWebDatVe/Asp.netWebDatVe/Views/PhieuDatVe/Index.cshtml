@@ -4,9 +4,129 @@
     ViewData["Title"] = "Danh sách phiếu đặt vé";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<style>
+    .phieudatve-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-<link rel="stylesheet" href="~/css/PhieuDatVe.css" />
+    .phieudatve-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
+    .phieudatve-alert {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .phieudatve-filter {
+        margin-bottom: 20px;
+        max-width: 300px;
+    }
+
+    .phieudatve-btn {
+        margin-bottom: 15px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        font-size: 14px;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+
+        .table th, .table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+            vertical-align: middle;
+        }
+
+        .table th {
+            background-color: #f4f重建: #f4f4f4;
+        }
+
+        .table td.text-truncate {
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    .col-ma-phieu {
+        width: 8%;
+    }
+
+    .col-email {
+        width: 15%;
+    }
+
+    .col-ngay-dat {
+        width: 12%;
+    }
+
+    .col-tong-tien {
+        width: 10%;
+    }
+
+    .col-trang-thai {
+        width: 10%;
+    }
+
+    .col-vnp-transaction {
+        width: 15%;
+    }
+
+    .col-momo-transaction {
+        width: 15%;
+    }
+
+    .col-khuyen-mai {
+        width: 15%;
+    }
+
+    .col-thao-tac {
+        width: 20%;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 10px;
+        margin: 2px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: #212529;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+</style>
 <div class="phieudatve-container">
     <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
 
@@ -38,80 +158,51 @@
         <a asp-action="Create" class="btn btn-primary phieudatve-btn">Thêm phiếu đặt vé</a>
     </p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Mã phiếu</th>
-                <th>Email</th>
-                <th>Ngày đặt</th>
-                <th>Tổng tiền</th>
-                <th>Trạng thái</th>
-                <th>VNP Transaction ID</th>
-                <th>Khuyến mãi</th>
-                <th>Thao tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.MaPhieu</td>
-                    <td>@item.Email</td>
-                    <td>@item.NgayDat?.ToString("dd/MM/yyyy HH:mm")</td>
-                    <td>@item.TongTien?.ToString("N0") VNĐ</td>
-                    <td>@item.TrangThai</td>
-                    <td>@item.VnpTransactionId</td>
-                    <td>@(item.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.MaPhieu" class="btn btn-warning btn-sm phieudatve-btn-action">Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@item.MaPhieu" class="btn btn-danger btn-sm phieudatve-btn-action">Xóa</a>
-                        @if (item.TrangThai == "Hủy")
-                        {
-                            <form asp-action="ResetSeatsByPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại trạng thái ghế cho phiếu @item.MaPhieu không?');">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
-                                <button type="submit" class="btn btn-secondary btn-sm phieudatve-btn-action">Đặt lại ghế</button>
-                            </form>
-                        }
-                    </td>
+                    <th class="col-ma-phieu">Mã phiếu</th>
+                    <th class="col-email">Email</th>
+                    <th class="col-ngay-dat">Ngày đặt</th>
+                    <th class="col-tong-tien">Tổng tiền</th>
+                    <th class="col-trang-thai">Trạng thái</th>
+                    <th class="col-vnp-transaction">VNP Transaction ID</th>
+                    <th class="col-momo-transaction">Momo Transaction ID</th>
+                    <th class="col-khuyen-mai">Khuyến mãi</th>
+                    <th class="col-thao-tac">Thao tác</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaPhieu</td>
+                        <td class="text-truncate">@item.Email</td>
+                        <td>@item.NgayDat?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.TongTien?.ToString("N0") VNĐ</td>
+                        <td>@item.TrangThai</td>
+                        <td class="text-truncate">@item.VnpTransactionId</td>
+                        <td class="text-truncate">@(item.MoMoTransactionId ?? "Không có")</td>
+                        <td>@(item.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</td>
+                        <td>
+                            <div class="action-buttons">
+                                <a asp-action="Edit" asp-route-id="@item.MaPhieu" class="btn btn-warning btn-sm phieudatve-btn-action">Sửa</a>
+                                <a asp-action="Delete" asp-route-id="@item.MaPhieu" class="btn btn-danger btn-sm phieudatve-btn-action">Xóa</a>
+                                @if (item.TrangThai == "Hủy")
+                                {
+                                    <form asp-action="ResetSeatsByPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại trạng thái ghế cho phiếu @item.MaPhieu không?');">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
+                                        <button type="submit" class="btn btn-secondary btn-sm phieudatve-btn-action">Đặt lại ghế</button>
+                                    </form>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<style>
-    .table {
-        width: 80%;
-        margin: auto;
-        font-size: 14px;
-        border-collapse: collapse;
-    }
-
-        .table th, .table td {
-            padding: 3px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .table th {
-            background-color: #f4f4f4;
-        }
-
-    .btn {
-        font-size: 10px;
-        padding: 5px 10px;
-        margin: 8px;
-        border-radius: 5px;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        color: white;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        color: white;
-    }
-</style>

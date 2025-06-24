@@ -256,6 +256,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/ThanhToan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2FuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/ThanhToan/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2FuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/ThanhToan/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2FuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/ThanhToan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2FuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/TraCuuPhieuDatVe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhQ3V1UGhpZXVEYXRWZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -298,6 +314,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/VeXe/ThongKeDoanhThu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVYZVxUaG9uZ0tlRG9hbmhUaHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/VeXe/VeHuy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVYZVxWZUh1eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/dinhn/OneDrive/Desktop/QuanLyBanVeXe/VeXe/Asp.netWebDatVe/Asp.netWebDatVe/Views/Vitrighe/Create.cshtml]
