@@ -12,6 +12,7 @@ INSERT INTO BenXe (MaBenXe, TenBenXe, DiaChi, Sdt, ThanhPho) VALUES
 (8, N'Bến xe phía Nam Khánh Hòa', N'Đường 23/10, TP. Cam Ranh', N'0978901234', N'Khánh Hòa'),
 (9, N'Bến xe Nước Ngầm', N'1 Ngọc Hồi, Quận Hoàng Mai', N'0989012345', N'Hà Nội'),
 (10, N'Bến xe Mỹ Đình', N'20 Phạm Hùng, Quận Nam Từ Liêm', N'0990123456', N'Hà Nội');
+
 SET IDENTITY_INSERT BenXe OFF;
 UPDATE BenXe
 SET ThanhPho = N'Thừa Thiên Huế'
@@ -169,16 +170,16 @@ SET IDENTITY_INSERT ChuyenXe ON;
 -- Thêm các chuyến xe với Mã nhân viên tương ứng và Biển số xe đã chỉnh sửa
 INSERT INTO ChuyenXe (MaChuyen, MaTuyen, ThoiDiemKhoiHanh, ThoiDiemDenDuKien, GiaVe, BienSoXe, TenChuyenXe, GhiChu, MaNhanVien, MaTaiXe)
 VALUES
---(1, 1, '2025-05-16 08:00:00', '2025-05-16 10:30:00', 290000, '51B-12345', N'TP. Hồ Chí Minh → Đà Lạt', N'Chuyến mới sau ngày 15/5', 1, 1),  -- Tài xế: Nguyễn Văn An
-(2, 2, '2025-05-16 09:00:00', '2025-05-16 11:30:00', 290000, '43A-56789', N'Đà Lạt → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 2, 2),  -- Lơ xe: Trần Thị Bé
-(3, 3, '2025-05-16 10:00:00', '2025-05-16 12:30:00', 750000, '51H-98765', N'TP. Hồ Chí Minh → Đà Nẵng', N'Chuyến mới sau ngày 15/5', 3, 3),  -- Nhân viên hỗ trợ: Lê Văn Cường
-(4, 4, '2025-05-16 11:00:00', '2025-05-16 13:30:00', 750000, '79B-45678', N'Đà Nẵng → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 4, 4),  -- Tài xế: Phạm Thị Duyên
-(5, 5, '2025-05-16 12:00:00', '2025-05-16 14:30:00', 220000, '50K-23456', N'TP. Hồ Chí Minh → Nha Trang', N'Chuyến mới sau ngày 15/5', 5, 5),  -- Lơ xe: Hoàng Văn Em
-(6, 6, '2025-05-16 13:00:00', '2025-05-16 15:30:00', 220000, '36A-78901', N'Nha Trang → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 6, 6),  -- Nhân viên hỗ trợ: Ngô Thị Hoa
-(7, 7, '2025-05-16 14:00:00', '2025-05-16 16:30:00', 800000, '51G-34567', N'TP. Hồ Chí Minh → Huế', N'Chuyến mới sau ngày 15/5', 7, 7),  -- Tài xế: Võ Văn Khang
-(8, 8, '2025-05-16 15:00:00', '2025-05-16 17:30:00', 800000, '92C-67890', N'Huế → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 8, 8),  -- Lơ xe: Bùi Thị Lan
-(9, 9, '2025-05-16 16:00:00', '2025-05-16 18:30:00', 1200000, '54D-89012', N'TP. Hồ Chí Minh → Hà Nội', N'Chuyến mới sau ngày 15/5', 9, 9),  -- Tài xế: Đỗ Văn Minh
-(10, 10, '2025-05-16 17:00:00', '2025-05-16 19:30:00', 1200000, '63B-12345', N'Hà Nội → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 10, 10);  -- Nhân viên hỗ trợ: Nguyễn Thị Ngọc
+(1, 1, '2025-08-16 08:00:00', '2025-08-17 10:30:00', 290000, '51B-12345', N'TP. Hồ Chí Minh → Đà Lạt', N'Chuyến mới sau ngày 15/5', 1, 1),  -- Tài xế: Nguyễn Văn An
+(2, 2, '2025-08-16 09:00:00', '2025-08-17 11:30:00', 290000, '43A-56789', N'Đà Lạt → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 2, 2),  -- Lơ xe: Trần Thị Bé
+(3, 3, '2025-08-16 10:00:00', '2025-08-17 12:30:00', 750000, '51H-98765', N'TP. Hồ Chí Minh → Đà Nẵng', N'Chuyến mới sau ngày 15/5', 3, 3),  -- Nhân viên hỗ trợ: Lê Văn Cường
+(4, 4, '2025-08-16 11:00:00', '2025-08-17 13:30:00', 750000, '79B-45678', N'Đà Nẵng → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 4, 4),  -- Tài xế: Phạm Thị Duyên
+(5, 5, '2025-08-16 12:00:00', '2025-08-17 14:30:00', 220000, '50K-23456', N'TP. Hồ Chí Minh → Nha Trang', N'Chuyến mới sau ngày 15/5', 5, 5),  -- Lơ xe: Hoàng Văn Em
+(6, 6, '2025-08-16 13:00:00', '2025-08-17 15:30:00', 220000, '36A-78901', N'Nha Trang → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 6, 6),  -- Nhân viên hỗ trợ: Ngô Thị Hoa
+(7, 7, '2025-08-16 14:00:00', '2025-08-17 16:30:00', 800000, '51G-34567', N'TP. Hồ Chí Minh → Huế', N'Chuyến mới sau ngày 15/5', 7, 7),  -- Tài xế: Võ Văn Khang
+(8, 8, '2025-08-16 15:00:00', '2025-08-17 17:30:00', 800000, '92C-67890', N'Huế → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 8, 8),  -- Lơ xe: Bùi Thị Lan
+(9, 9, '2025-08-16 16:00:00', '2025-08-17 18:30:00', 1200000, '54D-89012', N'TP. Hồ Chí Minh → Hà Nội', N'Chuyến mới sau ngày 15/5', 9, 9),  -- Tài xế: Đỗ Văn Minh
+(10, 10, '2025-08-16 17:00:00', '2025-08-17 19:30:00', 1200000, '63B-12345', N'Hà Nội → TP. Hồ Chí Minh', N'Chuyến mới sau ngày 15/5', 10, 10);  -- Nhân viên hỗ trợ: Nguyễn Thị Ngọc
 
 SET IDENTITY_INSERT ChuyenXe OFF;
 
@@ -207,6 +208,6 @@ SET IDENTITY_INSERT NguoiDung OFF;
 
 INSERT INTO KhuyenMai (TenKhuyenMai, MoTa, PhanTramGiam, NgayBatDau, NgayKetThuc)
 VALUES 
-    (N'Giảm giá hè 2025', N'Ưu đãi cho tất cả chuyến xe tháng 5', 20, '2025-05-01', '2025-05-31'),
-    (N'Khuyến mãi lễ 30/4', N'Giảm giá đặc biệt dịp lễ', 15, '2025-04-25', '2025-05-20'),
-    (N'Mừng sinh nhật Khánh An', N'Giảm giá cho khách đặt vé tuần này', 10, '2025-05-10', '2025-05-25');
+    (N'Giảm giá hè 2025', N'Ưu đãi cho tất cả chuyến xe tháng 5', 20, '2025-05-01', '2025-08-31'),
+    (N'Khuyến mãi lễ 30/4', N'Giảm giá đặc biệt dịp lễ', 15, '2025-04-25', '2025-08-20'),
+    (N'Mừng sinh nhật Khánh An', N'Giảm giá cho khách đặt vé tuần này', 10, '2025-05-10', '2025-08-25');
