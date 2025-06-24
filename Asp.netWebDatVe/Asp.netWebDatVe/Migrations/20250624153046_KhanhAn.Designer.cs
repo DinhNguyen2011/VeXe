@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Asp.netWebDatVe.Migrations
 {
     [DbContext(typeof(QLDatVeContext))]
-    [Migration("20250624150757_KhanhAn")]
+    [Migration("20250624153046_KhanhAn")]
     partial class KhanhAn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
