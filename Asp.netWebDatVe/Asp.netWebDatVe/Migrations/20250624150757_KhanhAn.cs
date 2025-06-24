@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Asp.netWebDatVe.Migrations
 {
-    public partial class ka : Migration
+    public partial class KhanhAn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,7 +65,7 @@ namespace Asp.netWebDatVe.Migrations
                 columns: table => new
                 {
                     ID_LOAI = table.Column<int>(type: "int", nullable: false),
-                    TENLOAI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    TENLOAI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     SOGHE = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -112,9 +112,9 @@ namespace Asp.netWebDatVe.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DiemDi = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DiemDen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    SoNgayChayTrongTuan = table.Column<int>(type: "int", nullable: true),
-                    GiaHienHanh = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    QuangDuong = table.Column<int>(type: "int", nullable: true),
+                    SoNgayChayTrongTuan = table.Column<int>(type: "int", nullable: false),
+                    GiaHienHanh = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    QuangDuong = table.Column<int>(type: "int", nullable: false),
                     MaBenXeDi = table.Column<int>(type: "int", nullable: false),
                     MaBenXeDen = table.Column<int>(type: "int", nullable: false)
                 },
@@ -184,7 +184,7 @@ namespace Asp.netWebDatVe.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     SDT = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MatKhau = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     NgaySinh = table.Column<DateTime>(type: "date", nullable: true),
                     DiaChi = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -231,12 +231,12 @@ namespace Asp.netWebDatVe.Migrations
                 {
                     MaChuyen = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MaTuyen = table.Column<int>(type: "int", nullable: true),
-                    ThoiDiemKhoiHanh = table.Column<DateTime>(type: "datetime", nullable: true),
-                    ThoiDiemDenDuKien = table.Column<DateTime>(type: "datetime", nullable: true),
+                    MaTuyen = table.Column<int>(type: "int", nullable: false),
+                    ThoiDiemKhoiHanh = table.Column<DateTime>(type: "datetime", nullable: false),
+                    ThoiDiemDenDuKien = table.Column<DateTime>(type: "datetime", nullable: false),
                     GiaVe = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    BienSoXe = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
-                    TenChuyenXe = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    BienSoXe = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    TenChuyenXe = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MaNhanVien = table.Column<int>(type: "int", nullable: true),
                     MaTaiXe = table.Column<int>(type: "int", nullable: true),
@@ -249,12 +249,14 @@ namespace Asp.netWebDatVe.Migrations
                         name: "FK__ChuyenXe__MaTuye__3C69FB99",
                         column: x => x.MaTuyen,
                         principalTable: "TuyenXe",
-                        principalColumn: "MaTuyen");
+                        principalColumn: "MaTuyen",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ChuyenXe_BienSoXe",
                         column: x => x.BienSoXe,
                         principalTable: "xe",
-                        principalColumn: "BIENSO");
+                        principalColumn: "BIENSO",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ChuyenXe_NhanVien_NhanVien",
                         column: x => x.MaNhanVien,

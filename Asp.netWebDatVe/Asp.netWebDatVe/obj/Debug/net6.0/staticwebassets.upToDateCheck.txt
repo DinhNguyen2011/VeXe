@@ -530,6 +530,7 @@ wwwroot\css\Vitrighe.css
 wwwroot\favicon.ico
 wwwroot\images\29B-12345_xe3.jpg
 wwwroot\images\36A-78901_bird.png
+wwwroot\images\77H-12345_icon bus.png
 wwwroot\images\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png
 wwwroot\images\901b9cfd-393d-40df-9c52-25df5c763896.png
 wwwroot\images\92C-67890_icon bus.png

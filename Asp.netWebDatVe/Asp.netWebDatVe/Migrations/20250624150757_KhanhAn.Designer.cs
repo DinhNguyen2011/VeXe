@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Asp.netWebDatVe.Migrations
 {
     [DbContext(typeof(QLDatVeContext))]
-    [Migration("20250622134706_ka")]
-    partial class ka
+    [Migration("20250624150757_KhanhAn")]
+    partial class KhanhAn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,6 +66,7 @@ namespace Asp.netWebDatVe.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaChuyen"), 1L, 1);
 
                     b.Property<string>("BienSoXe")
+                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
@@ -85,16 +86,20 @@ namespace Asp.netWebDatVe.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("MaTuyen")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("TenChuyenXe")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("ThoiDiemDenDuKien")
+                        .IsRequired()
                         .HasColumnType("datetime");
 
                     b.Property<DateTime?>("ThoiDiemKhoiHanh")
+                        .IsRequired()
                         .HasColumnType("datetime");
 
                     b.HasKey("MaChuyen")
@@ -197,6 +202,7 @@ namespace Asp.netWebDatVe.Migrations
                         .HasColumnName("SOGHE");
 
                     b.Property<string>("Tenloai")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("TENLOAI");
@@ -233,6 +239,7 @@ namespace Asp.netWebDatVe.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("HoTen")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -423,6 +430,7 @@ namespace Asp.netWebDatVe.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal?>("GiaHienHanh")
+                        .IsRequired()
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("MaBenXeDen")
@@ -432,9 +440,11 @@ namespace Asp.netWebDatVe.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("QuangDuong")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("SoNgayChayTrongTuan")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("MaTuyen")
@@ -569,6 +579,8 @@ namespace Asp.netWebDatVe.Migrations
                     b.HasOne("Asp.netWebDatVe.Models.Xe", "BienSoXeNavigation")
                         .WithMany("ChuyenXes")
                         .HasForeignKey("BienSoXe")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK_ChuyenXe_BienSoXe");
 
                     b.HasOne("Asp.netWebDatVe.Models.NhanVien", "MaNhanVienNavigation")
@@ -589,6 +601,8 @@ namespace Asp.netWebDatVe.Migrations
                     b.HasOne("Asp.netWebDatVe.Models.TuyenXe", "MaTuyenNavigation")
                         .WithMany("ChuyenXes")
                         .HasForeignKey("MaTuyen")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK__ChuyenXe__MaTuye__3C69FB99");
 
                     b.Navigation("BienSoXeNavigation");
