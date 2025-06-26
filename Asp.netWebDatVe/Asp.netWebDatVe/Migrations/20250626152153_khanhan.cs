@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Asp.netWebDatVe.Migrations
 {
-    public partial class KhanhAn : Migration
+    public partial class khanhan : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
