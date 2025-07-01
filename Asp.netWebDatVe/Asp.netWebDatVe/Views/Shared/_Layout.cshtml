@@ -8,8 +8,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="author" content="Futabus">
-    <meta name="keywords" content="Đặt vé xe khách, Vé xe Phương Trang, Xe khách, Vé xe online">
-    <meta name="description" content="Đặt vé xe khách Phương Trang nhanh chóng, dễ dàng qua hệ thống online của chúng tôi.">
+    <meta name="keywords" content="Đặt vé xe khách, Vé xe Phương Trang, Xe khách, Vé xe online" data-lang-key="meta_keywords">
+    <meta name="description" content="Đặt vé xe khách Phương Trang nhanh chóng, dễ dàng qua hệ thống online của chúng tôi." data-lang-key="meta_description">
     <style>
         .footer h5 {
             font-weight: 700;
@@ -28,69 +28,50 @@
         .footer iframe {
             border-radius: 10px;
         }
-
     </style>
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
-
     <!-- Vendor CSS -->
     <link rel="stylesheet" type="text/css" href="~/css/vendor.css">
-
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <!-- Style Sheet -->
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/css/layout.css">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
-
 </head>
-
 <body style="background-color:#ffffff !important">
     <div class="preloader">
         <div class="loader"></div>
     </div>
-
-
-
     <div class="bg-light py-2 border-bottom" style="padding-right:3.5rem!important;padding-left:3.5rem!important">
         <div class="container-fluid d-flex justify-content-between align-items-center px-4">
             <div class="d-flex align-items-center flex-wrap">
-           
                 <span class="me-4">
-                    <i class="fa-brands fa-facebook me-2"></i> <a href="https://facebook.com/khanhan" target="_blank" class="text-success text-decoration-none">Fanpage</a>
-
+                    <i class="fa-brands fa-facebook me-2"></i> <a href="https://facebook.com/khanhan" target="_blank" class="text-success text-decoration-none" data-lang-key="fanpage">Fanpage</a>
                 </span>
                 <span class="mx-3">|</span>
-                    <i class="fa-solid fa-envelope me-2"></i> khanhanbus@gmail.com
-                </span>
+                <span><i class="fa-solid fa-envelope me-2"></i> khanhanbus@gmail.com</span>
             </div>
             <div class="d-flex" style="padding-right: 4rem !important;">
-                <div class="fw-bold text-uppercase">Khánh An Limousine</div>
-               
-
+                <div class="fw-bold text-uppercase" data-lang-key="company_name">Khánh An Limousine</div>
             </div>
         </div>
     </div>
-
     <header id="header">
         <nav id="primary-header" class="navbar navbar-expand-lg py-4">
-
             <div class="container-fluid padding-side">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <!-- Logo và chọn ngôn ngữ -->
                     <div class="d-flex align-items-center">
-                        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                             <img src="~/images/main-lg.png" class="logo img-fluid" style="width: 200px;height: 70px; border-radius:10px;">
                         </a>
                         <!-- Chọn ngôn ngữ bằng hình ảnh cờ -->
@@ -108,15 +89,14 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-                        @* style="padding-left: 3rem !important;" *@
                         <div class="offcanvas-header px-4 pb-0">
                             <button type="button" class="btn-close btn-close-black mt-2" data-bs-dismiss="offcanvas"
                                     aria-label="Close" data-bs-target="#bdNavbar"></button>
                         </div>
-                        <div class="offcanvas-body align-items-center justify-content-center" style="padding-left: 80px !important">
+                        <div class="offcanvas-body align-items-center justify-content-center" style="padding-left: 80px !important; font-size: 14px !important;">
                             <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
                                 <li class="nav-item px-2">
-                                    <a class="nav-link" aria-current="page" href="@Url.Action("Index","Home")" data-lang-key="menu_home">Trang chủ</a>
+                                    <a class="nav-link" aria-current="page" href="@Url.Action("Index", "Home")" data-lang-key="menu_home">Trang chủ</a>
                                 </li>
                                 <li class="nav-item px-2">
                                     <a class="nav-link @(ViewData["Title"] as string == "Lịch Trình" ? "active" : "")" asp-controller="LichTrinh" asp-action="Index" data-lang-key="menu_schedule">Lịch trình</a>
@@ -125,20 +105,19 @@
                                     <a class="nav-link @(ViewData["Title"] as string == "Tra cứu vé" ? "active" : "")" asp-controller="TraCuuPhieuDatVe" asp-action="Index" data-lang-key="menu_ticket_lookup">Tra cứu vé</a>
                                 </li>
                                 <li class="nav-item px-2">
-                                    <a class="nav-link @(ViewData["Title"] as string == "Blog" ? "active" : "")" asp-controller="VanChuyen" asp-action="Index">Vận Chuyển</a>
-                                   
+                                    <a class="nav-link @(ViewData["Title"] as string == "Blog" ? "active" : "")" asp-controller="VanChuyen" asp-action="Index" data-lang-key="menu_transport">Vận Chuyển</a>
                                 </li>
                                 <li class="nav-item px-2">
                                     <a class="nav-link @(ViewData["Title"] as string == "Liên hệ" ? "active" : "")" asp-controller="LienHeVoiChungToi" asp-action="Index" data-lang-key="menu_contact">Liên hệ</a>
                                 </li>
-                                <li class="nav-item px-2    ">
+                                <li class="nav-item px-2">
                                     <a class="nav-link @(ViewData["Title"] as string == "Về chúng tôi" ? "active" : "")" asp-controller="VeChungToi" asp-action="Index" data-lang-key="menu_about">Về chúng tôi</a>
                                 </li>
                                 @if (ViewData["UserName"] != null)
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span data-lang-key="menu_hi">Hi</span>, @ViewData["UserName"]
+                                            <span data-lang-key="menu_hi">Hi</span>, @(ViewData["UserName"].ToString().Length > 4 ? ViewData["UserName"].ToString().Substring(0, 4) + "..." : ViewData["UserName"])
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile" data-lang-key="menu_profile">Xem thông tin</a></li>
@@ -161,46 +140,41 @@
             </div>
         </nav>
     </header>
-
     <div class="container">
         @RenderBody()
     </div>
-
     <section id="footer" class="footer bg-light pt-5">
         <div class="container">
             <div class="row">
                 <!-- Cột 1: Logo và tên -->
                 <div class="col-lg-3 mb-4">
                     <img src="~/images/main-lg.png" alt="logo-footer" class="img-fluid mb-2" style="width: 180px; border-radius:10px;">
-                    <p class="fw-bold text-success mb-0">CÔNG TY TNHH TM & DV</p>
-                    <p class="fw-bold text-success mb-2">KHÁNH AN LIMOUSINE</p>
-                    <p class="small text-muted">GPKD số 0123456789 do Sở KH&ĐT TP.HCM cấp ngày 22/06/2025</p>
-                    <a href="#"><img src="~/images/dathongbao.png" alt="Đã thông báo Bộ Công Thương" class="img-fluid" width="150"></a>
+                    <p class="fw-bold text-success mb-0" data-lang-key="footer_company_name">CÔNG TY TNHH TM & DV</p>
+                    <p class="fw-bold text-success mb-2" data-lang-key="footer_company_name_sub">KHÁNH AN LIMOUSINE</p>
+                    <p class="small text-muted" data-lang-key="footer_license">GPKD số 0123456789 do Sở KH&ĐT TP.HCM cấp ngày 22/06/2025</p>
+                    <a href="#"><img src="~/images/dathongbao.png" alt="Đã thông báo Bộ Công Thương" class="img-fluid" width="150" data-lang-key="footer_ministry_notification"></a>
                 </div>
-
                 <!-- Cột 2: Văn phòng -->
                 <div class="col-lg-3 mb-4">
-                    <h5 class="fw-bold text-success">Hệ thống văn phòng</h5>
+                    <h5 class="fw-bold text-success" data-lang-key="footer_offices">Hệ thống văn phòng</h5>
                     <ul class="list-unstyled small text-muted">
-                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i>VP Sài Gòn: 123 Đinh Tiên Hoàng, Q1</li>
-                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i>VP Đà Lạt: 456 Bùi Thị Xuân, Đà Lạt</li>
-                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i>VP Nha Trang: 789 Lê Thánh Tôn</li>
+                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i> <span data-lang-key="footer_office_sg">VP Sài Gòn: 123 Đinh Tiên Hoàng, Q1</span></li>
+                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i> <span data-lang-key="footer_office_dl">VP Đà Lạt: 456 Bùi Thị Xuân, Đà Lạt</span></li>
+                        <li><i class="fa fa-map-marker-alt me-2 text-success"></i> <span data-lang-key="footer_office_nt">VP Nha Trang: 789 Lê Thánh Tôn</span></li>
                     </ul>
                 </div>
-
                 <!-- Cột 3: Chính sách -->
                 <div class="col-lg-3 mb-4">
-                    <h5 class="fw-bold text-success">Chính sách dịch vụ</h5>
+                    <h5 class="fw-bold text-success" data-lang-key="footer_policies">Chính sách dịch vụ</h5>
                     <ul class="list-unstyled small text-muted">
-                        <li><a href="#" class="text-decoration-none text-muted">Kiểm tra vé</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Tra cứu đơn hàng</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Chính sách hủy/đổi vé</a></li>
-                        <li><a href="#" class="text-decoration-none text-muted">Hình thức thanh toán</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted" data-lang-key="footer_check_ticket">Kiểm tra vé</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted" data-lang-key="footer_order_lookup">Tra cứu đơn hàng</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted" data-lang-key="footer_cancellation_policy">Chính sách hủy/đổi vé</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted" data-lang-key="footer_payment_methods">Hình thức thanh toán</a></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-3 mb-4">
-                    <h5 class="fw-bold text-success">Fanpage Khánh An</h5>
+                    <h5 class="fw-bold text-success" data-lang-key="footer_fanpage">Fanpage Khánh An</h5>
                     <div class="mb-2">
                         <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/xephuongtrang&tabs=timeline&width=300&height=150&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
                                 width="100%" height="150" style="border:none;overflow:hidden" scrolling="no"
@@ -208,30 +182,23 @@
                                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                         </iframe>
                     </div>
-                    <img src="~/images/khuyenmai.png" class="img-fluid rounded" alt="Khuyến mãi xe">
+                    <img src="~/images/khuyenmai.png" class="img-fluid rounded" alt="Khuyến mãi xe" data-lang-key="footer_promotion_alt">
                 </div>
-
-
-
             </div>
-
             <hr>
-
             <div class="row small text-muted">
                 <div class="col-md-6">
-                    <p class="mb-0">© 2025 Khánh An Limousine. All rights reserved.</p>
+                    <p class="mb-0" data-lang-key="footer_copyright">© 2025 Khánh An Limousine. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#" class="text-muted">Chính sách bảo mật</a></li>
-                        <li class="list-inline-item"><a href="#" class="text-muted">Điều khoản sử dụng</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-muted" data-lang-key="footer_privacy_policy">Chính sách bảo mật</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-muted" data-lang-key="footer_terms_of_use">Điều khoản sử dụng</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
-
     <script src="~/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="~/js/plugins.js"></script>
@@ -239,16 +206,20 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="~/js/script.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
     <!-- JavaScript cho chuyển đổi ngôn ngữ -->
     <script>
         // Dữ liệu ngôn ngữ
         const translations = {
             vi: {
                 title: "Khánh An - Đặt Vé Xe Khách Online",
+                meta_keywords: "Đặt vé xe khách, Vé xe Phương Trang, Xe khách, Vé xe online",
+                meta_description: "Đặt vé xe khách Phương Trang nhanh chóng, dễ dàng qua hệ thống online của chúng tôi.",
+                fanpage: "Fanpage",
+                company_name: "Khánh An Limousine",
                 menu_home: "Trang chủ",
                 menu_schedule: "Lịch trình",
                 menu_ticket_lookup: "Tra cứu vé",
+                menu_transport: "Vận Chuyển",
                 menu_contact: "Liên hệ",
                 menu_about: "Về chúng tôi",
                 menu_hi: "Hi",
@@ -256,32 +227,165 @@
                 menu_view_bookings: "Xem các phiếu đặt vé",
                 menu_logout: "Đăng xuất",
                 menu_login_register: "Đăng nhập/Đăng ký",
-                footer_welcome: "Chào mừng đến với nhà xe Khánh An, hệ thống xe khách uy tín và tiện lợi. Đặt vé xe dễ dàng chỉ với vài thao tác.",
-                footer_our_info: "Thông tin của chúng tôi",
-                footer_location: "Trụ sở nhà xe Khánh An, Thành phố Hồ Chí Minh",
-                footer_phone: "Phone: 01223464654",
-                footer_email: "Email: khanhanbus@gmail.com",
-                footer_newsletter: "Đăng ký nhận bản tin",
-                footer_newsletter_desc: "Đăng ký nhận bản tin để nhận thông tin khuyến mãi nhanh nhất.",
-                footer_name_placeholder: "Tên của bạn",
-                footer_email_placeholder: "Email của bạn",
-                footer_subscribe_btn: "Đăng ký ngay",
-                footer_quick_links: "Liên kết nhanh",
-                footer_home_link: "Trang chủ",
-                footer_routes_link: "Các tuyến đường",
-                footer_book_ticket_link: "Đặt vé xe",
-                footer_contact_link: "Liên hệ chúng tôi",
-                footer_services: "Dịch vụ",
-                footer_service_sleeper: "Xe giường nằm",
-                footer_service_vip: "Xe khách VIP",
-                footer_service_express: "Vé xe nhanh",
-                footer_copyright: "© Khánh An BookTicket"
+                footer_company_name: "CÔNG TY TNHH TM & DV",
+                footer_company_name_sub: "KHÁNH AN LIMOUSINE",
+                footer_license: "GPKD số 0123456789 do Sở KH&ĐT TP.HCM cấp ngày 22/06/2025",
+                footer_ministry_notification: "Đã thông báo Bộ Công Thương",
+                footer_offices: "Hệ thống văn phòng",
+                footer_office_sg: "VP Sài Gòn: 123 Đinh Tiên Hoàng, Q1",
+                footer_office_dl: "VP Đà Lạt: 456 Bùi Thị Xuân, Đà Lạt",
+                footer_office_nt: "VP Nha Trang: 789 Lê Thánh Tôn",
+                footer_policies: "Chính sách dịch vụ",
+                footer_check_ticket: "Kiểm tra vé",
+                footer_order_lookup: "Tra cứu đơn hàng",
+                footer_cancellation_policy: "Chính sách hủy/đổi vé",
+                footer_payment_methods: "Hình thức thanh toán",
+                footer_fanpage: "Fanpage Khánh An",
+                footer_promotion_alt: "Khuyến mãi xe",
+                footer_copyright: "© 2025 Khánh An Limousine. Tất cả quyền được bảo lưu.",
+                footer_privacy_policy: "Chính sách bảo mật",
+                footer_terms_of_use: "Điều khoản sử dụng",
+                // Index.cshtml
+                index_welcome: "Chào mừng, {0}!",
+                index_welcome_sub: "Khám phá các chuyến xe phù hợp với bạn hôm nay.",
+                index_luxury_title: "Khánh An Luxury",
+                index_luxury_subtitle: "Chuyến đi an toàn - trải nghiệm đẳng cấp",
+                index_search_diem_di: "Điểm đi",
+                index_search_diem_di_placeholder: "Nhập hoặc chọn điểm đi",
+                index_search_diem_den: "Điểm đến",
+                index_search_diem_den_placeholder: "Nhập hoặc chọn điểm đến",
+                index_search_ngay_di: "Ngày đi",
+                index_search_button: "Tìm chuyến xe",
+                index_loading_message: "Đang tìm chuyến...",
+                index_no_js_message: "Vui lòng bật JavaScript để sử dụng tính năng lọc chuyến xe.",
+                index_filter_title: "Lọc theo khung giờ",
+                index_filter_time1: "Sáng sớm 00:00 - 06:00",
+                index_filter_time2: "Buổi sáng 06:00 - 12:00",
+                index_filter_time3: "Buổi chiều 12:00 - 18:00",
+                index_filter_time4: "Buổi tối 18:00 - 24:00",
+                index_route_title: "Tuyến xe từ {0} đến {1}",
+                index_select_trip: "Chọn chuyến",
+                index_booking_steps_title: "Dễ dàng đặt xe trên Website của Khánh An Luxury",
+                index_step1_title: "Lựa chọn hành trình",
+                index_step1_desc: "Chọn thông tin hành trình<br>ấn \"Tìm chuyến xe\"",
+                index_step2_title: "Chọn chuyến",
+                index_step2_desc: "Chọn chuyến phù hợp<br>ấn \"Đặt chỗ\"",
+                index_step3_title: "Thanh toán",
+                index_step3_desc: "Chọn cổng thanh toán<br>ấn \"Thanh toán\"",
+                index_step4_title: "Xác nhận",
+                index_step4_desc: "Nhận thông tin đặt xe<br>thành công và lên xe",
+                index_about_title: "Về Khánh An Luxury",
+                index_about_subtitle: "Đồng hành cùng bạn trên mọi hành trình",
+                index_about_desc: "Thành lập từ năm 2010, <strong>Khánh An Luxury</strong> tự hào là nhà xe hàng đầu Việt Nam, mang đến trải nghiệm di chuyển an toàn, đẳng cấp và tiện nghi. Với hơn 350 phòng vé và 500 chuyến xe mỗi ngày, chúng tôi cam kết:",
+                index_about_safety: "An toàn tuyệt đối: Xe hiện đại, tài xế giàu kinh nghiệm.",
+                index_about_comfort: "Tiện nghi vượt trội: Nội thất sang trọng, dịch vụ chu đáo.",
+                index_about_coverage: "Phủ sóng toàn quốc: Kết nối từ TP.HCM, Đà Lạt đến Đà Nẵng và hơn thế nữa.",
+                index_learn_more: "Tìm hiểu thêm",
+                index_services_title: "DỊCH VỤ KHÁNH AN",
+                index_service_comfort_title: "Tiện nghi cao cấp",
+                index_service_comfort_desc: "Khánh An Luxury cung cấp dòng xe limousine giường nằm hiện đại nhất với nội thất cao cấp, LCD, wifi, nước uống và đèn đọc sách.",
+                index_service_comfort_item1: "Toàn bộ xe được trang bị nội thất cao cấp",
+                index_service_comfort_item2: "Nước uống và wifi luôn được phục vụ",
+                index_service_comfort_item3: "Xe luôn được vệ sinh sau mỗi chuyến đi",
+                index_service_schedule_title: "Linh hoạt lịch trình",
+                index_service_schedule_desc: "Lịch trình đa dạng từ 6h đến 24h mỗi ngày, Khánh An mang lại lựa chọn giờ khởi hành linh hoạt cho mọi nhu cầu di chuyển.",
+                index_service_schedule_item1: "Hoạt động từ 6h - 24h hàng ngày",
+                index_service_schedule_item2: "Lịch chạy linh hoạt và phù hợp",
+                index_service_schedule_item3: "Đa dạng hạng ghế và mức giá",
+                index_service_professional_title: "Dịch vụ chuyên nghiệp",
+                index_service_professional_desc: "Đặt khách hàng làm trung tâm, Khánh An đào tạo đội ngũ nhân viên bài bản và cung cấp hỗ trợ 24/7 cho mọi thắc mắc.",
+                index_service_professional_item1: "Nhân viên được đào tạo chuyên nghiệp",
+                index_service_professional_item2: "Hỗ trợ đặt vé và thanh toán nhanh chóng",
+                index_service_professional_item3: "Tổng đài viên sẵn sàng hỗ trợ 24/7",
+                index_popular_routes_title: "TUYẾN PHỔ BIẾN",
+                index_route_hcm: "Tuyến xe từ<br><strong>TP Hồ Chí Minh</strong>",
+                index_route_dl: "Tuyến xe từ<br><strong>Đà Lạt</strong>",
+                index_route_dn: "Tuyến xe từ<br><strong>Đà Nẵng</strong>",
+                index_stats_title: "Khánh An Bus - An toàn là trên hết",
+                index_stats_subtitle: "Được khách hàng tin tưởng và lựa chọn",
+                index_stats_customers: "Hơn 20 Triệu",
+                index_stats_customers_desc: "Phục vụ hơn 20 triệu lượt khách bình quân 1 năm trên toàn quốc",
+                index_stats_offices: "Hơn 350",
+                index_stats_offices_desc: "Khánh An Bus có hơn 350 phòng vé, trạm trung chuyển, bến xe trên toàn hệ thống",
+                index_stats_trips: "Hơn 500",
+                index_stats_trips_desc: "Phục vụ hơn 500 chuyến xe đường dài và liên tỉnh mỗi ngày",
+                index_why_choose_title: "VÌ SAO NÊN CHỌN KHÁNH AN LIMOUSINE",
+                index_why_choose_subtitle: "Lý do vì sao hàng ngàn khách hàng tin tưởng và sử dụng dịch vụ xe Limousine tại Khánh An",
+                index_reason_trust: "Thương hiệu uy tín",
+                index_reason_trust_desc: "Khánh An được khách hàng tin chọn trên mọi tuyến đường.",
+                index_reason_pickup: "Đón trả tận nơi",
+                index_reason_pickup_desc: "Phục vụ tận nhà, đúng giờ, nhanh chóng và tiết kiệm thời gian.",
+                index_reason_payment: "Thanh toán tiện lợi",
+                index_reason_payment_desc: "Hỗ trợ đa dạng hình thức thanh toán an toàn và nhanh chóng.",
+                index_reason_booking: "Đặt xe dễ dàng",
+                index_reason_booking_desc: "Đặt xe qua tổng đài, Zalo, Facebook và nhiều kênh khác.",
+                index_reason_comfort: "Tiện nghi hiện đại",
+                index_reason_comfort_desc: "Wifi, TV LED, nước uống, khăn lạnh, ghế massage,...",
+                index_reason_fleet: "Số lượng xe lớn",
+                index_reason_fleet_desc: "Hệ thống xe 5 sao phục vụ hàng nghìn chuyến mỗi ngày.",
+                index_hotline_title: "Hotline dịch vụ",
+                index_hotline_desc: "Hotline dịch vụ của Khánh An Luxury hoạt động 24/7. Chúng tôi luôn sẵn sàng phục vụ khách hàng.",
+                index_hotline_booking: "Hotline đặt vé: <strong>1900 6746</strong>",
+                index_hotline_delivery: "Hotline gửi hàng: <strong>1900 0257</strong>",
+                index_hotline_support: "Chăm sóc khách hàng: <strong>1900 6746</strong>",
+                index_hotline_complaints: "Xử lý khiếu nại: <strong>02439 937 099</strong>",
+                // ChonGhe.cshtml
+                    chon_ghe_title: "Chọn ghế",
+        chon_ghe_subtitle: "Chọn ghế và điền thông tin",
+        legend_available: "Còn trống",
+        legend_occupied: "Đã đặt",
+        legend_selected: "Đang chọn",
+        upper_deck: "Tầng trên",
+        lower_deck: "Tầng dưới",
+        seat_available: "Ghế {0} (Còn trống)",
+        seat_occupied: "Ghế {0} (Đã đặt)",
+        trip_info_title: "Thông tin lượt đi",
+        trip_info_route: "Tuyến: ",
+        trip_info_departure: "Bến xuất phát: ",
+        trip_info_time: "Thời gian xuất bến: ",
+        trip_info_bus_type: "Loại xe: ",
+        trip_info_price: "Giá vé/1 ghế: ",
+        trip_info_bus_plate: "Biển số xe: ",
+        trip_info_total: "Tổng tiền: ",
+        cancel_policy_title: "Chính sách hủy vé",
+        cancel_policy_rule1: "Hủy trước 24h: hoàn 90% giá vé",
+        cancel_policy_rule2: "Hủy trước 12h: hoàn 50% giá vé",
+        cancel_policy_rule3: "Hủy sau 12h: không hoàn tiền",
+        personal_info_title: "Điền thông tin cá nhân",
+        form_name_label: "Tên khách hàng",
+        form_name_placeholder: "Nhập họ và tên",
+        form_phone_label: "Số điện thoại",
+        form_phone_placeholder: "Ví dụ: 0912345678",
+        form_email_label: "Email",
+        form_email_placeholder: "Ví dụ: example@gmail.com",
+        form_note_label: "Ghi chú",
+        form_note_placeholder: "Nhập ghi chú nếu có",
+        form_payment_label: "Phương thức thanh toán",
+        form_payment_placeholder: "Chọn phương thức",
+        form_submit_button: "Đặt vé",
+        terms_title: "Điều khoản & lưu ý",
+        terms_note1: "(*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ xe khởi hành. Liên hệ tổng đài <b>1548 4565</b> để được hỗ trợ.",
+        terms_note2: "(*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển <b>1548 4565</b> trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.",
+        validation_seat_error: "Vui lòng chọn ít nhất một ghế.",
+        validation_name_error: "Vui lòng nhập họ và tên.",
+        validation_phone_error: "Vui lòng nhập số điện thoại hợp lệ.",
+        validation_email_error: "Vui lòng nhập email hợp lệ.",
+        validation_payment_error: "Vui lòng chọn phương thức thanh toán.",
+        no_info: "Chưa có thông tin",
+        undefined: "Không xác định",
+        seats: "ghế"
+               
             },
             en: {
                 title: "Khanh An - Book Bus Tickets Online",
+                meta_keywords: "Book bus tickets, Phuong Trang tickets, Bus travel, Online bus tickets",
+                meta_description: "Book Phuong Trang bus tickets quickly and easily through our online system.",
+                fanpage: "Fanpage",
+                company_name: "Khanh An Limousine",
                 menu_home: "Home",
                 menu_schedule: "Schedule",
                 menu_ticket_lookup: "Ticket Lookup",
+                menu_transport: "Transport",
                 menu_contact: "Contact",
                 menu_about: "About Us",
                 menu_hi: "Hi",
@@ -289,39 +393,168 @@
                 menu_view_bookings: "View Bookings",
                 menu_logout: "Logout",
                 menu_login_register: "Login/Register",
-                footer_welcome: "Welcome to Khanh An Bus, a trusted and convenient bus service. Book your tickets easily with just a few steps.",
-                footer_our_info: "Our Information",
-                footer_location: "Khanh An Bus Headquarters, Ho Chi Minh City",
-                footer_phone: "Phone: 01223464654",
-                footer_email: "Email: khanhanbus@gmail.com",
-                footer_newsletter: "Subscribe to Newsletter",
-                footer_newsletter_desc: "Subscribe to our newsletter to receive the latest promotions.",
-                footer_name_placeholder: "Your Name",
-                footer_email_placeholder: "Your Email",
-                footer_subscribe_btn: "Subscribe Now",
-                footer_quick_links: "Quick Links",
-                footer_home_link: "Home",
-                footer_routes_link: "Routes",
-                footer_book_ticket_link: "Book Tickets",
-                footer_contact_link: "Contact Us",
-                footer_services: "Services",
-                footer_service_sleeper: "Sleeper Bus",
-                footer_service_vip: "VIP Bus",
-                footer_service_express: "Express Tickets",
-                footer_copyright: "© Khanh An BookTicket"
+                footer_company_name: "KHANH AN CO., LTD",
+                footer_company_name_sub: "KHANH AN LIMOUSINE",
+                footer_license: "Business License No. 0123456789 issued by HCMC DPI on 22/06/2025",
+                footer_ministry_notification: "Notified to Ministry of Industry and Trade",
+                footer_offices: "Our Offices",
+                footer_office_sg: "Saigon Office: 123 Dinh Tien Hoang, District 1",
+                footer_office_dl: "Da Lat Office: 456 Bui Thi Xuan, Da Lat",
+                footer_office_nt: "Nha Trang Office: 789 Le Thanh Ton",
+                footer_policies: "Service Policies",
+                footer_check_ticket: "Check Ticket",
+                footer_order_lookup: "Order Lookup",
+                footer_cancellation_policy: "Cancellation/Change Policy",
+                footer_payment_methods: "Payment Methods",
+                footer_fanpage: "Khanh An Fanpage",
+                footer_promotion_alt: "Bus Promotion",
+                footer_copyright: "© 2025 Khanh An Limousine. All rights reserved.",
+                footer_privacy_policy: "Privacy Policy",
+                footer_terms_of_use: "Terms of Use",
+                // Index.cshtml
+                index_welcome: "Welcome, {0}!",
+                index_welcome_sub: "Explore the trips that suit you today.",
+                index_luxury_title: "Khanh An Luxury",
+                index_luxury_subtitle: "Safe Journey - Premium Experience",
+                index_search_diem_di: "Departure",
+                index_search_diem_di_placeholder: "Enter or select departure point",
+                index_search_diem_den: "Destination",
+                index_search_diem_den_placeholder: "Enter or select destination",
+                index_search_ngay_di: "Travel Date",
+                index_search_button: "Find Trips",
+                index_loading_message: "Searching for trips...",
+                index_no_js_message: "Please enable JavaScript to use the trip filter feature.",
+                index_filter_title: "Filter by Time",
+                index_filter_time1: "Early Morning 00:00 - 06:00",
+                index_filter_time2: "Morning 06:00 - 12:00",
+                index_filter_time3: "Afternoon 12:00 - 18:00",
+                index_filter_time4: "Evening 18:00 - 24:00",
+                index_route_title: "Route from {0} to {1}",
+                index_select_trip: "Select Trip",
+                index_booking_steps_title: "Easily Book Your Trip on Khanh An Luxury Website",
+                index_step1_title: "Choose Your Journey",
+                index_step1_desc: "Select your trip details<br>click \"Find Trips\"",
+                index_step2_title: "Select Trip",
+                index_step2_desc: "Choose a suitable trip<br>click \"Book Seats\"",
+                index_step3_title: "Payment",
+                index_step3_desc: "Select payment method<br>click \"Pay\"",
+                index_step4_title: "Confirmation",
+                index_step4_desc: "Receive booking details<br>successfully and board the bus",
+                index_about_title: "About Khanh An Luxury",
+                index_about_subtitle: "Accompanying You on Every Journey",
+                index_about_desc: "Established in 2010, <strong>Khanh An Luxury</strong> is proud to be Vietnam's leading bus operator, delivering safe, premium, and comfortable travel experiences. With over 350 ticket offices and 500 daily trips, we are committed to:",
+                index_about_safety: "Absolute Safety: Modern buses, experienced drivers.",
+                index_about_comfort: "Superior Comfort: Luxurious interiors, attentive service.",
+                index_about_coverage: "Nationwide Coverage: Connecting HCMC, Da Lat, Da Nang, and beyond.",
+                index_learn_more: "Learn More",
+                index_services_title: "KHANH AN SERVICES",
+                index_service_comfort_title: "Premium Comfort",
+                index_service_comfort_desc: "Khanh An Luxury offers state-of-the-art sleeper limousine buses with premium interiors, LCD, wifi, water, and reading lights.",
+                index_service_comfort_item1: "All buses equipped with premium interiors",
+                index_service_comfort_item2: "Water and wifi always provided",
+                index_service_comfort_item3: "Buses cleaned after every trip",
+                index_service_schedule_title: "Flexible Schedule",
+                index_service_schedule_desc: "With trips from 6 AM to midnight daily, Khanh An offers flexible departure times for all travel needs.",
+                index_service_schedule_item1: "Operating from 6 AM to midnight daily",
+                index_service_schedule_item2: "Flexible and suitable schedules",
+                index_service_schedule_item3: "Variety of seat classes and prices",
+                index_service_professional_title: "Professional Service",
+                index_service_professional_desc: "Customer-centric, Khanh An trains staff thoroughly and provides 24/7 support for all inquiries.",
+                index_service_professional_item1: "Professionally trained staff",
+                index_service_professional_item2: "Quick booking and payment support",
+                index_service_professional_item3: "24/7 customer support hotline",
+                index_popular_routes_title: "POPULAR ROUTES",
+                index_route_hcm: "Routes from<br><strong>Ho Chi Minh City</strong>",
+                index_route_dl: "Routes from<br><strong>Da Lat</strong>",
+                index_route_dn: "Routes from<br><strong>Da Nang</strong>",
+                index_stats_title: "Khanh An Bus - Safety First",
+                index_stats_subtitle: "Trusted and Chosen by Customers",
+                index_stats_customers: "Over 20 Million",
+                index_stats_customers_desc: "Serving over 20 million passengers annually nationwide",
+                index_stats_offices: "Over 350",
+                index_stats_offices_desc: "Khanh An Bus operates over 350 ticket offices, transfer stations, and bus terminals system-wide",
+                index_stats_trips: "Over 500",
+                index_stats_trips_desc: "Serving over 500 long-distance and inter-provincial trips daily",
+                index_why_choose_title: "WHY CHOOSE KHANH AN LIMOUSINE",
+                index_why_choose_subtitle: "Why thousands of customers trust and use Khanh An's limousine services",
+                index_reason_trust: "Trusted Brand",
+                index_reason_trust_desc: "Khanh An is trusted by customers on all routes.",
+                index_reason_pickup: "Door-to-Door Service",
+                index_reason_pickup_desc: "On-time, fast, and time-saving pick-up and drop-off services.",
+                index_reason_payment: "Convenient Payment",
+                index_reason_payment_desc: "Supports various secure and fast payment methods.",
+                index_reason_booking: "Easy Booking",
+                index_reason_booking_desc: "Book via hotline, Zalo, Facebook, and more.",
+                index_reason_comfort: "Modern Amenities",
+                index_reason_comfort_desc: "Wifi, LED TV, water, wet wipes, massage chairs,...",
+                index_reason_fleet: "Large Fleet",
+                index_reason_fleet_desc: "A 5-star bus system serving thousands of trips daily.",
+                index_hotline_title: "Service Hotline",
+                index_hotline_desc: "Khanh An Luxury's service hotline operates 24/7. We are always ready to assist customers.",
+                index_hotline_booking: "Booking Hotline: <strong>1900 6746</strong>",
+                index_hotline_delivery: "Delivery Hotline: <strong>1900 0257</strong>",
+                index_hotline_support: "Customer Support: <strong>1900 6746</strong>",
+                index_hotline_complaints: "Complaint Handling: <strong>02439 937 099</strong>",
+                        // Add to the existing 'en' object in translations
+           chon_ghe_title: "Select Seats",
+        chon_ghe_subtitle: "Select Seats and Fill in Information",
+        legend_available: "Available",
+        legend_occupied: "Occupied",
+        legend_selected: "Selected",
+        upper_deck: "Upper Deck",
+        lower_deck: "Lower Deck",
+        seat_available: "Seat {0} (Available)",
+        seat_occupied: "Seat {0} (Occupied)",
+        trip_info_title: "Trip Information",
+        trip_info_route: "Route: ",
+        trip_info_departure: "Departure Station: ",
+        trip_info_time: "Departure Time: ",
+        trip_info_bus_type: "Bus Type: ",
+        trip_info_price: "Ticket Price/Seat: ",
+        trip_info_bus_plate: "Bus Plate: ",
+        trip_info_total: "Total Price: ",
+        cancel_policy_title: "Cancellation Policy",
+        cancel_policy_rule1: "Cancel before 24 hours: 90% refund",
+        cancel_policy_rule2: "Cancel before 12 hours: 50% refund",
+        cancel_policy_rule3: "Cancel after 12 hours: No refund",
+        personal_info_title: "Fill in Personal Information",
+        form_name_label: "Customer Name",
+        form_name_placeholder: "Enter full name",
+        form_phone_label: "Phone Number",
+        form_phone_placeholder: "Example: 0912345678",
+        form_email_label: "Email",
+        form_email_placeholder: "Example: example@gmail.com",
+        form_note_label: "Note",
+        form_note_placeholder: "Enter note if any",
+        form_payment_label: "Payment Method",
+        form_payment_placeholder: "Select payment method",
+        form_submit_button: "Book Ticket",
+        terms_title: "Terms & Notes",
+        terms_note1: "(*) Please arrive at the departure station at least 30 minutes before the bus departure time. Contact the hotline <b>1548 4565</b> for assistance.",
+        terms_note2: "(*) If you require a shuttle service, please contact the shuttle hotline <b>1548 4565</b> before booking. We do not provide pick-up/shuttle services at locations inaccessible to our shuttle vehicles.",
+        validation_seat_error: "Please select at least one seat.",
+        validation_name_error: "Please enter your full name.",
+        validation_phone_error: "Please enter a valid phone number.",
+        validation_email_error: "Please enter a valid email address.",
+        validation_payment_error: "Please select a payment method.",
+        no_info: "No information available",
+        undefined: "Undefined",
+        seats: "seats"
             }
         };
-
         // Hàm chuyển đổi ngôn ngữ
         function changeLanguage(lang) {
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
+                const text = translations[lang][key] || element.textContent;
                 if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                    element.setAttribute('placeholder', translations[lang][key]);
+                    element.setAttribute('placeholder', text);
                 } else if (element.tagName === 'TITLE') {
-                    element.textContent = translations[lang][key];
+                    element.textContent = text;
+                } else if (element.tagName === 'IMG' && element.hasAttribute('alt')) {
+                    element.setAttribute('alt', text);
                 } else {
-                    element.textContent = translations[lang][key];
+                    element.innerHTML = text;
                 }
             });
             // Cập nhật trạng thái hình ảnh cờ
@@ -331,12 +564,10 @@
             // Lưu ngôn ngữ vào localStorage
             localStorage.setItem('language', lang);
         }
-
         // Khởi tạo ngôn ngữ khi tải trang
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('language') || 'vi'; // Mặc định là Tiếng Việt
             changeLanguage(savedLang);
-
             // Xử lý sự kiện click vào cờ
             document.querySelectorAll('.language-flag').forEach(flag => {
                 flag.addEventListener('click', (e) => {

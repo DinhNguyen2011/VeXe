@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Asp.netWebDatVe.props" />
-</Project>

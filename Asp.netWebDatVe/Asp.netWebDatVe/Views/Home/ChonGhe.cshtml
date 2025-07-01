@@ -11,18 +11,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <div class="chonghe" style="margin:50px 0px;">
-    <h2 class="title" style="color:#00ff34 !important">Chọn ghế và điền thông tin</h2>
-<div class="legend">
-    <div><span class="legend-icon available"></span> Còn trống</div>
-        <div><span class="legend-icon occupied" style="background-color:#90949c5c !important;"></span> Đã đặt</div>
-    <div><span class="legend-icon selected"></span> Đang chọn</div>
-</div>
-
+    <h2 class="title" style="color:#00ff34 !important" data-lang-key="chon_ghe_subtitle">Chọn ghế và điền thông tin</h2>
+    <div class="legend">
+        <div><span class="legend-icon available"></span> <span data-lang-key="legend_available">Còn trống</span></div>
+        <div><span class="legend-icon occupied" style="background-color:#90949c5c !important;"></span> <span data-lang-key="legend_occupied">Đã đặt</span></div>
+        <div><span class="legend-icon selected"></span> <span data-lang-key="legend_selected">Đang chọn</span></div>
+    </div>
 <div class="row">
     <!-- Cột bên trái: Ghế (2/3) -->
     <div class="col-md-8">
         <div class="seat-section">
-            <h3 class="section-title">Tầng trên</h3>
+                <h3 class="section-title" data-lang-key="upper_deck">Tầng trên</h3>
             <div class="seat-map-container">
                 @foreach (var ghe in danhSachGhe.Take(soGheTren))
                 {
@@ -40,7 +39,7 @@
         </div>
 
         <div class="seat-section">
-            <h3 class="section-title">Tầng dưới</h3>
+                <h3 class="section-title" data-lang-key="lower_deck">Tầng dưới</h3>
             <div class="seat-map-container">
                 @foreach (var ghe in danhSachGhe.Skip(soGheTren))
                 {
@@ -71,15 +70,15 @@
                     <p>Tổng tiền: <span id="totalPrice">0</span> VND</p>
                 </div>
             </div>
-            
-            <div class="cancel-policy-rules">
-                <h3 style="color:red">Chính sách hủy vé</h3>
-                <ul>
-                    <li>Hủy trước 24h: hoàn 90% giá vé</li>
-                    <li>Hủy trước 12h: hoàn 50% giá vé</li>
-                    <li>Hủy sau 12h: không hoàn tiền</li>
-                </ul>
-            </div>
+
+                <div class="cancel-policy-rules">
+                    <h3 style="color:red" data-lang-key="cancel_policy_title">Chính sách hủy vé</h3>
+                    <ul>
+                        <li data-lang-key="cancel_policy_rule1">Hủy trước 24h: hoàn 90% giá vé</li>
+                        <li data-lang-key="cancel_policy_rule2">Hủy trước 12h: hoàn 50% giá vé</li>
+                        <li data-lang-key="cancel_policy_rule3">Hủy sau 12h: không hoàn tiền</li>
+                    </ul>
+                </div>
         </div>
     </div>
 </div>
@@ -121,17 +120,17 @@
             </div>
             <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Đặt vé</button>
     </form>
-    <div class="terms">
-        <h5>Điều khoản & lưu ý</h5>
-        <p>
-            (*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ xe khởi hành.
-            Liên hệ tổng đài <b>1548 4565</b> để được hỗ trợ.
-        </p>
-        <p>
-            (*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển <b>1548 4565</b>
-            trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.
-        </p>
-    </div>
+        <div class="terms">
+            <h5 data-lang-key="terms_title">Điều khoản & lưu ý</h5>
+            <p data-lang-key="terms_note1">
+                (*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ xe khởi hành.
+                Liên hệ tổng đài <b>1548 4565</b> để được hỗ trợ.
+            </p>
+            <p data-lang-key="terms_note2">
+                (*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển <b>1548 4565</b>
+                trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.
+            </p>
+        </div>
 </div>
     </div>
 </div>

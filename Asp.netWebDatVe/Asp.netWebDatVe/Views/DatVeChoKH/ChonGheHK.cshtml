@@ -7,12 +7,18 @@
     var giaVe = chuyenXe?.GiaVe ?? 0;
     var gheDaDat = ViewBag.GheDaDat as List<int> ?? new List<int>();
     var selectedSeats = ViewBag.SelectedSeats as List<string> ?? new List<string>();
+    var khuyenMai = ViewBag.KhuyenMai as Asp.netWebDatVe.Models.KhuyenMai;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <link rel="stylesheet" href="~/css/ChonGheKH.css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-
+@if (khuyenMai != null)
+{
+    <div class="alert alert-success" style="margin-bottom: 20px;">
+        <strong>Khuyến mãi đang áp dụng!</strong> @khuyenMai.TenKhuyenMai - Giảm @khuyenMai.PhanTramGiam% cho đơn hàng của bạn (Có hiệu lực đến @khuyenMai.NgayKetThuc.ToString("dd/MM/yyyy")).
+    </div>
+}
 <div class="chonghe" style="margin: 50px 0px;">
     @if (TempData["Error"] != null)
     {
@@ -124,7 +130,7 @@
                 <select id="phuongThuc" name="phuongThuc" class="form-control" required>
                     <option value="" disabled selected>Chọn phương thức thanh toán</option>
                     <option value="Thanh toán tại quầy">Thanh toán bằng tiền mặt</option>
-                    <option value="VNPAY">VNPAY</option>
+                    <option value="Chuyển khoản">Chuyển khoản</option>
                 </select>
                 <span style="color: red" class="error-message" id="phuongThuc-error"></span>
             </div>

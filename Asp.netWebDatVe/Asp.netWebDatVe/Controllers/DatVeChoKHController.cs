@@ -91,7 +91,6 @@ namespace Asp.netWebDatVe.Controllers
         // GET: DatVeChoKH/ChonGheHK
         public IActionResult ChonGheHK(int maChuyen)
         {
-
             _logger.LogInformation($"ChonGheHK called with maChuyen={maChuyen}");
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
@@ -141,6 +140,10 @@ namespace Asp.netWebDatVe.Controllers
 
             var selectedSeats = HttpContext.Session.GetString("SelectedSeats")?.Split(',').ToList() ?? new List<string>();
 
+            // Lấy thông tin khuyến mãi
+            var khuyenMai = _db.KhuyenMais
+                .FirstOrDefault(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now);
+
             ViewBag.ChuyenXe = chuyenXe;
             ViewBag.DanhSachGhe = danhSachGhe;
             ViewBag.SoGhe = soGhe;
@@ -148,6 +151,7 @@ namespace Asp.netWebDatVe.Controllers
             ViewBag.SelectedSeats = selectedSeats;
             ViewBag.TuyenXe = chuyenXe.MaTuyenNavigation;
             ViewBag.MaChuyen = maChuyen;
+            ViewBag.KhuyenMai = khuyenMai; // Thêm thông tin khuyến mãi vào ViewBag
 
             return View();
         }
@@ -218,13 +222,14 @@ namespace Asp.netWebDatVe.Controllers
                 TrangThai = phuongThuc == "VNPAY" ? "Chưa thanh toán" : "Đã thanh toán"
             };
 
-            // Áp dụng khuyến mãi (nếu có)
+            // Áp dụng khuyến mãi
             var khuyenMai = _db.KhuyenMais
                 .FirstOrDefault(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now);
             if (khuyenMai != null)
             {
                 phieuDatVe.MaKhuyenMai = khuyenMai.MaKhuyenMai;
                 phieuDatVe.TongTien = totalPrice * (1 - (khuyenMai.PhanTramGiam / 100));
+                _logger.LogInformation($"Áp dụng khuyến mãi {khuyenMai.TenKhuyenMai}: Giảm {khuyenMai.PhanTramGiam}%, Tổng tiền sau giảm: {phieuDatVe.TongTien}");
             }
 
             _db.PhieuDatVes.Add(phieuDatVe);

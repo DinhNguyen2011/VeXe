@@ -1,26 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Trang chủ";
 }
-
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <link rel="stylesheet" href="~/css/tuyenxeindex.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 @if (ViewData["UserName"] != null)
 {
     <div class="welcome-section text-center mb-4">
         <h4>Chào mừng, @ViewData["UserName"]!</h4>
-        <p>Khám phá các chuyến xe phù hợp với bạn hôm nay.</p>
+        <p data-lang-key="index_welcome_sub">Khám phá các chuyến xe phù hợp với bạn hôm nay.</p>
     </div>
 }
-
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
         <div class="intro-section fade-in-left">
-            <h1>Khánh An Luxury</h1>
-            <h3>Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
+            <h1 data-lang-key="index_luxury_title">Khánh An Luxury</h1>
+            <h3 data-lang-key="index_luxury_subtitle">Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
         </div>
-
         <div class="search-form fade-in-right">
             @if (ViewBag.Mes != null)
             {
@@ -31,9 +27,9 @@
             <form id="searchForm" asp-action="Index" method="get">
                 <input type="hidden" name="isSubmitted" value="true" />
                 <div class="form-group">
-                    <label for="diemDi">Điểm đi</label>
+                    <label for="diemDi" data-lang-key="index_search_diem_di">Điểm đi</label>
                     <input list="danhSachDiemDi" class="form-control" id="diemDi" name="diemDi"
-                           placeholder="Nhập hoặc chọn điểm đi" value="@ViewBag.DiemDi" />
+                           placeholder="Nhập hoặc chọn điểm đi" value="@ViewBag.DiemDi" data-lang-key="index_search_diem_di_placeholder" />
                     <datalist id="danhSachDiemDi">
                         @if (ViewBag.DanhSachDiemDi != null)
                         {
@@ -44,11 +40,10 @@
                         }
                     </datalist>
                 </div>
-
                 <div class="form-group">
-                    <label for="diemDen">Điểm đến</label>
+                    <label for="diemDen" data-lang-key="index_search_diem_den">Điểm đến</label>
                     <input list="danhSachDiemDen" class="form-control" id="diemDen" name="diemDen"
-                           placeholder="Nhập hoặc chọn điểm đến" value="@ViewBag.DiemDen" />
+                           placeholder="Nhập hoặc chọn điểm đến" value="@ViewBag.DiemDen" data-lang-key="index_search_diem_den_placeholder" />
                     <datalist id="danhSachDiemDen">
                         @if (ViewBag.DanhSachDiemDen != null)
                         {
@@ -59,33 +54,29 @@
                         }
                     </datalist>
                 </div>
-
                 <div class="form-group">
-                    <label for="ngayDi">Ngày đi</label>
+                    <label for="ngayDi" data-lang-key="index_search_ngay_di">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
                            min="@DateTime.Now.ToString("yyyy-MM-dd")"
                            value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi : "")" />
                 </div>
-
                 <div class="form-button">
-                    <button type="submit" class="search-button">Tìm chuyến xe</button>
+                    <button type="submit" class="search-button" data-lang-key="index_search_button">Tìm chuyến xe</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 <!-- Modal Loading -->
 <div id="loadingModal" class="modal">
     <div class="modal-content">
-        <p>Đang tìm chuyến...</p>
+        <p data-lang-key="index_loading_message">Đang tìm chuyến...</p>
     </div>
 </div>
-
 <!-- Kết quả tìm kiếm -->
 <div class="search-results mt-5">
     <noscript>
-        <p style="color: red; text-align: center;">Vui lòng bật JavaScript để sử dụng tính năng lọc chuyến xe.</p>
+        <p style="color: red; text-align: center;" data-lang-key="index_no_js_message">Vui lòng bật JavaScript để sử dụng tính năng lọc chuyến xe.</p>
     </noscript>
     @if (ViewBag.TuyenXe != null && ViewBag.ChuyenXes?.Count > 0)
     {
@@ -94,31 +85,31 @@
             <div class="col-md-4">
                 <div class="card" style="margin: 35px 0px !important;">
                     <div class="card-header bg-primary text-white">
-                        <strong>Lọc theo khung giờ</strong>
+                        <strong data-lang-key="index_filter_title">Lọc theo khung giờ</strong>
                     </div>
                     <div class="card-body" style="background-color: #f8f9fa;">
                         <div class="form-check">
                             <input class="form-check-input time-filter" type="checkbox" value="0-6" id="time1">
-                            <label class="form-check-label" for="time1">Sáng sớm 00:00 - 06:00</label>
+                            <label class="form-check-label" for="time1" data-lang-key="index_filter_time1">Sáng sớm 00:00 - 06:00</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input time-filter" type="checkbox" value="6-12" id="time2">
-                            <label class="form-check-label" for="time2">Buổi sáng 06:00 - 12:00</label>
+                            <label class="form-check-label" for="time2" data-lang-key="index_filter_time2">Buổi sáng 06:00 - 12:00</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input time-filter" type="checkbox" value="12-18" id="time3">
-                            <label class="form-check-label" for="time3">Buổi chiều 12:00 - 18:00</label>
+                            <label class="form-check-label" for="time3" data-lang-key="index_filter_time3">Buổi chiều 12:00 - 18:00</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input time-filter" type="checkbox" value="18-24" id="time4">
-                            <label class="form-check-label" for="time4">Buổi tối 18:00 - 24:00</label>
+                            <label class="form-check-label" for="time4" data-lang-key="index_filter_time4">Buổi tối 18:00 - 24:00</label>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Danh sách chuyến xe -->
             <div class="col-md-8">
+               
                 <h4 class="text-center">Tuyến xe từ @ViewBag.TuyenXe.DiemDi đến @ViewBag.TuyenXe.DiemDen</h4>
                 <div class="row">
                     @foreach (var chuyenXe in ViewBag.ChuyenXes)
@@ -139,18 +130,13 @@
                                         <p>@ViewBag.TuyenXe.MaBenXeDenNavigation?.TenBenXe</p>
                                     </div>
                                 </div>
-
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <div><strong class="text-success">@(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định")</strong></div>
                                     <div class="price text-danger fw-bold">@chuyenXe.GiaVe?.ToString("N0")₫</div>
                                 </div>
-
                                 <hr />
-
                                 <div class="text-end">
-                                    <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen" class="btn btn-outline-danger btn-sm px-4">
-                                        Chọn chuyến
-                                    </a>
+                                    <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen" class="btn btn-outline-danger btn-sm px-4" data-lang-key="index_select_trip">Chọn chuyến</a>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +151,7 @@
     }
     <!-- Hướng dẫn đặt xe -->
     <div class="booking-steps text-center mt-5">
-        <h4 class="fw-bold mb-4" style="color: #1d6b33 !important;">Dễ dàng đặt xe trên Website của Khánh An Luxury</h4>
+        <h4 class="fw-bold mb-4" style="color: #1d6b33 !important;" data-lang-key="index_booking_steps_title">Dễ dàng đặt xe trên Website của Khánh An Luxury</h4>
         <div class="row justify-content-center">
             <!-- Bước 1 -->
             <div class="col-6 col-md-3 mb-4">
@@ -176,10 +162,9 @@
                         <circle cx="17" cy="14" r="1.5" />
                     </svg>
                 </div>
-                <h6 class="fw-semibold">Lựa chọn hành trình</h6>
-                <p class="text-muted">Chọn thông tin hành trình<br>ấn "Tìm chuyến xe"</p>
+                <h6 class="fw-semibold" data-lang-key="index_step1_title">Lựa chọn hành trình</h6>
+                <p class="text-muted" data-lang-key="index_step1_desc">Chọn thông tin hành trình<br>ấn "Tìm chuyến xe"</p>
             </div>
-
             <!-- Bước 2 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
@@ -187,10 +172,9 @@
                         <path d="M4 10V8a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2h2v10H2V10h2zm2-2v2h12V8H6z" />
                     </svg>
                 </div>
-                <h6 class="fw-semibold">Chọn chuyến</h6>
-                <p class="text-muted">Chọn chuyến phù hợp<br>ấn "Đặt chỗ"</p>
+                <h6 class="fw-semibold" data-lang-key="index_step2_title">Chọn chuyến</h6>
+                <p class="text-muted" data-lang-key="index_step2_desc">Chọn chuyến phù hợp<br>ấn "Đặt chỗ"</p>
             </div>
-
             <!-- Bước 3 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
@@ -198,10 +182,9 @@
                         <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h12v2H3v-2z" />
                     </svg>
                 </div>
-                <h6 class="fw-semibold">Thanh toán</h6>
-                <p class="text-muted">Chọn cổng thanh toán<br>ấn "Thanh toán"</p>
+                <h6 class="fw-semibold" data-lang-key="index_step3_title">Thanh toán</h6>
+                <p class="text-muted" data-lang-key="index_step3_desc">Chọn cổng thanh toán<br>ấn "Thanh toán"</p>
             </div>
-
             <!-- Bước 4 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
@@ -209,28 +192,26 @@
                         <path d="M20.285 2L9 13.567l-5.285-5.28L2 9l7 7L22 4.716z" />
                     </svg>
                 </div>
-                <h6 class="fw-semibold">Xác nhận</h6>
-                <p class="text-muted">Nhận thông tin đặt xe<br>thành công và lên xe</p>
+                <h6 class="fw-semibold" data-lang-key="index_step4_title">Xác nhận</h6>
+                <p class="text-muted" data-lang-key="index_step4_desc">Nhận thông tin đặt xe<br>thành công và lên xe</p>
             </div>
         </div>
     </div>
-
-
     <!-- Về Khánh An Luxury -->
     <div class="about-section mt-5">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h2 class="text-success mb-4">Về Khánh An Luxury</h2>
-                <h4>Đồng hành cùng bạn trên mọi hành trình</h4>
-                <p class="text-muted">
+                <h2 class="text-success mb-4" data-lang-key="index_about_title">Về Khánh An Luxury</h2>
+                <h4 data-lang-key="index_about_subtitle">Đồng hành cùng bạn trên mọi hành trình</h4>
+                <p class="text-muted" data-lang-key="index_about_desc">
                     Thành lập từ năm 2010, <strong>Khánh An Luxury</strong> tự hào là nhà xe hàng đầu Việt Nam, mang đến trải nghiệm di chuyển an toàn, đẳng cấp và tiện nghi. Với hơn 350 phòng vé và 500 chuyến xe mỗi ngày, chúng tôi cam kết:
                 </p>
                 <ul class="text-muted">
-                    <li><strong>An toàn tuyệt đối</strong>: Xe hiện đại, tài xế giàu kinh nghiệm.</li>
-                    <li><strong>Tiện nghi vượt trội</strong>: Nội thất sang trọng, dịch vụ chu đáo.</li>
-                    <li><strong>Phủ sóng toàn quốc</strong>: Kết nối từ TP.HCM, Đà Lạt đến Đà Nẵng và hơn thế nữa.</li>
+                    <li data-lang-key="index_about_safety"><strong>An toàn tuyệt đối</strong>: Xe hiện đại, tài xế giàu kinh nghiệm.</li>
+                    <li data-lang-key="index_about_comfort"><strong>Tiện nghi vượt trội</strong>: Nội thất sang trọng, dịch vụ chu đáo.</li>
+                    <li data-lang-key="index_about_coverage"><strong>Phủ sóng toàn quốc</strong>: Kết nối từ TP.HCM, Đà Lạt đến Đà Nẵng và hơn thế nữa.</li>
                 </ul>
-                <a href="@Url.Action("Index", "VeChungToi")" class="btn btn-primary mt-3">Tìm hiểu thêm</a>
+                <a href="@Url.Action("Index", "VeChungToi")" class="btn btn-primary mt-3" data-lang-key="index_learn_more">Tìm hiểu thêm</a>
             </div>
             <div class="col-md-6">
                 <div class="swiper about-swiper">
@@ -255,59 +236,57 @@
     </div>
     <!-- Tiện ích dịch vụ -->
     <div class="container my-5 service-section">
-        <h2 class="text-center text-success mb-4">DỊCH VỤ KHÁNH AN</h2>
+        <h2 class="text-center text-success mb-4" data-lang-key="index_services_title">DỊCH VỤ KHÁNH AN</h2>
         <div class="row text-center">
             <!-- Tiện nghi cao cấp -->
             <div class="col-md-4">
                 <img src="~/images/tien-nghi.jpg" alt="Tiện nghi cao cấp" class="img-fluid rounded mb-3">
-                <h4>Tiện nghi cao cấp</h4>
-                <p>
+                <h4 data-lang-key="index_service_comfort_title">Tiện nghi cao cấp</h4>
+                <p data-lang-key="index_service_comfort_desc">
                     Khánh An Luxury cung cấp dòng xe limousine giường nằm hiện đại nhất với nội thất cao cấp, LCD, wifi, nước uống và đèn đọc sách.
                 </p>
                 <ul class="list-unstyled text-start text-muted">
-                    <li>✔ Toàn bộ xe được trang bị nội thất cao cấp</li>
-                    <li>✔ Nước uống và wifi luôn được phục vụ</li>
-                    <li>✔ Xe luôn được vệ sinh sau mỗi chuyến đi</li>
+                    <li data-lang-key="index_service_comfort_item1">✔ Toàn bộ xe được trang bị nội thất cao cấp</li>
+                    <li data-lang-key="index_service_comfort_item2">✔ Nước uống và wifi luôn được phục vụ</li>
+                    <li data-lang-key="index_service_comfort_item3">✔ Xe luôn được vệ sinh sau mỗi chuyến đi</li>
                 </ul>
             </div>
-
             <!-- Linh hoạt lịch trình -->
             <div class="col-md-4">
                 <img src="~/images/lich-trinh.png" alt="Linh hoạt lịch trình" class="img-fluid rounded mb-3">
-                <h4>Linh hoạt lịch trình</h4>
-                <p>
+                <h4 data-lang-key="index_service_schedule_title">Linh hoạt lịch trình</h4>
+                <p data-lang-key="index_service_schedule_desc">
                     Lịch trình đa dạng từ 6h đến 24h mỗi ngày, Khánh An mang lại lựa chọn giờ khởi hành linh hoạt cho mọi nhu cầu di chuyển.
                 </p>
                 <ul class="list-unstyled text-start text-muted">
-                    <li>✔ Hoạt động từ 6h - 24h hàng ngày</li>
-                    <li>✔ Lịch chạy linh hoạt và phù hợp</li>
-                    <li>✔ Đa dạng hạng ghế và mức giá</li>
+                    <li data-lang-key="index_service_schedule_item1">✔ Hoạt động từ 6h - 24h hàng ngày</li>
+                    <li data-lang-key="index_service_schedule_item2">✔ Lịch chạy linh hoạt và phù hợp</li>
+                    <li data-lang-key="index_service_schedule_item3">✔ Đa dạng hạng ghế và mức giá</li>
                 </ul>
             </div>
-
             <!-- Dịch vụ chuyên nghiệp -->
             <div class="col-md-4">
                 <img src="~/images/dich-vu.png" alt="Dịch vụ chuyên nghiệp" class="img-fluid rounded mb-3">
-                <h4>Dịch vụ chuyên nghiệp</h4>
-                <p>
+                <h4 data-lang-key="index_service_professional_title">Dịch vụ chuyên nghiệp</h4>
+                <p data-lang-key="index_service_professional_desc">
                     Đặt khách hàng làm trung tâm, Khánh An đào tạo đội ngũ nhân viên bài bản và cung cấp hỗ trợ 24/7 cho mọi thắc mắc.
                 </p>
                 <ul class="list-unstyled text-start text-muted">
-                    <li>✔ Nhân viên được đào tạo chuyên nghiệp</li>
-                    <li>✔ Hỗ trợ đặt vé và thanh toán nhanh chóng</li>
-                    <li>✔ Tổng đài viên sẵn sàng hỗ trợ 24/7</li>
+                    <li data-lang-key="index_service_professional_item1">✔ Nhân viên được đào tạo chuyên nghiệp</li>
+                    <li data-lang-key="index_service_professional_item2">✔ Hỗ trợ đặt vé và thanh toán nhanh chóng</li>
+                    <li data-lang-key="index_service_professional_item3">✔ Tổng đài viên sẵn sàng hỗ trợ 24/7</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="popular-routes-container mt-5">
-        <h2 class="text-center text-success mb-4">TUYẾN PHỔ BIẾN</h2>
+        <h2 class="text-center text-success mb-4" data-lang-key="index_popular_routes_title">TUYẾN PHỔ BIẾN</h2>
         <div class="row gx-4 gy-4">
             <!-- Khối 1 -->
             <div class="col-md-4">
                 <div class="route-box shadow-sm">
                     <div class="route-image" style="background-image: url('/images/HCMCityMyLove.jpg');">
-                        <div class="route-title">Tuyến xe từ<br><strong>TP Hồ Chí Minh</strong></div>
+                        <div class="route-title" data-lang-key="index_route_hcm">Tuyến xe từ<br><strong>TP Hồ Chí Minh</strong></div>
                     </div>
                     <div class="route-info">
                         <div class="route-line">
@@ -334,12 +313,11 @@
                     </div>
                 </div>
             </div>
-
             <!-- Khối 2 -->
             <div class="col-md-4">
                 <div class="route-box shadow-sm">
                     <div class="route-image" style="background-image: url('/images/DaLat.jpg');">
-                        <div class="route-title">Tuyến xe từ<br><strong>Đà Lạt</strong></div>
+                        <div class="route-title" data-lang-key="index_route_dl">Tuyến xe từ<br><strong>Đà Lạt</strong></div>
                     </div>
                     <div class="route-info">
                         <div class="route-line">
@@ -366,12 +344,11 @@
                     </div>
                 </div>
             </div>
-
             <!-- Khối 3 -->
             <div class="col-md-4">
                 <div class="route-box shadow-sm">
                     <div class="route-image" style="background-image: url('/images/dangnang.jpg');">
-                        <div class="route-title">Tuyến xe từ<br><strong>Đà Nẵng</strong></div>
+                        <div class="route-title" data-lang-key="index_route_dn">Tuyến xe từ<br><strong>Đà Nẵng</strong></div>
                     </div>
                     <div class="route-info">
                         <div class="route-line">
@@ -400,80 +377,76 @@
             </div>
         </div>
     </div>
-
-
     <!-- Thống kê -->
     <div class="bus-lines-section mt-5" style="margin-bottom:20px !important; border-radius:15px !important;">
-        <h2 class="text-center text-success">Khánh An Bus - An toàn là trên hết</h2>
-        <p class="text-center">Được khách hàng tin tưởng và lựa chọn</p>
+        <h2 class="text-center text-success" data-lang-key="index_stats_title">Khánh An Bus - An toàn là trên hết</h2>
+        <p class="text-center" data-lang-key="index_stats_subtitle">Được khách hàng tin tưởng và lựa chọn</p>
         <div class="row text-center mt-4" style="padding:15px !important;">
             <div class="col-md-4">
                 <div class="icon-box">
                     <img src="~/images/customer.png" alt="Hơn 20 triệu lượt khách" class="img-fluid mb-3">
-                    <h5>Hơn 20 Triệu</h5>
-                    <p>Phục vụ hơn 20 triệu lượt khách bình quân 1 năm trên toàn quốc</p>
+                    <h5 data-lang-key="index_stats_customers">Hơn 20 Triệu</h5>
+                    <p data-lang-key="index_stats_customers_desc">Phục vụ hơn 20 triệu lượt khách bình quân 1 năm trên toàn quốc</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="icon-box">
                     <img src="~/images/office-building.png" alt="Hơn 350 văn phòng" class="img-fluid mb-3">
-                    <h5>Hơn 350</h5>
-                    <p>Khánh An Bus có hơn 350 phòng vé, trạm trung chuyển, bến xe trên toàn hệ thống</p>
+                    <h5 data-lang-key="index_stats_offices">Hơn 350</h5>
+                    <p data-lang-key="index_stats_offices_desc">Khánh An Bus có hơn 350 phòng vé, trạm trung chuyển, bến xe trên toàn hệ thống</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="icon-box">
                     <img src="~/images/front-of-bus.png" alt="Hơn 1000 chuyến xe" class="img-fluid mb-3">
-                    <h5>Hơn 500</h5>
-                    <p>Phục vụ hơn 500 chuyến xe đường dài và liên tỉnh mỗi ngày</p>
+                    <h5 data-lang-key="index_stats_trips">Hơn 500</h5>
+                    <p data-lang-key="index_stats_trips_desc">Phục vụ hơn 500 chuyến xe đường dài và liên tỉnh mỗi ngày</p>
                 </div>
             </div>
         </div>
     </div>
     <section class="why-choose-us container my-5" data-aos="fade-up">
-        <h2 class="text-center text-success fw-bold mb-3">VÌ SAO NÊN CHỌN KHÁNH AN LIMOUSINE</h2>
-        <p class="text-center mb-4">Lý do vì sao hàng ngàn khách hàng tin tưởng và sử dụng dịch vụ xe Limousine tại Khánh An</p>
+        <h2 class="text-center text-success fw-bold mb-3" data-lang-key="index_why_choose_title">VÌ SAO NÊN CHỌN KHÁNH AN LIMOUSINE</h2>
+        <p class="text-center mb-4" data-lang-key="index_why_choose_subtitle">Lý do vì sao hàng ngàn khách hàng tin tưởng và sử dụng dịch vụ xe Limousine tại Khánh An</p>
         <div class="row align-items-center">
             <!-- Cột trái: 3 lý do -->
             <div class="col-md-4">
                 <div class="reason-box">
                     <i class="fa-solid fa-award reason-icon"></i>
-                    <h5 class="fw-bold">Thương hiệu uy tín</h5>
-                    <p>Khánh An được khách hàng tin chọn trên mọi tuyến đường.</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_trust">Thương hiệu uy tín</h5>
+                    <p data-lang-key="index_reason_trust_desc">Khánh An được khách hàng tin chọn trên mọi tuyến đường.</p>
                 </div>
                 <div class="reason-box">
                     <i class="fa-solid fa-shuttle-van reason-icon"></i>
-                    <h5 class="fw-bold">Đón trả tận nơi</h5>
-                    <p>Phục vụ tận nhà, đúng giờ, nhanh chóng và tiết kiệm thời gian.</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_pickup">Đón trả tận nơi</h5>
+                    <p data-lang-key="index_reason_pickup_desc">Phục vụ tận nhà, đúng giờ, nhanh chóng và tiết kiệm thời gian.</p>
                 </div>
                 <div class="reason-box">
                     <i class="fa-solid fa-money-bill-wave reason-icon"></i>
-                    <h5 class="fw-bold">Thanh toán tiện lợi</h5>
-                    <p>Hỗ trợ đa dạng hình thức thanh toán an toàn và nhanh chóng.</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_payment">Thanh toán tiện lợi</h5>
+                    <p data-lang-key="index_reason_payment_desc">Hỗ trợ đa dạng hình thức thanh toán an toàn và nhanh chóng.</p>
                 </div>
             </div>
-
             <!-- Cột giữa: hình ảnh -->
             <div class="col-md-4 text-center mb-4">
                 <img src="~/images/hotline.png" alt="Khánh An Limousine" class="img-fluid rounded shadow-sm">
             </div>
-
             <!-- Cột phải: 3 lý do -->
             <div class="col-md-4">
                 <div class="reason-box">
                     <i class="fa-solid fa-calendar-check reason-icon"></i>
-                    <h5 class="fw-bold">Đặt xe dễ dàng</h5>
-                    <p>Đặt xe qua tổng đài, Zalo, Facebook và nhiều kênh khác.</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_booking">Đặt xe dễ dàng</h5>
+                    <p data-lang-key="index_reason_booking_desc">Đặt xe qua tổng đài, Zalo, Facebook và nhiều kênh khác.</p>
                 </div>
                 <div class="reason-box">
                     <i class="fa-solid fa-tv reason-icon"></i>
-                    <h5 class="fw-bold">Tiện nghi hiện đại</h5>
-                    <p>Wifi, TV LED, nước uống, khăn lạnh, ghế massage,...</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_comfort">Tiện nghi hiện đại</h5>
+                    <p data-lang-key="index_reason_comfort_desc">Wifi, TV LED, nước uống, khăn lạnh, ghế massage,...</p>
                 </div>
                 <div class="reason-box">
                     <i class="fa-solid fa-bus reason-icon"></i>
-                    <h5 class="fw-bold">Số lượng xe lớn</h5>
-                    <p>Hệ thống xe 5 sao phục vụ hàng nghìn chuyến mỗi ngày.</p>
+                    <h5 class="fw-bold" data-lang-key="index_reason_fleet">Số lượng xe lớn</h5>
+                    <p data-lang-key="index_reason_fleet_desc">Hệ thống xe 5 sao phục vụ hàng nghìn chuyến mỗi ngày.</p>
                 </div>
             </div>
         </div>
@@ -485,25 +458,21 @@
             <div class="col-md-6 mb-4 mb-md-0">
                 <img src="~/images/hotline-support.jpg" alt="Hotline KhanhAn" class="img-fluid rounded-4 shadow">
             </div>
-
             <!-- Nội dung hotline -->
             <div class="col-md-6" style="padding: 30px 15px 0px 25px !important;">
-                <h3 class="text-success fw-bold mb-3">Hotline dịch vụ</h3>
-                <p class="text-muted">
+                <h3 class="text-success fw-bold mb-3" data-lang-key="index_hotline_title">Hotline dịch vụ</h3>
+                <p class="text-muted" data-lang-key="index_hotline_desc">
                     Hotline dịch vụ của Khánh An Luxury hoạt động 24/7. Chúng tôi luôn sẵn sàng phục vụ khách hàng.
                 </p>
                 <ul class="list-unstyled hotline-list">
-                    <li><i class="fa fa-phone text-warning me-2"></i> Hotline đặt vé: <strong>1900 6746</strong></li>
-                    <li><i class="fa fa-phone text-warning me-2"></i> Hotline gửi hàng: <strong>1900 0257</strong></li>
-                    <li><i class="fa fa-headphones text-warning me-2"></i> Chăm sóc khách hàng: <strong>1900 6746</strong></li>
-                    <li><i class="fa fa-exclamation-circle text-warning me-2"></i> Xử lý khiếu nại: <strong>02439 937 099</strong></li>
+                    <li data-lang-key="index_hotline_booking"><i class="fa fa-phone text-warning me-2"></i> Hotline đặt vé: <strong>1900 6746</strong></li>
+                    <li data-lang-key="index_hotline_delivery"><i class="fa fa-phone text-warning me-2"></i> Hotline gửi hàng: <strong>1900 0257</strong></li>
+                    <li data-lang-key="index_hotline_support"><i class="fa fa-headphones text-warning me-2"></i> Chăm sóc khách hàng: <strong>1900 6746</strong></li>
+                    <li data-lang-key="index_hotline_complaints"><i class="fa fa-exclamation-circle text-warning me-2"></i> Xử lý khiếu nại: <strong>02439 937 099</strong></li>
                 </ul>
             </div>
         </div>
     </div>
-   
-
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="~/js/bus-home.js"></script>
