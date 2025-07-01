@@ -148,7 +148,10 @@ namespace Asp.netWebDatVe.Controllers
             ViewBag.ToDate = toDate?.ToString("yyyy-MM-dd");
 
             var query = _context.VeXes
-                .Where(v => v.NgayDat.HasValue && v.MaChuyenNavigation != null && v.MaChuyenNavigation.GiaVe.HasValue);
+                .Where(v => v.NgayDat.HasValue
+                         && v.MaChuyenNavigation != null
+                         && v.MaChuyenNavigation.GiaVe.HasValue
+                         && v.TrangThai != "Đã hủy"); // Loại bỏ vé đã hủy
 
             if (fromDate.HasValue)
             {
@@ -172,7 +175,7 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(thongKe);
         }
-  
+
         public IActionResult VeHuy()
         {
             var userName = HttpContext.Session.GetString("UserName");
