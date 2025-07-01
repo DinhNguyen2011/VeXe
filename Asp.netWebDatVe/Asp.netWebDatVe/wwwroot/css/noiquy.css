@@ -1,0 +1,47 @@
+﻿/* Định dạng chung cho trang nội quy */
+.container {
+    max-width: 900px;
+}
+
+.rules-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+    .rules-section h4 {
+        font-weight: 600;
+        color: #1d6b33;
+    }
+
+.list-group-item {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+    .list-group-item::before {
+        content: "• ";
+        color: #f4a300;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+.text-success {
+    color: #1d6b33 !important;
+}
+
+.btn-primary {
+    background-color: #1d6b33;
+    border-color: #1d6b33;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+    .btn-primary:hover {
+        background-color: #155724;
+        border-color: #155724;
+    }

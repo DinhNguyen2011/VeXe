@@ -1,12 +1,71 @@
 ﻿@{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Nội Quy Nhân Viên";
 }
-<style>
-    .greeting-message {
-        font-size: 24px;
-        color: #007bff;
-        text-align: center;
-        margin-top: 50px;
-    }
-</style>
-<h1 class="greeting-message">Chào bạn, chúc 1 ngày làm việc vui vẻ!!Đừng quên chào quan khách sau khi họ đặt vé nhé😍😘🤗!!!</h1>
+
+<link rel="stylesheet" href="~/css/noiquy.css" />
+<div class="container mt-5">
+    <h1 class="text-center text-success mb-4">Hi,@ViewData["UserName"] chúc 1 ngày làm việc vui vẻ!!! </h1>
+    <h2 class="text-center text-success mb-4">Nội Quy Nhân Viên Nhà Xe Khánh An Luxury</h2>
+    <p class="text-center text-muted mb-5">Tất cả nhân viên cần tuân thủ các quy định dưới đây để đảm bảo chất lượng dịch vụ và môi trường làm việc chuyên nghiệp.</p>
+
+    <div class="rules-section">
+        <h4 class="text-success mb-3">1. Quy định về công việc</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Đến đúng giờ, mặc đồng phục đầy đủ và đeo thẻ nhân viên trong suốt ca làm việc.</li>
+            <li class="list-group-item">Thực hiện đúng nhiệm vụ được giao, bao gồm kiểm tra vé, hỗ trợ hành khách, và đảm bảo vệ sinh trên xe.</li>
+            <li class="list-group-item">Báo cáo ngay cho quản lý nếu phát hiện sự cố về xe, hành khách, hoặc hành lý.</li>
+            <li class="list-group-item">Không tự ý thay đổi lịch trình, tuyến xe hoặc ghế của hành khách mà không có sự phê duyệt của quản lý.</li>
+            <li class="list-group-item">Ghi chép đầy đủ thông tin chuyến đi, bao gồm số lượng hành khách, hành lý, và các vấn đề phát sinh.</li>
+        </ul>
+    </div>
+
+    <div class="rules-section mt-4">
+        <h4 class="text-success mb-3">2. Thái độ làm việc</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Luôn giữ thái độ lịch sự, thân thiện và tôn trọng khi giao tiếp với hành khách.</li>
+            <li class="list-group-item">Không sử dụng điện thoại cá nhân cho mục đích riêng trong giờ làm việc, trừ trường hợp khẩn cấp.</li>
+            <li class="list-group-item">Không tranh cãi hoặc có hành vi thiếu tôn trọng với đồng nghiệp hoặc hành khách.</li>
+            <li class="list-group-item">Tuân thủ nguyên tắc bảo mật thông tin của hành khách và công ty.</li>
+        </ul>
+    </div>
+
+    <div class="rules-section mt-4">
+        <h4 class="text-success mb-3">3. An toàn và vệ sinh</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Kiểm tra kỹ tình trạng xe (phanh, lốp, đèn, nhiên liệu) trước mỗi chuyến đi và báo cáo bất kỳ hỏng hóc nào.</li>
+            <li class="list-group-item">Đảm bảo xe được vệ sinh sạch sẽ trước và sau mỗi chuyến, bao gồm ghế, sàn, và khu vực hành lý.</li>
+            <li class="list-group-item">Hướng dẫn hành khách sử dụng dây an toàn và các thiết bị an toàn trên xe.</li>
+            <li class="list-group-item">Không cho phép hành khách mang các vật dụng nguy hiểm (chất dễ cháy, vũ khí) lên xe.</li>
+        </ul>
+    </div>
+
+    <div class="rules-section mt-4">
+        <h4 class="text-success mb-3">4. Xử lý khiếu nại và sự cố</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lắng nghe và ghi nhận khiếu nại của hành khách một cách bình tĩnh và chuyên nghiệp.</li>
+            <li class="list-group-item">Chuyển khiếu nại hoặc sự cố đến quản lý hoặc bộ phận chăm sóc khách hàng trong vòng <strong>2 giờ</strong>.</li>
+            <li class="list-group-item">Không tự ý đưa ra cam kết bồi thường hoặc hoàn tiền mà không có sự đồng ý của quản lý.</li>
+            <li class="list-group-item">Báo cáo chi tiết mọi sự cố (tai nạn, mất mát hành lý, tranh chấp) bằng văn bản sau mỗi ca làm việc.</li>
+        </ul>
+    </div>
+
+    <div class="rules-section mt-4">
+        <h4 class="text-success mb-3">5. Quy định về kỷ luật</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Không sử dụng rượu bia, thuốc lá hoặc các chất kích thích trong giờ làm việc.</li>
+            <li class="list-group-item">Không tự ý rời vị trí làm việc hoặc bỏ ca mà không thông báo trước.</li>
+            <li class="list-group-item">Vi phạm nội quy nghiêm trọng (như gian lận, tiết lộ thông tin, gây mất an toàn) sẽ bị xử lý theo quy định của công ty, bao gồm chấm dứt hợp đồng.</li>
+            <li class="list-group-item">Tham gia đầy đủ các buổi đào tạo và họp định kỳ do công ty tổ chức.</li>
+        </ul>
+    </div>
+
+    <div class="rules-section mt-4">
+        <h4 class="text-success mb-3">6. Liên hệ và báo cáo</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Liên hệ quản lý trực tiếp qua số <strong>0909 123 456</strong> hoặc email <strong>quanly@khanhanluxury.vn</strong> khi cần hỗ trợ.</li>
+            <li class="list-group-item">Nộp báo cáo ca làm việc đúng hạn, bao gồm thông tin về chuyến xe và các vấn đề phát sinh.</li>
+            <li class="list-group-item">Thông báo ngay cho bộ phận nhân sự nếu có thay đổi thông tin cá nhân (số điện thoại, địa chỉ).</li>
+        </ul>
+    </div>
+</div>
