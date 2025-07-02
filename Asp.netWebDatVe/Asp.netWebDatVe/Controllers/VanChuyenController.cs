@@ -6,6 +6,8 @@ namespace Asp.netWebDatVe.Controllers
     {
         public IActionResult Index()
         {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
             return View();
         }
     }

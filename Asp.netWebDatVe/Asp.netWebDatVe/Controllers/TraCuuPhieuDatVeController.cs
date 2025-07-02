@@ -28,7 +28,7 @@ namespace Asp.netWebDatVe.Controllers
                 return View();
             }
 
-
+            //ktr bang pdv
             var phieuDatVe = db.PhieuDatVes
                                .FirstOrDefault(p => p.MaPhieu.ToString() == maVe && p.Email == email);
 

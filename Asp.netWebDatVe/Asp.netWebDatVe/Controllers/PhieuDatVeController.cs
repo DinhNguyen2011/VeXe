@@ -34,7 +34,7 @@ namespace Asp.netWebDatVe.Controllers
 
             // Tạo SelectList cho dropdown TrangThai
             ViewBag.TrangThaiList = new SelectList(
-                new[] { "Đã thanh toán", "Chưa thanh toán", "Hủy" }.Select(s => new { Value = s, Text = s }),
+                new[] { "Đã thanh toán", "Chưa thanh toán"}.Select(s => new { Value = s, Text = s }),
                 "Value",
                 "Text",
                 trangThai
@@ -49,7 +49,7 @@ namespace Asp.netWebDatVe.Controllers
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai");
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán", "Hủy" });
+            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"});
             return View();
         }
 
@@ -70,7 +70,7 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", phieuDatVe.MaKhuyenMai);
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán", "Hủy" }, phieuDatVe.TrangThai);
+            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"}, phieuDatVe.TrangThai);
             return View(phieuDatVe);
         }
 
@@ -91,7 +91,7 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", phieuDatVe.MaKhuyenMai);
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán", "Hủy" }, phieuDatVe.TrangThai);
+            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán" }, phieuDatVe.TrangThai);
             return View(phieuDatVe);
         }
 
@@ -127,7 +127,7 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", phieuDatVe.MaKhuyenMai);
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán", "Hủy" }, phieuDatVe.TrangThai);
+            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán" }, phieuDatVe.TrangThai);
             return View(phieuDatVe);
         }
 

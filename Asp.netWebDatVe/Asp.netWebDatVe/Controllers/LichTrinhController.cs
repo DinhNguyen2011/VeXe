@@ -12,7 +12,7 @@ namespace Asp.netWebDatVe.Controllers
         {
             db = context;
         }
-
+        //Hien Thi Danh Sach Tuyen Xe hien tai co trong BangTuyenXe
         public IActionResult Index(string searchTerm = "", DateTime? ngayDi = null)
         {
             var userName = HttpContext.Session.GetString("UserName");

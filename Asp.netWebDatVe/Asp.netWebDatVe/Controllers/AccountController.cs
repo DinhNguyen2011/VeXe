@@ -101,7 +101,7 @@ namespace Asp.netWebDatVe.Controllers
                 return Redirect(returnUrl);
             }
 
-            if (user.MaQuyen == 1 || user.MaQuyen == 2)
+            if (user.MaQuyen == 1 || user.MaQuyen == 2 )
             {
                 return RedirectToAction("Index", "HomeAdmin");
             }

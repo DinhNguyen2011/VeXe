@@ -32,7 +32,7 @@ namespace Asp.netWebDatVe.Controllers
 
             // Tạo SelectList cho dropdown VaiTro
             ViewBag.VaiTroList = new SelectList(
-                new[] { "Tài xế", "Nhân viên hỗ trợ", "Nhân viên phụ xe" }.Select(s => new { Value = s, Text = s }),
+                new[] { "Tài xế", "Lơ xe", "Tài xế phụ" }.Select(s => new { Value = s, Text = s }),
                 "Value",
                 "Text",
                 vaiTro
@@ -46,7 +46,7 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Nhân viên hỗ trợ", "Nhân viên phụ xe" });
+            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Lơ xe", "Tài xế phụ" });
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Nhân viên hỗ trợ", "Nhân viên phụ xe" }, nhanVien.VaiTro);
+            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Lơ xe", "Tài xế phụ" }, nhanVien.VaiTro);
             return View(nhanVien);
         }
 
@@ -85,7 +85,7 @@ namespace Asp.netWebDatVe.Controllers
                 return NotFound();
             }
 
-            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Nhân viên hỗ trợ", "Nhân viên phụ xe" }, nhanVien.VaiTro);
+            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Lơ xe", "Tài xế phụ" }, nhanVien.VaiTro);
             return View(nhanVien);
         }
 
@@ -120,7 +120,7 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Nhân viên hỗ trợ", "Nhân viên phụ xe" }, nhanVien.VaiTro);
+            ViewBag.VaiTro = new SelectList(new[] { "Tài xế", "Lơ xe", "Tài xế phụ" }, nhanVien.VaiTro);
             return View(nhanVien);
         }
 

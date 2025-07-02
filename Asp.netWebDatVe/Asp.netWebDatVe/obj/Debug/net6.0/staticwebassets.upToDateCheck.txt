@@ -524,7 +524,6 @@ wwwroot\css\style.css
 wwwroot\css\TraCuuPhieuDatVe.css
 wwwroot\css\TuyenXe.css
 wwwroot\css\tuyenxeindex.css
-wwwroot\css\van-chuyen-khanhan.css
 wwwroot\css\Vechungtoi.css
 wwwroot\css\vendor.css
 wwwroot\css\Vitrighe.css
@@ -574,11 +573,9 @@ wwwroot\images\ThuaThienHue.jpg
 wwwroot\images\tien-nghi.jpg
 wwwroot\images\timkiem.jpg
 wwwroot\images\uk-flag.png
-wwwroot\images\van-chuyen.jpg
 wwwroot\images\vn-flag.jpg
 wwwroot\images\vn-flag.png
 wwwroot\images\vungtau.jpg
-wwwroot\images\xe-khanh-an.png
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js
@@ -801,3 +798,8 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\van-chuyen-khanhan.css
+wwwroot\images\xe-khanh-an.png
+wwwroot\images\van-chuyen.jpg
+wwwroot\css\noiquy.css
+wwwroot\images\01e7af4d-c6a5-4d10-84ce-8ee64762fa3a.png

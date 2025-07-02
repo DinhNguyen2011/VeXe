@@ -363,37 +363,5 @@ namespace Asp.netWebDatVe.Controllers
             return View(chuyenXe);
         }
 
-        // POST: ChuyenXe/ResetSeatsByBienso
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ResetSeatsByBienso(string bienso)
-        {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-            if (string.IsNullOrEmpty(bienso))
-            {
-                TempData["Error"] = "Biển số xe không hợp lệ.";
-                return RedirectToAction(nameof(Index));
-            }
-
-            var seats = await _context.Vitrighes
-                .Where(v => v.Bienso == bienso)
-                .ToListAsync();
-
-            if (!seats.Any())
-            {
-                TempData["Error"] = "Không tìm thấy vị trí ghế cho xe này.";
-                return RedirectToAction(nameof(Index));
-            }
-
-            foreach (var seat in seats)
-            {
-                seat.Trangthai = false;
-            }
-
-            await _context.SaveChangesAsync();
-            TempData["Success"] = $"Đã đặt lại trạng thái tất cả ghế của xe {bienso} thành trống.";
-            return RedirectToAction(nameof(Index));
-        }
     }
 }

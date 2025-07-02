@@ -43,6 +43,7 @@ namespace Asp.netWebDatVe.Controllers
             }
             return null;
         }
+
         public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null, bool isSubmitted = false)
         {
             var restrictResult = RestrictAdminAccess();
