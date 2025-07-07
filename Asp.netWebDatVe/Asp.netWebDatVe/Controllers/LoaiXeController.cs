@@ -38,14 +38,23 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+
+            if (_context.Loaixes.Any(l => l.IdLoai == loaiXe.IdLoai))
+            {
+                ModelState.AddModelError("IdLoai", "Mã loại xe đã tồn tại.");
+                return View(loaiXe);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Loaixes.Add(loaiXe);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(loaiXe);
         }
+
 
         public IActionResult Edit(int id)
         {
