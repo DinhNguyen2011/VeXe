@@ -41,7 +41,7 @@ namespace Asp.netWebDatVe.Controllers
 
             if (_context.Loaixes.Any(l => l.IdLoai == loaiXe.IdLoai))
             {
-                ModelState.AddModelError("IdLoai", "Mã loại xe đã tồn tại.");
+                ModelState.AddModelError("IdLoai", "Mã loại xe đã tồn tại, vui lòng nhập mã khác.");
                 return View(loaiXe);
             }
 

@@ -58,7 +58,7 @@
                     <label for="ngayDi" data-lang-key="index_search_ngay_di">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
                            min="@DateTime.Now.ToString("yyyy-MM-dd")"
-                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi : "")" />
+                           value="@(ViewBag.NgayDi != null ? ViewBag.NgayDi : DateTime.Now.ToString("yyyy-MM-dd"))" />
                 </div>
                 <div class="form-button">
                     <button type="submit" class="search-button" data-lang-key="index_search_button">Tìm chuyến xe</button>
