@@ -23,6 +23,8 @@ namespace Asp.netWebDatVe.Models
 
         [Required(ErrorMessage = "Vui lòng nhập Số điện thoại.")]
         [DisplayName("Số Điện Thoại")]
+        [StringLength(10, MinimumLength = 10, ErrorMessage = "Số điện thoại phải đủ 10 chữ số.")]
+        [RegularExpression(@"^(0[3|5|7|8|9])+([0-9]{8})$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         public string Sdt { get; set; } = null!;
 
         [DisplayName("Địa Chỉ")]

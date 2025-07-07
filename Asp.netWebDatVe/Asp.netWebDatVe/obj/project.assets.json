@@ -10907,11 +10907,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+      "projectUniqueName": "C:\\Users\\TTD\\Desktop\\Luan Van\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
       "projectName": "Asp.netWebDatVe",
-      "projectPath": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+      "projectPath": "C:\\Users\\TTD\\Desktop\\Luan Van\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
       "packagesPath": "C:\\Users\\TTD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\obj\\",
+      "outputPath": "C:\\Users\\TTD\\Desktop\\Luan Van\\Asp.netWebDatVe\\Asp.netWebDatVe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TTD\\AppData\\Roaming\\NuGet\\NuGet.Config",

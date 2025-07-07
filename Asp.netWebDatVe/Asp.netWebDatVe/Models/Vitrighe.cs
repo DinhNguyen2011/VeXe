@@ -19,8 +19,9 @@ namespace Asp.netWebDatVe.Models
         [Required(ErrorMessage = "Vui lòng chọn biển số xe")]
         [StringLength(20, ErrorMessage = "Biển số xe không được vượt quá 20 ký tự")]
         public string Bienso { get; set; } = null!;
-        [DisplayName("Tên ghế")]
 
+        [DisplayName("Tên ghế")]
+        [Required(ErrorMessage = "Vui lòng nhập vị trí")]
         [StringLength(50, ErrorMessage = "Tên vị trí không được vượt quá 50 ký tự")]
         [RegularExpression(@"^G\d+$", ErrorMessage = "Tên vị trí phải có định dạng G + số (ví dụ: G1, G2)")]
         public string? Tenvitri { get; set; }
