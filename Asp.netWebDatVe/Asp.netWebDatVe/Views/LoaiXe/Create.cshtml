@@ -10,17 +10,17 @@
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="IdLoai" class="control-label"></label>
-        <input asp-for="IdLoai" class="form-control" />
+        <input asp-for="IdLoai" class="form-control"  required/>
         <span asp-validation-for="IdLoai" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Tenloai" class="control-label"></label>
-        <input asp-for="Tenloai" class="form-control" />
+        <input asp-for="Tenloai" class="form-control"  />
         <span asp-validation-for="Tenloai" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Soghe" class="control-label"></label>
-        <input asp-for="Soghe" class="form-control" type="number" />
+        <input asp-for="Soghe" class="form-control" type="number" required />
         <span asp-validation-for="Soghe" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-success">Thêm mới</button>

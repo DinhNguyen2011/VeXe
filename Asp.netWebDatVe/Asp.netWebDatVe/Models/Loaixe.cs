@@ -13,14 +13,16 @@ namespace Asp.netWebDatVe.Models
         }
 
         [DisplayName("Mã Loại Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập mã loại.")]
+
         public int IdLoai { get; set; }
 
         [DisplayName("Tên Loại Xe")]
         [Required(ErrorMessage = "Vui lòng nhập tên loại xe.")]
         public string? Tenloai { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập số ghế.")]
 
         [DisplayName("Số Ghế")]
+        [Required(ErrorMessage = "Vui lòng nhập số ghế.")]
         public int Soghe { get; set; }
 
 
