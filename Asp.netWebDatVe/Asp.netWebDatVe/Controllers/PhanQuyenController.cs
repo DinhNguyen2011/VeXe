@@ -95,10 +95,16 @@ namespace Asp.netWebDatVe.Controllers
             // Kiểm tra xem quyền này có đang được sử dụng bởi người dùng nào không
             bool quyenDangDuocSuDung = _context.NguoiDungs.Any(nd => nd.MaQuyen == id);
             if (quyenDangDuocSuDung)
-            {
-                TempData["Error"] = "Không thể xóa phân quyền này vì đang được sử dụng bởi người dùng.";
-                return RedirectToAction(nameof(Index));
-            }
+                //{
+                //    TempData["Error"] = "Không thể xóa phân quyền này vì đang được sử dụng bởi người dùng.";
+                //    return RedirectToAction(nameof(Index));
+                //}
+                if (quyenDangDuocSuDung)
+                {
+                    ViewBag.Error = "Không thể xóa phân quyền này vì đang được sử dụng bởi người dùng.";
+                    return View(phanQuyen);
+                }
+
 
             return View(phanQuyen);
         }

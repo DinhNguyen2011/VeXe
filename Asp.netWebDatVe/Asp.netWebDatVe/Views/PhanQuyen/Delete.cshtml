@@ -7,27 +7,39 @@
 
 <h2>Xóa phân quyền</h2>
 
-@if (TempData["Error"] != null)
+@if (ViewBag.Error != null)
 {
     <div class="alert alert-danger">
-        @TempData["Error"]
+        @ViewBag.Error
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <p>Bạn có chắc chắn muốn xóa phân quyền này không?</p>
     </div>
 }
 
-<div class="alert alert-warning">
-    <p>Bạn có chắc chắn muốn xóa phân quyền này không?</p>
-    <table class="table">
-        <tr>
-            <th>Mã quyền:</th>
-            <td>@Model.MaQuyen</td>
-        </tr>
-        <tr>
-            <th>Tên quyền:</th>
-            <td>@Model.TenQuyen</td>
-        </tr>
-    </table>
+<table class="table">
+    <tr>
+        <th>Mã quyền:</th>
+        <td>@Model.MaQuyen</td>
+    </tr>
+    <tr>
+        <th>Tên quyền:</th>
+        <td>@Model.TenQuyen</td>
+    </tr>
+</table>
+
+@if (ViewBag.Error == null)
+{
     <form asp-action="DeleteConfirmed" asp-route-id="@Model.MaQuyen" method="post">
+        @Html.AntiForgeryToken()
         <button type="submit" class="btn btn-danger">Xóa</button>
         <a href="@Url.Action("Index", "PhanQuyen")" class="btn btn-secondary">Hủy</a>
     </form>
-</div>
+}
+else
+{
+    <a href="@Url.Action("Index", "PhanQuyen")" class="btn btn-secondary">Quay về danh sách</a>
+}

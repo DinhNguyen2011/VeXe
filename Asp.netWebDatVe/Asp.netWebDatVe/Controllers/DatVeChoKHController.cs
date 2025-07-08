@@ -219,7 +219,7 @@ namespace Asp.netWebDatVe.Controllers
                 Email = email,
                 NgayDat = DateTime.Now,
                 TongTien = totalPrice,
-                TrangThai = phuongThuc == "VNPAY" ? "Chưa thanh toán" : "Đã thanh toán"
+                TrangThai = phuongThuc == "Lỗi" ? "Chưa thanh toán" : "Đã thanh toán"
             };
 
             // Áp dụng khuyến mãi
@@ -247,7 +247,7 @@ namespace Asp.netWebDatVe.Controllers
                     Email = email,
                     GhiChu = ghiChu,
                     TenVe = chuyenXe.TenChuyenXe,
-                    TrangThai = phuongThuc == "VNPAY" ? "Chưa thanh toán" : "Đã xác nhận",
+                    TrangThai = phuongThuc == "Lỗi" ? "Chưa thanh toán" : "Đã thanh toán",
                     NgayDat = DateTime.Now,
                     Sđt = soDienThoai
                 };
@@ -267,7 +267,7 @@ namespace Asp.netWebDatVe.Controllers
                 PhuongThuc = phuongThuc,
                 SoTien = phieuDatVe.TongTien ?? totalPrice,
                 NgayThanhToan = DateTime.Now,
-                TrangThai = phuongThuc == "VNPAY" ? "Chưa thanh toán" : "Thành công",
+                TrangThai = phuongThuc == "Lỗi" ? "Chưa thanh toán" : "Thành công",
                 MaGiaoDich = phuongThuc == "VNPAY" ? null : "COUNTER_" + phieuDatVe.MaPhieu
             };
             _db.ThanhToans.Add(thanhToan);

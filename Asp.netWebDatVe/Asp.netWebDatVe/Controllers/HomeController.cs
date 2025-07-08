@@ -37,7 +37,7 @@ namespace Asp.netWebDatVe.Controllers
                 if (maQuyen == "1" || maQuyen == "2") // Admin hoặc Moderator
                 {
                     HttpContext.Session.Clear(); // Xóa session
-                    TempData["Error"] = "Tài khoản admin không được phép truy cập giao diện người dùng.";
+                  //  TempData["Error"] = "Tài khoản admin không được phép truy cập giao diện người dùng.";
                     return RedirectToAction("Login", "Account");
                 }
             }

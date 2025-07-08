@@ -39,7 +39,22 @@
             </tr>
             <tr>
                 <th>Trạng Thái:</th>
-                <td>@(Model.TrangThai == "True" ? "Đã Đặt" : "Chưa Đặt")</td>
+               @*   <td>@(Model.TrangThai == "Đã thanh toán" ? "Đã Đặt" : "Vé không hợp lệ")</td> vé hủy thì hiện  *@
+                <td>
+                    @if (Model.TrangThai == "Đã thanh toán")
+                {
+                    @:Ghế đã đặt
+                }
+                else if (Model.TrangThai =="Đã hủy")
+                {
+                    @:Vé hủy
+                }
+                else
+                {
+                    @:Vé không hợp lệ
+                }
+                </td>
+
             </tr>
             <tr>
                 <th>Ghi Chú:</th>

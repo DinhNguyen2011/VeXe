@@ -14,16 +14,19 @@ namespace Asp.netWebDatVe.Models
 
         [DisplayName("Mã Loại Xe")]
         [Required(ErrorMessage = "Vui lòng nhập mã loại.")]
+        public int? IdLoai { get; set; }
 
-        public int IdLoai { get; set; }
 
         [DisplayName("Tên Loại Xe")]
         [Required(ErrorMessage = "Vui lòng nhập tên loại xe.")]
+        [StringLength(100, ErrorMessage = "Tên loại xe không được vượt quá 100 ký tự.")]
         public string? Tenloai { get; set; }
+
+      
 
         [DisplayName("Số Ghế")]
         [Required(ErrorMessage = "Vui lòng nhập số ghế.")]
-        public int Soghe { get; set; }
+        public int? Soghe { get; set; }
 
 
         public virtual ICollection<Xe> Xes { get; set; }

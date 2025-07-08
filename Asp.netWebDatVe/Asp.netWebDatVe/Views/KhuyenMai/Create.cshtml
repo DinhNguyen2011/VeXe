@@ -73,24 +73,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#createForm").validate({
-                rules: {
-                    TenKhuyenMai: { required: true },
-                    PhanTramGiam: { required: true, min: 1, max: 100 },
-                    NgayBatDau: { required: true },
-                    NgayKetThuc: { required: true }
-                },
-                messages: {
-                    TenKhuyenMai: { required: "Vui lòng nhập tên khuyến mãi" },
-                    PhanTramGiam: {
-                        required: "Vui lòng nhập phần trăm giảm",
-                        min: "Phần trăm giảm phải từ 1",
-                        max: "Phần trăm giảm tối đa 100"
-                    },
-                    NgayBatDau: { required: "Vui lòng chọn ngày bắt đầu" },
-                    NgayKetThuc: { required: "Vui lòng chọn ngày kết thúc" }
-                }
-            });
-        });
+        // $(document).ready(function() {
+        //     $("#createForm").validate({
+        //         rules: {
+        //             TenKhuyenMai: { required: true },
+        //             PhanTramGiam: { required: true, min: 1, max: 100 },
+        //             NgayBatDau: { required: true },
+        //             NgayKetThuc: { required: true }
+        //         },
+        //         messages: {
+        //             TenKhuyenMai: { required: "Vui lòng nhập tên khuyến mãi" },
+        //             PhanTramGiam: {
+        //                 required: "Vui lòng nhập phần trăm giảm",
+        //                 min: "Phần trăm giảm phải từ 1",
+        //                 max: "Phần trăm giảm tối đa 100"
+        //             },
+        //             NgayBatDau: { required: "Vui lòng chọn ngày bắt đầu" },
+        //             NgayKetThuc: { required: "Vui lòng chọn ngày kết thúc" }
+        //         }
+        //     });
+        // });
     </script>
