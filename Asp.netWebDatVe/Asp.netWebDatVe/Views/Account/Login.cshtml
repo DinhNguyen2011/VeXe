@@ -51,9 +51,9 @@
                             <div class="alert alert-danger">@ViewBag.error</div>
                         }
                         <!-- Trong Login.cshtml -->
-                        @if (TempData["Success"] != null)
+                        @if (TempData["Successs"] != null)
                         {
-                            <div class="alert alert-success">@TempData["Success"]</div>
+                            <div class="alert alert-success">@TempData["Successs"]</div>
                         }
                         <form asp-action="Login" method="post">
                           

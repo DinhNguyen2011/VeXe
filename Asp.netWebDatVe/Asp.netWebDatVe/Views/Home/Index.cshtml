@@ -1,9 +1,12 @@
-﻿@{
+﻿<!-- Khai báo tiêu đề và lk CSS Nhập ngày đi -->
+@{
     ViewData["Title"] = "Trang chủ";
 }
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <link rel="stylesheet" href="~/css/tuyenxeindex.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 @if (ViewData["UserName"] != null)
 {
     <div class="welcome-section text-center mb-4">
@@ -11,21 +14,30 @@
         <p data-lang-key="index_welcome_sub">Khám phá các chuyến xe phù hợp với bạn hôm nay.</p>
     </div>
 }
+
+<!--  2. Banner -->
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
         <div class="intro-section fade-in-left">
             <h1 data-lang-key="index_luxury_title">Khánh An Luxury</h1>
             <h3 data-lang-key="index_luxury_subtitle">Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
         </div>
+
+     
         <div class="search-form fade-in-right">
             @if (ViewBag.Mes != null)
             {
                 <div class="alert alert-danger" role="alert">
                     @ViewBag.Mes
-                </div>
+                </div> <!-- báo lỗi khi ko thấy chuyến xe -->
             }
+            
+            
+            @*  Form tìm kiếm chuyến xe *@
             <form id="searchForm" asp-action="Index" method="get">
                 <input type="hidden" name="isSubmitted" value="true" />
+
+                <!-- Nhập  điểm đi -->
                 <div class="form-group">
                     <label for="diemDi" data-lang-key="index_search_diem_di">Điểm đi</label>
                     <input list="danhSachDiemDi" class="form-control" id="diemDi" name="diemDi"
@@ -40,6 +52,8 @@
                         }
                     </datalist>
                 </div>
+
+                <!-- Nhập diểm đến  -->
                 <div class="form-group">
                     <label for="diemDen" data-lang-key="index_search_diem_den">Điểm đến</label>
                     <input list="danhSachDiemDen" class="form-control" id="diemDen" name="diemDen"
@@ -54,6 +68,8 @@
                         }
                     </datalist>
                 </div>
+
+                <!-- Nhập ngày đi -->
                 <div class="form-group">
                     <label for="ngayDi" data-lang-key="index_search_ngay_di">Ngày đi</label>
                     <input type="date" class="form-control" id="ngayDi" name="ngayDi"
@@ -67,12 +83,14 @@
         </div>
     </div>
 </div>
-<!-- Modal Loading -->
+
+<!-- Modal Loading  -->
 <div id="loadingModal" class="modal">
     <div class="modal-content">
         <p data-lang-key="index_loading_message">Đang tìm chuyến...</p>
     </div>
 </div>
+
 <!-- Kết quả tìm kiếm -->
 <div class="search-results mt-5">
     <noscript>
@@ -81,6 +99,7 @@
     @if (ViewBag.TuyenXe != null && ViewBag.ChuyenXes?.Count > 0)
     {
         <div class="row">
+
             <!-- Bộ lọc -->
             <div class="col-md-4">
                 <div class="card" style="margin: 35px 0px !important;">
@@ -107,6 +126,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Danh sách chuyến xe -->
             <div class="col-md-8">
                
@@ -149,7 +169,10 @@
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
+
     <!-- Hướng dẫn đặt xe -->
+    <!-- 4 bước đặt xe: chọn hành trình -> chọn chuyến -> thanh toán -> xác nhận -->
+
     <div class="booking-steps text-center mt-5">
         <h4 class="fw-bold mb-4" style="color: #1d6b33 !important;" data-lang-key="index_booking_steps_title">Dễ dàng đặt xe trên Website của Khánh An Luxury</h4>
         <div class="row justify-content-center">
@@ -197,6 +220,7 @@
             </div>
         </div>
     </div>
+
     <!-- Về Khánh An Luxury -->
     <div class="about-section mt-5">
         <div class="row align-items-center">
@@ -234,10 +258,12 @@
             </div>
         </div>
     </div>
+
     <!-- Tiện ích dịch vụ -->
     <div class="container my-5 service-section">
         <h2 class="text-center text-success mb-4" data-lang-key="index_services_title">DỊCH VỤ KHÁNH AN</h2>
         <div class="row text-center">
+
             <!-- Tiện nghi cao cấp -->
             <div class="col-md-4">
                 <img src="~/images/tien-nghi.jpg" alt="Tiện nghi cao cấp" class="img-fluid rounded mb-3">
@@ -251,6 +277,7 @@
                     <li data-lang-key="index_service_comfort_item3">✔ Xe luôn được vệ sinh sau mỗi chuyến đi</li>
                 </ul>
             </div>
+
             <!-- Linh hoạt lịch trình -->
             <div class="col-md-4">
                 <img src="~/images/lich-trinh.png" alt="Linh hoạt lịch trình" class="img-fluid rounded mb-3">
@@ -264,6 +291,7 @@
                     <li data-lang-key="index_service_schedule_item3">✔ Đa dạng hạng ghế và mức giá</li>
                 </ul>
             </div>
+
             <!-- Dịch vụ chuyên nghiệp -->
             <div class="col-md-4">
                 <img src="~/images/dich-vu.png" alt="Dịch vụ chuyên nghiệp" class="img-fluid rounded mb-3">

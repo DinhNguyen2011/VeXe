@@ -4,20 +4,22 @@ namespace Asp.netWebDatVe.Models
 {
     public class XeModel
     {
-        [Required(ErrorMessage = "Biển số không được để trống.")]
+        [Display(Name = "Biển Số Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập Biển số xe")]
         public string Bienso { get; set; } = null!;
 
-        [Required(ErrorMessage = "Loại xe không được để trống.")]
+        [Display(Name = "Loại Xe")]
+        [Required(ErrorMessage = "Vui lòng chọn Loại xe")]
         public int IdLoai { get; set; }
 
-        [Display(Name = "Tên xe")]
+        [Display(Name = "Tên Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập Tên xe")]
         public string? Tenxe { get; set; }
 
-        [Display(Name = "Hình ảnh mới")]
-        public IFormFile? HinhAnh { get; set; } // File ảnh mới từ người dùng
+        [Display(Name = "Hình Ảnh")]
+        public IFormFile? HinhAnh { get; set; } // Giữ IFormFile để xử lý file upload
 
-        [Display(Name = "Hình ảnh hiện tại")]
-        public string? HinhAnhUrl { get; set; } // Đường dẫn ảnh cũ để hiển thị
+        public string? HinhAnhUrl { get; set; } // Lưu đường dẫn ảnh để hiển thị
 
     }
 }

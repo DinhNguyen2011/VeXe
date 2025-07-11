@@ -65,6 +65,7 @@
             </div>
         </div>
     </div>
+
     <header id="header">
         <nav id="primary-header" class="navbar navbar-expand-lg py-4">
             <div class="container-fluid padding-side">
@@ -79,6 +80,7 @@
                             <a href="#" class="language-flag active" data-lang="vi" title="Tiếng Việt">
                                 <img src="~/images/vn-flag.png" alt="Vietnam Flag" class="flag-icon">
                             </a>
+                            <!---->
                             <a href="#" class="language-flag" data-lang="en" title="English">
                                 <img src="~/images/uk-flag.png" alt="UK Flag" class="flag-icon">
                             </a>
@@ -140,9 +142,16 @@
             </div>
         </nav>
     </header>
+
+    <!---------------------------------------->
+
+    <!--Home -->
     <div class="container">
         @RenderBody()
-    </div>
+    </div> 
+
+    <!---------------------------------------->
+
     <section id="footer" class="footer bg-light pt-5">
         <div class="container">
             <div class="row">
@@ -207,6 +216,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="~/js/script.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+
+
+
     <!-- JavaScript cho chuyển đổi ngôn ngữ -->
     <script>
         // Dữ liệu ngôn ngữ
@@ -377,6 +390,10 @@
         seats: "ghế"
                
             },
+
+
+
+
             en: {
                 title: "Khanh An - Book Bus Tickets Online",
                 meta_keywords: "Book bus tickets, Phuong Trang tickets, Bus travel, Online bus tickets",
@@ -543,6 +560,9 @@
         seats: "seats"
             }
         };
+
+
+
         // Hàm chuyển đổi ngôn ngữ
         function changeLanguage(lang) {
             document.querySelectorAll('[data-lang-key]').forEach(element => {

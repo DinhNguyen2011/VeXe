@@ -34,7 +34,7 @@ namespace Asp.netWebDatVe.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var maQuyen = User.FindFirst(ClaimTypes.Role)?.Value;
-                if (maQuyen == "1" || maQuyen == "2") // Admin hoặc Moderator
+                if (maQuyen == "1" || maQuyen == "2") // Admin hoặc NV
                 {
                     HttpContext.Session.Clear(); // Xóa session
                   //  TempData["Error"] = "Tài khoản admin không được phép truy cập giao diện người dùng.";

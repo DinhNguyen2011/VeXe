@@ -9,22 +9,25 @@ using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netWebDatVe.Controllers
 {
     public class AccountController : Controller
     {
+       
         private readonly QLDatVeContext _context;
-
         public AccountController(QLDatVeContext context)
         {
-            _context = context;
+            _context = context; 
         }
+        //mã hóa chuỗi khi ng dùng dn
         private bool IsBCryptHash(string password)
         {
         
             return password != null && password.StartsWith("$2") && password.Length >= 50;
         }
+
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
@@ -93,7 +96,7 @@ namespace Asp.netWebDatVe.Controllers
             HttpContext.Session.SetString("UserName", user.HoTen ?? user.Email);
             HttpContext.Session.SetInt32("UserId", user.Id);
 
-            TempData["Success"] = "Đăng nhập!";
+            TempData["Successs"] = "Đăng nhập!";
 
             // Xử lý ReturnUrl
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))

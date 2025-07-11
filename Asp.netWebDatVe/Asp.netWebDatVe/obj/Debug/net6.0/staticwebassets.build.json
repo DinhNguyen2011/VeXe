@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yGBQrg8YbxXC4nZ0IARyOuGEjDHeyhv3PvGbADQc2X0=",
+  "Hash": "6mFcm74JXXVVZXkHCmzapsDOAJUSKx7MeyAWsTnzw58=",
   "Source": "Asp.netWebDatVe",
   "BasePath": "_content/Asp.netWebDatVe",
   "Mode": "Default",
@@ -9933,6 +9933,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\noiquy.css"
+    },
+    {
+      "Identity": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\PaymentCallback.css",
+      "SourceId": "Asp.netWebDatVe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\",
+      "BasePath": "_content/Asp.netWebDatVe",
+      "RelativePath": "css/PaymentCallback.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\PaymentCallback.css"
     },
     {
       "Identity": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\PhieuDatVe.css",

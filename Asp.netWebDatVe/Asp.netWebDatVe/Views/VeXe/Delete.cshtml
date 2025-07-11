@@ -7,7 +7,7 @@
 
 <h1>Xóa vé</h1>
 
-<h3>Bạn có muốn xóa vé này?</h3>
+<h3>Bạn có muốn xóa vé này không?</h3>
 <div>
     <h4>VeXe</h4>
     <hr />
@@ -64,7 +64,9 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="MaVe" />
-        <input type="submit" value="Xóa" class="btn btn-danger" /> |
-        <a asp-action="Index">Trở về</a>
+        @* <input type="submit" value="Xóa" class="btn btn-danger" /> | *@
+        <input type="submit" value="Xóa" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa vé này không?');" />
+        <a asp-action="Index" class="btn btn-secondary ms-2">Trở về</a>
+
     </form>
 </div>

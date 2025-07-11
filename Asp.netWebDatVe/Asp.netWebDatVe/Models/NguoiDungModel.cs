@@ -9,13 +9,13 @@ namespace Asp.netWebDatVe.Models
         public int Id { get; set; }
 
         [DisplayName("Email")]
-        [Required(ErrorMessage = "Email là bắt buộc.")]
+        [Required(ErrorMessage = "Vui lòng nhập Email.")]
         [EmailAddress(ErrorMessage = "Địa chỉ email không hợp lệ.")]
         public string Email { get; set; } = null!;
 
         [DisplayName("SĐT")]
         [StringLength(10, ErrorMessage = "Số điện thoại không được vượt quá 10 ký tự.")]
-        [Required(ErrorMessage = "Vui lòng nhập SĐT.")]
+        [Required(ErrorMessage = "Vui lòng nhập Số điện thoại.")]
 
         public string? Sdt { get; set; }
 

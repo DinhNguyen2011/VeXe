@@ -31,14 +31,20 @@
                 <td>@Html.DisplayFor(modelItem => item.NgayDat)</td>
                 <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.MaVe">Chi tiết</a> |
-                    <a asp-action="Delete" asp-route-id="@item.MaVe">Xóa</a>
+                    <a asp-action="Details" asp-route-id="@item.MaVe" class="btn btn-info btn-sm">
+                        <i class="bi bi-eye"></i> Chi tiết
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.MaVe" class="btn btn-danger btn-sm ms-1" onclick="return confirm('Bạn có chắc muốn xóa vé này không?');">
+                        <i class="bi bi-trash"></i> Xóa
+                    </a>
                 </td>
+
             </tr>
         }
     </tbody>
 </table>
 
 <div>
-    <a asp-action="Index">Quay lại danh sách vé</a>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Quay lại</a>
+
 </div>

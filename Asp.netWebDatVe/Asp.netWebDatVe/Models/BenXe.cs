@@ -16,17 +16,20 @@ namespace Asp.netWebDatVe.Models
         [DisplayName("Mã Bến Xe")]
         public int MaBenXe { get; set; }
 
-        [Required(ErrorMessage = "Tên bến xe không được để trống")]
+        [Required(ErrorMessage = "Vui lòng nhập Tên bến xe ")]
         [DisplayName("Tên Bến Xe")]
         public string TenBenXe { get; set; } = null!;
 
-        [Required(ErrorMessage = "Địa chỉ không được để trống")]
+        [Required(ErrorMessage = "Vui lòng nhập Địa chỉ")]
         [DisplayName("Địa Chỉ")]
         public string DiaChi { get; set; } = null!;
 
-        [Required(ErrorMessage = "Số điện thoại không được để trống")]
-        [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
+      
+
+        [Required(ErrorMessage = "Vui lòng nhập Số điện thoại.")]
         [DisplayName("Số Điện Thoại")]
+        [StringLength(10, MinimumLength = 10, ErrorMessage = "Số điện thoại phải đủ 10 chữ số.")]
+        [RegularExpression(@"^(0[3|5|7|8|9])+([0-9]{8})$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         public string Sdt { get; set; } = null!;
 
         [DisplayName("Thành Phố")]

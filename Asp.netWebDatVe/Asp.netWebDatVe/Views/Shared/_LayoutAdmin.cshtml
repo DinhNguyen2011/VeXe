@@ -19,9 +19,6 @@
                 <a class="navbar-brand brand-logo" href="@Url.Action("Index","HomeAdmin")"><img src="../../LayoutAdmin/assets/images/main-lg.png" alt="logo" style="height:60px; width:250px !important; border-radius:8px !important; " /></a>
                 <a class="navbar-brand brand-logo-mini" href="@Url.Action("Index","HomeAdmin")"><img src="../../LayoutAdmin/assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
-
-
-
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="mdi mdi-menu"></span>
@@ -29,7 +26,6 @@
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown">
-                          
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black"> Hi, @ViewData["UserName"]</p>
                             </div>
@@ -47,8 +43,6 @@
                 </ul>
             </div>
         </nav>
-
-
 
         <div class="container-fluid page-body-wrapper">
             <!-- Sidebar -->
@@ -78,14 +72,12 @@
                             <i class="mdi mdi-playstation menu-icon"></i>
                         </a>
                     </li>
-                  
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","TuyenXe")">
                             <span class="menu-title">Quản lý tuyến xe</span>
                             <i class="mdi mdi-road-variant menu-icon"></i>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","ChuyenXe")">
                             <span class="menu-title">Quản lý chuyến xe</span>
@@ -110,7 +102,6 @@
                             <i class="mdi mdi-ticket-confirmation menu-icon"></i>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","Vitrighe")">
                             <span class="menu-title">Quản lý vị trí ghế</span>
@@ -119,14 +110,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","NguoiDung")">
-
                             <span class="menu-title">Quản lý khách hàng</span>
                             <i class="mdi mdi-account menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("DanhSach","LienHeVoiChungToi")">
-
                             <span class="menu-title">Quản lý liên hệ</span>
                             <i class="mdi mdi-account menu-icon"></i>
                         </a>
@@ -147,7 +136,7 @@
                         <a class="nav-link" href="@Url.Action("Index","PhanQuyen")">
                             <span class="menu-title">Quản lý phân quyền</span>
                             <i class="mdi mdi-account menu-icon"></i>
-                        </a>    
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","LoaiXe")">
@@ -155,16 +144,13 @@
                             <i class="mdi mdi-car menu-icon"></i>
                         </a>
                     </li>
-                   
                 </ul>
             </nav>
-
 
             <div class="main-panel">
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
-
                 <footer class="footer">
                 </footer>
             </div>
@@ -177,5 +163,8 @@
     <script src="../../LayoutAdmin/assets/js/off-canvas.js"></script>
     <script src="../../LayoutAdmin/assets/js/hoverable-collapse.js"></script>
     <script src="../../LayoutAdmin/assets/js/misc.js"></script>
+
+    <!-- Render section Scripts -->
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

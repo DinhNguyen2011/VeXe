@@ -1,54 +1,48 @@
 ﻿@model Asp.netWebDatVe.Models.Xe
 
 @{
-    ViewData["Title"] = "Xóa thông tin xe";
+    ViewData["Title"] = "Xóa Xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Xóa Thông Tin Xe</h1>
+<h2>Xóa xe</h2>
 
-<h3>Bạn có chắc chắn muốn xóa thông tin xe này không?</h3>
+<div class="alert alert-warning">
+    <p>⚠️ Bạn có chắc chắn muốn xóa xe này không?</p>
 
-<div>
-    <h4>Thông tin xe</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Biển số</dt>
-        <dd class="col-sm-10">@Model.Bienso</dd>
+    <table class="table table-bordered">
+        <tr>
+            <th>Biển số:</th>
+            <td>@Html.DisplayFor(model => model.Bienso)</td>
+        </tr>
+        <tr>
+            <th>Tên xe:</th>
+            <td>@Html.DisplayFor(model => model.Tenxe)</td>
+        </tr>
 
-        <dt class="col-sm-2">Tên xe</dt>
-        <dd class="col-sm-10">@Model.Tenxe</dd>
+        @* lỗi *@
+        <tr>
+            <th>Loại xe:</th>
+            <td>@Model.IdLoaiNavigation?.Tenloai</td>
+        </tr>
+        <tr>
+            <th>Hình ảnh:</th>
+            <td><img src="@Model.HinhAnh" width="150" height="100" alt="Hình ảnh xe" /></td>
+        </tr>
+    </table>
 
-        <dt class="col-sm-2">Hình ảnh</dt>
-        <dd class="col-sm-10">
-            @if (!string.IsNullOrEmpty(Model.HinhAnh))
-            {
-                <img src="@Url.Content(Model.HinhAnh)" width="150" height="100" alt="Hình ảnh xe" />
-            }
-            else
-            {
-                <span>Không có hình ảnh.</span>
-            }
-        </dd>
-    </dl>
-
-    <!-- Kiểm tra điều kiện cho phép xóa -->
-    @if (ViewBag.CanDelete == true)
+    @if (!ViewBag.CanDelete)
     {
-        <form method="post" asp-action="DeleteConfirmed" asp-controller="Xe">
-            <input type="hidden" name="id" value="@Model.Bienso" />
-            <div class="alert alert-warning">
-                <p>Thao tác này không thể hoàn tác. Bạn có chắc chắn muốn xóa xe này?</p>
-            </div>
-            <button type="submit" class="btn btn-danger">Xóa</button>
-            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-        </form>
+        <div class="alert alert-danger">
+            <p><strong>Không thể xóa:</strong> Xe này đang được sử dụng trong các chuyến xe.</p>
+            <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+        </div>
     }
     else
     {
-        <div class="alert alert-danger">
-            <p>Không thể xóa xe này vì đang liên kết với chuyến xe khác.</p>
-        </div>
-        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        <form asp-action="DeleteConfirmed" asp-route-id="@Model.Bienso" method="post">
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </form>
     }
 </div>

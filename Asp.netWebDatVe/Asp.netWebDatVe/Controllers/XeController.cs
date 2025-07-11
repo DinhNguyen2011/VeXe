@@ -8,41 +8,40 @@ namespace Asp.netWebDatVe.Controllers
     [Authorize(Roles = "1")]
     public class XeController : Controller
     {
-        private QLDatVeContext db =new QLDatVeContext();
+        private readonly QLDatVeContext db = new QLDatVeContext();
+
         public IActionResult Index()
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            ViewBag.xe = db.Xes.Include(x=>x.IdLoaiNavigation).ToList();
-           
+            ViewBag.xe = db.Xes.Include(x => x.IdLoaiNavigation).ToList();
             return View();
         }
+
         public IActionResult Create()
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            ViewBag.LoaiXe = db.Loaixes.ToList(); 
+            ViewBag.LoaiXe = db.Loaixes.ToList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Models.XeModel xe)
+        public ActionResult Create([FromForm] XeModel xe)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+
             if (!ModelState.IsValid)
             {
-
                 ViewBag.LoaiXe = db.Loaixes.ToList();
                 return View(xe);
             }
 
             var existingXe = db.Xes.Find(xe.Bienso);
-
             if (existingXe != null)
             {
-            
                 ModelState.AddModelError("Bienso", "Biển số xe này đã tồn tại!");
                 ViewBag.LoaiXe = db.Loaixes.ToList();
                 return View(xe);
@@ -55,10 +54,8 @@ namespace Asp.netWebDatVe.Controllers
                 Tenxe = xe.Tenxe
             };
 
-
             if (xe.HinhAnh != null && xe.HinhAnh.Length > 0)
             {
-         
                 var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
                 var extension = Path.GetExtension(xe.HinhAnh.FileName).ToLower();
 
@@ -69,19 +66,19 @@ namespace Asp.netWebDatVe.Controllers
                     return View(xe);
                 }
 
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", xe.Bienso + "_" + xe.HinhAnh.FileName);
+                var fileName = xe.Bienso + "_" + xe.HinhAnh.FileName;
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     xe.HinhAnh.CopyTo(stream);
                 }
 
-                newXe.HinhAnh = "~/images/" + xe.Bienso + "_" + xe.HinhAnh.FileName;
+                newXe.HinhAnh = "~/images/" + fileName;
             }
             else
             {
-            
-                newXe.HinhAnh = "~/images/default.png"; 
+                newXe.HinhAnh = "~/images/default.png";
             }
 
             db.Xes.Add(newXe);
@@ -89,6 +86,7 @@ namespace Asp.netWebDatVe.Controllers
 
             return RedirectToAction("Index");
         }
+
         public IActionResult Edit(string id)
         {
             var userName = HttpContext.Session.GetString("UserName");
@@ -99,19 +97,17 @@ namespace Asp.netWebDatVe.Controllers
                 return NotFound();
             }
 
-          
             var xeModel = new XeModel
             {
                 Bienso = xe.Bienso,
                 IdLoai = xe.IdLoai,
                 Tenxe = xe.Tenxe,
-                HinhAnhUrl = xe.HinhAnh // URL hình ảnh từ database
+                HinhAnhUrl = xe.HinhAnh // Lưu đường dẫn ảnh
             };
 
-            ViewBag.LoaiXe = db.Loaixes.ToList(); 
+            ViewBag.LoaiXe = db.Loaixes.ToList();
             return View(xeModel);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -119,6 +115,7 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+
             if (!ModelState.IsValid)
             {
                 ViewBag.LoaiXe = db.Loaixes.ToList();
@@ -134,7 +131,6 @@ namespace Asp.netWebDatVe.Controllers
             xe.Tenxe = xeModel.Tenxe;
             xe.IdLoai = xeModel.IdLoai;
 
-            // Xử lý hình ảnh
             if (xeModel.HinhAnh != null && xeModel.HinhAnh.Length > 0)
             {
                 var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
@@ -148,9 +144,9 @@ namespace Asp.netWebDatVe.Controllers
                 }
 
                 // Xóa ảnh cũ nếu có
-                if (!string.IsNullOrEmpty(xe.HinhAnh))
+                if (!string.IsNullOrEmpty(xe.HinhAnh) && xe.HinhAnh != "~/images/default.png")
                 {
-                    var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", xe.HinhAnh.TrimStart('~', '/'));
+                    var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", xe.HinhAnh.TrimStart('~'));
                     if (System.IO.File.Exists(oldFilePath))
                     {
                         System.IO.File.Delete(oldFilePath);
@@ -183,7 +179,7 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             var xe = db.Xes
-                .Include(x => x.IdLoaiNavigation) 
+                .Include(x => x.IdLoaiNavigation)
                 .FirstOrDefault(x => x.Bienso == id);
 
             if (xe == null)
@@ -193,7 +189,7 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(xe);
         }
- 
+
         public async Task<IActionResult> Delete(string id)
         {
             var userName = HttpContext.Session.GetString("UserName");
@@ -205,6 +201,7 @@ namespace Asp.netWebDatVe.Controllers
 
             var xe = await db.Xes
                 .Include(x => x.ChuyenXes)
+                .Include(x => x.IdLoaiNavigation)   
                 .FirstOrDefaultAsync(m => m.Bienso == id);
 
             if (xe == null)
@@ -212,16 +209,12 @@ namespace Asp.netWebDatVe.Controllers
                 return NotFound();
             }
 
-            
             var isInChuyenXes = xe.ChuyenXes.Any(c => c.BienSoXe == id);
-
-        
             ViewBag.CanDelete = !isInChuyenXes;
 
             return View(xe);
         }
 
-    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -236,10 +229,9 @@ namespace Asp.netWebDatVe.Controllers
             var xe = await db.Xes.FindAsync(id);
             if (xe != null)
             {
-         
-                if (!string.IsNullOrEmpty(xe.HinhAnh))
+                if (!string.IsNullOrEmpty(xe.HinhAnh) && xe.HinhAnh != "~/images/default.png")
                 {
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", xe.HinhAnh.TrimStart('~', '/'));
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", xe.HinhAnh.TrimStart('~'));
                     if (System.IO.File.Exists(filePath))
                     {
                         System.IO.File.Delete(filePath);
@@ -252,8 +244,5 @@ namespace Asp.netWebDatVe.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-
     }
-
 }

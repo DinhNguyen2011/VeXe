@@ -2677,6 +2677,10 @@
       "PackagePath": "staticwebassets\\css\\LienHeVoiChungToi.css"
     },
     {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\PaymentCallback.css",
+      "PackagePath": "staticwebassets\\css\\PaymentCallback.css"
+    },
+    {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\PhieuDatVe.css",
       "PackagePath": "staticwebassets\\css\\PhieuDatVe.css"
     },

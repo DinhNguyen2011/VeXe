@@ -3,42 +3,40 @@
 @{
     ViewData["Title"] = "Thêm Xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-
 }
 
 <h2>@ViewData["Title"]</h2>
-
 <div class="container mt-3">
     <form asp-action="Create" asp-controller="Xe" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <div class="mb-3">
-            <label for="Bienso" class="form-label">Biển Số</label>
-            <input type="text" id="Bienso" name="Bienso" class="form-control" required />
+            <label asp-for="Bienso" class="form-label"></label>
+            <input asp-for="Bienso" class="form-control" />
+            <span asp-validation-for="Bienso" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label for="IdLoai" class="form-label">Loại Xe</label>
-            <select id="IdLoai" name="IdLoai" class="form-select" required>
+            <label asp-for="IdLoai" class="form-label"></label>
+            <select asp-for="IdLoai" class="form-select" asp-items="@(new SelectList(ViewBag.LoaiXe, "IdLoai", "Tenloai"))">
                 <option value="" disabled selected>Chọn loại xe</option>
-                @foreach (var loaiXe in ViewBag.LoaiXe as List<Asp.netWebDatVe.Models.Loaixe>)
-                {
-                    <option value="@loaiXe.IdLoai">@loaiXe.Tenloai</option>
-                }
             </select>
+            <span asp-validation-for="IdLoai" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label for="Tenxe" class="form-label">Tên Xe</label>
-            <input type="text" id="Tenxe" name="Tenxe" class="form-control" />
+            <label asp-for="Tenxe" class="form-label"></label>
+            <input asp-for="Tenxe" class="form-control" />
+            <span asp-validation-for="Tenxe" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-   
             <div class="mb-2">
                 <img id="preview" src="#" width="150" height="100" class="hidden border" alt="Preview Image" />
             </div>
-
-            <label for="HinhAnh" class="form-label">Hình Ảnh</label>
-            <input type="file" id="HinhAnh" name="HinhAnh" class="form-control" accept="image/*" />
+            <label asp-for="HinhAnh" class="form-label"></label>
+            <input asp-for="HinhAnh" class="form-control" accept="image/*" />
+            <span asp-validation-for="HinhAnh" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">Lưu</button>
@@ -46,31 +44,30 @@
     </form>
 </div>
 
-<script>
-    document.getElementById("HinhAnh").addEventListener("change", function (event) {
-        const file = event.target.files[0]; // Lấy file được chọn
-        const preview = document.getElementById("preview"); // Khung hiển thị ảnh
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById("HinhAnh").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("preview");
 
-        if (file) {
-       
-            if (file.type.startsWith("image/")) {
-                const reader = new FileReader();
-
-                
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                    preview.classList.remove("hidden");
-                };
-
-                reader.readAsDataURL(file); // Đọc file dưới dạng DataURL
+            if (file) {
+                if (file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                        preview.classList.remove("hidden");
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Vui lòng chọn file ảnh hợp lệ!");
+                    preview.src = "#";
+                    preview.classList.add("hidden");
+                }
             } else {
-                alert("Vui lòng chọn file ảnh hợp lệ!");
                 preview.src = "#";
                 preview.classList.add("hidden");
             }
-        } else {
-            preview.src = "#";
-            preview.classList.add("hidden");
-        }
-    });
-</script>
+        });
+    </script>
+}

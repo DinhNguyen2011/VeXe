@@ -85,9 +85,12 @@
                 <td>@item.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@item.GiaVe?.ToString("N0") VNĐ</td>
                 <td>@item.BienSoXe</td>
-                    <td>@item.MaTaiXeNavigation?.HoTen</td>
-                    <td>@item.MaNhanVien1Navigation?.HoTen</td>
-                    <td>@item.MaNhanVienNavigation?.HoTen</td>
+            
+
+                    <td>@item.MaTaiXeNavigation?.HoTen</td>           <!-- Cột Tài xế -->
+                    <td>@item.MaNhanVien1Navigation?.HoTen</td>       <!-- Cột Phụ xe -->
+                    <td>@item.MaNhanVienNavigation?.HoTen</td>        <!-- Cột NV hỗ trợ -->
+
                 <td>
                         <a asp-controller="ChuyenXe" asp-action="Edit" asp-route-id="@item.MaChuyen" class="btn btn-warning">Sửa</a>
                     <a asp-controller="ChuyenXe" asp-action="Details" asp-route-id="@item.MaChuyen" class="btn btn-warning">Chi tiết</a>

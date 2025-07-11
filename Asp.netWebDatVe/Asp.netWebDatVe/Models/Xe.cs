@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Asp.netWebDatVe.Models
 {
@@ -12,17 +13,20 @@ namespace Asp.netWebDatVe.Models
             Vitrighes = new HashSet<Vitrighe>();
         }
 
-        [DisplayName("Biển Số Xe")]
+        [Display(Name = "Biển Số Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập Biển số xe")]
         public string Bienso { get; set; } = null!;
 
-        [DisplayName("Loại Xe")]
+        [Display(Name = "Loại Xe")]
+        [Required(ErrorMessage = "Vui lòng chọn Loại xe")]
         public int IdLoai { get; set; }
 
-        [DisplayName("Tên Xe")]
+        [Display(Name = "Tên Xe")]
+        [Required(ErrorMessage = "Vui lòng nhập Tên xe")]
         public string? Tenxe { get; set; }
 
-        [DisplayName("Hình Ảnh Xe")]
-        public string? HinhAnh { get; set; }
+        [Display(Name = "Hình Ảnh")]
+        public string? HinhAnh { get; set; } // Đổi từ IFormFile? sang string?
 
         public virtual Loaixe IdLoaiNavigation { get; set; } = null!;
         public virtual ICollection<ChuyenXe> ChuyenXes { get; set; }
