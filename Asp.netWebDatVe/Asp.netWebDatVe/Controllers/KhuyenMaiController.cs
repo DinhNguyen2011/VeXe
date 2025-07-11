@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,11 +20,12 @@ namespace Asp.netWebDatVe.Controllers
         }
 
         // GET: KhuyenMai
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            return View(await _context.KhuyenMais.ToListAsync());
+            ViewBag.km = _context.KhuyenMais.ToList();
+            return View();
         }
 
         // GET: KhuyenMai/Create
@@ -31,51 +33,55 @@ namespace Asp.netWebDatVe.Controllers
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            return View(new KhuyenMai
-            {
-                NgayBatDau = DateTime.Now,
-                NgayKetThuc = DateTime.Now.AddDays(7)
-            });
+            return View();
         }
+
         // POST: KhuyenMai/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TenKhuyenMai,MoTa,PhanTramGiam,NgayBatDau,NgayKetThuc")] KhuyenMai khuyenMai)
+        public async Task<IActionResult> Create(KhuyenMai model, IFormFile? HinhAnh)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
 
-            if (khuyenMai.NgayBatDau >= khuyenMai.NgayKetThuc)
-            {
-                ModelState.AddModelError("NgayKetThuc", "Ngày kết thúc phải sau ngày bắt đầu.");
-            }
-
-            if (khuyenMai.PhanTramGiam <= 0 || khuyenMai.PhanTramGiam > 100)
-            {
-                ModelState.AddModelError("PhanTramGiam", "Phần trăm giảm phải từ 1 đến 100.");
-            }
-
-            if (_context.KhuyenMais.Any(k => k.TenKhuyenMai == khuyenMai.TenKhuyenMai))
-            {
-                ModelState.AddModelError("TenKhuyenMai", "Tên khuyến mãi đã tồn tại.");
-            }
-
             if (ModelState.IsValid)
             {
-                try
+                // Check for duplicate TenKhuyenMai
+                var tenKhuyenMaiExists = await _context.KhuyenMais.AnyAsync(km => km.TenKhuyenMai == model.TenKhuyenMai);
+                if (tenKhuyenMaiExists)
                 {
-                    _context.Add(khuyenMai);
-                    await _context.SaveChangesAsync();
-                    TempData["Message"] = "Thêm khuyến mãi thành công.";
-                    return RedirectToAction(nameof(Index));
+                    ModelState.AddModelError("TenKhuyenMai", "Tên khuyến mãi đã tồn tại. Vui lòng sử dụng tên khác.");
+                    return View(model);
                 }
-                catch (DbUpdateException ex)
+
+                // Handle image upload
+                if (HinhAnh != null && HinhAnh.Length > 0)
                 {
-                    ModelState.AddModelError("", $"Lỗi khi thêm: {ex.InnerException?.Message ?? ex.Message}");
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    var extension = Path.GetExtension(HinhAnh.FileName).ToLowerInvariant();
+                    if (!allowedExtensions.Contains(extension))
+                    {
+                        ModelState.AddModelError("HinhAnh", "Chỉ chấp nhận các định dạng ảnh: .jpg, .jpeg, .png, .gif.");
+                        return View(model);
+                    }
+
+                    var fileName = Guid.NewGuid().ToString() + extension; // Unique filename to avoid conflicts
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await HinhAnh.CopyToAsync(stream);
+                    }
+
+                    model.HinhAnh = "~/images/" + fileName;
                 }
+
+                await _context.KhuyenMais.AddAsync(model);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(khuyenMai);
+            return View(model);
         }
 
         // GET: KhuyenMai/Edit/5
@@ -93,63 +99,89 @@ namespace Asp.netWebDatVe.Controllers
             {
                 return NotFound();
             }
+
             return View(khuyenMai);
         }
 
         // POST: KhuyenMai/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MaKhuyenMai,TenKhuyenMai,MoTa,PhanTramGiam,NgayBatDau,NgayKetThuc")] KhuyenMai khuyenMai)
+        public async Task<IActionResult> Edit(int id, KhuyenMai model, IFormFile? HinhAnh)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            if (id != khuyenMai.MaKhuyenMai)
+            if (id != model.MaKhuyenMai)
             {
                 return NotFound();
-            }
-
-            if (khuyenMai.NgayBatDau >= khuyenMai.NgayKetThuc)
-            {
-                ModelState.AddModelError("NgayKetThuc", "Ngày kết thúc phải sau ngày bắt đầu.");
-            }
-
-            if (khuyenMai.PhanTramGiam <= 0 || khuyenMai.PhanTramGiam > 100)
-            {
-                ModelState.AddModelError("PhanTramGiam", "Phần trăm giảm phải từ 1 đến 100.");
-            }
-
-            if (_context.KhuyenMais.Any(k => k.TenKhuyenMai == khuyenMai.TenKhuyenMai && k.MaKhuyenMai != id))
-            {
-                ModelState.AddModelError("TenKhuyenMai", "Tên khuyến mãi đã tồn tại.");
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(khuyenMai);
+                    // Check for duplicate TenKhuyenMai
+                    var tenKhuyenMaiExists = await _context.KhuyenMais
+                        .AnyAsync(km => km.TenKhuyenMai == model.TenKhuyenMai && km.MaKhuyenMai != model.MaKhuyenMai);
+                    if (tenKhuyenMaiExists)
+                    {
+                        ModelState.AddModelError("TenKhuyenMai", "Tên khuyến mãi đã tồn tại. Vui lòng sử dụng tên khác.");
+                        return View(model);
+                    }
+
+                    // Handle image upload
+                    if (HinhAnh != null && HinhAnh.Length > 0)
+                    {
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                        var extension = Path.GetExtension(HinhAnh.FileName).ToLowerInvariant();
+                        if (!allowedExtensions.Contains(extension))
+                        {
+                            ModelState.AddModelError("HinhAnh", "Chỉ chấp nhận các định dạng ảnh: .jpg, .jpeg, .png, .gif.");
+                            return View(model);
+                        }
+
+                        // Delete old image if exists
+                        if (!string.IsNullOrEmpty(model.HinhAnh))
+                        {
+                            var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", model.HinhAnh.TrimStart('~', '/'));
+                            if (System.IO.File.Exists(oldImagePath))
+                            {
+                                System.IO.File.Delete(oldImagePath);
+                            }
+                        }
+
+                        var fileName = Guid.NewGuid().ToString() + extension;
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await HinhAnh.CopyToAsync(stream);
+                        }
+
+                        model.HinhAnh = "~/images/" + fileName;
+                    }
+
+                    _context.Update(model);
                     await _context.SaveChangesAsync();
-                    TempData["Message"] = "Cập nhật khuyến mãi thành công.";
-                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_context.KhuyenMais.Any(e => e.MaKhuyenMai == id))
+                    if (!KhuyenMaiExists(model.MaKhuyenMai))
                     {
                         return NotFound();
                     }
-                    throw;
+                    else
+                    {
+                        throw;
+                    }
                 }
-                catch (DbUpdateException ex)
-                {
-                    ModelState.AddModelError("", $"Lỗi khi cập nhật: {ex.InnerException?.Message ?? ex.Message}");
-                }
+                return RedirectToAction(nameof(Index));
             }
-            return View(khuyenMai);
+
+            return View(model);
         }
 
         // GET: KhuyenMai/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
@@ -158,7 +190,7 @@ namespace Asp.netWebDatVe.Controllers
                 return NotFound();
             }
 
-            var khuyenMai = await _context.KhuyenMais.FirstOrDefaultAsync(m => m.MaKhuyenMai == id);
+            var khuyenMai = _context.KhuyenMais.FirstOrDefault(m => m.MaKhuyenMai == id);
             if (khuyenMai == null)
             {
                 return NotFound();
@@ -170,26 +202,55 @@ namespace Asp.netWebDatVe.Controllers
         // POST: KhuyenMai/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
-            var khuyenMai = await _context.KhuyenMais.FindAsync(id);
+            var khuyenMai = _context.KhuyenMais.Find(id);
+
             if (khuyenMai == null)
             {
                 return NotFound();
             }
 
-            if (_context.PhieuDatVes.Any(p => p.MaKhuyenMai == id))
+            // Delete image file if exists
+            if (!string.IsNullOrEmpty(khuyenMai.HinhAnh))
             {
-                TempData["Error"] = "Không thể xóa khuyến mãi vì có phiếu đặt vé liên quan.";
-                return RedirectToAction(nameof(Index));
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", khuyenMai.HinhAnh.TrimStart('~', '/'));
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
             }
 
             _context.KhuyenMais.Remove(khuyenMai);
-            await _context.SaveChangesAsync();
-            TempData["Message"] = "Xóa khuyến mãi thành công.";
+            _context.SaveChanges();
+
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: KhuyenMai/Details/5
+        public IActionResult Details(int? id)
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            ViewData["UserName"] = userName;
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var khuyenMai = _context.KhuyenMais.FirstOrDefault(m => m.MaKhuyenMai == id);
+            if (khuyenMai == null)
+            {
+                return NotFound();
+            }
+
+            return View(khuyenMai);
+        }
+
+        private bool KhuyenMaiExists(int id)
+        {
+            return _context.KhuyenMais.Any(e => e.MaKhuyenMai == id);
         }
     }
 }

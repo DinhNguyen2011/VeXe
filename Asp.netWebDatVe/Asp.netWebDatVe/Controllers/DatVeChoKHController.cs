@@ -222,16 +222,6 @@ namespace Asp.netWebDatVe.Controllers
                 TrangThai = phuongThuc == "Lỗi" ? "Chưa thanh toán" : "Đã thanh toán"
             };
 
-            // Áp dụng khuyến mãi
-            var khuyenMai = _db.KhuyenMais
-                .FirstOrDefault(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now);
-            if (khuyenMai != null)
-            {
-                phieuDatVe.MaKhuyenMai = khuyenMai.MaKhuyenMai;
-                phieuDatVe.TongTien = totalPrice * (1 - (khuyenMai.PhanTramGiam / 100));
-                _logger.LogInformation($"Áp dụng khuyến mãi {khuyenMai.TenKhuyenMai}: Giảm {khuyenMai.PhanTramGiam}%, Tổng tiền sau giảm: {phieuDatVe.TongTien}");
-            }
-
             _db.PhieuDatVes.Add(phieuDatVe);
             _db.SaveChanges();
 

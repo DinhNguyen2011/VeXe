@@ -517,6 +517,8 @@ wwwroot\css\indexLichTrinh.css
 wwwroot\css\InVe.css
 wwwroot\css\layout.css
 wwwroot\css\LienHeVoiChungToi.css
+wwwroot\css\noiquy.css
+wwwroot\css\PaymentCallback.css
 wwwroot\css\PhieuDatVe.css
 wwwroot\css\Profile.css
 wwwroot\css\site.css
@@ -524,16 +526,29 @@ wwwroot\css\style.css
 wwwroot\css\TraCuuPhieuDatVe.css
 wwwroot\css\TuyenXe.css
 wwwroot\css\tuyenxeindex.css
+wwwroot\css\van-chuyen-khanhan.css
 wwwroot\css\Vechungtoi.css
 wwwroot\css\vendor.css
 wwwroot\css\Vitrighe.css
 wwwroot\favicon.ico
+wwwroot\images\01e7af4d-c6a5-4d10-84ce-8ee64762fa3a.png
 wwwroot\images\29B-12345_xe3.jpg
 wwwroot\images\36A-78901_bird.png
+wwwroot\images\36A-78901_limousine.png
+wwwroot\images\43A-56789_ngoicc.jpg
+wwwroot\images\50K-23456_vip.jpg
+wwwroot\images\51B-12345_ha giang.jpg
+wwwroot\images\51G-34567_xengoi.jpg
+wwwroot\images\51H-98765_45.jpg
+wwwroot\images\54D-89012_images.jpg
+wwwroot\images\552be89e-a912-42cc-8424-703b827a3030.png
+wwwroot\images\63B-12345_namdoi.jpg
 wwwroot\images\77H-12345_icon bus.png
+wwwroot\images\79B-45678_xe34nam.png
 wwwroot\images\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png
 wwwroot\images\901b9cfd-393d-40df-9c52-25df5c763896.png
 wwwroot\images\92C-67890_icon bus.png
+wwwroot\images\92C-67890_xenam.jpg
 wwwroot\images\backround.png
 wwwroot\images\BannnerBus.png
 wwwroot\images\bfad1782-8a62-49ab-a28b-a113af69340c.png
@@ -573,9 +588,11 @@ wwwroot\images\ThuaThienHue.jpg
 wwwroot\images\tien-nghi.jpg
 wwwroot\images\timkiem.jpg
 wwwroot\images\uk-flag.png
+wwwroot\images\van-chuyen.jpg
 wwwroot\images\vn-flag.jpg
 wwwroot\images\vn-flag.png
 wwwroot\images\vungtau.jpg
+wwwroot\images\xe-khanh-an.png
 wwwroot\js\ajax-loader.gif
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\bus-home.js
@@ -798,8 +815,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\van-chuyen-khanhan.css
-wwwroot\images\xe-khanh-an.png
-wwwroot\images\van-chuyen.jpg
-wwwroot\css\noiquy.css
-wwwroot\images\01e7af4d-c6a5-4d10-84ce-8ee64762fa3a.png

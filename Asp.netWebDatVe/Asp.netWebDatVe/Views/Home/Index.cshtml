@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <link rel="stylesheet" href="~/css/tuyenxeindex.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
 
 @if (ViewData["UserName"] != null)
@@ -169,7 +170,49 @@
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
-
+ <!-- Phần khuyến mãi với Tailwind CSS -->
+<div class="promotions-section container mx-auto mt-3 px-4">
+    <h1 class="text-base font-bold text-green-600 text-center mb-2" data-lang-key="index_promotions_title">Ưu đãi đặc biệt</h1>
+    @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
+    {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            @foreach (var khuyenMai in ViewBag.KhuyenMais)
+            {
+                <div class="bg-white rounded-md shadow-sm overflow-hidden transition-transform duration-300 hover:scale-105">
+                    @if (!string.IsNullOrEmpty(khuyenMai.HinhAnh))
+                    {
+                        <div class="relative w-full aspect-w-3 aspect-h-2">
+                            <img src="@Url.Content(khuyenMai.HinhAnh)" alt="@khuyenMai.TenKhuyenMai" 
+                                 class="w-full h-full object-contain" loading="lazy" style="max-width: 100% !important;
+                                 height: 225px !important;"
+                                 onerror="this.src='/images/fallback-promotion.jpg'" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="relative w-full aspect-w-3 aspect-h-2 bg-gray-200 flex items-center justify-center">
+                            <span class="text-gray-500 text-xs">Không có hình ảnh</span>
+                        </div>
+                    }
+                    <div class="p-1.5">
+                        <h3 class="text-xs font-semibold text-gray-800 line-clamp-1">@khuyenMai.TenKhuyenMai</h3>
+                        <p class="text-2xs text-gray-600 mt-1 line-clamp-2">@khuyenMai.MoTa</p>
+                        <p class="text-2xs font-medium text-green-600 mt-1">Mã: @khuyenMai.TenKhuyenMai</p>
+                        <p class="text-2xs font-medium text-green-600">Giảm: @khuyenMai.PhanTramGiam%</p>
+                        <p class="text-2xs text-gray-500 mt-1">Hiệu lực: @khuyenMai.NgayBatDau.ToString("dd/MM/yyyy") - @khuyenMai.NgayKetThuc.ToString("dd/MM/yyyy")</p>
+                        <a href="@Url.Action("ChiTietKhuyenMai", "Home", new { maKhuyenMai = khuyenMai.MaKhuyenMai })" 
+                           class="mt-1 inline-block text-2xs text-blue-600 hover:underline" 
+                           data-lang-key="index_promo_details">Xem chi tiết</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-gray-600 text-xs" data-lang-key="index_no_promotions">Hiện tại không có chương trình khuyến mãi nào.</p>
+    }
+</div>
     <!-- Hướng dẫn đặt xe -->
     <!-- 4 bước đặt xe: chọn hành trình -> chọn chuyến -> thanh toán -> xác nhận -->
 

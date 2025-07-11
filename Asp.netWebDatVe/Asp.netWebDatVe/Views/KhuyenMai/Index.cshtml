@@ -1,54 +1,48 @@
 ﻿@model IEnumerable<Asp.netWebDatVe.Models.KhuyenMai>
-
 @{
-    ViewData["Title"] = "Quản lý khuyến mãi";
+    ViewData["Title"] = "Quản lý Khuyến Mãi";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/Vitrighe.css" />
+<h2>Quản lý Khuyến Mãi</h2>
 
-<div class="vitrighe-container">
-    <h2 class="vitrighe-title">Quản lý khuyến mãi</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm Khuyến Mãi</a>
+</p>
 
-    @if (TempData["Message"] != null)
-    {
-        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
-    }
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
-    }
-
-    <p>
-        <a asp-action="Create" class="btn btn-primary vitrighe-btn">Thêm khuyến mãi</a>
-    </p>
-
-    <table class="table table-bordered">
-        <thead class="thead-dark">
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenKhuyenMai)</th>
+            <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+            <th>@Html.DisplayNameFor(model => model.PhanTramGiam)</th>
+            <th>@Html.DisplayNameFor(model => model.NgayBatDau)</th>
+            <th>@Html.DisplayNameFor(model => model.NgayKetThuc)</th>
+            <th>@Html.DisplayNameFor(model => model.HinhAnh)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.km)
+        {
             <tr>
-                <th>Tên khuyến mãi</th>
-                <th>Mô tả</th>
-                <th>Phần trăm giảm</th>
-                <th>Ngày bắt đầu</th>
-                <th>Ngày kết thúc</th>
-                <th>Thao tác</th>
+                <td>@item.TenKhuyenMai</td>
+                <td>@item.MoTa</td>
+                <td>@item.PhanTramGiam%</td>
+                <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                <td>@item.NgayKetThuc.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.HinhAnh))
+                    {
+                        <img src="@Url.Content(item.HinhAnh)" alt="Hình ảnh khuyến mãi" style="max-width: 100px;" />
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.MaKhuyenMai">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@item.MaKhuyenMai">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaKhuyenMai">Xóa</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.TenKhuyenMai)</td>
-                    <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
-                    <td>@Html.DisplayFor(modelItem => item.PhanTramGiam)%</td>
-                    <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
-                    <td>@item.NgayKetThuc.ToString("dd/MM/yyyy")</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.MaKhuyenMai" class="btn btn-sm btn-warning">Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@item.MaKhuyenMai" class="btn btn-sm btn-danger">Xóa</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>

@@ -1,97 +1,52 @@
 ﻿@model Asp.netWebDatVe.Models.KhuyenMai
-
 @{
     ViewData["Title"] = "Sửa khuyến mãi";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
 }
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
-<link rel="stylesheet" href="~/css/Vitrighe.css" />
+<div class="container mx-auto px-4 py-6">
+    <h2 class="text-xl font-bold text-green-600 mb-4">Sửa khuyến mãi</h2>
 
-<div class="vitrighe-container">
-    <h2 class="vitrighe-title">Sửa khuyến mãi</h2>
-
-    @if (TempData["Message"] != null)
-    {
-        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
-    }
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
-    }
-    @if (!ViewData.ModelState.IsValid)
-    {
-        <div class="alert alert-danger vitrighe-alert">
-            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-            {
-                <p>@error.ErrorMessage</p>
-            }
-        </div>
-    }
-
-    <form asp-action="Edit" method="post" id="editForm">
-        @Html.AntiForgeryToken()
+    <form asp-action="Edit" enctype="multipart/form-data" class="max-w-lg">
         <input type="hidden" asp-for="MaKhuyenMai" />
-
-        <div class="form-group vitrighe-form-group">
-            <label asp-for="TenKhuyenMai" class="vitrighe-label"></label>
-            <input asp-for="TenKhuyenMai" class="form-control vitrighe-input" required />
-            <span asp-validation-for="TenKhuyenMai" class="text-danger"></span>
+        <div class="mb-4">
+            <label asp-for="TenKhuyenMai" class="block text-sm font-medium text-gray-700">Tên khuyến mãi</label>
+            <input asp-for="TenKhuyenMai" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+            <span asp-validation-for="TenKhuyenMai" class="text-red-600 text-xs"></span>
         </div>
-
-        <div class="form-group vitrighe-form-group">
-            <label asp-for="MoTa" class="vitrighe-label"></label>
-            <textarea asp-for="MoTa" class="form-control vitrighe-input" rows="4"></textarea>
-            <span asp-validation-for="MoTa" class="text-danger"></span>
+        <div class="mb-4">
+            <label asp-for="MoTa" class="block text-sm font-medium text-gray-700">Mô tả</label>
+            <textarea asp-for="MoTa" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
+            <span asp-validation-for="MoTa" class="text-red-600 text-xs"></span>
         </div>
-
-        <div class="form-group vitrighe-form-group">
-            <label asp-for="PhanTramGiam" class="vitrighe-label"></label>
-            <input asp-for="PhanTramGiam" class="form-control vitrighe-input" type="number" />
-            <span asp-validation-for="PhanTramGiam" class="text-danger"></span>
+        <div class="mb-4">
+            <label asp-for="PhanTramGiam" class="block text-sm font-medium text-gray-700">Phần trăm giảm</label>
+            <input asp-for="PhanTramGiam" type="number" min="0" max="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+            <span asp-validation-for="PhanTramGiam" class="text-red-600 text-xs"></span>
         </div>
-
-        <div class="form-group vitrighe-form-group">
-            <label asp-for="NgayBatDau" class="vitrighe-label"></label>
-            <input asp-for="NgayBatDau" class="form-control vitrighe-input" type="date" required />
-            <span asp-validation-for="NgayBatDau" class="text-danger"></span>
+        <div class="mb-4">
+            <label asp-for="NgayBatDau" class="block text-sm font-medium text-gray-700">Ngày bắt đầu</label>
+            <input asp-for="NgayBatDau" type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+            <span asp-validation-for="NgayBatDau" class="text-red-600 text-xs"></span>
         </div>
-
-        <div class="form-group vitrighe-form-group">
-            <label asp-for="NgayKetThuc" class="vitrighe-label"></label>
-            <input asp-for="NgayKetThuc" class="form-control vitrighe-input" type="date" required />
-            <span asp-validation-for="NgayKetThuc" class="text-danger"></span>
+        <div class="mb-4">
+            <label asp-for="NgayKetThuc" class="block text-sm font-medium text-gray-700">Ngày kết thúc</label>
+            <input asp-for="NgayKetThuc" type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+            <span asp-validation-for="NgayKetThuc" class="text-red-600 text-xs"></span>
         </div>
-
-        <div class="form-group vitrighe-form-group">
-            <button type="submit" class="btn btn-primary vitrighe-btn">Lưu</button>
-            <a asp-action="Index" class="btn btn-secondary vitrighe-btn">Quay lại</a>
+        <div class="mb-4">
+            <label for="hinhAnh" class="block text-sm font-medium text-gray-700">Hình ảnh</label>
+            @if (!string.IsNullOrEmpty(Model.HinhAnh))
+            {
+                <img src="@Url.Content(Model.HinhAnh)" alt="@Model.TenKhuyenMai" class="w-24 h-16 object-contain rounded mb-2" />
+            }
+            <input type="file" name="hinhAnh" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-green-50 file:text-green-700 hover:file:bg-green-100" />
+        </div>
+        <div class="flex space-x-4">
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">Lưu</button>
+            <a asp-action="Index" class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700">Hủy</a>
         </div>
     </form>
 </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
-    <script>
-        // $(document).ready(function() {
-        //     $("#editForm").validate({
-        //         rules: {
-        //             TenKhuyenMai: { required: true },
-        //             PhanTramGiam: { required: true, min: 1, max: 100 },
-        //             NgayBatDau: { required: true },
-        //             NgayKetThuc: { required: true }
-        //         },
-        //         messages: {
-        //             TenKhuyenMai: { required: "Vui lòng nhập tên khuyến mãi" },
-        //             PhanTramGiam: {
-        //                 required: "Vui lòng nhập phần trăm giảm",
-        //                 min: "Phần trăm giảm phải từ 1",
-        //                 max: "Phần trăm giảm tối đa 100"
-        //             },
-        //             NgayBatDau: { required: "Vui lòng chọn ngày bắt đầu" },
-        //             NgayKetThuc: { required: "Vui lòng chọn ngày kết thúc" }
-        //         }
-        //     });
-        // });
-    </script>
