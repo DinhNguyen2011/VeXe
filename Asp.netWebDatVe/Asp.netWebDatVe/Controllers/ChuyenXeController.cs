@@ -342,7 +342,7 @@ namespace Asp.netWebDatVe.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: ChuyenXe/Details/5
+        // GET: ChuyenXe/Details/5 -- chi tiết
         public IActionResult Details(int id)
         {
             var userName = HttpContext.Session.GetString("UserName");

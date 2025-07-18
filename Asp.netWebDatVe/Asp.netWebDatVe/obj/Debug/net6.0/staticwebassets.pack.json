@@ -2765,6 +2765,10 @@
       "PackagePath": "staticwebassets\\images\\29B-12345_xe3.jpg"
     },
     {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\2b568953-3dfd-419e-affd-a5445b68f152.png",
+      "PackagePath": "staticwebassets\\images\\2b568953-3dfd-419e-affd-a5445b68f152.png"
+    },
+    {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\36A-78901_bird.png",
       "PackagePath": "staticwebassets\\images\\36A-78901_bird.png"
     },
@@ -2797,8 +2801,24 @@
       "PackagePath": "staticwebassets\\images\\54D-89012_images.jpg"
     },
     {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\552be89e-a912-42cc-8424-703b827a3030.png",
+      "PackagePath": "staticwebassets\\images\\552be89e-a912-42cc-8424-703b827a3030.png"
+    },
+    {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\63B-12345_namdoi.jpg",
       "PackagePath": "staticwebassets\\images\\63B-12345_namdoi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\65c31c1b-2a4e-416f-93b7-0ffcd45a61ed.png",
+      "PackagePath": "staticwebassets\\images\\65c31c1b-2a4e-416f-93b7-0ffcd45a61ed.png"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\670abadd-aad9-44ca-843e-7981014d4cbc.png",
+      "PackagePath": "staticwebassets\\images\\670abadd-aad9-44ca-843e-7981014d4cbc.png"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\74b84b63-ba92-4073-a745-a1abbe7debcf.jpg",
+      "PackagePath": "staticwebassets\\images\\74b84b63-ba92-4073-a745-a1abbe7debcf.jpg"
     },
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\77H-12345_icon bus.png",
@@ -2807,6 +2827,10 @@
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\79B-45678_xe34nam.png",
       "PackagePath": "staticwebassets\\images\\79B-45678_xe34nam.png"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\89184cda-f9aa-46d3-9695-1ed03a7d14a0.jpg",
+      "PackagePath": "staticwebassets\\images\\89184cda-f9aa-46d3-9695-1ed03a7d14a0.jpg"
     },
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\8c098e0c-0349-4e8d-b8d4-b3445fd8ff72.png",
@@ -2853,8 +2877,16 @@
       "PackagePath": "staticwebassets\\images\\ThuaThienHue.jpg"
     },
     {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\b6d4d05d-7111-4e42-b087-ba787162b59f.png",
+      "PackagePath": "staticwebassets\\images\\b6d4d05d-7111-4e42-b087-ba787162b59f.png"
+    },
+    {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\backround.png",
       "PackagePath": "staticwebassets\\images\\backround.png"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bed1fa96-bdca-4143-b290-7a7b9bafbdff.png",
+      "PackagePath": "staticwebassets\\images\\bed1fa96-bdca-4143-b290-7a7b9bafbdff.png"
     },
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\bfad1782-8a62-49ab-a28b-a113af69340c.png",
@@ -2915,6 +2947,10 @@
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\dich-vu.png",
       "PackagePath": "staticwebassets\\images\\dich-vu.png"
+    },
+    {
+      "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\f906e51e-f41a-488d-bbbc-e6a065f59b3e.jpg",
+      "PackagePath": "staticwebassets\\images\\f906e51e-f41a-488d-bbbc-e6a065f59b3e.jpg"
     },
     {
       "Id": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\images\\front-of-bus.png",

@@ -19,7 +19,7 @@
 <!--  2. Banner -->
 <div class="bus-home-background">
     <div class="bus-home-container fade-in">
-        <div class="intro-section fade-in-left">
+        <div class="intro-section fade-in-left"> <!--hiệu ưng fade-in-left -->
             <h1 data-lang-key="index_luxury_title">Khánh An Luxury</h1>
             <h3 data-lang-key="index_luxury_subtitle">Chuyến đi an toàn - trải nghiệm đẳng cấp</h3>
         </div>
@@ -101,7 +101,7 @@
     {
         <div class="row">
 
-            <!-- Bộ lọc -->
+            <!-- Bộ lọc bus-home.js -->
             <div class="col-md-4">
                 <div class="card" style="margin: 35px 0px !important;">
                     <div class="card-header bg-primary text-white">
@@ -127,6 +127,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Danh sách chuyến xe -->
             <div class="col-md-8">
@@ -156,6 +157,7 @@
                                     <div class="price text-danger fw-bold">@chuyenXe.GiaVe?.ToString("N0")₫</div>
                                 </div>
                                 <hr />
+                                @* chonghe contr *@
                                 <div class="text-end">
                                     <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen" class="btn btn-outline-danger btn-sm px-4" data-lang-key="index_select_trip">Chọn chuyến</a>
                                 </div>
@@ -195,10 +197,10 @@
                         </div>
                     }
                     <div class="p-1.5">
-                        <h3 class="text-xs font-semibold text-gray-800 line-clamp-1">@khuyenMai.TenKhuyenMai</h3>
+                        <h3 class="text-2xs font-semibold text-gray-800 line-clamp-1">@khuyenMai.TenKhuyenMai</h3>
                         <p class="text-2xs text-gray-600 mt-1 line-clamp-2">@khuyenMai.MoTa</p>
-                        <p class="text-2xs font-medium text-green-600 mt-1">Mã: @khuyenMai.TenKhuyenMai</p>
-                        <p class="text-2xs font-medium text-green-600">Giảm: @khuyenMai.PhanTramGiam%</p>
+                         @* <p class="text-2xs font-medium text-green-600 mt-1"> @khuyenMai.TenKhuyenMai</p> *@
+                        <p class="text-2xs font-medium text-green-600">Giảm: @khuyenMai.PhanTramGiam% /1 vé</p>
                         <p class="text-2xs text-gray-500 mt-1">Hiệu lực: @khuyenMai.NgayBatDau.ToString("dd/MM/yyyy") - @khuyenMai.NgayKetThuc.ToString("dd/MM/yyyy")</p>
                         <a href="@Url.Action("ChiTietKhuyenMai", "Home", new { maKhuyenMai = khuyenMai.MaKhuyenMai })" 
                            class="mt-1 inline-block text-2xs text-blue-600 hover:underline" 
@@ -219,7 +221,7 @@
     <div class="booking-steps text-center mt-5">
         <h4 class="fw-bold mb-4" style="color: #1d6b33 !important;" data-lang-key="index_booking_steps_title">Dễ dàng đặt xe trên Website của Khánh An Luxury</h4>
         <div class="row justify-content-center">
-            <!-- Bước 1 -->
+            <!--  1 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#f4a300" viewBox="0 0 24 24">
@@ -231,7 +233,7 @@
                 <h6 class="fw-semibold" data-lang-key="index_step1_title">Lựa chọn hành trình</h6>
                 <p class="text-muted" data-lang-key="index_step1_desc">Chọn thông tin hành trình<br>ấn "Tìm chuyến xe"</p>
             </div>
-            <!-- Bước 2 -->
+            <!-- 2 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#f4a300" viewBox="0 0 24 24">
@@ -241,7 +243,7 @@
                 <h6 class="fw-semibold" data-lang-key="index_step2_title">Chọn chuyến</h6>
                 <p class="text-muted" data-lang-key="index_step2_desc">Chọn chuyến phù hợp<br>ấn "Đặt chỗ"</p>
             </div>
-            <!-- Bước 3 -->
+            <!--  3 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#f4a300" viewBox="0 0 24 24">
@@ -251,7 +253,7 @@
                 <h6 class="fw-semibold" data-lang-key="index_step3_title">Thanh toán</h6>
                 <p class="text-muted" data-lang-key="index_step3_desc">Chọn cổng thanh toán<br>ấn "Thanh toán"</p>
             </div>
-            <!-- Bước 4 -->
+            <!--  4 -->
             <div class="col-6 col-md-3 mb-4">
                 <div class="step-icon mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#f4a300" viewBox="0 0 24 24">

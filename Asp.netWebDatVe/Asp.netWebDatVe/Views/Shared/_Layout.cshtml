@@ -47,6 +47,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
+
+
 <body style="background-color:#ffffff !important">
     <div class="preloader">
         <div class="loader"></div>
@@ -72,7 +74,9 @@
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <!-- Logo và chọn ngôn ngữ -->
                     <div class="d-flex align-items-center">
+                        <!--trở về-->
                         <a class="navbar-brand" href="@Url.Action("Index", "Home")"> 
+                            @* <img src="~/images/main.png">  *@
                             <img src="~/images/main-lg.png" class="logo img-fluid" style="width: 200px;height: 70px; border-radius:10px;">
                         </a>
                         <!-- Chọn ngôn ngữ bằng hình ảnh cờ -->
@@ -98,6 +102,7 @@
                         <div class="offcanvas-body align-items-center justify-content-center" style="padding-left: 80px !important; font-size: 14px !important;">
                             <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
                                 <li class="nav-item px-2">
+                                    @* href="@Url.Action("Index", "Home")"  tương tự (thay thế bt)  asp-controller="LichTrinh" asp-action="Index" *@
                                     <a class="nav-link" aria-current="page" href="@Url.Action("Index", "Home")" data-lang-key="menu_home">Trang chủ</a>
                                 </li>
                                 <li class="nav-item px-2">
@@ -115,12 +120,15 @@
                                 <li class="nav-item px-2">
                                     <a class="nav-link @(ViewData["Title"] as string == "Về chúng tôi" ? "active" : "")" asp-controller="VeChungToi" asp-action="Index" data-lang-key="menu_about">Về chúng tôi</a>
                                 </li>
+
+                               @*  accoutcontrolller 101  *@
                                 @if (ViewData["UserName"] != null)
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span data-lang-key="menu_hi">Hi</span>, @(ViewData["UserName"].ToString().Length > 4 ? ViewData["UserName"].ToString().Substring(0, 4) + "..." : ViewData["UserName"])
-                                        </a>
+                                        </a> <!--hiển thị tên ng dùng giới hạn 4 ký tự-->
+                                        <!--dropdown | xuống profile -->
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile" data-lang-key="menu_profile">Xem thông tin</a></li>
                                             <li><a class="dropdown-item" asp-controller="XuLyPhieuDatVe" asp-action="XemCacPhieuDatVe" data-lang-key="menu_view_bookings">Xem các phiếu đặt vé</a></li>
@@ -146,7 +154,7 @@
     <!---------------------------------------->
 
     <!--Home -->
-    <div class="container">
+    <div class="container" style="max-width:1455px !important">
         @RenderBody()
     </div> 
 
@@ -182,11 +190,13 @@
                         <li><a href="#" class="text-decoration-none text-muted" data-lang-key="footer_payment_methods">Hình thức thanh toán</a></li>
                     </ul>
                 </div>
+
+                
                 <div class="col-lg-3 mb-4">
                     <h5 class="fw-bold text-success" data-lang-key="footer_fanpage">Fanpage Khánh An</h5>
                     <div class="mb-2">
                         <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/xephuongtrang&tabs=timeline&width=300&height=150&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                           @*   <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/xephuongtrang thay ngang đây *@
+                           @*   <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/xephuongtrang  *@
                         width="100%" height="150" style="border:none;overflow:hidden" scrolling="no"
                                 frameborder="0" allowfullscreen="true"
                                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
@@ -209,6 +219,8 @@
             </div>
         </div>
     </section>
+
+    @* js *@
     <script src="~/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="~/js/plugins.js"></script>
@@ -222,7 +234,7 @@
 
     <!-- JavaScript cho chuyển đổi ngôn ngữ -->
     <script>
-        // Dữ liệu ngôn ngữ
+        // Dữ liệu ngôn ngữ, đặt tên tương ứng các trang (title của index home: data-lang-key="index_welcome_sub")
         const translations = {
             vi: {
                 title: "Khánh An - Đặt Vé Xe Khách Online",
@@ -564,6 +576,7 @@
 
 
         // Hàm chuyển đổi ngôn ngữ
+        // [data-lang-key] lấy nd tương ứng với bảng dịch  
         function changeLanguage(lang) {
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');

@@ -27,7 +27,7 @@
 <body>
     <div class="payment-container">
         <h3 class="payment-title">Kết quả thanh toán</h3>
-
+        @* thành công  *@
         @if (Model.Success)
         {
             <div class="payment-success">
@@ -48,6 +48,8 @@
                 <p><strong>Thông báo:</strong> @TempData["ThongBao"]</p>
             </div>
         }
+
+        @* thất bại *@
         else
         {
             <div class="payment-error">

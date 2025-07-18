@@ -27,16 +27,16 @@ namespace Asp.netWebDatVe.Controllers
             _moMoService = moMoService;
             _emailService = emailService;
         }
-
+        //ngăn truy cập tk admin 
         private IActionResult RestrictAdminAccess()
         {
          
             if (User.Identity.IsAuthenticated)
             {
                 var maQuyen = User.FindFirst(ClaimTypes.Role)?.Value;
-                if (maQuyen == "1" || maQuyen == "2") // Admin hoặc NV
+                if (maQuyen == "1" || maQuyen == "2")
                 {
-                    HttpContext.Session.Clear(); // Xóa session
+                    HttpContext.Session.Clear(); 
                   //  TempData["Error"] = "Tài khoản admin không được phép truy cập giao diện người dùng.";
                     return RedirectToAction("Login", "Account");
                 }
@@ -44,6 +44,7 @@ namespace Asp.netWebDatVe.Controllers
             return null;
         }
 
+        // 
         public IActionResult Index(string diemDi = "", string diemDen = "", DateTime? ngayDi = null, bool isSubmitted = false)
         {
             var restrictResult = RestrictAdminAccess();
@@ -52,19 +53,20 @@ namespace Asp.netWebDatVe.Controllers
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
             ViewData["Title"] = "Trang Chủ";
-
+            // khai báo thời gian 
             var tgian = DateTime.Now;
             ViewBag.DanhSachDiemDi = db.TuyenXes.Select(t => t.DiemDi).Distinct().ToList();
             ViewBag.DanhSachDiemDen = db.TuyenXes.Select(t => t.DiemDen).Distinct().ToList();
             ViewBag.DiemDi = diemDi;
             ViewBag.DiemDen = diemDen;
             ViewBag.NgayDi = ngayDi;
+
             if (isSubmitted && (string.IsNullOrEmpty(diemDi) || string.IsNullOrEmpty(diemDen) || ngayDi == null))
             {
                 ViewBag.Mes = "Vui lòng nhập đầy đủ thông tin chuyến đi";
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
                 ViewBag.KhuyenMais = db.KhuyenMais
-                    .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+                    //.Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
                     .ToList();
                 return View();
             }
@@ -79,7 +81,7 @@ namespace Asp.netWebDatVe.Controllers
                 ViewBag.Message = "Tìm chuyến xe phù hợp để đi.";
                 ViewBag.ChuyenXes = new List<ChuyenXe>();
                 ViewBag.KhuyenMais = db.KhuyenMais
-                    .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+                   // .Where(k => k.NgayBatDau  DateTime.Now && k.NgayKetThuc >= DateTime.Now)
                     .ToList();
                 return View();
             }
@@ -107,12 +109,15 @@ namespace Asp.netWebDatVe.Controllers
 
             ViewBag.TuyenXe = tuyenXe;
             ViewBag.ChuyenXes = chuyenXes;
+ 
             ViewBag.KhuyenMais = db.KhuyenMais
-                .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
+               // .Where(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now)
                 .ToList();
 
             return View();
         }
+
+        //khuyến mãi 
         [HttpGet]
         public async Task<IActionResult> ChiTietKhuyenMai(int? maKhuyenMai)
         {
@@ -142,6 +147,9 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(khuyenMai);
         }
+
+
+        //chọn ghê -> view 
         public IActionResult ChonGhe(int maChuyen)
         {
             var restrictResult = RestrictAdminAccess();
@@ -179,7 +187,7 @@ namespace Asp.netWebDatVe.Controllers
                     ghe.Tenvitri,
                     ghe.Trangthai
                 })
-                .ToList() // Chuyển sang client-side để xử lý int.Parse
+                .ToList()
                 .OrderBy(ghe =>
                 {
                     // Tách số từ Tenvitri (bỏ "G") và chuyển thành số
@@ -205,6 +213,9 @@ namespace Asp.netWebDatVe.Controllers
 
             return View("ChonGhe");
         }
+
+
+        // dùng thông tin bảng tạm ( payment. BangJSonTamPDV)
         [HttpPost]
         public IActionResult DatVe(int maChuyen, string selectedSeats, string tenKhachHang, string soDienThoai, string email, string ghiChu, decimal totalPrice, string paymentMethod)
         {
@@ -217,18 +228,23 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
 
-            if (!Regex.IsMatch(soDienThoai, @"^[0][0-9]{9}$"))
-            {
-                TempData["Error"] = "Số điện thoại không hợp lệ.";
-                return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
-            }
+            //if (!Regex.IsMatch(soDienThoai, @"^[0][0-9]{9}$"))
+            //{
+            //    TempData["Error"] = "Số điện thoại không hợp lệ.";
+            //    return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
+            //}
 
+            //if (!Regex.IsMatch(soDienThoai, @"^0[35789][0-9]{8}$"))
+            //{
+            //    TempData["Error"] = "Số điện thoại phải có 10 chữ số và bắt đầu bằng 03, 05, 07, 08, hoặc 09.";
+            //    return RedirectToAction("ChonGhe", new { maChuyen });
+            //}
             if (string.IsNullOrWhiteSpace(paymentMethod) || !new[] { "VNPay", "MoMo" }.Contains(paymentMethod))
             {
                 TempData["Error"] = "Vui lòng chọn phương thức thanh toán hợp lệ.";
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
-
+            //
             var seatIds = selectedSeats.Split(',').Select(int.Parse).ToList();
             var vitri = db.Vitrighes
                 .Where(g => seatIds.Contains(g.IdVitri) && g.Trangthai != true)
@@ -240,6 +256,7 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
 
+            //
             var chuyenXe = db.ChuyenXes
                 .Include(cx => cx.BienSoXeNavigation)
                 .FirstOrDefault(cx => cx.MaChuyen == maChuyen);
@@ -249,7 +266,13 @@ namespace Asp.netWebDatVe.Controllers
                 TempData["Error"] = "Chuyến xe không tồn tại.";
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
-
+            //// Kiểm tra thời gian đặt vé
+            //if (chuyenXe.ThoiDiemKhoiHanh <= DateTime.Now.AddMinutes(30))
+            //{
+            //    TempData["Error"] = "Không thể đặt vé khi thời gian khởi hành còn dưới 30 phút.";
+            //    return RedirectToAction("ChonGhe", new { maChuyen });
+            //}
+            // Kiểm tra tổng tiền
             var giaVe = chuyenXe.GiaVe ?? 0;
             var expectedTotalPrice = vitri.Count * giaVe;
             if (totalPrice != expectedTotalPrice)
@@ -258,6 +281,7 @@ namespace Asp.netWebDatVe.Controllers
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
 
+            //
             var pendingBooking = new BangJSonTamPDV
             {
                 MaChuyen = maChuyen,
@@ -271,13 +295,27 @@ namespace Asp.netWebDatVe.Controllers
                 TenChuyenXe = chuyenXe.TenChuyenXe,
                 PaymentMethod = paymentMethod
             };
-
+            //var pendingBooking = new BangJSonTamPDV
+            //{
+            //    MaChuyen = maChuyen,
+            //    SeatIds = seatIds,
+            //    TenKhachHang = tenKhachHang.Trim(),
+            //    SoDienThoai = soDienThoai.Trim(),
+            //    Email = email.Trim(),
+            //    GhiChu = ghiChu.Trim(),
+            //    TotalPrice = totalPrice,
+            //    NgayDat = DateTime.Now,
+            //    TenChuyenXe = chuyenXe.TenChuyenXe,
+            //    PaymentMethod = paymentMethod
+            //};
             try
             {
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var serializedBooking = JsonSerializer.Serialize(pendingBooking, options);
                 _logger.LogInformation("Serialized PendingBooking: {serializedBooking}", serializedBooking);
                 HttpContext.Session.SetString("PendingBooking", serializedBooking);
+                //phiên hết hạn 15p
+                //HttpContext.Session.SetInt32("PendingBookingTimeout", (int)DateTime.Now.AddMinutes(15).Ticks);
             }
             catch (Exception ex)
             {
@@ -285,7 +323,8 @@ namespace Asp.netWebDatVe.Controllers
                 TempData["Error"] = "Lỗi khi lưu thông tin đặt vé. Vui lòng thử lại.";
                 return RedirectToAction("ChonGhe", new { maChuyen = maChuyen });
             }
-
+            // tạo url thanh toán
+            //Payment- PaymentInformationModel 
             var paymentInfo = new PaymentInformationModel
             {
                 MaPhieu = (int)(DateTime.Now.Ticks % int.MaxValue),
@@ -316,6 +355,9 @@ namespace Asp.netWebDatVe.Controllers
             }
         }
 
+
+        //trả về kết quả  view
+        //Xử lý callback từ VNPay
         [HttpGet]
         public async Task<IActionResult> PaymentCallback()
         {
@@ -324,10 +366,12 @@ namespace Asp.netWebDatVe.Controllers
 
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+            //
             var response = _vnpayService.PaymentExecute(Request.Query);
             return await ProcessPaymentCallback(response, "VNPay");
         }
 
+        //Xử lý callback từ Momo
         [HttpGet]
         public async Task<IActionResult> MoMoPaymentCallback()
         {
@@ -336,10 +380,12 @@ namespace Asp.netWebDatVe.Controllers
 
             var userName = HttpContext.Session.GetString("UserName");
             ViewData["UserName"] = userName;
+            //
             var response = _moMoService.PaymentExecute(Request.Query);
             return await ProcessPaymentCallback(response, "MoMo");
         }
 
+        //Xử lý callback thanh toán chung cho VNPay/MoMo
         private async Task<IActionResult> ProcessPaymentCallback(PaymentResponse response, string paymentMethod)
         {
             var pendingBookingJson = HttpContext.Session.GetString("PendingBooking");
@@ -349,7 +395,7 @@ namespace Asp.netWebDatVe.Controllers
                 TempData["ThongBao"] = "Phiên đặt vé đã hết hạn hoặc không tồn tại.";
                 return View("PaymentCallback", response);
             }
-
+            //
             BangJSonTamPDV pendingBooking;
             try
             {
@@ -363,7 +409,7 @@ namespace Asp.netWebDatVe.Controllers
                 TempData["ThongBao"] = "Lỗi khi đọc thông tin đặt vé. Vui lòng thử lại.";
                 return View("PaymentCallback", response);
             }
-
+            //Kiểm tra lại trạng thái ghế
             var vitri = db.Vitrighes
                 .Where(g => pendingBooking.SeatIds.Contains(g.IdVitri) && g.Trangthai != true)
                 .ToList();
@@ -381,9 +427,10 @@ namespace Asp.netWebDatVe.Controllers
                 {
                     foreach (var seat in vitri)
                     {
+                        //Cập nhật trạng thái các ghế được chọn thành đã đặt
                         seat.Trangthai = true;
                     }
-
+                    ////////
                     var phieuDatVe = new PhieuDatVe
                     {
                         Email = pendingBooking.Email,
@@ -396,6 +443,7 @@ namespace Asp.netWebDatVe.Controllers
                     db.PhieuDatVes.Add(phieuDatVe);
                     await db.SaveChangesAsync();
 
+                    ////
                     foreach (var seatId in pendingBooking.SeatIds)
                     {
                         var veXe = new VeXe
@@ -413,7 +461,7 @@ namespace Asp.netWebDatVe.Controllers
                         };
                         db.VeXes.Add(veXe);
                     }
-
+                    ////
                     var thanhToan = new ThanhToan
                     {
                         MaPhieu = phieuDatVe.MaPhieu,
@@ -426,7 +474,7 @@ namespace Asp.netWebDatVe.Controllers
                     db.ThanhToans.Add(thanhToan);
 
                     await db.SaveChangesAsync();
-
+                    //Gửi email xác nhận thanh toán:
                     try
                     {
                         var chuyenXe = await db.ChuyenXes
@@ -466,6 +514,7 @@ namespace Asp.netWebDatVe.Controllers
 
                     TempData["ThongBao"] = $"Thanh toán thành công qua {paymentMethod}! Vé của bạn đã được xác nhận.";
                 }
+                
                 else
                 {
                     TempData["ThongBao"] = $"Thanh toán {paymentMethod} thất bại. Mã lỗi: {response.MoMoResponseCode ?? response.VnPayResponseCode}";
@@ -494,6 +543,8 @@ namespace Asp.netWebDatVe.Controllers
             return View("PaymentCallback", response);
         }
 
+
+        //Xử lý thông báo 
         [HttpPost]
         public async Task<IActionResult> MoMoNotify()
         {
@@ -592,6 +643,8 @@ namespace Asp.netWebDatVe.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        
+        //view
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

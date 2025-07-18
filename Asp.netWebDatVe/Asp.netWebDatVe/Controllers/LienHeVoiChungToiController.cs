@@ -82,6 +82,9 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(lienHe);
         }
+
+
+        //admin 
         [Authorize(Roles = "1,2")]
         public IActionResult DanhSach()
         {
@@ -94,6 +97,8 @@ namespace Asp.netWebDatVe.Controllers
 
             return View(danhSachLienHe);
         }
+
+
         [Authorize(Roles = "1,2")]
         [HttpPost]
         public IActionResult Xoa(int id)

@@ -26,7 +26,7 @@ namespace Asp.netWebDatVe.Models
         public string? Tenxe { get; set; }
 
         [Display(Name = "Hình Ảnh")]
-        public string? HinhAnh { get; set; } // Đổi từ IFormFile? sang string?
+        public string? HinhAnh { get; set; } 
 
         public virtual Loaixe IdLoaiNavigation { get; set; } = null!;
         public virtual ICollection<ChuyenXe> ChuyenXes { get; set; }

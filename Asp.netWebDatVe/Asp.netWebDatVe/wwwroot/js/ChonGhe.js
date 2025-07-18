@@ -1,7 +1,7 @@
 ﻿function validateForm() {
     // Xóa thông báo lỗi cũ
     document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
-
+    //
     const tenKhachHang = document.getElementById('tenKhachHang').value.trim();
     const soDienThoai = document.getElementById('soDienThoai').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -13,7 +13,10 @@
         document.getElementById('tenKhachHang-error').textContent = 'Vui lòng nhập tên khách hàng.';
         isValid = false;
     }
-
+    //else if (!tenKhachHang || tenKhachHang.length < 2) {
+    //    document.getElementById('tenKhachHang-error').textContent = 'Tên khách hàng phải có ít nhất 2 ký tự.';
+    //    isValid = false;
+    //}
     // Kiểm tra số điện thoại (bắt đầu từ 0, 10 chữ số)
     if (!soDienThoai) {
         document.getElementById('soDienThoai-error').textContent = 'Vui lòng nhập số điện thoại.';
@@ -34,7 +37,7 @@
 
     // Kiểm tra ghế được chọn
     if (!selectedSeats) {
-        document.getElementById('tenKhachHang-error').textContent = 'Vui lòng chọn ít nhất một ghế.'; // Hiển thị lỗi chung
+        document.getElementById('tenKhachHang-error').textContent = 'Vui lòng chọn ít nhất một ghế.';
         isValid = false;
     }
 

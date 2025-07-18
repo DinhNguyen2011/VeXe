@@ -17,9 +17,9 @@ namespace Asp.netWebDatVe.Models
         public string? Tenxe { get; set; }
 
         [Display(Name = "Hình Ảnh")]
-        public IFormFile? HinhAnh { get; set; } // Giữ IFormFile để xử lý file upload
+        public IFormFile? HinhAnh { get; set; }
 
-        public string? HinhAnhUrl { get; set; } // Lưu đường dẫn ảnh để hiển thị
+        public string? HinhAnhUrl { get; set; }
 
     }
 }

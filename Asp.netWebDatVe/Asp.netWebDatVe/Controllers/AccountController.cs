@@ -10,12 +10,12 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.WebRequestMethods;
 
 namespace Asp.netWebDatVe.Controllers
 {
     public class AccountController : Controller
     {
-       
         private readonly QLDatVeContext _context;
         public AccountController(QLDatVeContext context)
         {
@@ -23,22 +23,24 @@ namespace Asp.netWebDatVe.Controllers
         }
         //mã hóa chuỗi khi ng dùng dn
         private bool IsBCryptHash(string password)
-        {
-        
+        {           
             return password != null && password.StartsWith("$2") && password.Length >= 50;
         }
 
+        /*----- Đăng nhập -> VIEW */
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(NguoiDung model, string returnUrl = null)
         {
+            //Tìm người dùng trong database dựa trên email.
             var user = _context.NguoiDungs
                 .FirstOrDefault(u => u.Email == model.Email);
 
@@ -52,6 +54,8 @@ namespace Asp.netWebDatVe.Controllers
             bool isPasswordValid = false;
             bool needsPasswordUpdate = false;
 
+            //Nếu mật khẩu trong database là BCrypt(IsBCryptHash trả về true), dùng BCrypt.Verify để so sánh mật khẩu người dùng nhập với mật khẩu mã hóa.
+            //Nếu không phải BCrypt(mật khẩu dạng plaintext), so sánh trực tiếp và đánh dấu needsPasswordUpdate = true.
             if (IsBCryptHash(user.MatKhau))
             {
                 isPasswordValid = BCrypt.Net.BCrypt.Verify(model.MatKhau, user.MatKhau);
@@ -69,6 +73,7 @@ namespace Asp.netWebDatVe.Controllers
                 return View();
             }
 
+            //Mã hóa mật khẩu mới bằng BCrypt và lưu vào database.
             if (needsPasswordUpdate)
             {
                 user.MatKhau = BCrypt.Net.BCrypt.HashPassword(model.MatKhau);
@@ -76,10 +81,11 @@ namespace Asp.netWebDatVe.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            //tránh link truy câp
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.HoTen ?? user.Email),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),           
                 new Claim(ClaimTypes.Role, user.MaQuyen.ToString() ?? "3")
             };
 
@@ -103,8 +109,9 @@ namespace Asp.netWebDatVe.Controllers
             {
                 return Redirect(returnUrl);
             }
-
+            //chuyển hướng quyền
             if (user.MaQuyen == 1 || user.MaQuyen == 2 )
+            /*if (user.MaQuyen == 1 || user.MaQuyen == 2  || user.MaQuyen == 3)*/
             {
                 return RedirectToAction("Index", "HomeAdmin");
             }
@@ -114,6 +121,8 @@ namespace Asp.netWebDatVe.Controllers
             }
         }
 
+
+        /*----- Đăng Ký -> VIEW */
         [HttpGet]
         public IActionResult Register()
         {
@@ -131,8 +140,8 @@ namespace Asp.netWebDatVe.Controllers
                 return View();
             }
 
-            // Mã hóa mật khẩu bằng BCrypt
             model.MatKhau = BCrypt.Net.BCrypt.HashPassword(model.MatKhau);
+   
             model.MaQuyen = 3;
             _context.NguoiDungs.Add(model);
             _context.SaveChanges();
@@ -141,25 +150,32 @@ namespace Asp.netWebDatVe.Controllers
             return RedirectToAction("Login");
         }
 
+
+        /*----- đăng  xuất */
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
+
+
+        /*----- Từ chối truy cập - VIEW */
         public IActionResult AccessDenied()
         {
             return View();
         }
+
+
+        /*----- Thông Tin Người dùng-> VIEW */
         public IActionResult Profile()
         {
             var userJson = HttpContext.Session.GetString("UserInfo");
             if (userJson == null) return RedirectToAction("Login");
 
             var user = JsonConvert.DeserializeObject<NguoiDung>(userJson);
-            ViewData["UserName"] = HttpContext.Session.GetString("UserName");
-
-           
+            ViewData["UserName"] = HttpContext.Session.GetString("UserName");     
             var tickets = _context.VeXes
                 .Where(v => v.Email == user.Email)
                 .Select(v => new
@@ -170,11 +186,12 @@ namespace Asp.netWebDatVe.Controllers
                     v.TrangThai
                 })
                 .ToList();
-
             ViewBag.Tickets = tickets;
             return View(user);
         }
 
+
+        /*----- Sửa TT -> VIEW */
         [HttpGet]
         [Authorize]
         public IActionResult EditProfile(int id)
@@ -264,6 +281,7 @@ namespace Asp.netWebDatVe.Controllers
             TempData["Success"] = "Cập nhật hồ sơ thành công!";
             return RedirectToAction("Profile");
         }
+        /*----- Đổi Mật Khẩu  -> VIEW */
         [HttpGet]
         public IActionResult ChangePassword()
         {
@@ -275,7 +293,6 @@ namespace Asp.netWebDatVe.Controllers
         }
 
         [HttpPost]
-        
         [ValidateAntiForgeryToken]
         public IActionResult ChangePassword(string oldPassword, string newPassword, string confirmPassword)
         {
@@ -330,8 +347,11 @@ namespace Asp.netWebDatVe.Controllers
             TempData["Success"] = "Đổi mật khẩu thành công! Vui lòng đăng nhập lại.";
             return RedirectToAction("Login");
         }
+
+        /*-----*/
         public IActionResult Index()
         {
+            //ViewBag.accname = HttpContext.Session.GetString("UserName");//hiển thị tên                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
             return View();
         }
     }

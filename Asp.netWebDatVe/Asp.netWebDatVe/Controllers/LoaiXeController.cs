@@ -106,6 +106,25 @@ namespace Asp.netWebDatVe.Controllers
             return View(loaiXe);
         }
 
+        //public IActionResult Details(int id)
+        //{
+        //    var userName = HttpContext.Session.GetString("UserName");
+        //    ViewData["UserName"] = userName;
+
+        //    var loaiXe = _context.Loaixes.Find(id);
+        //    if (loaiXe == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var xeDangDungLoai = _context.Xes
+        //        .Where(x => x.IdLoai == id)
+        //        .ToList();
+
+        //    ViewBag.XeDangDungLoai = xeDangDungLoai;
+        //    return View(loaiXe);
+        //}
+
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
@@ -134,5 +153,6 @@ namespace Asp.netWebDatVe.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+  
     }
 }

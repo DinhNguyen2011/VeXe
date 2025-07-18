@@ -7,6 +7,7 @@ namespace Asp.netWebDatVe.Models
 {
     public partial class KhuyenMai
     {
+        //khuyên mai admin
         public KhuyenMai()
         {
             PhieuDatVes = new HashSet<PhieuDatVe>();

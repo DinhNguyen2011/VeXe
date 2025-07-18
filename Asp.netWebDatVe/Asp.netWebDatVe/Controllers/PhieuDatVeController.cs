@@ -43,36 +43,36 @@ namespace Asp.netWebDatVe.Controllers
             return View(phieuDatVes);
         }
 
-        // GET: PhieuDatVe/Create
-        public IActionResult Create()
-        {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-            ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai");
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"});
-            return View();
-        }
+        //// GET: PhieuDatVe/Create
+        //public IActionResult Create()
+        //{
+        //    var userName = HttpContext.Session.GetString("UserName");
+        //    ViewData["UserName"] = userName;
+        //    ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai");
+        //    ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"});
+        //    return View();
+        //}
 
-        // POST: PhieuDatVe/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PhieuDatVe phieuDatVe)
-        {
-            var userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
-            if (ModelState.IsValid)
-            {
-                phieuDatVe.NgayDat = phieuDatVe.NgayDat ?? DateTime.Now;
-                _context.Add(phieuDatVe);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Thêm phiếu đặt vé thành công.";
-                return RedirectToAction(nameof(Index));
-            }
+        //// POST: PhieuDatVe/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create(PhieuDatVe phieuDatVe)
+        //{
+        //    var userName = HttpContext.Session.GetString("UserName");
+        //    ViewData["UserName"] = userName;
+        //    if (ModelState.IsValid)
+        //    {
+        //        phieuDatVe.NgayDat = phieuDatVe.NgayDat ?? DateTime.Now;
+        //        _context.Add(phieuDatVe);
+        //        await _context.SaveChangesAsync();
+        //        TempData["Success"] = "Thêm phiếu đặt vé thành công.";
+        //        return RedirectToAction(nameof(Index));
+        //    }
 
-            ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", phieuDatVe.MaKhuyenMai);
-            ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"}, phieuDatVe.TrangThai);
-            return View(phieuDatVe);
-        }
+        //    ViewBag.MaKhuyenMai = new SelectList(_context.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", phieuDatVe.MaKhuyenMai);
+        //    ViewBag.TrangThai = new SelectList(new[] { "Đã thanh toán", "Chưa thanh toán"}, phieuDatVe.TrangThai);
+        //    return View(phieuDatVe);
+        //}
 
         // GET: PhieuDatVe/Edit/5
         public async Task<IActionResult> Edit(int? id)

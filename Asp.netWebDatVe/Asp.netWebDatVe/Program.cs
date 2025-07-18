@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
         options.SlidingExpiration = true;
     });
-
+//khai báo 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IVNPayService, VNPayService>();
 builder.Services.AddScoped<IMoMoService, MoMoService>();

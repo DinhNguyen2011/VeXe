@@ -27,7 +27,8 @@
       layoutMode: 'masonry',
     });
 
-    // Filter items on button click
+      // Cho phép ng??i dùng l?c các ph?n t? trong
+      //.isotope - container b?ng cách nh?p vào các nút có l?p.filter - button.
     $('.filter-button').click(function () {
       var filterValue = $(this).attr('data-filter');
       if (filterValue === '*') {
@@ -53,7 +54,7 @@
       $("#video").attr('src', $videoSrc);
     })
 
-    // Swiper Initialization
+    // Swiper kh?i t?o
     var sliderSwiper = new Swiper(".slider", {
       effect: "fade",
     });

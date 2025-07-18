@@ -6,11 +6,23 @@
 }
 
 <h2>Danh sách loại xe</h2>
+
 <p>
     <a asp-action="Create" class="btn btn-primary">Thêm loại xe mới</a>
 </p>
-<table class="table">
-    <thead>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-bordered">
+    <thead class="thead-light">
         <tr>
             <th>Mã loại</th>
             <th>Tên loại xe</th>
@@ -26,8 +38,9 @@
                 <td>@item.Tenloai</td>
                 <td>@item.Soghe</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdLoai" class="btn btn-warning">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@item.IdLoai" class="btn btn-danger">Xóa</a>
+                   @*  <a asp-action="Details" asp-route-id="@item.IdLoai" class="btn btn-info btn-sm">Chi tiết</a> *@
+                    <a asp-action="Edit" asp-route-id="@item.IdLoai" class="btn btn-warning btn-sm">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdLoai" class="btn btn-danger btn-sm">Xóa</a>
                 </td>
             </tr>
         }

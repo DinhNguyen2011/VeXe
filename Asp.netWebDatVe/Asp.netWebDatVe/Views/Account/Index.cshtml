@@ -1,12 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Result";
+    ViewData["Title"] = "Tài Khoản";
 }
 @if (ViewBag.accname != null)
 {
     <p>@ViewBag.accname</p>
 }
 
-
+@* Nếu không rỗng, hiển thị liên kết "Log out" contr. *@
 @if (!string.IsNullOrEmpty(ViewBag.accname))
 {
     <a href="/Account/Logout">Log out</a>
