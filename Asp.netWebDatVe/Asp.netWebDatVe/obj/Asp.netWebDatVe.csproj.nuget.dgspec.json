@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj": {}
+    "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj": {
+    "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+        "projectUniqueName": "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
         "projectName": "Asp.netWebDatVe",
-        "projectPath": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
-        "packagesPath": "C:\\Users\\TTD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TTD\\Documents\\GitHub\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\obj\\",
+        "projectPath": "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+        "packagesPath": "C:\\Users\\dinhn\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\TTD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dinhn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -92,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

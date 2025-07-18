@@ -37,18 +37,20 @@
     <div class="row">
         <!-- Cột bên trái: Ghế (2/3) -->
         <div class="col-md-8">
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger" role="alert">@TempData["Error"]</div>
+            }
             <div class="seat-section">
-                <h3 class="section-title">Tầng trên</h3>
+                <h3 class="section-title" data-lang-key="upper_deck">Tầng trên</h3>
                 <div class="seat-map-container">
                     @foreach (var ghe in danhSachGhe.Take(soGheTren))
                     {
-                        var gd = (bool?)ghe.Trangthai ?? false;
-                        var isSelected = selectedSeats.Contains(ghe.IdVitri.ToString());
-                        <button class="seat @(gd ? "seat-occupied" : "seat-available") @(isSelected ? "seat-selected" : "")"
-                        @(gd ? "disabled" : "")
+                        var isBooked = gheDaDat.Contains(ghe.IdVitri);
+                        <button class="seat @(isBooked ? "seat-occupied" : "seat-available")"
+                                @(isBooked ? "disabled" : "")
                                 data-id="@ghe.IdVitri"
-                                onclick="chonGhe(this)"
-                                title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                                title="Ghế @ghe.Tenvitri @(isBooked ? "(Đã đặt)" : "(Còn trống)")">
                             <i class="fas fa-chair seat-icon"></i>
                             <span class="seat-number">@ghe.Tenvitri</span>
                         </button>
@@ -57,17 +59,15 @@
             </div>
 
             <div class="seat-section">
-                <h3 class="section-title">Tầng dưới</h3>
+                <h3 class="section-title" data-lang-key="lower_deck">Tầng dưới</h3>
                 <div class="seat-map-container">
                     @foreach (var ghe in danhSachGhe.Skip(soGheTren))
                     {
-                        var gd = (bool?)ghe.Trangthai ?? false;
-                        var isSelected = selectedSeats.Contains(ghe.IdVitri.ToString());
-                        <button class="seat @(gd ? "seat-occupied" : "seat-available") @(isSelected ? "seat-selected" : "")"
-                        @(gd ? "disabled" : "")
+                        var isBooked = gheDaDat.Contains(ghe.IdVitri);
+                        <button class="seat @(isBooked ? "seat-occupied" : "seat-available")"
+                                @(isBooked ? "disabled" : "")
                                 data-id="@ghe.IdVitri"
-                                onclick="chonGhe(this)"
-                                title="Ghế @ghe.Tenvitri @(gd ? "(Đã đặt)" : "(Còn trống)")">
+                                title="Ghế @ghe.Tenvitri @(isBooked ? "(Đã đặt)" : "(Còn trống)")">
                             <i class="fas fa-chair seat-icon"></i>
                             <span class="seat-number">@ghe.Tenvitri</span>
                         </button>

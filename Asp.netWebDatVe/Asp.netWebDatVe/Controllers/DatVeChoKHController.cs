@@ -140,18 +140,26 @@ namespace Asp.netWebDatVe.Controllers
 
             var selectedSeats = HttpContext.Session.GetString("SelectedSeats")?.Split(',').ToList() ?? new List<string>();
 
-            // Lấy thông tin khuyến mãi
-            var khuyenMai = _db.KhuyenMais
-                .FirstOrDefault(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now);
+            // Lấy danh sách ghế đã đặt từ VeXe (dùng trong DatVe)
+            var gheDaDat = _db.VeXes
+                .Where(vx => vx.MaChuyen == maChuyen && vx.TrangThai == "Đã thanh toán" && vx.IdVitri.HasValue)
+                .Select(vx => vx.IdVitri.Value)
+                .ToList();
+
+            _logger.LogInformation($"gheDaDat for maChuyen {maChuyen}: {string.Join(", ", gheDaDat)}");
+
+            //// Lấy thông tin khuyến mãi
+            //var khuyenMai = _db.KhuyenMais
+            //    .FirstOrDefault(k => k.NgayBatDau <= DateTime.Now && k.NgayKetThuc >= DateTime.Now);
 
             ViewBag.ChuyenXe = chuyenXe;
             ViewBag.DanhSachGhe = danhSachGhe;
             ViewBag.SoGhe = soGhe;
-            ViewBag.GheDaDat = danhSachGhe.Where(ghe => ghe.Trangthai == true).Select(ghe => ghe.IdVitri).ToList();
+            ViewBag.GheDaDat = gheDaDat;
             ViewBag.SelectedSeats = selectedSeats;
             ViewBag.TuyenXe = chuyenXe.MaTuyenNavigation;
             ViewBag.MaChuyen = maChuyen;
-            ViewBag.KhuyenMai = khuyenMai; // Thêm thông tin khuyến mãi vào ViewBag
+            //ViewBag.KhuyenMai = khuyenMai;
 
             return View();
         }
@@ -182,16 +190,17 @@ namespace Asp.netWebDatVe.Controllers
 
             var seatIds = selectedSeats.Split(',').Select(int.Parse).ToList();
 
-            var vitri = _db.Vitrighes
-                .Where(g => seatIds.Contains(g.IdVitri) && g.Trangthai != true)
-                .ToList();
+            //// Kiểm tra trạng thái ghế trong Vitrighe
+            //var gheDaDat = _db.Vitrighes
+            //    .Where(g => seatIds.Contains(g.IdVitri) && g.Trangthai == true)
+            //    .Select(g => g.Tenvitri)
+            //    .ToList();
 
-            _logger.LogInformation($"Available seats: {vitri.Count}, Requested seats: {seatIds.Count}");
-            if (vitri.Count != seatIds.Count)
-            {
-                TempData["Error"] = "Một hoặc nhiều ghế bạn chọn đã được đặt trước.";
-                return RedirectToAction("ChonGheHK", new { maChuyen });
-            }
+            //if (gheDaDat.Any())
+            //{
+            //    TempData["Error"] = $"Các ghế {string.Join(", ", gheDaDat)} đã được đặt trước.";
+            //    return RedirectToAction("ChonGheHK", new { maChuyen });
+            //}
 
             var chuyenXe = _db.ChuyenXes
                 .Include(cx => cx.BienSoXeNavigation)
@@ -205,7 +214,7 @@ namespace Asp.netWebDatVe.Controllers
             }
 
             var giaVe = chuyenXe.GiaVe ?? 0;
-            var expectedTotalPrice = vitri.Count * giaVe;
+            var expectedTotalPrice = seatIds.Count * giaVe;
             _logger.LogInformation($"Client totalPrice: {totalPrice}, Expected totalPrice: {expectedTotalPrice}");
             if (totalPrice != expectedTotalPrice)
             {
