@@ -40,9 +40,17 @@
         background-color: #dc3545; /* Màu nền cho nút xóa */
         color: white;
     }
-
+ 
 </style>
 <h2>Danh sách chuyến xe</h2>
+@if (TempData["Success"] != null)
+{
+         <div style=" color: red;">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+         <div class="notification error">@TempData["Error"]</div>
+}
 <p>
     <a asp-action="Create" class="btn btn-primary">Thêm chuyến xe</a>
 

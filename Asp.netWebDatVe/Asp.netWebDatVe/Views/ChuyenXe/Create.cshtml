@@ -9,6 +9,17 @@
 
 <div class="phieudatve-container">
     <h2 class="phieudatve-title">Thêm chuyến xe</h2>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@modelError.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
 
     <form asp-action="Create" method="post">
         @Html.AntiForgeryToken()
