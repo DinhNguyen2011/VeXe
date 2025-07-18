@@ -97,37 +97,69 @@ namespace Asp.netWebDatVe.Controllers
 
             if (ModelState.IsValid)
             {
-                // Kiểm tra trùng lặp biển số xe với chuyến đang hoạt động
-                var existingTrips = _context.ChuyenXes
-                    .Where(cx => cx.BienSoXe == chuyenXe.BienSoXe
-                              && cx.ThoiDiemDenDuKien.HasValue
-                              && cx.ThoiDiemDenDuKien > DateTime.Now)
-                    .ToList();
-
-                if (existingTrips.Any())
+                // Kiểm tra thời gian đến dự kiến phải lớn hơn thời gian hiện tại
+                if (chuyenXe.ThoiDiemDenDuKien.HasValue && chuyenXe.ThoiDiemDenDuKien <= DateTime.Now)
                 {
-                    ModelState.AddModelError("BienSoXe", "Biển số xe này đang được sử dụng cho một chuyến xe chưa kết thúc. Vui lòng chọn xe khác.");
+                    ModelState.AddModelError("ThoiDiemDenDuKien", "Thời gian đến dự kiến phải lớn hơn thời gian hiện tại.");
+                }
+                // Kiểm tra thời gian đến phải lớn hơn thời gian khởi hành
+                else if (chuyenXe.ThoiDiemKhoiHanh.HasValue && chuyenXe.ThoiDiemDenDuKien.HasValue && chuyenXe.ThoiDiemDenDuKien <= chuyenXe.ThoiDiemKhoiHanh)
+                {
+                    ModelState.AddModelError("ThoiDiemDenDuKien", "Thời gian đến dự kiến phải lớn hơn thời gian khởi hành.");
                 }
                 else
                 {
-                    // Kiểm tra thời gian dự kiến đến đã kết thúc so với hiện tại
-                    if (chuyenXe.ThoiDiemDenDuKien.HasValue && chuyenXe.ThoiDiemDenDuKien <= DateTime.Now)
+                    // Kiểm tra xung đột thời gian với các chuyến xe hiện có của cùng xe
+                    var conflictingTripsByXe = _context.ChuyenXes
+                        .Where(cx => cx.BienSoXe == chuyenXe.BienSoXe
+                                  && cx.ThoiDiemKhoiHanh.HasValue
+                                  && cx.ThoiDiemDenDuKien.HasValue
+                                  && cx.ThoiDiemKhoiHanh <= chuyenXe.ThoiDiemDenDuKien
+                                  && chuyenXe.ThoiDiemKhoiHanh <= cx.ThoiDiemDenDuKien)
+                        .ToList();
+
+                    if (conflictingTripsByXe.Any())
                     {
-                        ModelState.AddModelError("ThoiDiemDenDuKien", "Thời gian đến dự kiến phải lớn hơn thời gian hiện tại.");
+                        ModelState.AddModelError("BienSoXe", "Xe này đã được sử dụng trong một chuyến xe khác trong khoảng thời gian bạn chọn. Vui lòng chọn xe hoặc thời gian khác.");
                     }
-                    else
+
+                    // Kiểm tra xung đột thời gian với các nhân viên
+                    var conflictingTripsByNhanVien = _context.ChuyenXes
+                        .Where(cx => (cx.MaNhanVien == chuyenXe.MaNhanVien || cx.MaTaiXe == chuyenXe.MaTaiXe || cx.MaNhanVien1 == chuyenXe.MaNhanVien1)
+                                  && cx.ThoiDiemKhoiHanh.HasValue
+                                  && cx.ThoiDiemDenDuKien.HasValue
+                                  && cx.ThoiDiemKhoiHanh <= chuyenXe.ThoiDiemDenDuKien
+                                  && chuyenXe.ThoiDiemKhoiHanh <= cx.ThoiDiemDenDuKien)
+                        .ToList();
+
+                    if (conflictingTripsByNhanVien.Any())
+                    {
+                        ModelState.AddModelError("", "Một hoặc nhiều nhân viên đã được gán cho chuyến xe khác trong khoảng thời gian này. Vui lòng chọn nhân viên hoặc thời gian khác.");
+                    }
+
+                    if (!conflictingTripsByXe.Any() && !conflictingTripsByNhanVien.Any())
                     {
                         // Nếu không nhập giá vé, lấy giá hiện hành từ tuyến xe
                         if (chuyenXe.GiaVe == null)
                         {
                             var tuyenXe = _context.TuyenXes.Find(chuyenXe.MaTuyen);
-                            chuyenXe.GiaVe = tuyenXe?.GiaHienHanh;
+                            if (tuyenXe == null)
+                            {
+                                ModelState.AddModelError("MaTuyen", "Tuyến xe không tồn tại.");
+                            }
+                            else
+                            {
+                                chuyenXe.GiaVe = tuyenXe.GiaHienHanh;
+                            }
                         }
 
-                        _context.ChuyenXes.Add(chuyenXe);
-                        _context.SaveChanges();
-                        TempData["Success"] = "Thêm chuyến xe thành công.";
-                        return RedirectToAction("Index");
+                        if (ModelState.IsValid)
+                        {
+                            _context.ChuyenXes.Add(chuyenXe);
+                            _context.SaveChanges();
+                            TempData["Success"] = "Thêm chuyến xe thành công.";
+                            return RedirectToAction("Index");
+                        }
                     }
                 }
             }
