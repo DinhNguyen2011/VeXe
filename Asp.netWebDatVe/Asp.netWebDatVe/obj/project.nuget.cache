@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QWF9GRYrhMs=",
+  "dgSpecHash": "sznvff578tc=",
   "success": true,
-  "projectFilePath": "D:\\DoAnSTU\\Đồ án chuyên ngành\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
+  "projectFilePath": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Asp.netWebDatVe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinhn\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\dinhn\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

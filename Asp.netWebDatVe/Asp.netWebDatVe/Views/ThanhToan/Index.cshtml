@@ -1,40 +1,99 @@
-﻿
-@model IEnumerable<Asp.netWebDatVe.Models.ThanhToan>
+﻿@model IEnumerable<Asp.netWebDatVe.Models.ThanhToan>
 
 @{
     ViewData["Title"] = "Danh sách thanh toán";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Danh sách thanh toán</h2>
+<style>
+    .thanhtoan-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Mã TT</th>
-            <th>Mã Phiếu</th>
-            <th>Phương Thức</th>
-            <th>Số Tiền</th>
-            <th>Ngày Thanh Toán</th>
-            <th>Trạng Thái</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.MaThanhToan</td>
-                <td>@item.MaPhieu</td>
-                <td>@item.PhuongThuc</td>
-                <td>@item.SoTien.ToString("N0")</td>
-                <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
-                <td>@item.TrangThai</td>
-                <td>
-       
-                    <a asp-action="Delete" asp-route-id="@item.MaThanhToan" class="btn btn-sm btn-danger">Xóa</a>
-                </td>
-            </tr>
+    .thanhtoan-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        font-size: 14px;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            vertical-align: middle;
         }
-    </tbody>
-</table>
+
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .btn-sm {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+    }
+
+        .btn-danger i {
+            margin-right: 5px;
+        }
+</style>
+
+<div class="thanhtoan-container">
+    <h2 class="thanhtoan-title">Danh sách thanh toán</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã TT</th>
+                    <th>Mã Phiếu</th>
+                    <th>Phương Thức</th>
+                    <th>Số Tiền</th>
+                    <th>Ngày Thanh Toán</th>
+                    <th>Trạng Thái</th>
+                @*     <th>Thao tác</th> *@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaThanhToan</td>
+                        <td>@item.MaPhieu</td>
+                        <td>@item.PhuongThuc</td>
+                        <td>@item.SoTien.ToString("N0") VNĐ</td>
+                        <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
+                        <td>@item.TrangThai</td>
+                        @* <td>
+                            <div class="action-buttons">
+                                <a asp-action="Delete" asp-route-id="@item.MaThanhToan" class="btn btn-danger btn-sm" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </a>
+                            </div>
+                        </td> *@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

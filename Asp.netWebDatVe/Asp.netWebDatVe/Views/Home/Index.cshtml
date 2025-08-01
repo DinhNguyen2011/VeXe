@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="~/css/bus-home.css" />
 <link rel="stylesheet" href="~/css/tuyenxeindex.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
 
 @if (ViewData["UserName"] != null)
@@ -130,91 +129,130 @@
 
 
             <!-- Danh sách chuyến xe -->
-            <div class="col-md-8">
-               
-                <h4 class="text-center">Tuyến xe từ @ViewBag.TuyenXe.DiemDi đến @ViewBag.TuyenXe.DiemDen</h4>
-                <div class="row">
-                    @foreach (var chuyenXe in ViewBag.ChuyenXes)
-                    {
-                        <div class="col-md-6 chuyen-xe" data-gio-khoihanh="@chuyenXe.ThoiDiemKhoiHanh?.ToString("HH")">
-                            <div class="custom-trip-card mb-4 p-3">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div class="time-info text-center">
-                                        <strong class="depart-time">@chuyenXe.ThoiDiemKhoiHanh?.ToString("HH:mm")</strong>
-                                        <p>@ViewBag.TuyenXe.MaBenXeDiNavigation?.TenBenXe</p>
-                                    </div>
-                                    <div class="travel-duration text-muted text-center">
-                                        <div><small class="arrive-time">@chuyenXe.ThoiDiemDenDuKien?.AddHours(2)?.ToString("HH:mm")</small></div>
-                                        <div><small>(Asia/Ho Chi Minh)</small></div>
-                                    </div>
-                                    <div class="time-info text-center">
-                                        <strong class="arrive-time">@chuyenXe.ThoiDiemDenDuKien?.ToString("HH:mm")</strong>
-                                        <p>@ViewBag.TuyenXe.MaBenXeDenNavigation?.TenBenXe</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div><strong class="text-success">@(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định")</strong></div>
-                                    <div class="price text-danger fw-bold">@chuyenXe.GiaVe?.ToString("N0")₫</div>
-                                </div>
-                                <hr />
-                                @* chonghe contr *@
-                                <div class="text-end">
-                                    <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen" class="btn btn-outline-danger btn-sm px-4" data-lang-key="index_select_trip">Chọn chuyến</a>
-                                </div>
-                            </div>
+           <div class="col-md-8 trip-wrapper">
+    <h4 class="text-center trip-header">
+        Tuyến xe từ @ViewBag.TuyenXe.DiemDi đến @ViewBag.TuyenXe.DiemDen
+    </h4>
+
+    <div class="row trip-list gx-4 gy-4">
+        @foreach (var chuyenXe in ViewBag.ChuyenXes)
+        {
+            <div class="col-md-6 trip-item" data-gio-khoihanh="@chuyenXe.ThoiDiemKhoiHanh?.ToString("HH")">
+                <div class="card shadow-sm trip-card border-0 rounded-4 p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3 trip-times">
+                        <!-- Giờ đi -->
+                        <div class="text-center trip-time-info">
+                            <div><small>Thời gian khởi hành</small></div>
+
+                            <strong class="text-primary fs-5 trip-depart-time">
+                                @chuyenXe.ThoiDiemKhoiHanh?.ToString("HH:mm")
+                            </strong>
+                            <p class="mb-0 small">@ViewBag.TuyenXe.MaBenXeDiNavigation?.TenBenXe</p>
                         </div>
-                    }
+
+                        <!-- Thời gian dự kiến -->
+                        <div class="text-center text-muted trip-duration-info">
+                            <div><small>Thời gian</small></div>
+                            @* <div><strong class="trip-arrive-estimate">@chuyenXe.ThoiDiemDenDuKien?.AddHours(2)?.ToString("HH:mm")</strong></div> *@
+                            <small class="text-uppercase">(Asia/VIETNAM)</small>
+                        </div>
+
+                        <!-- Giờ đến -->
+                        <div class="text-center trip-time-info">
+                            <div><small>Thời gian đến dự kiến</small></div>
+
+                            <strong class="text-success fs-5 trip-arrive-time">
+                                @chuyenXe.ThoiDiemDenDuKien?.ToString("HH:mm")
+                            </strong>
+                            <p class="mb-0 small">@ViewBag.TuyenXe.MaBenXeDenNavigation?.TenBenXe</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3 trip-meta">
+                        <span class="badge bg-success trip-type">
+                            @(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định")
+                        </span>
+                        <span class="text-danger fw-bold fs-6 trip-price">
+                            @chuyenXe.GiaVe?.ToString("N0")₫
+                        </span>
+                    </div>
+
+                    <div class="text-end trip-select">
+                        <a asp-action="ChonGhe" asp-route-maChuyen="@chuyenXe.MaChuyen"
+                           class="btn btn-success px-4 py-2 rounded-pill trip-select-btn"
+                           data-lang-key="index_select_trip">
+                            Chọn chuyến
+                        </a>
+                    </div>
                 </div>
             </div>
+            }
         </div>
+    </div>
+</div>
     }
     else if (!string.IsNullOrEmpty(ViewBag.Message))
     {
         <p class="text-center text-danger">@ViewBag.Message</p>
     }
- <!-- Phần khuyến mãi với Tailwind CSS -->
-<div class="promotions-section container mx-auto mt-3 px-4">
-    <h1 class="text-base font-bold text-green-600 text-center mb-2" data-lang-key="index_promotions_title">Ưu đãi đặc biệt</h1>
-    @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
-    {
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-            @foreach (var khuyenMai in ViewBag.KhuyenMais)
-            {
-                <div class="bg-white rounded-md shadow-sm overflow-hidden transition-transform duration-300 hover:scale-105">
-                    @if (!string.IsNullOrEmpty(khuyenMai.HinhAnh))
-                    {
-                        <div class="relative w-full aspect-w-3 aspect-h-2">
-                            <img src="@Url.Content(khuyenMai.HinhAnh)" alt="@khuyenMai.TenKhuyenMai" 
-                                 class="w-full h-full object-contain" loading="lazy" style="max-width: 100% !important;
-                                 height: 225px !important;"
-                                 onerror="this.src='/images/fallback-promotion.jpg'" />
+
+
+        <div class="km-section container mt-4">
+        <h3 class="km-title text-center text-success fw-bold mb-3" data-lang-key="index_promotions_title">
+            Ưu đãi đặc biệt
+        </h3>
+
+        @if (ViewBag.KhuyenMais != null && ViewBag.KhuyenMais.Count > 0)
+        {
+            <div class="row gy-3">
+                @foreach (var khuyenMai in ViewBag.KhuyenMais)
+                {
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="km-card card h-100 shadow-sm border-0">
+                            @if (!string.IsNullOrEmpty(khuyenMai.HinhAnh))
+                            {
+                                <img src="@Url.Content(khuyenMai.HinhAnh)"
+                                     alt="@khuyenMai.TenKhuyenMai"
+                                     class="km-image card-img-top"
+                                     style="height: 170px; object-fit: contain;"
+                                     loading="lazy"
+                                     onerror="this.src='/images/fallback-promotion.jpg'" />
+                            }
+                            else
+                            {
+                                <div class="km-no-image d-flex align-items-center justify-content-center bg-light" style="height: 225px;">
+                                    <span class="km-no-image-text text-muted small">Không có hình ảnh</span>
+                                </div>
+                            }
+
+                         <div class="km-content card-body p-3">
+                                <p class="km-name card-title mb-1 text-truncate">@khuyenMai.TenKhuyenMai</p>
+                                <p class="km-description card-text text-muted small mb-1 text-truncate">@khuyenMai.MoTa</p>
+                                <p class="km-discount fw-medium text-success small mb-1">
+                                    Giảm: @khuyenMai.PhanTramGiam% /1 vé
+                                </p>
+                                <p class="km-date text-muted small mb-2">
+                                    Hiệu lực: @khuyenMai.NgayBatDau.ToString("dd/MM/yyyy") - @khuyenMai.NgayKetThuc.ToString("dd/MM/yyyy")
+                                </p>
+                                <a href="@Url.Action("ChiTietKhuyenMai", "Home", new { maKhuyenMai = khuyenMai.MaKhuyenMai })"
+                                   class="km-detail-link btn btn-sm btn btn-success w-100"
+                                   data-lang-key="index_promo_details">Xem chi tiết</a>
+                            </div>
+
                         </div>
-                    }
-                    else
-                    {
-                        <div class="relative w-full aspect-w-3 aspect-h-2 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500 text-xs">Không có hình ảnh</span>
-                        </div>
-                    }
-                    <div class="p-1.5">
-                        <h3 class="text-2xs font-semibold text-gray-800 line-clamp-1">@khuyenMai.TenKhuyenMai</h3>
-                        <p class="text-2xs text-gray-600 mt-1 line-clamp-2">@khuyenMai.MoTa</p>
-                         @* <p class="text-2xs font-medium text-green-600 mt-1"> @khuyenMai.TenKhuyenMai</p> *@
-                        <p class="text-2xs font-medium text-green-600">Giảm: @khuyenMai.PhanTramGiam% /1 vé</p>
-                        <p class="text-2xs text-gray-500 mt-1">Hiệu lực: @khuyenMai.NgayBatDau.ToString("dd/MM/yyyy") - @khuyenMai.NgayKetThuc.ToString("dd/MM/yyyy")</p>
-                        <a href="@Url.Action("ChiTietKhuyenMai", "Home", new { maKhuyenMai = khuyenMai.MaKhuyenMai })" 
-                           class="mt-1 inline-block text-2xs text-blue-600 hover:underline" 
-                           data-lang-key="index_promo_details">Xem chi tiết</a>
                     </div>
-                </div>
-            }
-        </div>
-    }
-    else
-    {
-        <p class="text-center text-gray-600 text-xs" data-lang-key="index_no_promotions">Hiện tại không có chương trình khuyến mãi nào.</p>
-    }
-</div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="km-no-km text-center text-muted small" data-lang-key="index_no_promotions">
+                Hiện tại không có chương trình khuyến mãi nào.
+            </p>
+        }
+    </div>
+
+
     <!-- Hướng dẫn đặt xe -->
     <!-- 4 bước đặt xe: chọn hành trình -> chọn chuyến -> thanh toán -> xác nhận -->
 

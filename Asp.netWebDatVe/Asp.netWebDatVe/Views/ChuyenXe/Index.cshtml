@@ -1,114 +1,91 @@
 ﻿@model List<Asp.netWebDatVe.Models.ChuyenXe>
+
 @{
     ViewData["Title"] = "Chỉnh sửa Chuyến Xe";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<style>
-    .table {
-        width: 80%;
-        margin: auto; /* Căn giữa bảng */
-        font-size: 14px; /* Thu nhỏ kích cỡ chữ */
-        border-collapse: collapse; /* Gộp đường viền */
+
+<div class="container-fluid mt-3">
+    <h2 class="mb-4 text-primary">Danh sách chuyến xe</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
     }
 
-        .table th, .table td {
-            padding: 3px; /* Giảm khoảng cách bên trong ô */
-            text-align: center; /* Canh giữa nội dung ô */
-        }
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Thêm chuyến xe
+        </a>
+       
+        <form asp-action="Index" method="get" class="form-inline">
+            <div class="form-group">
+             
+                    <select class="form-control" name="filterChuyenXe" onchange="this.form.submit()"
+                            asp-items="ViewBag.FilterChuyenXe">
+                        <option value="">-- Tất cả --</option>
+                    </select>
+             
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isCompleted" value="true"
+                       @(ViewBag.IsCompleted == true ? "checked" : "") onchange="this.form.submit()" />
+                <label class="form-check-label">Chỉ hiển thị chuyến xe đã kết thúc</label>
+            </div>
+        </form>
+    </div>
 
-        .table th {
-            background-color: #f4f4f4; /* Thêm màu nền nhẹ cho tiêu đề */
-        }
-
-        .table td {
-            border: 1px solid #ddd; /* Thêm đường viền mỏng */
-        }
-
-    .btn {
-        font-size: 10px; /* Giảm kích thước chữ của nút */
-        padding: 5px 10px; /* Thu nhỏ khoảng cách trong nút */
-        margin: 8px; /* Giảm khoảng cách giữa các nút */
-        border-radius: 5px; /* Làm tròn góc của nút */
-    }
-
-    .btn-warning {
-        background-color: #ffc107; /* Màu nền cho nút sửa */
-        color: white;
-    }
-
-    .btn-danger {
-        background-color: #dc3545; /* Màu nền cho nút xóa */
-        color: white;
-    }
- 
-</style>
-<h2>Danh sách chuyến xe</h2>
-@if (TempData["Success"] != null)
-{
-         <div style=" color: red;">@TempData["Success"]</div>
-}
-@if (TempData["Error"] != null)
-{
-         <div class="notification error">@TempData["Error"]</div>
-}
-<p>
-    <a asp-action="Create" class="btn btn-primary">Thêm chuyến xe</a>
-
-</p>
-<div class="vitrighe-filter">
-    <form asp-action="Index" method="get">
-        <div class="form-group vitrighe-form-group">
-            <label class="vitrighe-label">
-                <input type="checkbox" name="isCompleted" value="true" @(ViewBag.IsCompleted == true ? "checked" : "") onchange="this.form.submit()" />
-                Chỉ hiển thị chuyến xe đã kết thúc
-            </label>
-        </div>
-    </form>
-</div>
-<div class="table-responsive">
-<table class="table">
-    <thead>
-        <tr>
-                <th>Tuyến</th>
-                <th>Mã chuyến</th>
-                <th>Tên chuyến</th>
-                <th>Khởi hành</th>
-                <th>Đến dự kiến</th>
-                <th>Giá vé</th>
-                <th>Biển số</th>
-                <th>Tài xế</th>
-                <th>Phụ xe</th>
-                <th>NV hỗ trợ</th>
-                <th>Tác vụ</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <div class="table-responsive shadow rounded">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-light text-center">
                 <tr>
-                    <td>@item.MaTuyen</td>
-                    <td>@item.MaChuyen</td>
-                    <td>@item.TenChuyenXe</td>
-                <td>@item.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@item.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@item.GiaVe?.ToString("N0") VNĐ</td>
-                <td>@item.BienSoXe</td>
-            
-
-                    <td>@item.MaTaiXeNavigation?.HoTen</td>           <!-- Cột Tài xế -->
-                    <td>@item.MaNhanVien1Navigation?.HoTen</td>       <!-- Cột Phụ xe -->
-                    <td>@item.MaNhanVienNavigation?.HoTen</td>        <!-- Cột NV hỗ trợ -->
-
-                <td>
-                        <a asp-controller="ChuyenXe" asp-action="Edit" asp-route-id="@item.MaChuyen" class="btn btn-warning">Sửa</a>
-                    <a asp-controller="ChuyenXe" asp-action="Details" asp-route-id="@item.MaChuyen" class="btn btn-warning">Chi tiết</a>
-
-                    <a asp-controller="ChuyenXe" asp-action="Delete" asp-route-id="@item.MaChuyen" class="btn btn-primary">Xóa</a>
-
-
-                    </td>
+                    <th>Tên chuyến</th>
+                    <th>Khởi hành</th>
+                    <th>Đến dự kiến</th>
+                    <th>Giá vé</th>
+                    <th>Biển số</th>
+                    <th>Tài xế</th>
+                    <th>Phụ xe</th>
+                    <th>NV hỗ trợ</th>
+                    <th>Thao tác</th>
                 </tr>
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        <td>@item.TenChuyenXe</td>
+                        <td>@item.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.ThoiDiemDenDuKien?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.GiaVe?.ToString("N0") VNĐ</td>
+                        <td>@item.BienSoXe</td>
+                        <td>@item.MaTaiXeNavigation?.HoTen</td>
+                        <td>@item.MaNhanVien1Navigation?.HoTen</td>
+                        <td>@item.MaNhanVienNavigation?.HoTen</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-controller="ChuyenXe" asp-action="Edit" asp-route-id="@item.MaChuyen"
+                                   class="btn btn-sm btn-warning" title="Sửa">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-controller="ChuyenXe" asp-action="Details" asp-route-id="@item.MaChuyen"
+                                   class="btn btn-sm btn-info text-white" title="Chi tiết">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+                                <a asp-controller="ChuyenXe" asp-action="Delete" asp-route-id="@item.MaChuyen"
+                                   class="btn btn-sm btn-danger" title="Xóa"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa chuyến xe này?');">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

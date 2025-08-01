@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Font Awesome (nếu chưa có trong layout) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Custom CSS -->
 <link rel="stylesheet" href="~/css/DanhSachPDTProF.css">
 
-<div class="phieudatve-list-container">
-    <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
+<div class="container pdt-container mt-4">
+    <h2 class="pdt-title mb-4">📋 Danh sách phiếu đặt vé</h2>
 
     @if (TempData["Message"] != null)
     {
@@ -21,51 +25,61 @@
 
     @if (!Model.Any())
     {
-        <p class="phieudatve-no-ticket">Bạn chưa có phiếu đặt vé nào.</p>
+        <p class="text-muted pdt-no-data">Bạn chưa có phiếu đặt vé nào.</p>
     }
     else
     {
-        <table class="table phieudatve-table">
-            <thead>
-                <tr>
-                    <th>Mã phiếu</th>
-                    <th>Ngày đặt</th>
-                    <th>Tổng tiền</th>
-                    <th>Trạng thái</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-              
-                    var earliestDeparture = item.VeXes
-                    .Select(v => v.MaChuyenNavigation?.ThoiDiemKhoiHanh)
-                    .Where(d => d.HasValue)
-                    .Min();
-
-                    // Check if current time is equal to departure time
-                    bool canCancel = earliestDeparture.HasValue && DateTime.Now < earliestDeparture.Value;
-
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover pdt-table align-middle text-center">
+                <thead class="table-light">
                     <tr>
-                        <td>@item.MaPhieu</td>
-                        <td>@item.NgayDat?.ToString("dd/MM/yyyy")</td>
-                        <td>@item.TongTien?.ToString("N0") VNĐ</td>
-                        <td>@item.TrangThai</td>
-                        <td>
-                            <a class="btn btn-info btn-sm btn-action" asp-controller="XuLyPhieuDatVe" asp-action="Details" asp-route-id="@item.MaPhieu">Xem</a>
-
-                            @if (item.TrangThai == "Đã thanh toán" && canCancel)
-                            {
-                                <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
-                                    <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
-                                    <button type="submit" class="btn btn-danger btn-sm">Hủy vé</button>
-                                </form>
-                            }
-                        </td>
+                        <th>Mã phiếu</th>
+                        <th>Ngày đặt</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var earliestDeparture = item.VeXes
+                        .Select(v => v.MaChuyenNavigation?.ThoiDiemKhoiHanh)
+                        .Where(d => d.HasValue)
+                        .Min();
+
+                        bool canCancel = earliestDeparture.HasValue && DateTime.Now < earliestDeparture.Value;
+
+                        <tr>
+                            <td><strong>@item.MaPhieu</strong></td>
+                            <td>@item.NgayDat?.ToString("dd/MM/yyyy")</td>
+                            <td>@item.TongTien?.ToString("N0") VNĐ</td>
+                            <td>
+                                <span class="badge @((item.TrangThai == "Đã thanh toán") ? "bg-success" : "bg-secondary")">
+                                    @item.TrangThai
+                                </span>
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-sm me-1"
+                                   asp-controller="XuLyPhieuDatVe" asp-action="Details" asp-route-id="@item.MaPhieu"
+                                   title="Xem chi tiết">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                @if (item.TrangThai == "Đã thanh toán" && canCancel)
+                                {
+                                    <form asp-action="HuyPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy phiếu này không?');">
+                                        <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" title="Hủy vé">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
 </div>

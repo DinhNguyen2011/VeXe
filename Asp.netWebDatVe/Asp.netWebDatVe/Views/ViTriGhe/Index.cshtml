@@ -5,53 +5,61 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/Vitrighe.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<div class="vitrighe-container">
-    <h2 class="vitrighe-title">Danh sách vị trí ghế</h2>
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary"><i class="fas fa-chair"></i> Danh sách vị trí ghế</h2>
 
     @if (TempData["Message"] != null)
     {
-        <div class="alert alert-success vitrighe-alert">@TempData["Message"]</div>
+        <div class="alert alert-success">@TempData["Message"]</div>
     }
     @if (TempData["Error"] != null)
     {
-        <div class="alert alert-danger vitrighe-alert">@TempData["Error"]</div>
+        <div class="alert alert-danger">@TempData["Error"]</div>
     }
-    <div class="vitrighe-filter">
-        <form asp-action="Index" method="get">
-            <div class="form-group vitrighe-form-group">
-                <label for="bienso" class="vitrighe-label">Lọc theo biển số xe</label>
-                <select name="bienso" id="bienso" class="form-control vitrighe-select" onchange="this.form.submit()">
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <form asp-action="Index" method="get">
+                <label for="bienso" class="form-label">Lọc theo biển số xe</label>
+                <select name="bienso" id="bienso" class="form-select" onchange="this.form.submit()">
                     <option value="">Tất cả</option>
                     @foreach (var item in ViewBag.BiensoList)
                     {
-                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
+                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">
+                            @item.Text
+                        </option>
                     }
                 </select>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="col-md-8 text-end">
+            <a asp-action="Create" class="btn btn-primary mt-4">
+                <i class="fas fa-plus-circle"></i> Thêm vị trí ghế
+            </a>
+        </div>
     </div>
 
-    <p>
-        <a asp-action="Create" class="btn btn-primary vitrighe-btn">Thêm vị trí ghế</a>
-    </p>
-    <h5 class="vitrighe-subtitle">Đặt lại trạng thái ghế theo xe</h5>
+    <h5 class="text-secondary mb-3"><i class="fas fa-undo-alt"></i> Đặt lại trạng thái ghế theo xe</h5>
 
-    <div class="vtg" style="padding:10px;">
-
-    @foreach (var bienso in Model.Select(v => v.Bienso).Distinct())
-    {
-        <form asp-action="ResetSeatsByBienso" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại tất cả ghế của xe @bienso thành trống không?');">
-            @Html.AntiForgeryToken()
-            <input type="hidden" name="bienso" value="@bienso" />
-                <button type="submit" style="padding:5px !important;" class="btn btn-secondary btn-sm vitrighe-btn-action">Đặt lại ghế xe @bienso</button>
-        </form>
-    }
+    <div class="mb-4">
+        @foreach (var bienso in Model.Select(v => v.Bienso).Distinct())
+        {
+            <form asp-action="ResetSeatsByBienso" method="post" class="d-inline"
+                  onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại tất cả ghế của xe @bienso thành trống không?');">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="bienso" value="@bienso" />
+                <button type="submit" class="btn btn-secondary btn-sm mb-1">
+                    <i class="fas fa-redo"></i> Đặt lại xe @bienso
+                </button>
+            </form>
+        }
     </div>
-    <table class="table table-striped vitrighe-table">
-        <thead>
-            <tr>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr class="text-center">
                 <th>Mã vị trí</th>
                 <th>Biển số xe</th>
                 <th>Tên vị trí</th>
@@ -62,19 +70,34 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
+                <tr class="align-middle text-center">
                     <td>@item.IdVitri</td>
                     <td>@item.Bienso</td>
                     <td>@item.Tenvitri</td>
-                    <td>@(item.Trangthai == true ? "Đã đặt" : "Trống")</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdVitri" class="btn btn-warning btn-sm vitrighe-btn-action">Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@item.IdVitri" class="btn btn-danger btn-sm vitrighe-btn-action">Xóa</a>
+                  @*   <td>@(item.Trangthai == true ? "Đã đặt" : "Trống")</td> *@
+                        @if (item.Trangthai == true)
+                        {
+                            <span class="badge bg-danger"><i class="fas fa-times-circle"></i> Đã đặt</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success"><i class="fas fa-check-circle"></i> Trống</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdVitri" class="btn btn-warning btn-sm me-1" title="Sửa">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.IdVitri" class="btn btn-danger btn-sm" title="Xóa">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-
-  
 </div>
+
+
+

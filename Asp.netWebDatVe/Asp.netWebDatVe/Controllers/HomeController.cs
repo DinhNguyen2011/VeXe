@@ -469,22 +469,45 @@ namespace Asp.netWebDatVe.Controllers
                             .ToList();
 
                         string emailSubject = "Xác Nhận Thanh Toán Đặt Vé Xe Thành Công";
-                        string emailBody = "<h2>Xác Nhận Thanh Toán Đặt Vé</h2>" +
-                                           $"<p>Xin chào {pendingBooking.TenKhachHang},</p>" +
-                                           "<p>Chúng tôi xin xác nhận rằng bạn đã thanh toán thành công cho vé xe qua Trang Website Xe Khách Khánh An. Dưới đây là thông tin chi tiết:</p>" +
-                                           "<ul>" +
-                                           $"<li><strong>Mã Phiếu:</strong> {phieuDatVe.MaPhieu}</li>" +
-                                           $"<li><strong>Tên Chuyến Xe:</strong> {pendingBooking.TenChuyenXe}</li>" +
-                                           $"<li><strong>Tuyến:</strong> {chuyenXe?.MaTuyenNavigation?.DiemDi} - {chuyenXe?.MaTuyenNavigation?.DiemDen}</li>" +
-                                           $"<li><strong>Thời Gian Khởi Hành:</strong> {chuyenXe?.ThoiDiemKhoiHanh?.ToString("HH:mm dd/MM/yyyy")}</li>" +
-                                           $"<li><strong>Ghế:</strong> {string.Join(", ", seatNames)}</li>" +
-                                           $"<li><strong>Giá vé một ghế:</strong> {chuyenXe.GiaVe?.ToString("N0")} VND</li>" +
-                                           $"<li><strong>Tổng Tiền:</strong> {pendingBooking.TotalPrice.ToString("N0")} VND</li>" +
-                                           $"<li><strong>Mã Giao Dịch:</strong> {response.TransactionId}</li>" +
-                                           $"<li><strong>Ngày Thanh Toán:</strong> {DateTime.Now.ToString("HH:mm dd/MM/yyyy")}</li>" +
-                                           "</ul>" +
-                                           "<p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Nếu có thắc mắc, vui lòng liên hệ qua tổng đài <strong>1000 1234</strong>.</p>" +
-                                           "<p>Trân trọng,<br>Xe khách Khánh An</p>";
+                                            string emailBody = @"
+                      <div style='font-family: Arial, sans-serif; max-width: 700px; margin: auto; border: 1px solid #ccc; padding: 20px;'>
+                        <h3 style='color: red; border-bottom: 1px solid #eee; padding-bottom: 10px;'>
+                            📞 Thông tin liên hệ với nhà xe Khánh An
+                        </h3>
+                      
+                        📧 Email: <a href='mailto:nhuocan1403@gmail.com'>nhuocan1403@gmail.com</a><br>
+                        📱 SĐT: +84908569027</p>
+
+                        <hr style='margin: 20px 0;'>
+                         <h3>🚌 Cảm ơn bạn đã đặt vé xe của chúng tôi!!!</h3>
+                        <h3>🚌 Thông tin chuyến xe:</h3>
+                        <p><strong>" + chuyenXe?.MaTuyenNavigation?.DiemDi + " → " + chuyenXe?.MaTuyenNavigation?.DiemDen + @"</strong> &nbsp;&nbsp;<br>
+                        💰 Giá vé: " + chuyenXe?.GiaVe?.ToString("N0") + @" VND &nbsp;&nbsp;<br>
+                        👥 Số lượng vé: " + pendingBooking.SeatIds.Count + @"</p><br>
+
+                        <p>⏰ Giờ: " + chuyenXe?.ThoiDiemKhoiHanh?.ToString("HH:mm") + @"<br>
+                        📅 Ngày khởi hành: " + chuyenXe?.ThoiDiemKhoiHanh?.ToString("dd/MM/yyyy") + @"<br>
+                        💺 Số ghế: " + string.Join(", ", seatNames) + @"<br>
+                        💳 Tổng tiền vé: " + pendingBooking.TotalPrice.ToString("N0") + @" VND<br>
+                        🚍 Biển số xe: " + chuyenXe.BienSoXe + @"</p><br>
+                        👥 Ghi chú: " + chuyenXe.GhiChu + @"</p>
+
+                        <hr style='margin: 20px 0;'>
+
+                        <table style='width: 100%; font-size: 14px;'>
+                            <tr>
+                                <td style='text-align: right;'>Thành tiền:</td>
+                                <td style='text-align: right; width: 150px;'>" + pendingBooking.TotalPrice.ToString("N0") + @" VND</td>
+                            </tr>
+                           
+                            <tr>
+                                <td style='text-align: right; font-weight: bold;'>Tổng cộng:</td>
+                                <td style='text-align: right; color: red; font-weight: bold;'>" + pendingBooking.TotalPrice.ToString("N0") + @" VND</td>
+                            </tr>
+                        </table>
+
+                        <p style='margin-top: 20px; font-style: italic;'>🔥 (Miễn phí nước uống, khăn lạnh, Wi-Fi, tivi)</p>
+                    </div>";
 
                         await _emailService.SendEmailAsync(phieuDatVe.Email, emailSubject, emailBody);
                     }

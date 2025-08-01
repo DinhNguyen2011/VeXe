@@ -506,9 +506,9 @@ wwwroot\css\ajax-loader.gif
 wwwroot\css\BenXe.css
 wwwroot\css\bootstrap.min.css
 wwwroot\css\bus-home.css
+wwwroot\css\Cg.css
 wwwroot\css\ChangePassword.css
 wwwroot\css\ChiTietKMai.css
-wwwroot\css\ChonGhe.css
 wwwroot\css\ChonGheKH.css
 wwwroot\css\DanhSachPDTProF.css
 wwwroot\css\dat-ve-cho-kh.css

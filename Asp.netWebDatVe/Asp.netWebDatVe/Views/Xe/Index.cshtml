@@ -5,83 +5,23 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<style>
-    .outer-container {
-        width: 90%; /* Điều chỉnh chiều rộng container */
-        margin: -10px auto; /* Căn giữa và thêm khoảng cách phía trên */
-        padding: 25px;
-        border: 1px solid #ccc;
-        background-color: #f9f9f9;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-    }
-
-    .table-wrapper {
-        max-height: 700px; /* Giới hạn chiều cao bảng */
-        overflow-y: auto; /* Kích hoạt cuộn dọc */
-        border: 1px solid #ddd; /* Thêm đường viền bao quanh bảng */
-        padding: 10px;
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .table {
-        width: 100%; /* Chiếm toàn bộ chiều rộng của wrapper */
-        border-collapse: collapse;
-        font-size: 14px;
-    }
-
-        .table th, .table td {
-            border: 1px solid #ddd;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .table th {
-            background-color: #f4f4f4;
-            position: sticky; /* Giữ cố định tiêu đề khi cuộn */
-            top: 0;
-            z-index: 2;
-        }
-
-    .btn {
-        font-size: 12px;
-        padding: 5px 8px;
-        margin: 5px;
-        border-radius: 4px;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        color: white;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    img {
-        border-radius: 5px; /* Làm tròn góc hình ảnh */      
-    }
-</style>
-
-<div class="outer-container">
-    <h2>Danh sách Xe</h2>
-    <p>
-        <a asp-action="Create" class="btn btn-primary">Thêm Xe</a>
-    </p>
+<div class="outer-container container mt-4">
+    <h2 class="text-center mb-4">Danh sách Xe</h2>
+    <div class="mb-3 text-end">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Thêm Xe
+        </a>
+    </div>
 
     <div class="table-wrapper">
-        <table class="table">
-            <thead>
+        <table class="table table-bordered table-striped text-center align-middle">
+            <thead class="table-light">
                 <tr>
                     <th>Biển số</th>
-                    <th>Id Loại xe</th>
+                    <th>ID Loại xe</th>
                     <th>Tên xe</th>
                     <th>Hình ảnh</th>
-                    <th>Tác Vụ</th>
+                    <th>Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
@@ -92,21 +32,25 @@
                         <td>@item.IdLoai</td>
                         <td>@item.Tenxe</td>
                         <td>
-                            @if (!string.IsNullOrEmpty(@item.HinhAnh))
+                            @if (!string.IsNullOrEmpty(item.HinhAnh))
                             {
-                                <div>
-                                    <img src="@Url.Content(@item.HinhAnh)" alt="Image of @item.Tenxe" style="width: 100px; height: 150px;" />
-                                </div>
+                                <img src="@Url.Content(item.HinhAnh)" alt="Ảnh @item.Tenxe" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;" />
                             }
                             else
                             {
-                                <p>Không có hình ảnh.</p>
+                                <span class="text-muted">Không có hình ảnh</span>
                             }
                         </td>
                         <td>
-                            <a asp-controller="Xe" asp-action="Edit" asp-route-id="@item.Bienso" class="btn btn-warning">Sửa</a>
-                            <a asp-controller="Xe" asp-action="Details" asp-route-id="@item.Bienso" class="btn btn-warning">Chi tiết</a>
-                            <a asp-controller="Xe" asp-action="Delete" asp-route-id="@item.Bienso" class="btn btn-danger">Xóa</a>
+                            <a asp-controller="Xe" asp-action="Edit" asp-route-id="@item.Bienso" class="btn btn-outline-primary btn-sm me-1" title="Sửa">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-controller="Xe" asp-action="Details" asp-route-id="@item.Bienso" class="btn btn-outline-info btn-sm me-1" title="Chi tiết">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a asp-controller="Xe" asp-action="Delete" asp-route-id="@item.Bienso" class="btn btn-outline-danger btn-sm" title="Xóa" onclick="return confirm('Bạn có chắc muốn xóa xe này không?');">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
                         </td>
                     </tr>
                 }

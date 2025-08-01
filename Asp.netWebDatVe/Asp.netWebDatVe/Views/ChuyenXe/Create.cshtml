@@ -9,6 +9,16 @@
 
 <div class="phieudatve-container">
     <h2 class="phieudatve-title">Thêm chuyến xe</h2>
+
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
     @if (!ViewData.ModelState.IsValid)
     {
         <div class="alert alert-danger">
@@ -21,6 +31,24 @@
         </div>
     }
 
+    <!-- Form for filtering available resources -->
+    <div class="filter-form">
+        <h4>Lọc xe và nhân viên để thêm</h4>
+        <div class="form-group phieudatve-form-group">
+            <label for="FilterThoiDiemKhoiHanh" class="phieudatve-label">Thời điểm khởi hành</label>
+            <input id="FilterThoiDiemKhoiHanh" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+        </div>
+        <div class="form-group phieudatve-form-group">
+            <label for="FilterThoiDiemDenDuKien" class="phieudatve-label">Thời điểm đến dự kiến</label>
+            <input id="FilterThoiDiemDenDuKien" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+        </div>
+        <div class="form-group phieudatve-form-group">
+            <button type="button" id="btnFilter" class="btn btn-info phieudatve-btn">Lọc</button>
+        </div>
+        <div id="filterError" class="text-danger" style="display: none;"></div>
+    </div>
+
+    <!-- Form for creating a new trip -->
     <form asp-action="Create" method="post">
         @Html.AntiForgeryToken()
 
@@ -49,14 +77,12 @@
         <div class="form-group phieudatve-form-group">
             <label asp-for="ThoiDiemKhoiHanh" class="phieudatve-label"></label>
             <input asp-for="ThoiDiemKhoiHanh" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
-
             <span asp-validation-for="ThoiDiemKhoiHanh" class="text-danger"></span>
         </div>
 
         <div class="form-group phieudatve-form-group">
             <label asp-for="ThoiDiemDenDuKien" class="phieudatve-label"></label>
             <input asp-for="ThoiDiemDenDuKien" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
-
             <span asp-validation-for="ThoiDiemDenDuKien" class="text-danger"></span>
         </div>
 
@@ -103,11 +129,86 @@
     </form>
 </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnFilter').click(function () {
+                var thoiDiemKhoiHanh = $('#FilterThoiDiemKhoiHanh').val();
+                var thoiDiemDenDuKien = $('#FilterThoiDiemDenDuKien').val();
+
+                if (!thoiDiemKhoiHanh || !thoiDiemDenDuKien) {
+                    $('#filterError').text('Vui lòng nhập cả thời gian khởi hành và thời gian đến dự kiến.').show();
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("FilterAvailableResources", "ChuyenXe")',
+                    type: 'POST',
+                    data: {
+                        thoiDiemKhoiHanh: thoiDiemKhoiHanh,
+                        thoiDiemDenDuKien: thoiDiemDenDuKien
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Update vehicle dropdown
+                            var xeSelect = $('select[name="BienSoXe"]');
+                            xeSelect.empty().append('<option value="">Chọn xe</option>');
+                            $.each(response.xes, function (i, item) {
+                                xeSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+
+                            // Update driver dropdown
+                            var taiXeSelect = $('select[name="MaTaiXe"]');
+                            taiXeSelect.empty().append('<option value="">Chọn tài xế</option>');
+                            $.each(response.taiXes, function (i, item) {
+                                taiXeSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+
+                            // Update support staff dropdown
+                            var nhanVienSelect = $('select[name="MaNhanVien"]');
+                            nhanVienSelect.empty().append('<option value="">Chọn nhân viên hỗ trợ</option>');
+                            $.each(response.nhanViens, function (i, item) {
+                                nhanVienSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+
+                            // Update assistant staff dropdown
+                            var nhanVien1Select = $('select[name="MaNhanVien1"]');
+                            nhanVien1Select.empty().append('<option value="">Chọn nhân viên phụ xe</option>');
+                            $.each(response.nhanVien1s, function (i, item) {
+                                nhanVien1Select.append($('<option>').val(item.value).text(item.text));
+                            });
+
+                            $('#filterError').hide();
+
+                            // Optionally, set the main form's time fields
+                            $('input[name="ThoiDiemKhoiHanh"]').val(thoiDiemKhoiHanh);
+                            $('input[name="ThoiDiemDenDuKien"]').val(thoiDiemDenDuKien);
+                        } else {
+                            $('#filterError').text(response.message).show();
+                        }
+                    },
+                    error: function () {
+                        $('#filterError').text('Đã xảy ra lỗi khi lọc dữ liệu.').show();
+                    }
+                });
+            });
+        });
+    </script>
+
+
 <style>
     select.form-control {
         padding: .4375rem .75rem;
         border: 0;
         outline: 1px solid #ebedf2;
         color: #000000;
+    }
+
+    .filter-form {
+        border: 1px solid #ebedf2;
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
     }
 </style>

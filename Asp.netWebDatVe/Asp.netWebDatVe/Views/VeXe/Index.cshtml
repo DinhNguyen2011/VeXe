@@ -5,66 +5,84 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 <style>
     .table-wrapper {
         max-width: 100%;
         height: 500px;
-        overflow-y: auto; 
+        overflow-y: auto;
         margin: 20px auto;
         border: 1px solid #ddd;
         background-color: #f9f9f9;
-        border-radius: 8px; 
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
     }
 
     .table {
-        width: 100%; 
-        font-size: 12px; /* Giảm kích thước chữ trong bảng */
-        border-collapse: collapse; 
+        font-size: 13px;
+        width: 100%;
+        border-collapse: collapse;
     }
 
-        .table th, .table td {
-            padding: 6px;
-            text-align: center; 
-            border: 1px solid #ddd; 
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ddd;
         }
 
         .table th {
-            background-color: #f4f4f4; 
-            font-weight: bold; 
+       
+            color: darkslategray;
+            font-weight: 500;
         }
 
-        .table td {
-            font-size: 12px;
-        }
-
-    .btn {
-        font-size: 10px; 
-        padding: 5px 10px; 
-        margin: 8px; 
-        border-radius: 5px; 
+    .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
     }
 
-    .btn-warning {
-        background-color: #ffc107; 
-        color: white;
+    .btn-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
     }
 
-    .btn-danger {
-        background-color: #dc3545; 
-        color: white;
+    .action-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .heading-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
     }
 </style>
 
-<h2>Danh sách vé xe</h2>
-<p>
-    @* <a asp-action="Create" class="btn btn-primary">Thêm vé mới</a> *@
-    <a asp-action="ThongKeDoanhThu" class="btn btn-success">Thống kê doanh thu</a>
-    <a asp-action="VeHuy" class="btn btn-success">Xem vé đã bị hủy</a>
-</p>
+<div class="heading-section">
+    <h2>🎫 Danh sách vé xe</h2>
+    <div>
+        <a asp-action="ThongKeDoanhThu" class="btn btn-success btn-sm me-2">
+            <i class="bi bi-bar-chart-line-fill me-1"></i> Doanh thu
+        </a>
+        <a asp-action="VeHuy" class="btn btn-secondary btn-sm">
+            <i class="bi bi-x-circle me-1"></i> Vé bị hủy
+        </a>
+    </div>
+</div>
 
 <div class="table-wrapper">
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Mã vé</th>
@@ -93,10 +111,19 @@
                     <td>@item.TrangThai</td>
                     <td>@item.NgayDat?.ToString("dd/MM/yyyy")</td>
                     <td>
-                     @*    <a asp-action="Edit" asp-route-id="@item.MaVe" class="btn btn-warning">Sửa</a> *@
-                        <a asp-controller="VeXe" asp-action="Delete" asp-route-id="@item.MaVe" class="btn btn-danger">Xóa</a>
-                        <a asp-controller="VeXe" asp-action="Details" asp-route-id="@item.MaVe" class="btn btn-warning">Chi tiết</a>
-
+                        <div class="action-column">
+                            <a asp-action="Details" asp-route-id="@item.MaVe"
+                               class="btn btn-outline-info btn-sm btn-icon"
+                               title="Xem chi tiết">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.MaVe"
+                               class="btn btn-outline-danger btn-sm btn-icon"
+                               title="Xóa vé"
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa vé này không?');">
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                        </div>
                     </td>
                 </tr>
             }

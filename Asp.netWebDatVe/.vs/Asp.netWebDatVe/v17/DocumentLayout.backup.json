@@ -1,50 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\",
+  "WorkspaceRootPath": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\views\\datvechokh\\chonghehk.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\datvechokh\\chonghehk.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\tracuuphieudatve\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\tracuuphieudatve\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\views\\home\\chonghe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\home\\chonghe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\controllers\\tracuuphieudatvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\tracuuphieudatvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\controllers\\datvechokhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\datvechokhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\xulyphieudatve\\xemcacphieudatve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\xulyphieudatve\\xemcacphieudatve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\wwwroot\\css\\danhsachpdtprof.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\wwwroot\\css\\danhsachpdtprof.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\controllers\\xulyphieudatvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\xulyphieudatvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\models\\phieudatve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\models\\phieudatve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\home\\chonghe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\home\\chonghe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\models\\chuyenxe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\models\\chuyenxe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\models\\vitrighe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\models\\vitrighe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\models\\vexe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\models\\vexe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\views\\chuyenxe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\chuyenxe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\views\\chuyenxe\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\chuyenxe\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|d:\\doanstu\\\u0111\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\asp.netwebdatve\\asp.netwebdatve\\controllers\\chuyenxecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\controllers\\chuyenxecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|c:\\users\\dinhn\\onedrive\\desktop\\quanlybanvexe\\vexe\\asp.netwebdatve\\asp.netwebdatve\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{851522D5-C0D5-46B2-AA43-FED9D541CE07}|Asp.netWebDatVe\\Asp.netWebDatVe.csproj|solutionrelative:asp.netwebdatve\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,140 +74,107 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChonGhe.cshtml",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
-              "RelativeToolTip": "Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADwAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\TraCuuPhieuDatVe\\Index.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\TraCuuPhieuDatVe\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\TraCuuPhieuDatVe\\Index.cshtml*",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\TraCuuPhieuDatVe\\Index.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-18T11:44:36.734Z",
+              "WhenOpened": "2025-08-01T17:08:09.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChonGheHK.cshtml",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\DatVeChoKH\\ChonGheHK.cshtml",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\DatVeChoKH\\ChonGheHK.cshtml",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\DatVeChoKH\\ChonGheHK.cshtml*",
-              "RelativeToolTip": "Asp.netWebDatVe\\Views\\DatVeChoKH\\ChonGheHK.cshtml*",
-              "ViewState": "AgIAACAAAAAAAAAAAAAhwEwAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-18T11:36:19.203Z",
+              "DocumentIndex": 3,
+              "Title": "DanhSachPDTProF.css",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\DanhSachPDTProF.css",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\wwwroot\\css\\DanhSachPDTProF.css",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\wwwroot\\css\\DanhSachPDTProF.css",
+              "RelativeToolTip": "Asp.netWebDatVe\\wwwroot\\css\\DanhSachPDTProF.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-01T17:05:18.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DatVeChoKHController.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\DatVeChoKHController.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\DatVeChoKHController.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\DatVeChoKHController.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\DatVeChoKHController.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAAAACUBAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T11:35:30.129Z",
+              "Title": "XemCacPhieuDatVe.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\XuLyPhieuDatVe\\XemCacPhieuDatVe.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\XuLyPhieuDatVe\\XemCacPhieuDatVe.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\XuLyPhieuDatVe\\XemCacPhieuDatVe.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\XuLyPhieuDatVe\\XemCacPhieuDatVe.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAD8AAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-01T17:03:52.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PhieuDatVe.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\PhieuDatVe.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Models\\PhieuDatVe.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\PhieuDatVe.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Models\\PhieuDatVe.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAcwCsAAAAAAAAAAAAAAA==",
+              "Title": "XuLyPhieuDatVeController.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\XuLyPhieuDatVeController.cs",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\XuLyPhieuDatVeController.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\XuLyPhieuDatVeController.cs",
+              "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\XuLyPhieuDatVeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T10:35:44.81Z",
+              "WhenOpened": "2025-08-01T17:03:40.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TraCuuPhieuDatVeController.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\TraCuuPhieuDatVeController.cs",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\TraCuuPhieuDatVeController.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\TraCuuPhieuDatVeController.cs",
+              "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\TraCuuPhieuDatVeController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T17:02:53.88Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ChuyenXe.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\ChuyenXe.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Models\\ChuyenXe.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\ChuyenXe.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Models\\ChuyenXe.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAIwEEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T10:35:39.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VeXe.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\VeXe.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Models\\VeXe.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\VeXe.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Models\\VeXe.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA0wC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T10:35:24.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Vitrighe.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\Vitrighe.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Models\\Vitrighe.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Models\\Vitrighe.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Models\\Vitrighe.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAwCMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T10:35:15.088Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAQBAAAAAAAAAAAQwPsAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAF8CAAAAAAAAAAAAAOABAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T10:21:56.002Z",
+              "WhenOpened": "2025-08-01T16:43:46.723Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\ChuyenXe\\Create.cshtml",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\ChuyenXe\\Create.cshtml",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\ChuyenXe\\Create.cshtml",
-              "RelativeToolTip": "Asp.netWebDatVe\\Views\\ChuyenXe\\Create.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "ChonGhe.cshtml",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\Home\\ChonGhe.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAL0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-18T09:52:04.427Z"
+              "WhenOpened": "2025-08-01T16:06:24.954Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ChuyenXeController.cs",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\ChuyenXeController.cs",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Controllers\\ChuyenXeController.cs",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Controllers\\ChuyenXeController.cs",
-              "RelativeToolTip": "Asp.netWebDatVe\\Controllers\\ChuyenXeController.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T09:51:23.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\ChuyenXe\\Index.cshtml",
-              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\ChuyenXe\\Index.cshtml",
-              "ToolTip": "D:\\DoAnSTU\\\u0110\u1ED3 \u00E1n chuy\u00EAn ng\u00E0nh\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\ChuyenXe\\Index.cshtml",
-              "RelativeToolTip": "Asp.netWebDatVe\\Views\\ChuyenXe\\Index.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAC8AAAAgAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dinhn\\OneDrive\\Desktop\\QuanLyBanVeXe\\VeXe\\Asp.netWebDatVe\\Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Asp.netWebDatVe\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAAAOEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-18T09:39:28.283Z"
+              "WhenOpened": "2025-08-01T15:18:13.721Z",
+              "EditorCaption": ""
             }
           ]
         },

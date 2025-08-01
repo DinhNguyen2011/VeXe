@@ -1,49 +1,87 @@
 ﻿@model IEnumerable<Asp.netWebDatVe.Models.KhuyenMai>
+
 @{
     ViewData["Title"] = "Quản lý Khuyến Mãi";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Quản lý Khuyến Mãi</h2>
+<!-- Bootstrap Icons (nếu chưa có trong Layout) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Thêm Khuyến Mãi</a>
-</p>
+<style>
+    .km-container {
+        background-color: #f9f9f9;
+        padding: 2rem;
+        border-radius: 12px;
+    }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.TenKhuyenMai)</th>
-            <th>@Html.DisplayNameFor(model => model.MoTa)</th>
-            <th>@Html.DisplayNameFor(model => model.PhanTramGiam)</th>
-            <th>@Html.DisplayNameFor(model => model.NgayBatDau)</th>
-            <th>@Html.DisplayNameFor(model => model.NgayKetThuc)</th>
-            <th>@Html.DisplayNameFor(model => model.HinhAnh)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.km)
-        {
-            <tr>
-                <td>@item.TenKhuyenMai</td>
-                <td>@item.MoTa</td>
-                <td>@item.PhanTramGiam%</td>
-                <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
-                <td>@item.NgayKetThuc.ToString("dd/MM/yyyy")</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.HinhAnh))
-                    {
-                        <img src="@Url.Content(item.HinhAnh)" alt="Hình ảnh khuyến mãi" style="max-width: 100px;" />
-                    }
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.MaKhuyenMai" >Chi tiết</a> |
-                    <a asp-action="Edit" asp-route-id="@item.MaKhuyenMai" >Sửa</a> |
-                    <a asp-action="Delete" asp-route-id="@item.MaKhuyenMai">Xóa</a>
-                </td>
-            
-            </tr>
-        }
-    </tbody>
-</table>
+    .km-table img {
+        max-width: 100px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    .km-btn-action {
+        margin-right: 5px;
+    }
+
+    .km-header {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<div class="km-container">
+    <h2 class="km-header">🎁 Quản lý Khuyến Mãi</h2>
+
+    <div class="mb-3">
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i> Thêm Khuyến Mãi
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle text-center km-table">
+            <thead class="table-light">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().TenKhuyenMai)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().MoTa)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().PhanTramGiam)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().NgayBatDau)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().NgayKetThuc)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().HinhAnh)</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.km)
+                {
+                    <tr>
+                        <td>@item.TenKhuyenMai</td>
+                        <td>@item.MoTa</td>
+                        <td>@item.PhanTramGiam%</td>
+                        <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                        <td>@item.NgayKetThuc.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.HinhAnh))
+                            {
+                                <img src="@Url.Content(item.HinhAnh)" alt="Hình ảnh khuyến mãi" />
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.MaKhuyenMai" class="btn btn-outline-info btn-sm km-btn-action" title="Chi tiết">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@item.MaKhuyenMai" class="btn btn-outline-warning btn-sm km-btn-action" title="Sửa">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.MaKhuyenMai" class="btn btn-outline-danger btn-sm km-btn-action" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa khuyến mãi này không?');">
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

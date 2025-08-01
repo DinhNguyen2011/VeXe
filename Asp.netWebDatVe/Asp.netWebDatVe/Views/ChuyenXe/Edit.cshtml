@@ -10,6 +10,44 @@
 <div class="phieudatve-container">
     <h2 class="phieudatve-title">Sửa chuyến xe</h2>
 
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@modelError.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Filter form for selecting available resources -->
+    <div class="filter-form">
+        <h4>Lọc xe và nhân viên để sửa</h4>
+        <div class="form-group phieudatve-form-group">
+            <label for="FilterThoiDiemKhoiHanh" class="phieudatve-label">Thời điểm khởi hành</label>
+            <input id="FilterThoiDiemKhoiHanh" type="datetime-local" value="@Model.ThoiDiemKhoiHanh?.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+        </div>
+        <div class="form-group phieudatve-form-group">
+            <label for="FilterThoiDiemDenDuKien" class="phieudatve-label">Thời điểm đến dự kiến</label>
+            <input id="FilterThoiDiemDenDuKien" type="datetime-local" value="@Model.ThoiDiemDenDuKien?.ToString("yyyy-MM-ddTHH:mm")" class="form-control phieudatve-input" />
+        </div>
+        <div class="form-group phieudatve-form-group">
+            <button type="button" id="btnFilter" class="btn btn-info phieudatve-btn">Lọc</button>
+        </div>
+        <div id="filterError" class="text-danger" style="display: none;"></div>
+    </div>
+
+    <!-- Main form for editing the trip -->
     <form asp-action="Edit" method="post">
         @Html.AntiForgeryToken()
         <input type="hidden" asp-for="MaChuyen" />
@@ -92,6 +130,83 @@
 </div>
 
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnFilter').click(function () {
+                var thoiDiemKhoiHanh = $('#FilterThoiDiemKhoiHanh').val();
+                var thoiDiemDenDuKien = $('#FilterThoiDiemDenDuKien').val();
+
+                if (!thoiDiemKhoiHanh || !thoiDiemDenDuKien) {
+                    $('#filterError').text('Vui lòng nhập cả thời gian khởi hành và thời gian đến dự kiến.').show();
+                    return;
+                }
+
+                // Preserve current selections
+                var currentXe = $('select[name="BienSoXe"]').val();
+                var currentTaiXe = $('select[name="MaTaiXe"]').val();
+                var currentNhanVien = $('select[name="MaNhanVien"]').val();
+                var currentNhanVien1 = $('select[name="MaNhanVien1"]').val();
+
+                $.ajax({
+                    url: '@Url.Action("FilterAvailableResources", "ChuyenXe")',
+                    type: 'POST',
+                    data: {
+                        thoiDiemKhoiHanh: thoiDiemKhoiHanh,
+                        thoiDiemDenDuKien: thoiDiemDenDuKien,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Update vehicle dropdown
+                            var xeSelect = $('select[name="BienSoXe"]');
+                            xeSelect.empty().append('<option value="">Chọn xe</option>');
+                            $.each(response.xes, function (i, item) {
+                                xeSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+                            xeSelect.val(currentXe || ''); // Restore current selection if still valid
+
+                            // Update driver dropdown
+                            var taiXeSelect = $('select[name="MaTaiXe"]');
+                            taiXeSelect.empty().append('<option value="">Chọn tài xế</option>');
+                            $.each(response.taiXes, function (i, item) {
+                                taiXeSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+                            taiXeSelect.val(currentTaiXe || '');
+
+                            // Update support staff dropdown
+                            var nhanVienSelect = $('select[name="MaNhanVien"]');
+                            nhanVienSelect.empty().append('<option value="">Chọn nhân viên hỗ trợ</option>');
+                            $.each(response.nhanViens, function (i, item) {
+                                nhanVienSelect.append($('<option>').val(item.value).text(item.text));
+                            });
+                            nhanVienSelect.val(currentNhanVien || '');
+
+                            // Update assistant staff dropdown
+                            var nhanVien1Select = $('select[name="MaNhanVien1"]');
+                            nhanVien1Select.empty().append('<option value="">Chọn nhân viên phụ xe</option>');
+                            $.each(response.nhanVien1s, function (i, item) {
+                                nhanVien1Select.append($('<option>').val(item.value).text(item.text));
+                            });
+                            nhanVien1Select.val(currentNhanVien1 || '');
+
+                            $('#filterError').hide();
+
+                            // Update main form's time fields
+                            $('input[name="ThoiDiemKhoiHanh"]').val(thoiDiemKhoiHanh);
+                            $('input[name="ThoiDiemDenDuKien"]').val(thoiDiemDenDuKien);
+                        } else {
+                            $('#filterError').text(response.message).show();
+                        }
+                    },
+                    error: function () {
+                        $('#filterError').text('Đã xảy ra lỗi khi lọc dữ liệu.').show();
+                    }
+                });
+            });
+        });
+    </script>
+
 
 <style>
     select.form-control {
@@ -99,5 +214,12 @@
         border: 0;
         outline: 1px solid #ebedf2;
         color: #000000;
+    }
+
+    .filter-form {
+        border: 1px solid #ebedf2;
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
     }
 </style>

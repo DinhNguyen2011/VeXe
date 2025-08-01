@@ -1,32 +1,27 @@
-﻿.phieudatve-list-container {
-    margin: 50px 0px;
-    padding: 20px;
+﻿.pdt-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
 }
 
-.phieudatve-title {
-    margin-bottom: 20px;
+.pdt-title {
+    font-weight: bold;
+    color: #F57C00;
 }
 
-.phieudatve-table {
-    width: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-    .phieudatve-table td:last-child {
-        text-align: center;
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-    }
-.phieudatve-no-ticket {
-    color: #dc3545;
+.pdt-table th {
+    background-color: #FFF3E0;
+    color: #BF360C;
     font-weight: bold;
 }
 
-.btn-action {
-    margin-right: 5px;
+.pdt-table td {
+    vertical-align: middle;
+}
+
+.pdt-no-data {
+    font-style: italic;
+    font-size: 16px;
+    color: #888;
 }

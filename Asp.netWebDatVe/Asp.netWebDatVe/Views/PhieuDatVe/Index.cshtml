@@ -4,6 +4,10 @@
     ViewData["Title"] = "Danh sách phiếu đặt vé";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 <style>
     .phieudatve-container {
         max-width: 1200px;
@@ -26,10 +30,6 @@
         max-width: 300px;
     }
 
-    .phieudatve-btn {
-        margin-bottom: 15px;
-    }
-
     .table-responsive {
         overflow-x: auto;
         width: 100%;
@@ -37,11 +37,8 @@
 
     .table {
         width: 100%;
-        max-width: 100%;
-        margin: 0;
         font-size: 14px;
         border-collapse: collapse;
-        table-layout: auto;
     }
 
         .table th, .table td {
@@ -52,83 +49,51 @@
         }
 
         .table th {
-            background-color: #f4f重建: #f4f4f4;
+           
+            color: 343a40;
         }
 
-        .table td.text-truncate {
-            max-width: 150px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-    .col-ma-phieu {
-        width: 8%;
-    }
-
-    .col-email {
-        width: 15%;
-    }
-
-    .col-ngay-dat {
-        width: 12%;
-    }
-
-    .col-tong-tien {
-        width: 10%;
-    }
-
-    .col-trang-thai {
-        width: 10%;
-    }
-
-    .col-vnp-transaction {
-        width: 15%;
-    }
-
-    .col-momo-transaction {
-        width: 15%;
-    }
-
-    .col-khuyen-mai {
-        width: 15%;
+    .text-truncate {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .col-thao-tac {
-        width: 20%;
+        width: 180px;
     }
 
     .action-buttons {
         display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
     }
 
-    .btn {
-        font-size: 12px;
-        padding: 5px 10px;
-        margin: 2px;
-        border-radius: 4px;
+    .btn-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        font-size: 16px;
     }
 
-    .btn-warning {
-        background-color: #ffc107;
-        color: #212529;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    .btn-secondary {
+    .btn-reset {
         background-color: #6c757d;
         color: white;
+        border: none;
+        padding: 0;
+        width: 32px;
+        height: 32px;
     }
 </style>
+
 <div class="phieudatve-container">
-    <h2 class="phieudatve-title">Danh sách phiếu đặt vé</h2>
+    <h2 class="phieudatve-title">🎟️ Danh sách phiếu đặt vé</h2>
 
     @if (TempData["Success"] != null)
     {
@@ -141,35 +106,29 @@
 
     <div class="phieudatve-filter">
         <form asp-action="Index" method="get">
-            <div class="form-group phieudatve-form-group">
-                <label for="trangThai" class="phieudatve-label">Lọc theo trạng thái</label>
-                <select name="trangThai" id="trangThai" class="form-control phieudatve-select" onchange="this.form.submit()">
-                    <option value="">Tất cả</option>
-                    @foreach (var item in ViewBag.TrangThaiList)
-                    {
-                        <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
-                    }
-                </select>
-            </div>
+            <label for="trangThai">Lọc theo trạng thái</label>
+            <select name="trangThai" id="trangThai" class="form-control" onchange="this.form.submit()">
+                <option value="">Tất cả</option>
+                @foreach (var item in ViewBag.TrangThaiList)
+                {
+                    <option value="@item.Value" selected="@(item.Selected ? "selected" : null)">@item.Text</option>
+                }
+            </select>
         </form>
     </div>
-
-    <p>
-        @* <a asp-action="Create" class="btn btn-primary phieudatve-btn">Thêm phiếu đặt vé</a> *@
-    </p>
 
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th class="col-ma-phieu">Mã phiếu</th>
-                    <th class="col-email">Email</th>
-                    <th class="col-ngay-dat">Ngày đặt</th>
-                    <th class="col-tong-tien">Tổng tiền</th>
-                    <th class="col-trang-thai">Trạng thái</th>
-                    <th class="col-vnp-transaction">VNP Transaction ID</th>
-                    <th class="col-momo-transaction">Momo Transaction ID</th>
-                    <th class="col-khuyen-mai">Khuyến mãi</th>
+                    <th>Mã phiếu</th>
+                    <th>Email</th>
+                    @* <th>Ngày đặt</th> *@
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>VNP Transaction ID</th>
+                    <th>Momo Transaction ID</th>
+                    <th>Khuyến mãi</th>
                     <th class="col-thao-tac">Thao tác</th>
                 </tr>
             </thead>
@@ -179,7 +138,7 @@
                     <tr>
                         <td>@item.MaPhieu</td>
                         <td class="text-truncate">@item.Email</td>
-                        <td>@item.NgayDat?.ToString("dd/MM/yyyy HH:mm")</td>
+                        @* <td>@item.NgayDat?.ToString("dd/MM/yyyy HH:mm")</td> *@
                         <td>@item.TongTien?.ToString("N0") VNĐ</td>
                         <td>@item.TrangThai</td>
                         <td class="text-truncate">@item.VnpTransactionId</td>
@@ -187,14 +146,22 @@
                         <td>@(item.MaKhuyenMaiNavigation?.TenKhuyenMai ?? "Không có")</td>
                         <td>
                             <div class="action-buttons">
-                                <a asp-action="Edit" asp-route-id="@item.MaPhieu" class="btn btn-warning btn-sm phieudatve-btn-action">Sửa</a>
-                                <a asp-action="Delete" asp-route-id="@item.MaPhieu" class="btn btn-danger btn-sm phieudatve-btn-action">Xóa</a>
+                                <a asp-action="Edit" asp-route-id="@item.MaPhieu" class="btn btn-warning btn-sm btn-icon" title="Sửa phiếu">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.MaPhieu" class="btn btn-danger btn-sm btn-icon" title="Xóa phiếu"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa phiếu này không?');">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </a>
+
                                 @if (item.TrangThai == "Hủy")
                                 {
-                                    <form asp-action="ResetSeatsByPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn đặt lại trạng thái ghế cho phiếu @item.MaPhieu không?');">
+                                    <form asp-action="ResetSeatsByPhieuDatVe" method="post" style="display:inline;" onsubmit="return confirm('Đặt lại trạng thái ghế cho phiếu @item.MaPhieu?');">
                                         @Html.AntiForgeryToken()
                                         <input type="hidden" name="maPhieu" value="@item.MaPhieu" />
-                                        <button type="submit" class="btn btn-secondary btn-sm phieudatve-btn-action">Đặt lại ghế</button>
+                                        <button type="submit" class="btn-reset btn-icon" title="Đặt lại ghế">
+                                            <i class="bi bi-arrow-clockwise"></i>
+                                        </button>
                                     </form>
                                 }
                             </div>
@@ -205,4 +172,3 @@
         </table>
     </div>
 </div>
-

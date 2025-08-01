@@ -1,0 +1,169 @@
+﻿/* Container chính */
+.chon-ghe-container {
+    padding: 20px;
+}
+
+/* Tiêu đề chính */
+.chon-ghe-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Legend hướng dẫn */
+.chon-ghe-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.chon-ghe-icon-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.chon-ghe-available {
+    background-color: #d4f8d4;
+    border: 1px solid #27ae60;
+}
+
+.chon-ghe-occupied {
+    background-color: #ccc;
+    border: 1px solid #999;
+}
+
+.chon-ghe-selected {
+    background-color: #00c853 !important;
+    border: 1px solid #009624;
+}
+
+/* Ghế */
+.chon-ghe-seat {
+    width: 100%;
+    margin: 6px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+    .chon-ghe-seat:hover {
+        opacity: 0.85;
+    }
+
+.chon-ghe-available {
+    background-color: #eaffea;
+    color: #000;
+    cursor: pointer;
+}
+
+.chon-ghe-occupied {
+    background-color: #e0e0e0;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.chon-ghe-seat.chon-ghe-selected {
+    background-color: #00c853;
+    color: #fff;
+}
+
+/* Icon và số ghế */
+.chon-ghe-icon {
+    margin-right: 6px;
+}
+
+.chon-ghe-number {
+    font-size: 14px;
+}
+
+/* Tầng */
+.chon-ghe-section {
+    margin-bottom: 40px;
+}
+
+.chon-ghe-section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ff34;
+    margin-bottom: 10px;
+}
+
+/* Hàng và cột ghế */
+.chon-ghe-hang {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.chon-ghe-cot {
+    padding: 0 10px;
+}
+
+/* Thông tin chuyến đi */
+.chon-ghe-trip-info {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+    .chon-ghe-trip-info h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .chon-ghe-trip-info p {
+        margin-bottom: 8px;
+    }
+
+/* Chính sách hủy */
+.chon-ghe-cancel-policy {
+    margin-top: 25px;
+}
+
+    .chon-ghe-cancel-policy h3 {
+        font-size: 17px;
+        color: red;
+        margin-bottom: 10px;
+    }
+
+    .chon-ghe-cancel-policy ul {
+        padding-left: 20px;
+    }
+
+/* Tổng tiền */
+.chon-ghe-total-price {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Form thông tin */
+.chon-ghe-form-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Responsive (nếu cần thêm sau) */
+@media (max-width: 768px) {
+    .chon-ghe-title {
+        font-size: 22px;
+    }
+
+    .chon-ghe-seat {
+        font-size: 13px;
+    }
+}

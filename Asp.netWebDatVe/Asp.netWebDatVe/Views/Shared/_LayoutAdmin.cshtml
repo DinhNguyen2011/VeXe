@@ -11,6 +11,10 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../LayoutAdmin/assets/css/style.css">
     <link rel="shortcut icon" href="../../LayoutAdmin/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
 </head>
 <body>
     <div class="container-scroller">
@@ -54,98 +58,123 @@
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
+
+                   
+
+                
+
+                    <!-- Nhóm Quản lý đặt vé -->
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","KhuyenMai")">
-                            <span class="menu-title">Quản lý khuyến mãi</span>
-                            <i class="mdi mdi-playstation menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","DatVeChoKH")">
-                            <span class="menu-title">Đặt vé cho khách hàng</span>
-                            <i class="mdi mdi-playstation menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","BenXe")">
-                            <span class="menu-title">Quản lý bến xe</span>
-                            <i class="mdi mdi-playstation menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","TuyenXe")">
-                            <span class="menu-title">Quản lý tuyến xe</span>
-                            <i class="mdi mdi-road-variant menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","ChuyenXe")">
-                            <span class="menu-title">Quản lý chuyến xe</span>
-                            <i class="mdi mdi-road-variant menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","VeXe")">
-                            <span class="menu-title">Quản lý vé xe</span>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ticket-management" role="button" aria-expanded="false" aria-controls="ticket-management">
+                            <span class="menu-title">Quản lý đặt vé</span>
+                            <i class="menu-arrow"></i>
                             <i class="mdi mdi-ticket-confirmation menu-icon"></i>
                         </a>
+                        <div class="collapse" id="ticket-management">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "DatVeChoKH")">Đặt vé cho khách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "PhieuDatVe")">Phiếu đặt vé</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "VeXe")">Vé xe</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+                    <!-- Nhóm Quản lý phương tiện -->
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","PhieuDatVe")">
-                            <span class="menu-title">Quản lý phiếu đặt vé</span>
-                            <i class="mdi mdi-ticket-confirmation menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","ThanhToan")">
-                            <span class="menu-title">Quản lý thanh toán</span>
-                            <i class="mdi mdi-ticket-confirmation menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Vitrighe")">
-                            <span class="menu-title">Quản lý vị trí ghế</span>
-                            <i class="mdi mdi-chair-school menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","NguoiDung")">
-                            <span class="menu-title">Quản lý khách hàng</span>
-                            <i class="mdi mdi-account menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("DanhSach","LienHeVoiChungToi")">
-                            <span class="menu-title">Quản lý liên hệ</span>
-                            <i class="mdi mdi-account menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","NhanVien")">
-                            <span class="menu-title">Quản lý nhân viên</span>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#vehicle-management" role="button" aria-expanded="false" aria-controls="vehicle-management">
+                            <span class="menu-title">Quản lý phương tiện</span>
+                            <i class="menu-arrow"></i>
                             <i class="mdi mdi-bus menu-icon"></i>
                         </a>
+                        <div class="collapse" id="vehicle-management">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "Xe")">Quản lý xe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "LoaiXe")">Quản lý loại xe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "Vitrighe")">Quản lý vị trí ghế</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+                    <!-- Nhóm Quản lý tuyến/chuyến -->
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Xe")">
-                            <span class="menu-title">Quản lý xe</span>
-                            <i class="mdi mdi-bus menu-icon"></i>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#route-management" role="button" aria-expanded="false" aria-controls="route-management">
+                            <span class="menu-title">Quản lý tuyến/chuyến</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-road-variant menu-icon"></i>
                         </a>
+                        <div class="collapse" id="route-management">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "BenXe")">Quản lý bến xe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "TuyenXe")">Quản lý tuyến xe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "ChuyenXe")">Quản lý chuyến xe</a>
+                                </li>
+
+
+                            </ul>
+                        </div>
                     </li>
+                    <!-- Nhóm Quản lý người dùng -->
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","PhanQuyen")">
-                            <span class="menu-title">Quản lý phân quyền</span>
-                            <i class="mdi mdi-account menu-icon"></i>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#user-management" role="button" aria-expanded="false" aria-controls="user-management">
+                            <span class="menu-title">Quản lý người dùng</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-account-multiple menu-icon"></i>
                         </a>
+                        <div class="collapse" id="user-management">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "NhanVien")">Quản lý nhân viên</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "NguoiDung")">Quản lý khách hàng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "PhanQuyen")">Quản lý phân quyền</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("DanhSach", "LienHeVoiChungToi")">Quản lý liên hệ</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+
+                    <!-- Nhóm Quản lý hệ thống -->
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","LoaiXe")">
-                            <span class="menu-title">Quản lý loại xe</span>
-                            <i class="mdi mdi-car menu-icon"></i>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#system-management" role="button" aria-expanded="false" aria-controls="system-management">
+                            <span class="menu-title">Thanh toán & khuyến mãi</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-cog-outline menu-icon"></i>
                         </a>
+                        <div class="collapse" id="system-management">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "KhuyenMai")">Quản lý khuyến mãi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Index", "ThanhToan")">Quản lý thanh toán</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+
                 </ul>
             </nav>
+
 
             <div class="main-panel">
                 <div class="content-wrapper">
