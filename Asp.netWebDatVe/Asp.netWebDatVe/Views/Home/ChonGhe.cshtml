@@ -7,21 +7,19 @@
     int soGheTren = soGhe / 2;
     var giaVe = chuyenXe?.GiaVe ?? 0;
 }
-
 <link rel="stylesheet" href="~/css/Cg.css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-<div class="chon-ghe-container" style="margin:50px 0px;">
-    <h2 class="chon-ghe-title" style="color:#00ff34 !important" data-lang-key="chon_ghe_subtitle">Chọn ghế và điền thông tin</h2>
-
-    <div class="chon-ghe-legend">
-        <div><span class="chon-ghe-icon-box chon-ghe-available"></span> Còn trống</div>
-        <div><span class="chon-ghe-icon-box chon-ghe-occupied"></span> Đã đặt</div>
-        <div><span class="chon-ghe-icon-box chon-ghe-selected"></span> Đang chọn</div>
+<div class="chonghe" style="margin:50px 0px;">
+    <h2 class="title" style="color:#00ff34 !important">Chọn ghế và điền thông tin</h2>
+    <div class="legend">
+        <div><span class="legend-icon available"></span> Còn trống</div>
+        <div><span class="legend-icon occupied"></span> Đã đặt</div>
+        <div><span class="legend-icon selected"></span> Đang chọn</div>
     </div>
 
     <div class="row">
-        <!-- Cột bên trái: Ghế -->
+        <!-- Ghế -->
         <div class="col-md-8">
             @if (TempData["Error"] != null)
             {
@@ -29,26 +27,21 @@
             }
 
             <!-- Tầng trên -->
-            <div class="chon-ghe-section">
-                <h3 class="chon-ghe-section-title">Tầng trên</h3>
-                <div class="row chon-ghe-hang">
-                    @{
-                        var gheTangTren = danhSachGhe.Take(soGheTren).ToList();
-                        int ghePerColTren = (int)Math.Ceiling(gheTangTren.Count / 3.0);
-                    }
-                    @for (int i = 0; i < 3; i++)
+            <div class="seat-section">
+                <h3 class="section-title">Tầng trên</h3>
+                <div class="seat-map-3col">
+                    @for (int col = 0; col < 3; col++)
                     {
-                        var gheCol = gheTangTren.Skip(i * ghePerColTren).Take(ghePerColTren);
-                        <div class="col-md-4 chon-ghe-cot">
-                            @foreach (var ghe in gheCol)
+                        <div class="seat-column">
+                            @foreach (var ghe in danhSachGhe.Take(soGheTren).Where((g, i) => i % 3 == col))
                             {
                                 var isBooked = gheDaDat.Contains(ghe.IdVitri);
-                                <button class="chon-ghe-seat @(isBooked ? "chon-ghe-occupied" : "chon-ghe-available")"
+                                <button class="seat @(isBooked ? "seat-occupied" : "chon-ghe-available")"
                                         @(isBooked ? "disabled" : "")
                                         data-id="@ghe.IdVitri"
                                         title="Ghế @ghe.Tenvitri @(isBooked ? "(Đã đặt)" : "(Còn trống)")">
-                                    <i class="fas fa-chair chon-ghe-icon"></i>
-                                    <span class="chon-ghe-number">@ghe.Tenvitri</span>
+                                    <i class="fas fa-chair seat-icon"></i>
+                                    <span class="seat-number">@ghe.Tenvitri</span>
                                 </button>
                             }
                         </div>
@@ -57,26 +50,21 @@
             </div>
 
             <!-- Tầng dưới -->
-            <div class="chon-ghe-section">
-                <h3 class="chon-ghe-section-title">Tầng dưới</h3>
-                <div class="row chon-ghe-hang">
-                    @{
-                        var gheTangDuoi = danhSachGhe.Skip(soGheTren).ToList();
-                        int ghePerColDuoi = (int)Math.Ceiling(gheTangDuoi.Count / 3.0);
-                    }
-                    @for (int i = 0; i < 3; i++)
+            <div class="seat-section">
+                <h3 class="section-title">Tầng dưới</h3>
+                <div class="seat-map-3col">
+                    @for (int col = 0; col < 3; col++)
                     {
-                        var gheCol = gheTangDuoi.Skip(i * ghePerColDuoi).Take(ghePerColDuoi);
-                        <div class="col-md-4 chon-ghe-cot">
-                            @foreach (var ghe in gheCol)
+                        <div class="seat-column">
+                            @foreach (var ghe in danhSachGhe.Skip(soGheTren).Where((g, i) => i % 3 == col))
                             {
                                 var isBooked = gheDaDat.Contains(ghe.IdVitri);
-                                <button class="chon-ghe-seat @(isBooked ? "chon-ghe-occupied" : "chon-ghe-available")"
+                                <button class="seat @(isBooked ? "seat-occupied" : "chon-ghe-available")"
                                         @(isBooked ? "disabled" : "")
                                         data-id="@ghe.IdVitri"
                                         title="Ghế @ghe.Tenvitri @(isBooked ? "(Đã đặt)" : "(Còn trống)")">
-                                    <i class="fas fa-chair chon-ghe-icon"></i>
-                                    <span class="chon-ghe-number">@ghe.Tenvitri</span>
+                                    <i class="fas fa-chair seat-icon"></i>
+                                    <span class="seat-number">@ghe.Tenvitri</span>
                                 </button>
                             }
                         </div>
@@ -85,7 +73,7 @@
             </div>
         </div>
 
-        <!-- Cột bên phải: Thông tin chuyến đi -->
+        <!-- Cột thông tin chuyến đi -->
         <div class="col-md-4">
             <div class="chon-ghe-trip-info">
                 <p style="color:#00ff34 !important">Thông tin lượt đi</p>
@@ -95,7 +83,7 @@
                 <p><i class="fas fa-car"></i> Loại xe: @(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Tenloai ?? "Không xác định") (@(chuyenXe.BienSoXeNavigation?.IdLoaiNavigation?.Soghe ?? 0) ghế)</p>
                 <p><i class="fas fa-money-bill-wave"></i> Giá vé/1 ghế: @giaVe.ToString("N0") VND</p>
                 <p>Biển số xe: @chuyenXe.BienSoXe</p>
-                <div class="chon-ghe-total-price">
+                <div class="chon-ghe-total-price" style="color:red !important;">
                     <p>Tổng tiền: <span id="totalPrice">0</span> VND</p>
                 </div>
 
@@ -120,22 +108,22 @@
 
             <div class="form-group">
                 <label for="tenKhachHang">Tên khách hàng</label>
-                <input type="text" id="tenKhachHang" name="tenKhachHang" class="form-control" placeholder="Nhập họ và tên" />
+                <input type="text" id="tenKhachHang" name="tenKhachHang" class="form-control" />
                 <span class="text-danger" id="tenKhachHang-error"></span>
             </div>
             <div class="form-group">
                 <label for="soDienThoai">Số điện thoại</label>
-                <input type="text" id="soDienThoai" name="soDienThoai" class="form-control" placeholder="VD: 0912345678" />
+                <input type="text" id="soDienThoai" name="soDienThoai" class="form-control" />
                 <span class="text-danger" id="soDienThoai-error"></span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="example@gmail.com" />
+                <input type="email" id="email" name="email" class="form-control" />
                 <span class="text-danger" id="email-error"></span>
             </div>
             <div class="form-group">
                 <label for="ghiChu">Ghi chú</label>
-                <textarea id="ghiChu" name="ghiChu" class="form-control" placeholder="Nhập ghi chú nếu có"></textarea>
+                <textarea id="ghiChu" name="ghiChu" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <label for="paymentMethod">Phương thức thanh toán</label>
@@ -153,8 +141,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    const seatButtons = document.querySelectorAll(".chon-ghe-available");
     const selectedSeats = new Set();
+    const seatButtons = document.querySelectorAll(".chon-ghe-available");
     const seatInput = document.getElementById("selectedSeatsInput");
     const totalPriceSpan = document.getElementById("totalPrice");
     const totalPriceInput = document.getElementById("totalPriceInput");
@@ -177,14 +165,20 @@
                 selectedSeats.add(seatId);
                 this.classList.add("chon-ghe-selected");
             }
+
             updateTotalPrice();
         });
     });
 
     function updateTotalPrice() {
-        const totalPrice = selectedSeats.size * pricePerSeat;
-        totalPriceSpan.innerText = totalPrice.toLocaleString();
-        totalPriceInput.value = totalPrice;
+        const total = selectedSeats.size * pricePerSeat;
+        totalPriceSpan.innerText = total.toLocaleString();
+        totalPriceInput.value = total;
         seatInput.value = Array.from(selectedSeats).join(",");
+    }
+
+    function validateForm() {
+        // Thêm validate nếu cần
+        return true;
     }
 </script>
